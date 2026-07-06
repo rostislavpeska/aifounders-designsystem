@@ -1,0 +1,23 @@
+{
+  "bg": {
+    "$value": "{support}"
+  },
+  "badge-bg": {
+    "$value": "{black}"
+  },
+  "badge-text": {
+    "$value": "{gray-300}"
+  },
+  "overlay-hover": {
+    "$value": "{overlay-light}"
+  },
+  "perex-border": {
+    "$value": "{support-strong}"
+  },
+  "button-tertiary-border": {
+    "$value": "{support-strong}"
+  },
+  "button-tertiary-bg-hover": {
+    "$value": "{support-strong}"
+  }
+}

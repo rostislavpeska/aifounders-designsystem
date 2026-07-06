@@ -1,0 +1,294 @@
+{
+  "hero": {
+    "size": {
+      "$value": "{size-display}"
+    },
+    "font": {
+      "$value": "{font-display}"
+    },
+    "weight": {
+      "$value": "{weight-black}"
+    },
+    "leading": {
+      "$value": "{leading-display}"
+    },
+    "$evidence": "h1 on BOTH homepages: Lazzer 96px w900 lh0.95 at 1440px — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "$description": "TYPE STYLES (operator layer 5): each = size + font + weight + leading (+ mobile-size). Brand-diverged props (heading-md font/weight, heading-sm leading, lead leading, quote/description/caption weight) live in brand.*.tokens.json. FICTION FIXES encoded: subheadline=bold, lead-quote=medium (the banned Light was fiction), lead=accent+bold (class truth).",
+  "title": {
+    "size": {
+      "$value": "{size-title}"
+    },
+    "font": {
+      "$value": "{font-display}"
+    },
+    "weight": {
+      "$value": "{weight-black}"
+    },
+    "leading": {
+      "$value": "{leading-display}"
+    },
+    "$evidence": "newsletter-cta__title/pre/highlight: Lazzer clamp(40,5.5vw,80) w900 lh0.95 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "heading-xl": {
+    "size": {
+      "$value": "{size-hero}"
+    },
+    "font": {
+      "$value": "{font-display}"
+    },
+    "weight": {
+      "$value": "{weight-black}"
+    },
+    "leading": {
+      "$value": "{leading-tight}"
+    },
+    "$evidence": "article h1 both brands: Lazzer 64px (clamp 36->64) w900 lh1.1 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "heading-lg": {
+    "font": {
+      "$value": "{font-display}"
+    },
+    "weight": {
+      "$value": "{weight-black}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "AIF h2 36px fixed (mobile 28) · AIG .content-section h2 clamp(32,3.2vw,44) 'one size for all section headers' — size lives in the BRAND files — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "heading-md": {
+    "size": {
+      "$value": "{size-28}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "mobile-size": {
+      "$value": "{size-22}"
+    },
+    "$evidence": "article-body h2 28px both brands; AIF page voice Inter/extrabold per theme tokens (live AIF article h2 keeps Lazzer via size-only override = documented GM exception) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course) | MOBILE RAMP FIX (operator 2026-07-03): live mobile md=sm=22 collision -> md 22 (operator dial), sm 20 (distinct steps 36/32|28/24/20)"
+  },
+  "card-heading": {
+    "size": {
+      "$value": "{size-28}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-extrabold}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "operator 2026-07-05: the listing-card headline stays INTER on BOTH brands at heading-md size -- Lazzer renders terribly at 28px in cards (heading-md maps to Lazzer on AIG). CONSTANT per MECHANISM LAW (card/UI element; production card titles carry no mobile step). Consumer: preview-card default headline."
+  },
+  "benefit-display": {
+    "size": {
+      "$value": "clamp(24px, 2.4vw, 32px)"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-extrabold}"
+    },
+    "leading": {
+      "$value": "{leading-tight}"
+    },
+    "$evidence": "the benefits-family LG headline (operator-approved 2026-07-06): the loud numbered-benefit voice, Inter on BOTH brands (census: cert-card clamp 24-2.4vw-32/1.15/-0.01em; lp-what 24/900). FLUID per MECHANISM LAW (display class). Harvested 1.15 leading snapped to leading-tight (1.1, GM); tracking rides --tracking-display in the component."
+  },
+  "heading-sm": {
+    "size": {
+      "$value": "{size-22}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-extrabold}"
+    },
+    "$evidence": "AIF card titles h3.article__title 22px Inter w800; AIG accordion 18 w800 (heading-xs) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)",
+    "mobile-size": {
+      "$value": "{size-20}"
+    }
+  },
+  "heading-xs": {
+    "size": {
+      "$value": "{size-18}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-extrabold}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "AIG course accordion__title 18px Inter w800 x11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "lead": {
+    "size": {
+      "$value": "{size-24}"
+    },
+    "font": {
+      "$value": "{font-accent}"
+    },
+    "weight": {
+      "$value": "{weight-bold}"
+    },
+    "mobile-size": {
+      "$value": "{size-20}"
+    },
+    "$evidence": "ONE 24px voice everywhere: hero-aif__subheadline (lh1.35), text--perex articles (lh brand 1.5/1.6), newsletter subtitles — SG 24 w700; NO 24 medium exists (lead-quote was fiction) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "body-lg": {
+    "size": {
+      "$value": "{size-18}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-regular}"
+    },
+    "leading": {
+      "$value": "{leading-relaxed}"
+    },
+    "$evidence": "article paragraphs 18/1.7 Inter x22-x44 per page — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "code": {
+    "size": {
+      "$value": "{size-18}"
+    },
+    "font": {
+      "$value": "{font-mono}"
+    },
+    "weight": {
+      "$value": "{weight-regular}"
+    },
+    "leading": {
+      "$value": "{leading-relaxed}"
+    },
+    "$evidence": "article pre/code Spline Mono 18 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "body-md": {
+    "size": {
+      "$value": "{size-16}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-regular}"
+    },
+    "leading": {
+      "$value": "{leading-body}"
+    },
+    "$evidence": "descriptions/excerpts 16/1.5 Inter x12+ — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "description": {
+    "size": {
+      "$value": "{size-16}"
+    },
+    "font": {
+      "$value": "{font-accent}"
+    },
+    "leading": {
+      "$value": "{leading-body}"
+    },
+    "$evidence": "SG 16 w400: course subtitles, persona roles x11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "body-sm": {
+    "size": {
+      "$value": "{size-14}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-regular}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "footer/small print 14/1.35 Inter x9-11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "caption": {
+    "size": {
+      "$value": "{size-14}"
+    },
+    "font": {
+      "$value": "{font-accent}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "article__meta SG 14 — WEIGHT DIVERGES LIVE: AIF w500 / AIG w400 (matches brand files) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "meta": {
+    "size": {
+      "$value": "{size-12}"
+    },
+    "font": {
+      "$value": "{font-primary}"
+    },
+    "weight": {
+      "$value": "{weight-medium}"
+    },
+    "leading": {
+      "$value": "{leading-heading}"
+    },
+    "$evidence": "persona-card__meta, cohort markers Inter 12 w500 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "button": {
+    "size": {
+      "$value": "{size-16}"
+    },
+    "font": {
+      "$value": "{font-accent}"
+    },
+    "weight": {
+      "$value": "{weight-bold}"
+    },
+    "leading": {
+      "$value": "{leading-normal}"
+    },
+    "$evidence": "btn--md/sm SG 16/14 w700 everywhere — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "button-small": {
+    "size": {
+      "$value": "{size-14}"
+    },
+    "font": {
+      "$value": "{font-accent}"
+    },
+    "weight": {
+      "$value": "{weight-bold}"
+    },
+    "leading": {
+      "$value": "{leading-normal}"
+    },
+    "$evidence": "btn--sm SG 14 w700 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+  },
+  "eyebrow": {
+    "size": {
+      "$value": "{size-12}"
+    },
+    "font": {
+      "$value": "{font-mono}"
+    },
+    "weight": {
+      "$value": "{weight-bold}"
+    },
+    "leading": {
+      "$value": "{leading-none}"
+    },
+    "$evidence": "x9+ live: dark-blurb__title, course eyebrows, footer__label (Spline Mono 12 w700) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course) | rendered UPPERCASE live (CAPS is part of the style's identity)",
+    "case": {
+      "$value": "{case-upper}"
+    }
+  }
+}

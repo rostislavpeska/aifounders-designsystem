@@ -1,0 +1,14 @@
+{
+  "bg": {
+    "$value": "{gray-150}"
+  },
+  "raised": {
+    "$value": "{white}"
+  },
+  "perex-border": {
+    "$value": "{brand}"
+  },
+  "button-tertiary-bg-hover": {
+    "$value": "{white}"
+  }
+}

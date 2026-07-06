@@ -1,0 +1,30 @@
+{
+  "heading-md-font": {
+    "$value": "{font-display}"
+  },
+  "heading-md-weight": {
+    "$value": "{weight-black}"
+  },
+  "heading-sm-leading": {
+    "$type": "number",
+    "$value": "1.35"
+  },
+  "lead-leading": {
+    "$type": "number",
+    "$value": "1.5"
+  },
+  "description-weight": {
+    "$value": "{weight-regular}"
+  },
+  "caption-weight": {
+    "$value": "{weight-regular}"
+  },
+  "container-wider": {
+    "$type": "dimension",
+    "$value": "1100px"
+  },
+  "$description": "BRAND-DIVERGED non-color tokens only (typography splits, container). Colors live in palette.*.json.",
+  "heading-lg-size": {
+    "$value": "clamp(32px, 3.2vw, 44px)"
+  }
+}

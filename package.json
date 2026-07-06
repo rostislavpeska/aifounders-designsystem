@@ -1,0 +1,27 @@
+{
+  "name": "aifounders-designsystem",
+  "version": "2.0.0-dev.0",
+  "description": "The AI Founders design system — a WordPress-plugin design system where code is the source of truth: DTCG tokens, a two-brand surface-scope architecture, real-markup styleguide, and a Playwright contract gate.",
+  "scripts": {
+    "tokens:build": "node build/build.mjs",
+    "tokens:check": "node build/compare.mjs",
+    "lint:css": "node build/lint-css.mjs",
+    "test": "npx playwright test",
+    "test:tokens": "node build/lint-css.mjs && playwright test tests/tokens.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rostislavpeska/aifounders-designsystem.git"
+  },
+  "author": "Rostislav Peška",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rostislavpeska/aifounders-designsystem/issues"
+  },
+  "homepage": "https://github.com/rostislavpeska/aifounders-designsystem#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "http-server": "^14.1.1"
+  }
+}

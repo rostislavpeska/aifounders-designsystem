@@ -1,0 +1,24 @@
+# L0 gate — headless-only (the WordPress-bound Playwright gate L1 runs
+# against the local stack; CI has no WP server — see
+# docs/proposals/PLAYWRIGHT-AGENTIC.md).
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  l0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build tokens
+        run: node build/build.mjs
+      - name: Tokens in sync (generated CSS matches source)
+        run: git diff --exit-code -- assets/css/tokens.css assets/tokens-manifest.json
+      - name: CSS laws (3-layer + breakpoints)
+        run: node build/lint-css.mjs

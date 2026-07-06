@@ -1,0 +1,11 @@
+⚠️ ACTION REQUIRED:
+Please save your manually downloaded logos into this directory ('assets/img/logos/footer/') using the following EXACT names to match the code:
+
+1. logo-mvcr.png
+2. logo-msmt.png
+3. logo-urad-prace.png
+4. logo-ux-asociace.png
+5. logo-cesko-digital.png
+
+I have updated the CSS to use 'object-fit: contain' and a fixed 'height: 60px' to ensure they never deform.
+I have also updated the HTML to expect these PNG filenames.

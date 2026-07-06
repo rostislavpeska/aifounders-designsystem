@@ -1,0 +1,83 @@
+{
+  "bg": {
+    "$value": "{brand}"
+  },
+  "border": {
+    "$value": "{black}"
+  },
+  "raised": {
+    "$value": "{black}"
+  },
+  "bg-base": {
+    "$value": "{black}"
+  },
+  "link": {
+    "$value": "{black}"
+  },
+  "link-hover": {
+    "$value": "{black}"
+  },
+  "badge-bg": {
+    "$value": "{black}"
+  },
+  "badge-text": {
+    "$value": "{gray-300}"
+  },
+  "overlay-hover": {
+    "$value": "{overlay-light}"
+  },
+  "perex-border": {
+    "$value": "{support}"
+  },
+  "field-bg": {
+    "$value": "{white}"
+  },
+  "field-bg-focus": {
+    "$value": "{white}"
+  },
+  "field-border": {
+    "$value": "{black}"
+  },
+  "field-border-strong": {
+    "$value": "{black}"
+  },
+  "field-placeholder": {
+    "$value": "{gray-600}"
+  },
+  "control-accent": {
+    "$value": "{black}"
+  },
+  "control-accent-ink": {
+    "$value": "{paper}"
+  },
+  "button-bg": {
+    "$value": "{black}"
+  },
+  "button-bg-hover": {
+    "$value": "{dark-850}"
+  },
+  "button-text": {
+    "$value": "{paper}"
+  },
+  "button-border": {
+    "$value": "{black}"
+  },
+  "button-border-hover": {
+    "$value": "{dark-850}"
+  },
+  "button-secondary-border": {
+    "$value": "{black}"
+  },
+  "button-secondary-bg-hover": {
+    "$value": "{black}"
+  },
+  "button-secondary-text-hover": {
+    "$value": "{paper}"
+  },
+  "button-tertiary-border": {
+    "$value": "{support-strong}"
+  },
+  "button-tertiary-bg-hover": {
+    "$value": "{support-strong}"
+  }
+}

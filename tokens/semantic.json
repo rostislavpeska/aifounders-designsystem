@@ -1,0 +1,158 @@
+{
+  "bg": {
+    "$value": "{white}"
+  },
+  "text": {
+    "$value": "{black}"
+  },
+  "text-secondary": {
+    "$value": "{gray-700}"
+  },
+  "text-tertiary": {
+    "$value": "{gray-600}"
+  },
+  "border": {
+    "$value": "{gray-300}"
+  },
+  "raised": {
+    "$value": "{gray-150}"
+  },
+  "bg-base": {
+    "$value": "{white}",
+    "$description": "the brand-mode PRIMARY surface regardless of local scope — cards that pop back to the page surface (course card); white on every light scope, black on dark + brand (operator 2026-07-05)"
+  },
+  "link": {
+    "$value": "{brand-ink}"
+  },
+  "link-hover": {
+    "$value": "{tint-dark}"
+  },
+  "bullet": {
+    "$value": "{gray-500}"
+  },
+  "overlay-hover": {
+    "$value": "{overlay-dark}"
+  },
+  "badge-bg": {
+    "$value": "{gray-300}"
+  },
+  "badge-text": {
+    "$value": "{black}"
+  },
+  "perex-border": {
+    "$value": "{support}"
+  },
+  "disabled-bg": {
+    "$value": "{gray-150}"
+  },
+  "disabled-text": {
+    "$value": "{gray-500}"
+  },
+  "disabled-border": {
+    "$value": "{gray-100}"
+  },
+  "field-bg": {
+    "$value": "{gray-50}"
+  },
+  "field-bg-focus": {
+    "$value": "{gray-150}"
+  },
+  "field-border": {
+    "$value": "{gray-100}"
+  },
+  "field-border-strong": {
+    "$value": "{gray-300}"
+  },
+  "field-placeholder": {
+    "$value": "{gray-500}"
+  },
+  "button-bg": {
+    "$value": "{brand}"
+  },
+  "button-bg-hover": {
+    "$value": "{brand-hover}"
+  },
+  "button-text": {
+    "$value": "{gray-950}"
+  },
+  "button-border": {
+    "$value": "{brand}"
+  },
+  "button-border-hover": {
+    "$value": "{brand-hover}"
+  },
+  "button-secondary-text": {
+    "$value": "{black}"
+  },
+  "button-secondary-border": {
+    "$value": "{brand}"
+  },
+  "button-secondary-bg-hover": {
+    "$value": "{brand}"
+  },
+  "button-secondary-text-hover": {
+    "$value": "{gray-950}"
+  },
+  "button-tertiary-text": {
+    "$value": "{black}"
+  },
+  "button-tertiary-border": {
+    "$value": "{gray-300}"
+  },
+  "button-tertiary-bg-hover": {
+    "$value": "{gray-150}"
+  },
+  "icon-smart-accent": {
+    "$value": "{brand}"
+  },
+  "text-on-brand": {
+    "$value": "{gray-950}"
+  },
+  "control-accent": {
+    "$value": "{brand}"
+  },
+  "control-accent-ink": {
+    "$value": "{gray-950}"
+  },
+  "text-disabled": {
+    "$value": "{gray-500}"
+  },
+  "selection-bg": {
+    "$value": "{highlight}"
+  },
+  "selection-text": {
+    "$value": "{highlight-ink}"
+  },
+  "bg-alt": {
+    "$value": "{gray-50}"
+  },
+  "bg-band": {
+    "$value": "{gray-150}"
+  },
+  "border-medium": {
+    "$value": "{gray-200}"
+  },
+  "border-strong": {
+    "$value": "{gray-300}"
+  },
+  "status-success": {
+    "$value": "{success}"
+  },
+  "status-warning": {
+    "$value": "{warning}"
+  },
+  "status-error": {
+    "$value": "{error}"
+  },
+  "text-on-status": {
+    "$value": "{white}"
+  },
+  "nav-active": {
+    "$value": "{brand-muted}",
+    "$description": "persistent you-are-here marker (nav active underline, mobile divider) — dimmed brand; hover flips to live --brand (operator 2026-07-06)"
+  },
+  "progress-fill": {
+    "$value": "{progress}",
+    "$description": "reading-progress bar fill — per-brand accent by operator ruling 2026-07-06 (AIF lime / AIG magenta, harvested)"
+  }
+}

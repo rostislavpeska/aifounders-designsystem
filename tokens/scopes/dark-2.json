@@ -1,0 +1,92 @@
+{
+  "bg": {
+    "$value": "{dark-900}"
+  },
+  "text": {
+    "$value": "{paper}"
+  },
+  "text-secondary": {
+    "$value": "{dark-200}"
+  },
+  "text-tertiary": {
+    "$value": "{dark-300}"
+  },
+  "border": {
+    "$value": "{dark-600}"
+  },
+  "raised": {
+    "$value": "{dark-850}"
+  },
+  "bg-base": {
+    "$value": "{black}"
+  },
+  "link": {
+    "$value": "{brand-bright}"
+  },
+  "link-hover": {
+    "$value": "{support}"
+  },
+  "bullet": {
+    "$value": "{dark-450}"
+  },
+  "overlay-hover": {
+    "$value": "{overlay-light}"
+  },
+  "badge-bg": {
+    "$value": "{dark-600}"
+  },
+  "badge-text": {
+    "$value": "{paper}"
+  },
+  "perex-border": {
+    "$value": "{deep-muted}"
+  },
+  "disabled-bg": {
+    "$value": "{dark-850}"
+  },
+  "disabled-text": {
+    "$value": "{dark-450}"
+  },
+  "disabled-border": {
+    "$value": "{dark-700}"
+  },
+  "field-bg": {
+    "$value": "{dark-900}"
+  },
+  "field-bg-focus": {
+    "$value": "{dark-850}"
+  },
+  "field-border": {
+    "$value": "{dark-700}"
+  },
+  "field-border-strong": {
+    "$value": "{dark-600}"
+  },
+  "field-placeholder": {
+    "$value": "{dark-300}"
+  },
+  "button-secondary-text": {
+    "$value": "{paper}"
+  },
+  "button-tertiary-text": {
+    "$value": "{paper}"
+  },
+  "button-tertiary-border": {
+    "$value": "{dark-600}"
+  },
+  "button-tertiary-bg-hover": {
+    "$value": "{dark-850}"
+  },
+  "status-error": {
+    "$value": "{error-bright}"
+  },
+  "status-success": {
+    "$value": "{success-bright}"
+  },
+  "status-warning": {
+    "$value": "{warning-bright}"
+  },
+  "text-on-status": {
+    "$value": "{gray-950}"
+  }
+}

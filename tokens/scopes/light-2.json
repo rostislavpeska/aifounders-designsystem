@@ -1,0 +1,8 @@
+{
+  "bg": {
+    "$value": "{gray-50}"
+  },
+  "perex-border": {
+    "$value": "{brand-bright}"
+  }
+}

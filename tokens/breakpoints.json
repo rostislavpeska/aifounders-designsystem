@@ -1,0 +1,32 @@
+{
+  "$description": "BREAKPOINTS (operator-ratified 2026-07-03; harvest + research in docs/proposals/BREAKPOINTS.md): four canonical cuts, five buckets. Apple shape (few content-driven cuts, desktop-first max-width, named buckets) + Carbon machinery (closed set, build-time constants). CSS cannot read custom props inside @media, so NO --bp-* vars are emitted — the build derives query strings from these values and nothing else may hardcode a width. LAWS: BOUNDARY (max side = value-1: 599/767/1023) · DIRECTION (overrides = max-width; min-width only for the additive wide tier and explicit between-ranges) · CLOSED SET (lint LAW 4: any other @media width in DS CSS fails the build unless the line carries /* bp-exception: reason */ — the Apple nav rule: local, declared, never a shared tier).",
+  "$base-bucket": "phone (below 600) — base styles, no query: desktop-first means the base IS the smallest bucket's truth after all max-width blocks apply",
+  "bp-sm": {
+    "$type": "dimension",
+    "$value": "600px",
+    "$bucket": "big phone / small tablet",
+    "$description": "small cut — card grids 1→2 col, tighter paddings",
+    "$evidence": "28 harvested conditions (max-599 ×12 · min-600 ×8 · max-600 ×8) across aifounders_web@73d4c05, aiguild@7454e1d, aiguild-blue@580275d — 2026-07-03 GitHub harvest, 324 @media blocks total"
+  },
+  "bp-md": {
+    "$type": "dimension",
+    "$value": "768px",
+    "$bucket": "tablet",
+    "$description": "THE phone/tablet cut — also the type content-ramp step (MECHANISM LAW): heading-md/sm/lead step here",
+    "$evidence": "146 harvested conditions (max-767 ×73 · min-768 ×39 · off-by-one strays max-768 ×28 + min-769 ×6 normalized away by the BOUNDARY LAW) — the dominant cut in all three themes"
+  },
+  "bp-lg": {
+    "$type": "dimension",
+    "$value": "1024px",
+    "$bucket": "desktop",
+    "$description": "tablet/desktop cut — both brands collapse their nav here",
+    "$evidence": "99 harvested conditions (max-1023 ×51 · min-1024 ×26 + off-by-ones); nav collapse at max-1023 in AIF+AIG page.css, max-1024 in aiguild-blue style.css"
+  },
+  "bp-xl": {
+    "$type": "dimension",
+    "$value": "1440px",
+    "$bucket": "wide",
+    "$description": "wide tier — ADDITIVE min-width enhancements only (Apple's 1441 pattern), never a max-width override",
+    "$evidence": "min-1440 ×10 (AIF 3 · AIG 6 · blue 1); the stray 1280/1600/1920 values are adoption-time remaps or declared exceptions per the proposal §3.5"
+  }
+}

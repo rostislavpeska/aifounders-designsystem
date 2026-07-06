@@ -1,0 +1,14 @@
+/**
+ * Self-hosted fonts — AI Guild Design System (plugin)
+ * Split out of tokens.css in Batch 1.5 (tokens.css is now GENERATED from
+ * tokens/*.tokens.json; font-face is an asset declaration, not a token).
+ * Loads FIRST (before tokens.css).
+ */
+
+@font-face {
+    font-family: 'Lazzer';
+    src: url('../fonts/Lazzer-Heavy.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

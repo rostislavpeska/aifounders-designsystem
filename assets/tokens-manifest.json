@@ -1,0 +1,1836 @@
+{
+  "palette": {
+    "brand": {
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "brand-hover": {
+      "aig": "#e0b000",
+      "aif": "#00a3e6"
+    },
+    "brand-bright": {
+      "aig": "#ffd84d",
+      "aif": "#00b5ff"
+    },
+    "brand-ink": {
+      "aig": "#8a6a00",
+      "aif": "#0070f3"
+    },
+    "brand-strong": {
+      "aig": "#c9a101",
+      "aif": "#0070f3"
+    },
+    "deep": {
+      "aig": "#8a6a00",
+      "aif": "#0067b1"
+    },
+    "deep-muted": {
+      "aig": "#554309",
+      "aif": "#09456e"
+    },
+    "support": {
+      "aig": "#fff3b0",
+      "aif": "#c9f1ff"
+    },
+    "support-strong": {
+      "aig": "#ffe680",
+      "aif": "#64d5ff"
+    },
+    "tint-dark": {
+      "aig": "#1f1c12",
+      "aif": "#12232b"
+    },
+    "tint-light": {
+      "aig": "#fffce3",
+      "aif": "#c1d1d9"
+    },
+    "tint-gray": {
+      "aig": "#807954",
+      "aif": "#64767e"
+    },
+    "highlight": {
+      "aig": "#ffeb80",
+      "aif": "#7dd3fc"
+    },
+    "highlight-ink": {
+      "aig": "#1f1c12",
+      "aif": "#0c4a6e"
+    },
+    "secondary": {
+      "aig": "#00b5ff",
+      "aif": "#f5c400"
+    },
+    "secondary-support": {
+      "aig": "#c9f1ff",
+      "aif": "#fff3b0"
+    },
+    "secondary-deep": {
+      "aig": "#0067b1",
+      "aif": "#8a6a00"
+    },
+    "secondary-tint-dark": {
+      "aig": "#12232b",
+      "aif": "#1f1c12"
+    },
+    "secondary-tint-light": {
+      "aig": "#c1d1d9",
+      "aif": "#fffce3"
+    },
+    "secondary-tint-gray": {
+      "aig": "#64767e",
+      "aif": "#807954"
+    },
+    "magenta": {
+      "aig": "#d72da4",
+      "aif": "#d72da4"
+    },
+    "magenta-support": {
+      "aig": "#d97dbf",
+      "aif": "#d97dbf"
+    },
+    "magenta-deep": {
+      "aig": "#970d6c",
+      "aif": "#970d6c"
+    },
+    "magenta-tint-dark": {
+      "aig": "#1c1a1f",
+      "aif": "#1c1a1f"
+    },
+    "magenta-tint-light": {
+      "aig": "#c8b3d1",
+      "aif": "#c8b3d1"
+    },
+    "magenta-tint-gray": {
+      "aig": "#837087",
+      "aif": "#837087"
+    },
+    "lime": {
+      "aig": "#a0c92f",
+      "aif": "#a0c92f"
+    },
+    "lime-support": {
+      "aig": "#c5df84",
+      "aif": "#c5df84"
+    },
+    "lime-deep": {
+      "aig": "#6e8e12",
+      "aif": "#6e8e12"
+    },
+    "lime-tint-dark": {
+      "aig": "#161a14",
+      "aif": "#161a14"
+    },
+    "lime-tint-light": {
+      "aig": "#d0ddc9",
+      "aif": "#d0ddc9"
+    },
+    "lime-tint-gray": {
+      "aig": "#6e8066",
+      "aif": "#6e8066"
+    },
+    "white": {
+      "aig": "#ffffff",
+      "aif": "#ffffff"
+    },
+    "gray-50": {
+      "aig": "#f2f2f2",
+      "aif": "#f7f8fb"
+    },
+    "gray-100": {
+      "aig": "#e5e5e5",
+      "aif": "#e4e7ec"
+    },
+    "gray-150": {
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "gray-200": {
+      "aig": "#d9d9d9",
+      "aif": "#dadee4"
+    },
+    "gray-300": {
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "gray-500": {
+      "aig": "#999999",
+      "aif": "#98a2b3"
+    },
+    "gray-600": {
+      "aig": "#565656",
+      "aif": "#717681"
+    },
+    "gray-700": {
+      "aig": "#424242",
+      "aif": "#545a65"
+    },
+    "gray-950": {
+      "aig": "#070708",
+      "aif": "#0b0f14"
+    },
+    "black": {
+      "aig": "#070708",
+      "aif": "#05070a"
+    },
+    "paper": {
+      "aig": "#fffdf6",
+      "aif": "#f6fdff"
+    },
+    "dark-200": {
+      "aig": "#d2d4d0",
+      "aif": "#ced4dc"
+    },
+    "dark-300": {
+      "aig": "#b7bbb4",
+      "aif": "#8b919e"
+    },
+    "dark-400": {
+      "aig": "#797b78",
+      "aif": "#69707a"
+    },
+    "dark-450": {
+      "aig": "#8c9188",
+      "aif": "#585e66"
+    },
+    "dark-600": {
+      "aig": "#3c3c3c",
+      "aif": "#484f59"
+    },
+    "dark-650": {
+      "aig": "#333333",
+      "aif": "#3f4550"
+    },
+    "dark-700": {
+      "aig": "#2a2a2a",
+      "aif": "#363b46"
+    },
+    "dark-850": {
+      "aig": "#1c1c1c",
+      "aif": "#1f2126"
+    },
+    "dark-900": {
+      "aig": "#161616",
+      "aif": "#12171c"
+    },
+    "success": {
+      "aig": "#067647",
+      "aif": "#067647"
+    },
+    "warning": {
+      "aig": "#a16207",
+      "aif": "#a16207"
+    },
+    "error": {
+      "aig": "#b42318",
+      "aif": "#b42318"
+    },
+    "success-bright": {
+      "aig": "#3e9c6a",
+      "aif": "#3e9c6a"
+    },
+    "warning-bright": {
+      "aig": "#e7a24a",
+      "aif": "#e7a24a"
+    },
+    "error-bright": {
+      "aig": "#fd664d",
+      "aif": "#fd664d"
+    },
+    "overlay-dark": {
+      "aig": "rgba(0, 0, 0, 0.05)",
+      "aif": "rgba(0, 0, 0, 0.05)"
+    },
+    "overlay-light": {
+      "aig": "rgba(255, 255, 255, 0.1)",
+      "aif": "rgba(255, 255, 255, 0.1)"
+    },
+    "brand-tint": {
+      "aig": "rgba(245, 196, 0, 0.22)",
+      "aif": "rgba(0, 181, 255, 0.22)"
+    },
+    "brand-muted": {
+      "aig": "#63531b",
+      "aif": "#98c3d9"
+    },
+    "progress": {
+      "aig": "#d72da4",
+      "aif": "#a0c92f"
+    }
+  },
+  "semantic": {
+    "bg": {
+      "ref": "white",
+      "aig": "#ffffff",
+      "aif": "#ffffff"
+    },
+    "text": {
+      "ref": "black",
+      "aig": "#070708",
+      "aif": "#05070a"
+    },
+    "text-secondary": {
+      "ref": "gray-700",
+      "aig": "#424242",
+      "aif": "#545a65"
+    },
+    "text-tertiary": {
+      "ref": "gray-600",
+      "aig": "#565656",
+      "aif": "#717681"
+    },
+    "border": {
+      "ref": "gray-300",
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "raised": {
+      "ref": "gray-150",
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "bg-base": {
+      "ref": "white",
+      "aig": "#ffffff",
+      "aif": "#ffffff"
+    },
+    "link": {
+      "ref": "brand-ink",
+      "aig": "#8a6a00",
+      "aif": "#0070f3"
+    },
+    "link-hover": {
+      "ref": "tint-dark",
+      "aig": "#1f1c12",
+      "aif": "#12232b"
+    },
+    "bullet": {
+      "ref": "gray-500",
+      "aig": "#999999",
+      "aif": "#98a2b3"
+    },
+    "overlay-hover": {
+      "ref": "overlay-dark",
+      "aig": "rgba(0, 0, 0, 0.05)",
+      "aif": "rgba(0, 0, 0, 0.05)"
+    },
+    "badge-bg": {
+      "ref": "gray-300",
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "badge-text": {
+      "ref": "black",
+      "aig": "#070708",
+      "aif": "#05070a"
+    },
+    "perex-border": {
+      "ref": "support",
+      "aig": "#fff3b0",
+      "aif": "#c9f1ff"
+    },
+    "disabled-bg": {
+      "ref": "gray-150",
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "disabled-text": {
+      "ref": "gray-500",
+      "aig": "#999999",
+      "aif": "#98a2b3"
+    },
+    "disabled-border": {
+      "ref": "gray-100",
+      "aig": "#e5e5e5",
+      "aif": "#e4e7ec"
+    },
+    "field-bg": {
+      "ref": "gray-50",
+      "aig": "#f2f2f2",
+      "aif": "#f7f8fb"
+    },
+    "field-bg-focus": {
+      "ref": "gray-150",
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "field-border": {
+      "ref": "gray-100",
+      "aig": "#e5e5e5",
+      "aif": "#e4e7ec"
+    },
+    "field-border-strong": {
+      "ref": "gray-300",
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "field-placeholder": {
+      "ref": "gray-500",
+      "aig": "#999999",
+      "aif": "#98a2b3"
+    },
+    "button-bg": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "button-bg-hover": {
+      "ref": "brand-hover",
+      "aig": "#e0b000",
+      "aif": "#00a3e6"
+    },
+    "button-text": {
+      "ref": "gray-950",
+      "aig": "#070708",
+      "aif": "#0b0f14"
+    },
+    "button-border": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "button-border-hover": {
+      "ref": "brand-hover",
+      "aig": "#e0b000",
+      "aif": "#00a3e6"
+    },
+    "button-secondary-text": {
+      "ref": "black",
+      "aig": "#070708",
+      "aif": "#05070a"
+    },
+    "button-secondary-border": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "button-secondary-bg-hover": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "button-secondary-text-hover": {
+      "ref": "gray-950",
+      "aig": "#070708",
+      "aif": "#0b0f14"
+    },
+    "button-tertiary-text": {
+      "ref": "black",
+      "aig": "#070708",
+      "aif": "#05070a"
+    },
+    "button-tertiary-border": {
+      "ref": "gray-300",
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "button-tertiary-bg-hover": {
+      "ref": "gray-150",
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "icon-smart-accent": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "text-on-brand": {
+      "ref": "gray-950",
+      "aig": "#070708",
+      "aif": "#0b0f14"
+    },
+    "control-accent": {
+      "ref": "brand",
+      "aig": "#f5c400",
+      "aif": "#00b5ff"
+    },
+    "control-accent-ink": {
+      "ref": "gray-950",
+      "aig": "#070708",
+      "aif": "#0b0f14"
+    },
+    "text-disabled": {
+      "ref": "gray-500",
+      "aig": "#999999",
+      "aif": "#98a2b3"
+    },
+    "selection-bg": {
+      "ref": "highlight",
+      "aig": "#ffeb80",
+      "aif": "#7dd3fc"
+    },
+    "selection-text": {
+      "ref": "highlight-ink",
+      "aig": "#1f1c12",
+      "aif": "#0c4a6e"
+    },
+    "bg-alt": {
+      "ref": "gray-50",
+      "aig": "#f2f2f2",
+      "aif": "#f7f8fb"
+    },
+    "bg-band": {
+      "ref": "gray-150",
+      "aig": "#e4e4e4",
+      "aif": "#eef2f6"
+    },
+    "border-medium": {
+      "ref": "gray-200",
+      "aig": "#d9d9d9",
+      "aif": "#dadee4"
+    },
+    "border-strong": {
+      "ref": "gray-300",
+      "aig": "#cecece",
+      "aif": "#d0d5dd"
+    },
+    "status-success": {
+      "ref": "success",
+      "aig": "#067647",
+      "aif": "#067647"
+    },
+    "status-warning": {
+      "ref": "warning",
+      "aig": "#a16207",
+      "aif": "#a16207"
+    },
+    "status-error": {
+      "ref": "error",
+      "aig": "#b42318",
+      "aif": "#b42318"
+    },
+    "text-on-status": {
+      "ref": "white",
+      "aig": "#ffffff",
+      "aif": "#ffffff"
+    },
+    "nav-active": {
+      "ref": "brand-muted",
+      "aig": "#63531b",
+      "aif": "#98c3d9"
+    },
+    "progress-fill": {
+      "ref": "progress",
+      "aig": "#d72da4",
+      "aif": "#a0c92f"
+    }
+  },
+  "scopes": {
+    "light-2": {
+      "bg": {
+        "ref": "gray-50",
+        "aig": "#f2f2f2",
+        "aif": "#f7f8fb"
+      },
+      "perex-border": {
+        "ref": "brand-bright",
+        "aig": "#ffd84d",
+        "aif": "#00b5ff"
+      }
+    },
+    "light-3": {
+      "bg": {
+        "ref": "gray-150",
+        "aig": "#e4e4e4",
+        "aif": "#eef2f6"
+      },
+      "raised": {
+        "ref": "white",
+        "aig": "#ffffff",
+        "aif": "#ffffff"
+      },
+      "perex-border": {
+        "ref": "brand",
+        "aig": "#f5c400",
+        "aif": "#00b5ff"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "white",
+        "aig": "#ffffff",
+        "aif": "#ffffff"
+      }
+    },
+    "dark-1": {
+      "bg": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "text-secondary": {
+        "ref": "dark-200",
+        "aig": "#d2d4d0",
+        "aif": "#ced4dc"
+      },
+      "text-tertiary": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "raised": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "bg-base": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "link": {
+        "ref": "brand-bright",
+        "aig": "#ffd84d",
+        "aif": "#00b5ff"
+      },
+      "link-hover": {
+        "ref": "support",
+        "aig": "#fff3b0",
+        "aif": "#c9f1ff"
+      },
+      "bullet": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "overlay-hover": {
+        "ref": "overlay-light",
+        "aig": "rgba(255, 255, 255, 0.1)",
+        "aif": "rgba(255, 255, 255, 0.1)"
+      },
+      "badge-bg": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "badge-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "perex-border": {
+        "ref": "deep-muted",
+        "aig": "#554309",
+        "aif": "#09456e"
+      },
+      "disabled-bg": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "disabled-text": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "disabled-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-bg": {
+        "ref": "dark-900",
+        "aig": "#161616",
+        "aif": "#12171c"
+      },
+      "field-bg-focus": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "field-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-border-strong": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "field-placeholder": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "button-secondary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "status-error": {
+        "ref": "error-bright",
+        "aig": "#fd664d",
+        "aif": "#fd664d"
+      },
+      "status-success": {
+        "ref": "success-bright",
+        "aig": "#3e9c6a",
+        "aif": "#3e9c6a"
+      },
+      "status-warning": {
+        "ref": "warning-bright",
+        "aig": "#e7a24a",
+        "aif": "#e7a24a"
+      },
+      "text-on-status": {
+        "ref": "gray-950",
+        "aig": "#070708",
+        "aif": "#0b0f14"
+      }
+    },
+    "dark-2": {
+      "bg": {
+        "ref": "dark-900",
+        "aig": "#161616",
+        "aif": "#12171c"
+      },
+      "text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "text-secondary": {
+        "ref": "dark-200",
+        "aig": "#d2d4d0",
+        "aif": "#ced4dc"
+      },
+      "text-tertiary": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "raised": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "bg-base": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "link": {
+        "ref": "brand-bright",
+        "aig": "#ffd84d",
+        "aif": "#00b5ff"
+      },
+      "link-hover": {
+        "ref": "support",
+        "aig": "#fff3b0",
+        "aif": "#c9f1ff"
+      },
+      "bullet": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "overlay-hover": {
+        "ref": "overlay-light",
+        "aig": "rgba(255, 255, 255, 0.1)",
+        "aif": "rgba(255, 255, 255, 0.1)"
+      },
+      "badge-bg": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "badge-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "perex-border": {
+        "ref": "deep-muted",
+        "aig": "#554309",
+        "aif": "#09456e"
+      },
+      "disabled-bg": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "disabled-text": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "disabled-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-bg": {
+        "ref": "dark-900",
+        "aig": "#161616",
+        "aif": "#12171c"
+      },
+      "field-bg-focus": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "field-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-border-strong": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "field-placeholder": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "button-secondary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "status-error": {
+        "ref": "error-bright",
+        "aig": "#fd664d",
+        "aif": "#fd664d"
+      },
+      "status-success": {
+        "ref": "success-bright",
+        "aig": "#3e9c6a",
+        "aif": "#3e9c6a"
+      },
+      "status-warning": {
+        "ref": "warning-bright",
+        "aig": "#e7a24a",
+        "aif": "#e7a24a"
+      },
+      "text-on-status": {
+        "ref": "gray-950",
+        "aig": "#070708",
+        "aif": "#0b0f14"
+      }
+    },
+    "dark-3": {
+      "bg": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "text-secondary": {
+        "ref": "dark-200",
+        "aig": "#d2d4d0",
+        "aif": "#ced4dc"
+      },
+      "text-tertiary": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "raised": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "bg-base": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "link": {
+        "ref": "brand-bright",
+        "aig": "#ffd84d",
+        "aif": "#00b5ff"
+      },
+      "link-hover": {
+        "ref": "support",
+        "aig": "#fff3b0",
+        "aif": "#c9f1ff"
+      },
+      "bullet": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "overlay-hover": {
+        "ref": "overlay-light",
+        "aig": "rgba(255, 255, 255, 0.1)",
+        "aif": "rgba(255, 255, 255, 0.1)"
+      },
+      "badge-bg": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "badge-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "perex-border": {
+        "ref": "deep-muted",
+        "aig": "#554309",
+        "aif": "#09456e"
+      },
+      "disabled-bg": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "disabled-text": {
+        "ref": "dark-450",
+        "aig": "#8c9188",
+        "aif": "#585e66"
+      },
+      "disabled-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-bg": {
+        "ref": "dark-900",
+        "aig": "#161616",
+        "aif": "#12171c"
+      },
+      "field-bg-focus": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "field-border": {
+        "ref": "dark-700",
+        "aig": "#2a2a2a",
+        "aif": "#363b46"
+      },
+      "field-border-strong": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "field-placeholder": {
+        "ref": "dark-300",
+        "aig": "#b7bbb4",
+        "aif": "#8b919e"
+      },
+      "button-secondary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-border": {
+        "ref": "dark-600",
+        "aig": "#3c3c3c",
+        "aif": "#484f59"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "status-error": {
+        "ref": "error-bright",
+        "aig": "#fd664d",
+        "aif": "#fd664d"
+      },
+      "status-success": {
+        "ref": "success-bright",
+        "aig": "#3e9c6a",
+        "aif": "#3e9c6a"
+      },
+      "status-warning": {
+        "ref": "warning-bright",
+        "aig": "#e7a24a",
+        "aif": "#e7a24a"
+      },
+      "text-on-status": {
+        "ref": "gray-950",
+        "aig": "#070708",
+        "aif": "#0b0f14"
+      }
+    },
+    "brand": {
+      "bg": {
+        "ref": "brand",
+        "aig": "#f5c400",
+        "aif": "#00b5ff"
+      },
+      "border": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "raised": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "bg-base": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "link": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "link-hover": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "badge-bg": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "badge-text": {
+        "ref": "gray-300",
+        "aig": "#cecece",
+        "aif": "#d0d5dd"
+      },
+      "overlay-hover": {
+        "ref": "overlay-light",
+        "aig": "rgba(255, 255, 255, 0.1)",
+        "aif": "rgba(255, 255, 255, 0.1)"
+      },
+      "perex-border": {
+        "ref": "support",
+        "aig": "#fff3b0",
+        "aif": "#c9f1ff"
+      },
+      "field-bg": {
+        "ref": "white",
+        "aig": "#ffffff",
+        "aif": "#ffffff"
+      },
+      "field-bg-focus": {
+        "ref": "white",
+        "aig": "#ffffff",
+        "aif": "#ffffff"
+      },
+      "field-border": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "field-border-strong": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "field-placeholder": {
+        "ref": "gray-600",
+        "aig": "#565656",
+        "aif": "#717681"
+      },
+      "control-accent": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "control-accent-ink": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-bg": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "button-bg-hover": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "button-text": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-border": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "button-border-hover": {
+        "ref": "dark-850",
+        "aig": "#1c1c1c",
+        "aif": "#1f2126"
+      },
+      "button-secondary-border": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "button-secondary-bg-hover": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "button-secondary-text-hover": {
+        "ref": "paper",
+        "aig": "#fffdf6",
+        "aif": "#f6fdff"
+      },
+      "button-tertiary-border": {
+        "ref": "support-strong",
+        "aig": "#ffe680",
+        "aif": "#64d5ff"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "support-strong",
+        "aig": "#ffe680",
+        "aif": "#64d5ff"
+      }
+    },
+    "support": {
+      "bg": {
+        "ref": "support",
+        "aig": "#fff3b0",
+        "aif": "#c9f1ff"
+      },
+      "badge-bg": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
+      "badge-text": {
+        "ref": "gray-300",
+        "aig": "#cecece",
+        "aif": "#d0d5dd"
+      },
+      "overlay-hover": {
+        "ref": "overlay-light",
+        "aig": "rgba(255, 255, 255, 0.1)",
+        "aif": "rgba(255, 255, 255, 0.1)"
+      },
+      "perex-border": {
+        "ref": "support-strong",
+        "aig": "#ffe680",
+        "aif": "#64d5ff"
+      },
+      "button-tertiary-border": {
+        "ref": "support-strong",
+        "aig": "#ffe680",
+        "aif": "#64d5ff"
+      },
+      "button-tertiary-bg-hover": {
+        "ref": "support-strong",
+        "aig": "#ffe680",
+        "aif": "#64d5ff"
+      }
+    }
+  },
+  "base": {
+    "icon-size-sm": {
+      "ref": "14px",
+      "description": ""
+    },
+    "icon-size-md": {
+      "ref": "20px",
+      "description": ""
+    },
+    "icon-size-default": {
+      "ref": "24px",
+      "description": ""
+    },
+    "icon-size-xl": {
+      "ref": "32px",
+      "description": ""
+    },
+    "illustration-size-32": {
+      "ref": "32px",
+      "description": ""
+    },
+    "illustration-size-40": {
+      "ref": "40px",
+      "description": ""
+    },
+    "illustration-size-56": {
+      "ref": "56px",
+      "description": ""
+    },
+    "illustration-size-64": {
+      "ref": "64px",
+      "description": ""
+    },
+    "spacing-2": {
+      "ref": "0.125rem",
+      "description": ""
+    },
+    "spacing-4": {
+      "ref": "0.25rem",
+      "description": ""
+    },
+    "spacing-6": {
+      "ref": "0.375rem",
+      "description": ""
+    },
+    "spacing-8": {
+      "ref": "0.5rem",
+      "description": ""
+    },
+    "spacing-12": {
+      "ref": "0.75rem",
+      "description": ""
+    },
+    "field-font-size": {
+      "ref": "{body-md-size}",
+      "description": "FIELD SCALE ROOT — one definition; .form-scale-small remaps these (scale = scope, like surfaces)"
+    },
+    "field-pad-y": {
+      "ref": "{spacing-12}",
+      "description": ""
+    },
+    "field-pad-x": {
+      "ref": "{spacing-12}",
+      "description": ""
+    },
+    "selection-size": {
+      "ref": "24px",
+      "description": ""
+    },
+    "selection-label-size": {
+      "ref": "{body-md-size}",
+      "description": ""
+    },
+    "selection-gap": {
+      "ref": "{spacing-16}",
+      "description": "chip↔label gap on a selection control — FIELD SCALE ROOT; .form-scale-small tightens it so a 20px chip doesn't float away from its label"
+    },
+    "spacing-16": {
+      "ref": "1rem",
+      "description": ""
+    },
+    "spacing-24": {
+      "ref": "1.5rem",
+      "description": ""
+    },
+    "spacing-32": {
+      "ref": "2rem",
+      "description": ""
+    },
+    "spacing-40": {
+      "ref": "2.5rem",
+      "description": ""
+    },
+    "spacing-48": {
+      "ref": "3rem",
+      "description": ""
+    },
+    "spacing-56": {
+      "ref": "3.5rem",
+      "description": ""
+    },
+    "spacing-80": {
+      "ref": "5rem",
+      "description": ""
+    },
+    "spacing-120": {
+      "ref": "7.5rem",
+      "description": ""
+    },
+    "space-section": {
+      "ref": "{spacing-80}",
+      "description": ""
+    },
+    "space-block": {
+      "ref": "{spacing-48}",
+      "description": ""
+    },
+    "space-stack": {
+      "ref": "{spacing-16}",
+      "description": ""
+    },
+    "space-tight": {
+      "ref": "{spacing-8}",
+      "description": ""
+    },
+    "flow-indent": {
+      "ref": "{spacing-24}",
+      "description": ""
+    },
+    "stroke-1": {
+      "ref": "1px",
+      "description": ""
+    },
+    "stroke-1_5": {
+      "ref": "1.5px",
+      "description": ""
+    },
+    "stroke-2": {
+      "ref": "2px",
+      "description": ""
+    },
+    "stroke-3": {
+      "ref": "3px",
+      "description": ""
+    },
+    "stroke-4": {
+      "ref": "4px",
+      "description": ""
+    },
+    "stroke-6": {
+      "ref": "6px",
+      "description": ""
+    },
+    "stroke-style-solid": {
+      "ref": "solid",
+      "description": "border STYLE — the default continuous rule (fields, chips, menus)"
+    },
+    "stroke-style-dashed": {
+      "ref": "dashed",
+      "description": "border STYLE — the drop / placeholder affordance (file dropzone, image placeholder)"
+    },
+    "container-narrow": {
+      "ref": "628px",
+      "description": ""
+    },
+    "container-article": {
+      "ref": "720px",
+      "description": ""
+    },
+    "container-wide": {
+      "ref": "800px",
+      "description": ""
+    },
+    "container-max": {
+      "ref": "1200px",
+      "description": ""
+    },
+    "container-ultra": {
+      "ref": "1600px",
+      "description": ""
+    },
+    "radius-full": {
+      "ref": "9999px",
+      "description": ""
+    },
+    "transition-fast": {
+      "ref": "150ms ease",
+      "description": ""
+    },
+    "transition-normal": {
+      "ref": "200ms ease",
+      "description": ""
+    },
+    "ease-out-cubic": {
+      "ref": "cubic-bezier(0.33, 1, 0.68, 1)",
+      "description": ""
+    },
+    "ease-in-out-cubic": {
+      "ref": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "description": ""
+    },
+    "ease-apple": {
+      "ref": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
+      "description": ""
+    },
+    "transition-smooth": {
+      "ref": "500ms var(--ease-apple)",
+      "description": ""
+    },
+    "transition-rotate": {
+      "ref": "300ms var(--ease-in-out-cubic)",
+      "description": ""
+    },
+    "transition-button": {
+      "ref": "200ms var(--ease-out-cubic)",
+      "description": ""
+    },
+    "shadow-sm": {
+      "ref": "0 1px 2px rgba(0, 0, 0, 0.05)",
+      "description": ""
+    },
+    "shadow-md": {
+      "ref": "0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04)",
+      "description": ""
+    },
+    "shadow-lg": {
+      "ref": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      "description": ""
+    },
+    "shadow-xl": {
+      "ref": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      "description": ""
+    },
+    "shadow-up": {
+      "ref": "0 -10px 30px rgba(0, 0, 0, 0.08)",
+      "description": "UPWARD shadow for bottom-docked chrome (sticky bar; harvested from the article bar, operator-approved 2026-07-06) - the only non-downward entry in the shadow scale"
+    }
+  },
+  "typePrimitives": {
+    "size-12": {
+      "ref": "0.75rem",
+      "description": ""
+    },
+    "size-14": {
+      "ref": "0.875rem",
+      "description": ""
+    },
+    "size-16": {
+      "ref": "1rem",
+      "description": ""
+    },
+    "size-18": {
+      "ref": "1.125rem",
+      "description": ""
+    },
+    "size-20": {
+      "ref": "1.25rem",
+      "description": ""
+    },
+    "size-22": {
+      "ref": "1.375rem",
+      "description": ""
+    },
+    "size-24": {
+      "ref": "1.5rem",
+      "description": ""
+    },
+    "size-28": {
+      "ref": "1.75rem",
+      "description": ""
+    },
+    "size-36": {
+      "ref": "2.25rem",
+      "description": ""
+    },
+    "size-60": {
+      "ref": "3.75rem",
+      "description": ""
+    },
+    "size-80": {
+      "ref": "5rem",
+      "description": ""
+    },
+    "size-hero": {
+      "ref": "clamp(36px, 4.5vw, 64px)",
+      "description": "h1 fluid"
+    },
+    "leading-none": {
+      "ref": "1",
+      "description": ""
+    },
+    "leading-snug": {
+      "ref": "1.05",
+      "description": "display-card headlines (course-card title — harvested 1.05 'Apple display' override vs the 1.35 heading default; operator-approved 2026-07-05)"
+    },
+    "leading-tight": {
+      "ref": "1.1",
+      "description": ""
+    },
+    "leading-heading": {
+      "ref": "1.35",
+      "description": ""
+    },
+    "leading-body": {
+      "ref": "1.5",
+      "description": ""
+    },
+    "leading-relaxed": {
+      "ref": "1.7",
+      "description": ""
+    },
+    "leading-normal": {
+      "ref": "normal",
+      "description": "buttons"
+    },
+    "flow-space": {
+      "ref": "{spacing-24}",
+      "description": "paragraph + after h2/h3"
+    },
+    "flow-tight": {
+      "ref": "{spacing-16}",
+      "description": "lists + after h4"
+    },
+    "flow-before-h2": {
+      "ref": "{spacing-48}",
+      "description": ""
+    },
+    "flow-before-h3": {
+      "ref": "{spacing-40}",
+      "description": ""
+    },
+    "flow-before-h4": {
+      "ref": "{spacing-32}",
+      "description": ""
+    },
+    "flow-figure": {
+      "ref": "{spacing-40}",
+      "description": ""
+    },
+    "flow-quote": {
+      "ref": "{spacing-56}",
+      "description": "article pull quotes (AIG's deliberate 56, unified)"
+    },
+    "flow-quote-mobile": {
+      "ref": "{spacing-40}",
+      "description": ""
+    },
+    "font-display": {
+      "ref": "'Lazzer', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "description": ""
+    },
+    "font-primary": {
+      "ref": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "description": ""
+    },
+    "font-accent": {
+      "ref": "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "description": ""
+    },
+    "font-mono": {
+      "ref": "'Spline Sans Mono', 'Fira Code', 'Consolas', monospace",
+      "description": ""
+    },
+    "weight-regular": {
+      "ref": "400",
+      "description": ""
+    },
+    "weight-medium": {
+      "ref": "500",
+      "description": ""
+    },
+    "weight-bold": {
+      "ref": "700",
+      "description": ""
+    },
+    "weight-extrabold": {
+      "ref": "800",
+      "description": ""
+    },
+    "weight-black": {
+      "ref": "900",
+      "description": ""
+    },
+    "size-display": {
+      "ref": "clamp(48px, 7vw, 96px)",
+      "description": "homepage hero h1 (harvested rule, both brands)"
+    },
+    "size-title": {
+      "ref": "clamp(40px, 5.5vw, 80px)",
+      "description": "newsletter-CTA display (the real source of the '80px title')"
+    },
+    "leading-display": {
+      "ref": "0.95",
+      "description": "display headlines (harvested, both brands)"
+    },
+    "case-upper": {
+      "ref": "uppercase",
+      "description": "text-transform primitive; concrete styles reference it (eyebrow)"
+    },
+    "tracking-label": {
+      "ref": "0.08em",
+      "description": "letter-spacing primitive for the mono-label recipe (data-table header, record-list field labels) — calibrated 2026-07-04, one shared value"
+    },
+    "tracking-display": {
+      "ref": "-0.022em",
+      "description": "letter-spacing dimension, DISPLAY rung — tight negative tracking for display headlines (course-card title, harvested); tracking is a typography dimension per operator 2026-07-05: label (0.08em) + display (-0.022em)"
+    }
+  },
+  "typeStyles": {
+    "hero": {
+      "size": "size-display",
+      "font": "font-display",
+      "weight": "weight-black",
+      "leading": "leading-display",
+      "evidence": "h1 on BOTH homepages: Lazzer 96px w900 lh0.95 at 1440px — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "title": {
+      "size": "size-title",
+      "font": "font-display",
+      "weight": "weight-black",
+      "leading": "leading-display",
+      "evidence": "newsletter-cta__title/pre/highlight: Lazzer clamp(40,5.5vw,80) w900 lh0.95 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "heading-xl": {
+      "size": "size-hero",
+      "font": "font-display",
+      "weight": "weight-black",
+      "leading": "leading-tight",
+      "evidence": "article h1 both brands: Lazzer 64px (clamp 36->64) w900 lh1.1 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "heading-lg": {
+      "font": "font-display",
+      "weight": "weight-black",
+      "leading": "leading-heading",
+      "evidence": "AIF h2 36px fixed (mobile 28) · AIG .content-section h2 clamp(32,3.2vw,44) 'one size for all section headers' — size lives in the BRAND files — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "heading-md": {
+      "size": "size-28",
+      "leading": "leading-heading",
+      "mobile-size": "size-22",
+      "evidence": "article-body h2 28px both brands; AIF page voice Inter/extrabold per theme tokens (live AIF article h2 keeps Lazzer via size-only override = documented GM exception) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course) | MOBILE RAMP FIX (operator 2026-07-03): live mobile md=sm=22 collision -> md 22 (operator dial), sm 20 (distinct steps 36/32|28/24/20)"
+    },
+    "card-heading": {
+      "size": "size-28",
+      "font": "font-primary",
+      "weight": "weight-extrabold",
+      "leading": "leading-heading",
+      "evidence": "operator 2026-07-05: the listing-card headline stays INTER on BOTH brands at heading-md size -- Lazzer renders terribly at 28px in cards (heading-md maps to Lazzer on AIG). CONSTANT per MECHANISM LAW (card/UI element; production card titles carry no mobile step). Consumer: preview-card default headline."
+    },
+    "benefit-display": {
+      "size": "clamp(24px, 2.4vw, 32px)",
+      "font": "font-primary",
+      "weight": "weight-extrabold",
+      "leading": "leading-tight",
+      "evidence": "the benefits-family LG headline (operator-approved 2026-07-06): the loud numbered-benefit voice, Inter on BOTH brands (census: cert-card clamp 24-2.4vw-32/1.15/-0.01em; lp-what 24/900). FLUID per MECHANISM LAW (display class). Harvested 1.15 leading snapped to leading-tight (1.1, GM); tracking rides --tracking-display in the component."
+    },
+    "heading-sm": {
+      "size": "size-22",
+      "font": "font-primary",
+      "weight": "weight-extrabold",
+      "evidence": "AIF card titles h3.article__title 22px Inter w800; AIG accordion 18 w800 (heading-xs) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)",
+      "mobile-size": "size-20"
+    },
+    "heading-xs": {
+      "size": "size-18",
+      "font": "font-primary",
+      "weight": "weight-extrabold",
+      "leading": "leading-heading",
+      "evidence": "AIG course accordion__title 18px Inter w800 x11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "lead": {
+      "size": "size-24",
+      "font": "font-accent",
+      "weight": "weight-bold",
+      "mobile-size": "size-20",
+      "evidence": "ONE 24px voice everywhere: hero-aif__subheadline (lh1.35), text--perex articles (lh brand 1.5/1.6), newsletter subtitles — SG 24 w700; NO 24 medium exists (lead-quote was fiction) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "body-lg": {
+      "size": "size-18",
+      "font": "font-primary",
+      "weight": "weight-regular",
+      "leading": "leading-relaxed",
+      "evidence": "article paragraphs 18/1.7 Inter x22-x44 per page — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "code": {
+      "size": "size-18",
+      "font": "font-mono",
+      "weight": "weight-regular",
+      "leading": "leading-relaxed",
+      "evidence": "article pre/code Spline Mono 18 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "body-md": {
+      "size": "size-16",
+      "font": "font-primary",
+      "weight": "weight-regular",
+      "leading": "leading-body",
+      "evidence": "descriptions/excerpts 16/1.5 Inter x12+ — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "description": {
+      "size": "size-16",
+      "font": "font-accent",
+      "leading": "leading-body",
+      "evidence": "SG 16 w400: course subtitles, persona roles x11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "body-sm": {
+      "size": "size-14",
+      "font": "font-primary",
+      "weight": "weight-regular",
+      "leading": "leading-heading",
+      "evidence": "footer/small print 14/1.35 Inter x9-11 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "caption": {
+      "size": "size-14",
+      "font": "font-accent",
+      "leading": "leading-heading",
+      "evidence": "article__meta SG 14 — WEIGHT DIVERGES LIVE: AIF w500 / AIG w400 (matches brand files) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "meta": {
+      "size": "size-12",
+      "font": "font-primary",
+      "weight": "weight-medium",
+      "leading": "leading-heading",
+      "evidence": "persona-card__meta, cohort markers Inter 12 w500 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "button": {
+      "size": "size-16",
+      "font": "font-accent",
+      "weight": "weight-bold",
+      "leading": "leading-normal",
+      "evidence": "btn--md/sm SG 16/14 w700 everywhere — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "button-small": {
+      "size": "size-14",
+      "font": "font-accent",
+      "weight": "weight-bold",
+      "leading": "leading-normal",
+      "evidence": "btn--sm SG 14 w700 — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course)"
+    },
+    "eyebrow": {
+      "size": "size-12",
+      "font": "font-mono",
+      "weight": "weight-bold",
+      "leading": "leading-none",
+      "evidence": "x9+ live: dark-blurb__title, course eyebrows, footer__label (Spline Mono 12 w700) — 2026-07-03 live harvest (AIF home/article + AIG home/article/archive/course) | rendered UPPERCASE live (CAPS is part of the style's identity)",
+      "case": "case-upper"
+    }
+  },
+  "breakpoints": {
+    "cuts": {
+      "bp-sm": {
+        "value": "600px",
+        "px": 600,
+        "bucket": "big phone / small tablet",
+        "min": "(min-width: 600px)",
+        "max": "(max-width: 599px)",
+        "description": "small cut — card grids 1→2 col, tighter paddings",
+        "evidence": "28 harvested conditions (max-599 ×12 · min-600 ×8 · max-600 ×8) across aifounders_web@73d4c05, aiguild@7454e1d, aiguild-blue@580275d — 2026-07-03 GitHub harvest, 324 @media blocks total"
+      },
+      "bp-md": {
+        "value": "768px",
+        "px": 768,
+        "bucket": "tablet",
+        "min": "(min-width: 768px)",
+        "max": "(max-width: 767px)",
+        "description": "THE phone/tablet cut — also the type content-ramp step (MECHANISM LAW): heading-md/sm/lead step here",
+        "evidence": "146 harvested conditions (max-767 ×73 · min-768 ×39 · off-by-one strays max-768 ×28 + min-769 ×6 normalized away by the BOUNDARY LAW) — the dominant cut in all three themes"
+      },
+      "bp-lg": {
+        "value": "1024px",
+        "px": 1024,
+        "bucket": "desktop",
+        "min": "(min-width: 1024px)",
+        "max": "(max-width: 1023px)",
+        "description": "tablet/desktop cut — both brands collapse their nav here",
+        "evidence": "99 harvested conditions (max-1023 ×51 · min-1024 ×26 + off-by-ones); nav collapse at max-1023 in AIF+AIG page.css, max-1024 in aiguild-blue style.css"
+      },
+      "bp-xl": {
+        "value": "1440px",
+        "px": 1440,
+        "bucket": "wide",
+        "min": "(min-width: 1440px)",
+        "max": "(max-width: 1439px)",
+        "description": "wide tier — ADDITIVE min-width enhancements only (Apple's 1441 pattern), never a max-width override",
+        "evidence": "min-1440 ×10 (AIF 3 · AIG 6 · blue 1); the stray 1280/1600/1920 values are adoption-time remaps or declared exceptions per the proposal §3.5"
+      }
+    },
+    "buckets": [
+      {
+        "name": "phone",
+        "from": 0,
+        "to": 599,
+        "cut": null
+      },
+      {
+        "name": "big phone / small tablet",
+        "from": 600,
+        "to": 767,
+        "cut": "bp-sm"
+      },
+      {
+        "name": "tablet",
+        "from": 768,
+        "to": 1023,
+        "cut": "bp-md"
+      },
+      {
+        "name": "desktop",
+        "from": 1024,
+        "to": 1439,
+        "cut": "bp-lg"
+      },
+      {
+        "name": "wide",
+        "from": 1440,
+        "to": null,
+        "cut": "bp-xl"
+      }
+    ]
+  },
+  "brandType": {
+    "heading-md-font": {
+      "aig": "font-display",
+      "aif": "font-primary"
+    },
+    "heading-md-weight": {
+      "aig": "weight-black",
+      "aif": "weight-extrabold"
+    },
+    "heading-sm-leading": {
+      "aig": "1.35",
+      "aif": "1.2"
+    },
+    "lead-leading": {
+      "aig": "1.5",
+      "aif": "1.6"
+    },
+    "description-weight": {
+      "aig": "weight-regular",
+      "aif": "weight-medium"
+    },
+    "caption-weight": {
+      "aig": "weight-regular",
+      "aif": "weight-medium"
+    },
+    "container-wider": {
+      "aig": "1100px",
+      "aif": "980px"
+    },
+    "heading-lg-size": {
+      "aig": "clamp(32px, 3.2vw, 44px)",
+      "aif": "clamp(28px, 4.7vw, 36px)"
+    }
+  }
+}

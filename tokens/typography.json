@@ -1,0 +1,141 @@
+{
+  "$description": "TYPE PRIMITIVES (operator layers 1-3): sizes are PURE (no line-height), leading + flow separate, fonts + weights (NO 300 - the Light law). Sizes = the HARVESTED list, not a formula.",
+  "size-12": {
+    "$value": "0.75rem"
+  },
+  "size-14": {
+    "$value": "0.875rem"
+  },
+  "size-16": {
+    "$value": "1rem"
+  },
+  "size-18": {
+    "$value": "1.125rem"
+  },
+  "size-20": {
+    "$value": "1.25rem"
+  },
+  "size-22": {
+    "$value": "1.375rem"
+  },
+  "size-24": {
+    "$value": "1.5rem"
+  },
+  "size-28": {
+    "$value": "1.75rem"
+  },
+  "size-36": {
+    "$value": "2.25rem"
+  },
+  "size-60": {
+    "$value": "3.75rem"
+  },
+  "size-80": {
+    "$value": "5rem"
+  },
+  "size-hero": {
+    "$value": "clamp(36px, 4.5vw, 64px)",
+    "$description": "h1 fluid"
+  },
+  "leading-none": {
+    "$value": "1"
+  },
+  "leading-snug": {
+    "$value": "1.05",
+    "$description": "display-card headlines (course-card title — harvested 1.05 'Apple display' override vs the 1.35 heading default; operator-approved 2026-07-05)"
+  },
+  "leading-tight": {
+    "$value": "1.1"
+  },
+  "leading-heading": {
+    "$value": "1.35"
+  },
+  "leading-body": {
+    "$value": "1.5"
+  },
+  "leading-relaxed": {
+    "$value": "1.7"
+  },
+  "leading-normal": {
+    "$value": "normal",
+    "$description": "buttons"
+  },
+  "flow-space": {
+    "$value": "{spacing-24}",
+    "$description": "paragraph + after h2/h3"
+  },
+  "flow-tight": {
+    "$value": "{spacing-16}",
+    "$description": "lists + after h4"
+  },
+  "flow-before-h2": {
+    "$value": "{spacing-48}"
+  },
+  "flow-before-h3": {
+    "$value": "{spacing-40}"
+  },
+  "flow-before-h4": {
+    "$value": "{spacing-32}"
+  },
+  "flow-figure": {
+    "$value": "{spacing-40}"
+  },
+  "flow-quote": {
+    "$value": "{spacing-56}",
+    "$description": "article pull quotes (AIG's deliberate 56, unified)"
+  },
+  "flow-quote-mobile": {
+    "$value": "{spacing-40}"
+  },
+  "font-display": {
+    "$value": "'Lazzer', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "font-primary": {
+    "$value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "font-accent": {
+    "$value": "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "font-mono": {
+    "$value": "'Spline Sans Mono', 'Fira Code', 'Consolas', monospace"
+  },
+  "weight-regular": {
+    "$value": "400"
+  },
+  "weight-medium": {
+    "$value": "500"
+  },
+  "weight-bold": {
+    "$value": "700"
+  },
+  "weight-extrabold": {
+    "$value": "800"
+  },
+  "weight-black": {
+    "$value": "900"
+  },
+  "size-display": {
+    "$value": "clamp(48px, 7vw, 96px)",
+    "$description": "homepage hero h1 (harvested rule, both brands)"
+  },
+  "size-title": {
+    "$value": "clamp(40px, 5.5vw, 80px)",
+    "$description": "newsletter-CTA display (the real source of the '80px title')"
+  },
+  "leading-display": {
+    "$value": "0.95",
+    "$description": "display headlines (harvested, both brands)"
+  },
+  "case-upper": {
+    "$value": "uppercase",
+    "$description": "text-transform primitive; concrete styles reference it (eyebrow)"
+  },
+  "tracking-label": {
+    "$value": "0.08em",
+    "$description": "letter-spacing primitive for the mono-label recipe (data-table header, record-list field labels) — calibrated 2026-07-04, one shared value"
+  },
+  "tracking-display": {
+    "$value": "-0.022em",
+    "$description": "letter-spacing dimension, DISPLAY rung — tight negative tracking for display headlines (course-card title, harvested); tracking is a typography dimension per operator 2026-07-05: label (0.08em) + display (-0.022em)"
+  }
+}
