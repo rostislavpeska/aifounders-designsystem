@@ -1,59 +1,59 @@
 <?php
 /**
- * AIGDS SANDBOX — full-width experiment pages (operator 2026-07-06).
+ * AIFDS SANDBOX — full-width experiment pages (operator 2026-07-06).
  *
  * A safe environment for homepage-scale proposals: complete replica
  * sections composed ONLY from DS tokens/components + per-experiment CSS
  * that lives WITH the experiment (never in components.css). Nothing here
  * is canon; pages exist to be judged and then promoted or deleted.
  *
- * Route: /?aigds_sandbox=1&page={slug}&theme={brand}
- * Registry: aigds_sandbox_pages() — slug => [title, callback].
+ * Route: /?aifds_sandbox=1&page={slug}&theme={brand}
+ * Registry: aifds_sandbox_pages() — slug => [title, callback].
  *
- * @package AIGDS
+ * @package AIFDS
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function aigds_sandbox_query_vars( $vars ) {
-	$vars[] = 'aigds_sandbox';
+function aifds_sandbox_query_vars( $vars ) {
+	$vars[] = 'aifds_sandbox';
 	return $vars;
 }
-add_filter( 'query_vars', 'aigds_sandbox_query_vars' );
+add_filter( 'query_vars', 'aifds_sandbox_query_vars' );
 
-function aigds_sandbox_pages() {
+function aifds_sandbox_pages() {
 	return array(
-		'benefits-a' => array( 'A — ONE primitive (aggressive unification)', 'aigds_sandbox_benefits_a' ),
-		'benefits-b' => array( 'B — TWO rows: benefit-card + blurb (middle)', 'aigds_sandbox_benefits_b' ),
-		'benefits-c' => array( 'C — THREE components (conservative)', 'aigds_sandbox_benefits_c' ),
-		'infobar'    => array( 'INFO BAR — three upgrade intensities (operator round)', 'aigds_sandbox_infobar' ),
-		'aif-home-v1' => array( 'AIF HOMEPAGE clone · V1 conservative (production, tokens only)', 'aigds_sandbox_aif_home_v1' ),
-		'aif-home-v2' => array( 'AIF HOMEPAGE clone · V2 — THE WORKING CONCEPT (canon info-bar + proposal-A benefits, no icons, secondary CTAs)', 'aigds_sandbox_aif_home_v2' ),
-		'aif-home-v3' => array( 'AIF HOMEPAGE clone · V3 transformed (ONE blockquote grammar everywhere)', 'aigds_sandbox_aif_home_v3' ),
+		'benefits-a' => array( 'A — ONE primitive (aggressive unification)', 'aifds_sandbox_benefits_a' ),
+		'benefits-b' => array( 'B — TWO rows: benefit-card + blurb (middle)', 'aifds_sandbox_benefits_b' ),
+		'benefits-c' => array( 'C — THREE components (conservative)', 'aifds_sandbox_benefits_c' ),
+		'infobar'    => array( 'INFO BAR — three upgrade intensities (operator round)', 'aifds_sandbox_infobar' ),
+		'aif-home-v1' => array( 'AIF HOMEPAGE clone · V1 conservative (production, tokens only)', 'aifds_sandbox_aif_home_v1' ),
+		'aif-home-v2' => array( 'AIF HOMEPAGE clone · V2 — THE WORKING CONCEPT (canon info-bar + proposal-A benefits, no icons, secondary CTAs)', 'aifds_sandbox_aif_home_v2' ),
+		'aif-home-v3' => array( 'AIF HOMEPAGE clone · V3 transformed (ONE blockquote grammar everywhere)', 'aifds_sandbox_aif_home_v3' ),
 	);
 }
 
-function aigds_sandbox_maybe_render() {
-	$on = get_query_var( 'aigds_sandbox' );
-	if ( ! $on && isset( $_GET['aigds_sandbox'] ) ) {
-		$on = sanitize_key( $_GET['aigds_sandbox'] );
+function aifds_sandbox_maybe_render() {
+	$on = get_query_var( 'aifds_sandbox' );
+	if ( ! $on && isset( $_GET['aifds_sandbox'] ) ) {
+		$on = sanitize_key( $_GET['aifds_sandbox'] );
 	}
 	if ( ! $on ) {
 		return;
 	}
 	$page = isset( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '';
 	nocache_headers();
-	aigds_sandbox_render( $page );
+	aifds_sandbox_render( $page );
 	exit;
 }
-add_action( 'template_redirect', 'aigds_sandbox_maybe_render' );
+add_action( 'template_redirect', 'aifds_sandbox_maybe_render' );
 
-function aigds_sandbox_render( $page ) {
-	$brand = aigds_styleguide_brand();
-	$GLOBALS['aigds_sg_brand'] = $brand;
-	$pages = aigds_sandbox_pages();
+function aifds_sandbox_render( $page ) {
+	$brand = aifds_styleguide_brand();
+	$GLOBALS['aifds_sg_brand'] = $brand;
+	$pages = aifds_sandbox_pages();
 	$title = isset( $pages[ $page ] ) ? $pages[ $page ][0] : 'Sandbox index';
 
 	header( 'Content-Type: text/html; charset=utf-8' );
@@ -68,8 +68,8 @@ function aigds_sandbox_render( $page ) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Space+Grotesk:wght@400;500;700&family=Spline+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?php echo esc_url( AIGDS_URL . 'assets/css/tokens.css?v=' . AIGDS_VERSION ); ?>">
-<link rel="stylesheet" href="<?php echo esc_url( AIGDS_URL . 'assets/css/components.css?v=' . AIGDS_VERSION ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( AIFDS_URL . 'assets/css/tokens.css?v=' . AIFDS_VERSION ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( AIFDS_URL . 'assets/css/components.css?v=' . AIFDS_VERSION ); ?>">
 <style>
 body { margin: 0; font-family: var(--font-primary); color: var(--text); background: var(--bg); }
 /* minimal sandbox chrome — a fixed top strip, never confusable with content */
@@ -85,9 +85,9 @@ body { margin: 0; font-family: var(--font-primary); color: var(--text); backgrou
 	<span class="sb-tag">SANDBOX</span>
 	<span><?php echo esc_html( $title ); ?></span>
 	<span style="margin-left:auto;">
-		<a href="<?php echo esc_url( add_query_arg( array( 'aigds_sandbox' => '1' ), home_url( '/' ) ) ); ?>">index</a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'aifds_sandbox' => '1' ), home_url( '/' ) ) ); ?>">index</a>
 		<?php foreach ( array( 'aiguild', 'aifounders' ) as $b ) : ?>
-			· <a href="<?php echo esc_url( add_query_arg( array( 'aigds_sandbox' => '1', 'page' => $page, 'theme' => $b ), home_url( '/' ) ) ); ?>"<?php echo $b === $brand ? ' style="text-decoration:underline;"' : ''; ?>><?php echo esc_html( $b ); ?></a>
+			· <a href="<?php echo esc_url( add_query_arg( array( 'aifds_sandbox' => '1', 'page' => $page, 'theme' => $b ), home_url( '/' ) ) ); ?>"<?php echo $b === $brand ? ' style="text-decoration:underline;"' : ''; ?>><?php echo esc_html( $b ); ?></a>
 		<?php endforeach; ?>
 	</span>
 </div>
@@ -101,7 +101,7 @@ body { margin: 0; font-family: var(--font-primary); color: var(--text); backgrou
 			<p class="body-md">Full-width proposal pages — DS tokens + per-experiment CSS. Nothing here is canon.</p>
 			<ul>
 				<?php foreach ( $pages as $slug => $def ) : ?>
-				<li style="margin:8px 0;"><a href="<?php echo esc_url( add_query_arg( array( 'aigds_sandbox' => '1', 'page' => $slug, 'theme' => $brand ), home_url( '/' ) ) ); ?>"><?php echo esc_html( $def[0] ); ?></a></li>
+				<li style="margin:8px 0;"><a href="<?php echo esc_url( add_query_arg( array( 'aifds_sandbox' => '1', 'page' => $slug, 'theme' => $brand ), home_url( '/' ) ) ); ?>"><?php echo esc_html( $def[0] ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -117,7 +117,7 @@ body { margin: 0; font-family: var(--font-primary); color: var(--text); backgrou
    SHARED DEMO CONTENT — the seven replica contexts (English, realistic)
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sb_benefits_content() {
+function aifds_sb_benefits_content() {
 	return array(
 		'hero'    => array( // AIG homepage-hero mini-benefits (dark-blurb row)
 			array( 'Accredited courses', 'Retraining accredited by the ministry — funding may cover up to 100%.', 'Browse courses' ),
@@ -150,11 +150,11 @@ function aigds_sb_benefits_content() {
 }
 
 /* Section wrappers shared by all three proposals: replica surfaces */
-function aigds_sb_section_open( $label, $classes = '', $style = '' ) {
+function aifds_sb_section_open( $label, $classes = '', $style = '' ) {
 	echo '<div class="sb-section-label">' . esc_html( $label ) . '</div>';
 	echo '<section class="' . esc_attr( $classes ) . '" style="padding:56px 24px;' . esc_attr( $style ) . '"><div style="max-width:1200px;margin:0 auto;">';
 }
-function aigds_sb_section_close() {
+function aifds_sb_section_close() {
 	echo '</div></section>';
 }
 
@@ -166,8 +166,8 @@ function aigds_sb_section_close() {
    (body-lg · caption). The SG/Inter body split DIES.
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sandbox_benefits_a() {
-	$c = aigds_sb_benefits_content();
+function aifds_sandbox_benefits_a() {
+	$c = aifds_sb_benefits_content();
 	?>
 	<style>
 	/* EXPERIMENT CSS — proposal A (not canon) */
@@ -189,7 +189,7 @@ function aigds_sandbox_benefits_a() {
 	.benefit--statement .benefit__body { font-size: var(--body-md-size); color: var(--text); }
 	</style>
 
-	<?php aigds_sb_section_open( 'A/1 · homepage hero mini-benefits — dark blurb row → .benefit (compact, icon, action)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'A/1 · homepage hero mini-benefits — dark blurb row → .benefit (compact, icon, action)', 'section-dark' ); ?>
 	<div class="benefit-row">
 		<?php foreach ( $c['hero'] as $b ) : ?>
 		<div class="benefit">
@@ -200,17 +200,17 @@ function aigds_sandbox_benefits_a() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'A/2 · info-bar statements → .benefit--statement --rule-left (no title)', 'content-section--dark-secondary section-dark' ); ?>
+	<?php aifds_sb_section_open( 'A/2 · info-bar statements → .benefit--statement --rule-left (no title)', 'content-section--dark-secondary section-dark' ); ?>
 	<div class="benefit-row">
 		<?php foreach ( $c['infobar'] as $t ) : ?>
 		<div class="benefit benefit--statement benefit--rule-left"><p class="benefit__body"><?php echo esc_html( $t ); ?></p></div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'A/3 · editorial numbered benefits (homepage + course) → .benefit--display --rule-top, auto-numbered', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'A/3 · editorial numbered benefits (homepage + course) → .benefit--display --rule-top, auto-numbered', 'section-dark' ); ?>
 	<div class="benefit-row benefit-row--numbered">
 		<?php foreach ( $c['certs'] as $b ) : ?>
 		<div class="benefit benefit--display benefit--rule-top">
@@ -220,9 +220,9 @@ function aigds_sandbox_benefits_a() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'A/4 · "Six areas" light cells → .benefit--display with LABEL eyebrows (same component, light surface)' ); ?>
+	<?php aifds_sb_section_open( 'A/4 · "Six areas" light cells → .benefit--display with LABEL eyebrows (same component, light surface)' ); ?>
 	<div class="benefit-row" style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px 64px; border-top: var(--stroke-2) solid var(--border-strong); padding-top:56px;">
 		<?php foreach ( $c['lpwhat'] as $b ) : ?>
 		<div class="benefit benefit--display">
@@ -232,9 +232,9 @@ function aigds_sandbox_benefits_a() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'A/5 · footer blurbs → .benefit with eyebrow-as-title (no title slot)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'A/5 · footer blurbs → .benefit with eyebrow-as-title (no title slot)', 'section-dark' ); ?>
 	<div class="benefit-row" style="max-width:800px;">
 		<?php foreach ( $c['footer'] as $b ) : ?>
 		<div class="benefit">
@@ -243,7 +243,7 @@ function aigds_sandbox_benefits_a() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 	<?php
 }
 
@@ -252,8 +252,8 @@ function aigds_sandbox_benefits_a() {
    (quiet utility). The two real JOBS: SELLING vs ORIENTING.
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sandbox_benefits_b() {
-	$c = aigds_sb_benefits_content();
+function aifds_sandbox_benefits_b() {
+	$c = aifds_sb_benefits_content();
 	?>
 	<style>
 	/* EXPERIMENT CSS — proposal B (not canon) */
@@ -285,7 +285,7 @@ function aigds_sandbox_benefits_b() {
 	.blurb--label-title .eyebrow { color: var(--text-tertiary); line-height: 1.6; }
 	</style>
 
-	<?php aigds_sb_section_open( 'B/1 · hero mini-benefits → .blurb--boxed (icon + title + caption + pinned CTA)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'B/1 · hero mini-benefits → .blurb--boxed (icon + title + caption + pinned CTA)', 'section-dark' ); ?>
 	<div class="blurb-row">
 		<?php foreach ( $c['hero'] as $b ) : ?>
 		<div class="blurb blurb--boxed">
@@ -298,17 +298,17 @@ function aigds_sandbox_benefits_b() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'B/2 · info-bar → .blurb--statement (description voice keeps the SG statement feel)', 'content-section--dark-secondary section-dark' ); ?>
+	<?php aifds_sb_section_open( 'B/2 · info-bar → .blurb--statement (description voice keeps the SG statement feel)', 'content-section--dark-secondary section-dark' ); ?>
 	<div class="blurb-row">
 		<?php foreach ( $c['infobar'] as $t ) : ?>
 		<div class="blurb blurb--statement"><div class="blurb__content"><p class="blurb__body"><?php echo esc_html( $t ); ?></p></div></div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'B/3 · editorial numbered benefits → .benefit-card (auto-numbered eyebrow)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'B/3 · editorial numbered benefits → .benefit-card (auto-numbered eyebrow)', 'section-dark' ); ?>
 	<div class="bcard-row bcard-row--numbered">
 		<?php foreach ( $c['certs'] as $b ) : ?>
 		<div class="benefit-card">
@@ -318,9 +318,9 @@ function aigds_sandbox_benefits_b() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'B/4 · "Six areas" → .benefit-card--sm with label eyebrows (same card, light + smaller rung)' ); ?>
+	<?php aifds_sb_section_open( 'B/4 · "Six areas" → .benefit-card--sm with label eyebrows (same card, light + smaller rung)' ); ?>
 	<div class="bcard-row" style="border-top: var(--stroke-2) solid var(--border-strong); padding-top:56px;">
 		<?php foreach ( $c['lpwhat'] as $b ) : ?>
 		<div class="benefit-card benefit-card--sm" style="border-top:0; padding-top:0;">
@@ -330,9 +330,9 @@ function aigds_sandbox_benefits_b() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'B/5 · footer blurbs → .blurb--label-title (the eyebrow IS the title)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'B/5 · footer blurbs → .blurb--label-title (the eyebrow IS the title)', 'section-dark' ); ?>
 	<div class="blurb-row" style="max-width:800px;">
 		<?php foreach ( $c['footer'] as $b ) : ?>
 		<div class="blurb blurb--label-title">
@@ -343,7 +343,7 @@ function aigds_sandbox_benefits_b() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 	<?php
 }
 
@@ -352,8 +352,8 @@ function aigds_sandbox_benefits_b() {
    only the eyebrow atom + tokens unified.
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sandbox_benefits_c() {
-	$c = aigds_sb_benefits_content();
+function aifds_sandbox_benefits_c() {
+	$c = aifds_sb_benefits_content();
 	?>
 	<style>
 	/* EXPERIMENT CSS — proposal C (not canon) */
@@ -388,7 +388,7 @@ function aigds_sandbox_benefits_c() {
 	.c-footer p { font-family: var(--body-md-font); font-size: var(--caption-size); line-height: var(--leading-heading); color: var(--text); margin: 0; }
 	</style>
 
-	<?php aigds_sb_section_open( 'C/1 · hero mini-benefits → .c-blurb (production look, tokens only)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'C/1 · hero mini-benefits → .c-blurb (production look, tokens only)', 'section-dark' ); ?>
 	<div class="c-blurbs">
 		<?php foreach ( $c['hero'] as $b ) : ?>
 		<div class="c-blurb">
@@ -403,17 +403,17 @@ function aigds_sandbox_benefits_c() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'C/2 · info-stripe (production info-bar, tokens only)', 'content-section--dark-secondary section-dark' ); ?>
+	<?php aifds_sb_section_open( 'C/2 · info-stripe (production info-bar, tokens only)', 'content-section--dark-secondary section-dark' ); ?>
 	<div class="c-stripe">
 		<?php foreach ( $c['infobar'] as $t ) : ?>
 		<div class="c-stripe__item"><p><?php echo esc_html( $t ); ?></p></div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'C/3 · editorial benefit-card (production cert-card, tokens only)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'C/3 · editorial benefit-card (production cert-card, tokens only)', 'section-dark' ); ?>
 	<div class="c-row">
 		<?php foreach ( $c['certs'] as $b ) : ?>
 		<div class="c-cert">
@@ -423,9 +423,9 @@ function aigds_sandbox_benefits_c() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'C/4 · "Six areas" → benefit-card size variant (production lp-what look)' ); ?>
+	<?php aifds_sb_section_open( 'C/4 · "Six areas" → benefit-card size variant (production lp-what look)' ); ?>
 	<div class="c-row" style="border-top: var(--stroke-2) solid var(--border-strong); padding-top:56px; counter-reset:none;">
 		<?php foreach ( $c['lpwhat'] as $b ) : ?>
 		<div class="c-cert c-cert--sm">
@@ -435,9 +435,9 @@ function aigds_sandbox_benefits_c() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 
-	<?php aigds_sb_section_open( 'C/5 · footer blurbs (production look, tokens only)', 'section-dark' ); ?>
+	<?php aifds_sb_section_open( 'C/5 · footer blurbs (production look, tokens only)', 'section-dark' ); ?>
 	<div style="display:flex; gap:48px; flex-wrap:wrap;">
 		<?php foreach ( $c['footer'] as $b ) : ?>
 		<div class="c-footer">
@@ -446,7 +446,7 @@ function aigds_sandbox_benefits_c() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php aigds_sb_section_close(); ?>
+	<?php aifds_sb_section_close(); ?>
 	<?php
 }
 
@@ -458,8 +458,8 @@ function aigds_sandbox_benefits_c() {
    experiment is still open — judge both here).
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sandbox_infobar() {
-	$statements = aigds_sb_benefits_content()['infobar'];
+function aifds_sandbox_infobar() {
+	$statements = aifds_sb_benefits_content()['infobar'];
 	?>
 	<style>
 	/* EXPERIMENT CSS — info-bar intensities (not canon) */
@@ -489,21 +489,21 @@ function aigds_sandbox_infobar() {
 		array( 'ib-v3', 'V3 · FULLY TRANSFORMED — the perex voice verbatim (lead-size bold, surface-aware --perex-border, mini-blockquotes)' ),
 	) as $v ) : list( $cls, $label ) = $v; ?>
 
-		<?php aigds_sb_section_open( $label . ' — on the production DARK stripe', 'content-section--dark-secondary section-dark' ); ?>
+		<?php aifds_sb_section_open( $label . ' — on the production DARK stripe', 'content-section--dark-secondary section-dark' ); ?>
 		<div class="ib-row">
 			<?php foreach ( $statements as $t ) : ?>
 			<div class="<?php echo esc_attr( $cls ); ?>"><p><?php echo esc_html( $t ); ?></p></div>
 			<?php endforeach; ?>
 		</div>
-		<?php aigds_sb_section_close(); ?>
+		<?php aifds_sb_section_close(); ?>
 
-		<?php aigds_sb_section_open( $label . ' — on a LIGHT band (the open AIG homepage experiment)', 'content-section--secondary' ); ?>
+		<?php aifds_sb_section_open( $label . ' — on a LIGHT band (the open AIG homepage experiment)', 'content-section--secondary' ); ?>
 		<div class="ib-row">
 			<?php foreach ( $statements as $t ) : ?>
 			<div class="<?php echo esc_attr( $cls ); ?>"><p><?php echo esc_html( $t ); ?></p></div>
 			<?php endforeach; ?>
 		</div>
-		<?php aigds_sb_section_close(); ?>
+		<?php aifds_sb_section_close(); ?>
 
 	<?php endforeach; ?>
 	<?php
@@ -519,7 +519,7 @@ function aigds_sandbox_infobar() {
    Three versions = three family-treatment concepts.
    ═══════════════════════════════════════════════════════════════════════ */
 
-function aigds_sb_aif_home_content() {
+function aifds_sb_aif_home_content() {
 	return array(
 		'hero_headline' => 'Otevřená iniciativa pro české AI-průkopníky.',
 		'hero_highlight' => '#signals',
@@ -540,7 +540,7 @@ function aigds_sb_aif_home_content() {
 }
 
 /* shared shell CSS: hero + section scaffolding (identical in all versions) */
-function aigds_sb_aif_home_shell_css() {
+function aifds_sb_aif_home_shell_css() {
 	?>
 	<style>
 	/* EXPERIMENT CSS — AIF homepage clone shell (not canon) */
@@ -571,9 +571,9 @@ function aigds_sb_aif_home_shell_css() {
 	<?php
 }
 
-function aigds_sb_aif_home_render( $v ) {
-	$c = aigds_sb_aif_home_content();
-	aigds_sb_aif_home_shell_css();
+function aifds_sb_aif_home_render( $v ) {
+	$c = aifds_sb_aif_home_content();
+	aifds_sb_aif_home_shell_css();
 	?>
 	<style>
 	/* version-specific treatments */
@@ -659,7 +659,7 @@ function aigds_sb_aif_home_render( $v ) {
 	<?php
 }
 
-function aigds_sandbox_aif_home_v1() { aigds_sb_aif_home_render( 1 ); }
-function aigds_sandbox_aif_home_v2() { aigds_sb_aif_home_render( 2 ); }
-function aigds_sandbox_aif_home_v3() { aigds_sb_aif_home_render( 3 ); }
+function aifds_sandbox_aif_home_v1() { aifds_sb_aif_home_render( 1 ); }
+function aifds_sandbox_aif_home_v2() { aifds_sb_aif_home_render( 2 ); }
+function aifds_sandbox_aif_home_v3() { aifds_sb_aif_home_render( 3 ); }
 

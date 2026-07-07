@@ -1,6 +1,6 @@
 # Sticky bar
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#sticky-bar` · **Specimen:** `/?aigds_styleguide=1&item=sticky-bar`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#sticky-bar` · **Specimen:** `/?aifds_styleguide=1&item=sticky-bar`
 
 ## Intent
 

@@ -1,26 +1,42 @@
 {
   "name": "aifounders-designsystem",
-  "version": "2.0.0-dev.0",
-  "description": "The AI Founders design system — a WordPress-plugin design system where code is the source of truth: DTCG tokens, a two-brand surface-scope architecture, real-markup styleguide, and a Playwright contract gate.",
+  "version": "2.0.0-rc.1",
+  "description": "A robust, production-ready AI Founders Design System focusing on \"Apple-grade\" UI components, high-precision Figma implementation, and seamless WordPress integration.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
+    "start": "npx http-server . -p 8080",
+    "test": "npx playwright test",
+    "test:update": "npx playwright test --update-snapshots",
+    "test:report": "npx playwright show-report",
+    "test:auto": "npx playwright test --reporter=list",
     "tokens:build": "node build/build.mjs",
     "tokens:check": "node build/compare.mjs",
+    "test:tokens": "node build/lint-css.mjs && playwright test tests/tokens.spec.js",
     "lint:css": "node build/lint-css.mjs",
-    "test": "npx playwright test",
-    "test:tokens": "node build/lint-css.mjs && playwright test tests/tokens.spec.js"
+    "test:layout": "npx playwright test tests/layout.spec.js",
+    "test:all": "node build/lint-css.mjs && npx playwright test",
+    "rows:build": "node build/rows.mjs",
+    "shots": "node build/shots.mjs",
+    "test:a11y": "npx playwright test tests/a11y.spec.js",
+    "test:interactions": "npx playwright test tests/interactions.spec.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rostislavpeska/aifounders-designsystem.git"
+    "url": "git+https://github.com/rostislavpeska/aig-desigsystem.git"
   },
-  "author": "Rostislav Peška",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/rostislavpeska/aifounders-designsystem/issues"
+    "url": "https://github.com/rostislavpeska/aig-desigsystem/issues"
   },
-  "homepage": "https://github.com/rostislavpeska/aifounders-designsystem#readme",
+  "homepage": "https://github.com/rostislavpeska/aig-desigsystem#readme",
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "^1.58.0",
     "http-server": "^14.1.1"
   }

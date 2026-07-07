@@ -1,6 +1,6 @@
 # Engagement
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#engagement` · **Specimen:** `/?aigds_styleguide=1&item=engagement`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#engagement` · **Specimen:** `/?aifds_styleguide=1&item=engagement`
 
 ## Intent
 
@@ -25,12 +25,12 @@ newsletter-capture precedent).
      data-i18n='{"ahaLabel":"Aha!","ahaThanks":"…","shareLabel":"…"}'>
   <div class="aif-engagement__row">
     <button type="button" class="aif-aha" aria-pressed="false" aria-label="Aha!">
-      <span class="aif-aha__icon-wrap"><?php echo aigds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aigds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span>
+      <span class="aif-aha__icon-wrap"><?php echo aifds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aifds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span>
       <span class="aif-aha__label">Aha!</span>
       <span class="aif-aha__count">12</span>
     </button>
     <button type="button" class="aif-share" aria-label="Share article">
-      <span class="aif-share__icon-wrap"><?php echo aigds_icon( 'share', array( 'size' => 24 ) ); ?></span>
+      <span class="aif-share__icon-wrap"><?php echo aifds_icon( 'share', array( 'size' => 24 ) ); ?></span>
       <span class="aif-share__label">Share article</span>
       <span class="aif-share__count" hidden>0</span>
     </button>
@@ -119,3 +119,11 @@ from currentColor, identical on both brands per the harvest.
 - At adoption both themes' engagement CSS blocks and `engagement.js` are
   deleted in favor of the DS copies (identical anyway); the theme keeps its
   AJAX handlers + the AddToAny-hiding rules.
+
+## Vendor selectors (theming contract)
+
+The share popover is the AddToAny plugin's DOM — the DS only THEMES it.
+Canon carries rules for the vendor classes `.addtoany_share`, `.a2a_dd`,
+`.a2a_svg`, `.a2a_button_show_more` (runtime-injected by the plugin,
+never in DS markup — audit 2026-07-06: documented so the class census
+knows they are contract, not orphans).

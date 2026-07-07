@@ -1,6 +1,6 @@
 # PLAYWRIGHT-AGENTIC — a meaningful gate for an agent-built design system
 
-**Status: PROPOSAL 2026-07-06 — researched, nothing built.** Deep-research
+**Status: BUILT 2026-07-06 (audit Phases 0+D)** — L2 `layout.spec.js`, L3 `a11y.spec.js` (baseline mode, 180 entries committed), L4 `interactions.spec.js` (modal + accordion pilot), `npm run shots`. Rollout steps 0–4 done; step 5 (L3 ratchet burn-down) ongoing — see [AUDIT-2026-07](AUDIT-2026-07.md). Deep-research
 harness run 2026-07-06: 5 angles · 23 sources fetched · 109 claims extracted ·
 25 adversarially verified (3-vote) → **23 confirmed, 2 refuted**. Fused with
 the AIF internal vector store (our own field-tested articles) and the measured

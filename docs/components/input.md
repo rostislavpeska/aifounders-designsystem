@@ -1,6 +1,6 @@
 # Input
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#forms` · **Specimen:** `/?aigds_styleguide=1&item=input`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#forms` · **Specimen:** `/?aifds_styleguide=1&item=input`
 
 ## Intent
 Input is the text field — the element you reach for whenever the user must type free-form text: an e-mail, a name, a search phrase, a URL. It is the anchor atom of the forms domain: its wrapper/label/helper/error/disabled system is the contract every other field-shaped control reuses. **Textarea is a variant of Input, not a sibling** — multi-line text shares the entire `.form-group` scaffolding and only swaps in `.form-control-wrapper--textarea` (VECTOR-DS §6/§10). Do NOT use Input when the answer set is known and finite — use Select (pick one from a list), Radio (small always-visible exclusive set), Checkbox (independent options), or Datepicker (a date). The contract in one breath: field colors are surface roles (`--field-*` tokens), so the same markup adapts to light, dark, and brand backgrounds; the field exists in two sizes (LARGE token root, SMALL via the `.form-scale-small` scope) and SMALL relaxes back to touch size on narrow viewports or coarse pointers; error and disabled are group-level states, not ad-hoc styling.
@@ -15,7 +15,7 @@ Class map (nesting order):
 - `.form-icon` — optional; inline SVG inside the wrapper, sized to `--field-font-size` (never the 24px icon default), `display: block`, colored `--field-placeholder`.
 - `.form-helper-row` › `.form-helper-text` — optional; meta voice, `--text-tertiary`; turns `--status-error` inside `.form-group--error`.
 
-Minimal example (from the specimen, `inc/styleguide.php` → `aigds_sg_item_input()`):
+Minimal example (from the specimen, `inc/styleguide.php` → `aifds_sg_item_input()`):
 
 ```html
 <div class="form-group">

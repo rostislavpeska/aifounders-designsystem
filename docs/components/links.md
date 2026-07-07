@@ -1,6 +1,6 @@
 # Links (global link system + card link utilities)
 
-**Type:** system · **Status:** shipped · **git_path:** `assets/css/components.css#global-link-system` · **Specimen:** `/?aigds_styleguide=1&item=surfaces`
+**Type:** system · **Status:** shipped · **git_path:** `assets/css/components.css#global-link-system` · **Specimen:** `/?aifds_styleguide=1&item=surfaces`
 
 ## Intent
 The global link system styles every `<a>` inside `main` / the section scopes **by default** — you never opt a prose link in; components that are not text links opt OUT via the exclusion chain. Reach for it by doing nothing: an inline link in editor content, a footnote, a "read more" in running text all get the LINK IDIOM automatically. Do NOT restyle links per component; if a component's anchor must not look like a text link (buttons, badges, nav items, card title/image links), it must appear in the `:not()` exclusion chain, otherwise the global recipe wins and the component's look breaks. The idiom (operator 2026-07-02): resting state = a **1px hairline underline lowered 4px** (Apple-grade) on every surface; hover feedback = color shift on light/dark; on brand the underline **thickens to 2px** because color can't shift there (links are already black). Feedback by subtraction (removing the underline on hover) is outlawed. Colors are roles: `--link` / `--link-hover` re-resolve per surface, so the same rule renders brand-ink on light, brand-bright on dark, black on brand.

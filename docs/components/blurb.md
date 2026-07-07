@@ -1,6 +1,6 @@
 # Blurb + stack grid
 
-**Type:** component + layout primitive · **Status:** shipped · **git_path:** `assets/css/components.css#blurb` · **Specimen:** `/?aigds_styleguide=1&item=blurb`
+**Type:** component + layout primitive · **Status:** shipped · **git_path:** `assets/css/components.css#blurb` · **Specimen:** `/?aifds_styleguide=1&item=blurb`
 
 ## Intent
 

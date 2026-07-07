@@ -8,7 +8,7 @@
 
 ## 📋 Overview
 
-This document provides complete instructions for implementing the AI Guild Design System in WordPress. All components are production-ready, tested, and follow Apple-grade quality standards.
+This document provides complete instructions for implementing the AI Founders Design System in WordPress. All components are production-ready, tested, and follow Apple-grade quality standards.
 
 ---
 

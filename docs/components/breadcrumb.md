@@ -1,6 +1,6 @@
 # Breadcrumb
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#breadcrumb` · **Specimen:** `/?aigds_styleguide=1&item=breadcrumb`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#breadcrumb` · **Specimen:** `/?aifds_styleguide=1&item=breadcrumb`
 
 ## Intent
 

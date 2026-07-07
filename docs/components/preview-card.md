@@ -1,6 +1,6 @@
 # Preview card
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#preview-card` · **Specimen:** `/?aigds_styleguide=1&item=preview-card`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#preview-card` · **Specimen:** `/?aifds_styleguide=1&item=preview-card`
 
 ## Intent
 
@@ -27,10 +27,10 @@ into these two axes; content differences are composition, not CSS.
     <h3 class="preview-card__headline"><a class="card-title-link" href="…">Title</a></h3>
     <div class="preview-card__meta">5 Jul 2026<span class="preview-card__meta-separator">|</span>Author: …</div>
     <div class="preview-card__badges"><span class="badge badge--editorial">Editorial</span>…</div>
-    <div class="preview-card__skills"><?php echo aigds_icon( 'skills', array( 'size' => 16 ) ); ?> <span><a href="…">Python</a>, …</span></div>
+    <div class="preview-card__skills"><?php echo aifds_icon( 'skills', array( 'size' => 16 ) ); ?> <span><a href="…">Python</a>, …</span></div>
     <p class="preview-card__text">Excerpt…</p>   <!-- signals: a <div> with <p> paragraphs -->
     <div class="preview-card__actions">
-      <a class="btn btn--sm btn--link" href="…"><?php echo aigds_icon( 'arrow-right', array( 'size' => 16 ) ); ?> Read more</a>
+      <a class="btn btn--sm btn--link" href="…"><?php echo aifds_icon( 'arrow-right', array( 'size' => 16 ) ); ?> Read more</a>
     </div>
   </div>
 </article>

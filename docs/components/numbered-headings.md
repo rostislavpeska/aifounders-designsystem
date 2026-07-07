@@ -1,6 +1,6 @@
 # Numbered headings
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#numbered-headings` · **Specimen:** `/?aigds_styleguide=1&item=prose`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#numbered-headings` · **Specimen:** `/?aifds_styleguide=1&item=prose`
 
 ## Intent
 `.numbered-headings` is an auto-numbered section-heading mechanism harvested from both themes' `.course-syllabus` (live on the course-detail page): each `<h3>` inside the wrapper auto-increments a number rendered in a **brand-colored tile** before its text, and all following content indents to align under the heading text. Reach for it when a page section is a scannable ordered sequence — course modules, syllabus blocks, step-by-step program outlines — and you want reorder-safe numbering with zero markup (numbers are pure CSS counters; move a block and the numbers re-flow). Do NOT reach for it for ordinary prose headings (use the prose defaults), for inline ordered lists (use `<ol>`), or when the numbers carry no meaning. The contract: ONE mechanism, no brand scoping — the tile fill is `--brand` (yellow AIG / blue AIF, resolves per brand automatically) with the digit in `--text-on-brand`; the heading text is the page-context heading-md style; content indent = tile width + gap. What breaks: putting the number in markup (defeats reorder safety), or changing the tile geometry ad hoc — the 44/32px tile and 22/18px digit are component calibration, like the bullet-arrow raw px.

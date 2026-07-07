@@ -1,0 +1,244 @@
+{
+ "aifounders/breakpoints": [
+  "color-contrast :: div:nth-child(2) > span:nth-child(2)",
+  "color-contrast :: div:nth-child(4) > span:nth-child(2)"
+ ],
+ "aifounders/colors": [
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(36) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(37) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(40) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(41) > td:nth-child(5) > span",
+  "color-contrast :: th:nth-child(3) > span",
+  "color-contrast :: th:nth-child(4) > span",
+  "color-contrast :: th:nth-child(5) > span",
+  "color-contrast :: th:nth-child(6) > span",
+  "color-contrast :: th:nth-child(7) > span",
+  "color-contrast :: th:nth-child(8) > span",
+  "color-contrast :: th:nth-child(9) > span",
+  "color-contrast :: tr:nth-child(42) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(43) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(44) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(45) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(46) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(51) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(52) > td:nth-child(5) > span",
+  "scrollable-region-focusable :: table[data-test=\"transforms-matrix\"]"
+ ],
+ "aifounders/comments": [
+  "label :: textarea[rows=\"4\"]"
+ ],
+ "aifounders/course-card": [
+  "color-contrast :: #course-accent-demo > div:nth-child(3) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-grid-demo > .course-card-slot:nth-child(2) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-orientation-demo > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-orientation-demo > div:nth-child(2) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-state-demo > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .content-section--secondary > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-accent--quaternary",
+  "color-contrast :: .course-accent--secondary",
+  "color-contrast :: .course-card-slot:nth-child(1) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-card-slot:nth-child(3) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > .course-accent--primary.course-info-card__eyebrow",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > .course-info-card__subtitle",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > h3",
+  "color-contrast :: div:nth-child(10) > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: div:nth-child(10) > div:nth-child(3) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: main > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "link-name :: #course-grid-demo > .course-card-slot:nth-child(2) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-orientation-demo > div:nth-child(1) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-orientation-demo > div:nth-child(2) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-state-demo > div:nth-child(1) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: .course-card-slot:nth-child(1) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: .course-card-slot:nth-child(3) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: div:nth-child(10) > div:nth-child(2) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: main > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]"
+ ],
+ "aifounders/data-tables": [
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(1) > .cell--success",
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(2) > .cell--warning",
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(3) > .cell--error"
+ ],
+ "aifounders/datepicker": [
+  "color-contrast :: .calendar-day--outside.calendar-day:nth-child(8)",
+  "color-contrast :: .calendar-day--outside.calendar-day:nth-child(9)",
+  "label :: input[value=\"07/07/2026\"]"
+ ],
+ "aifounders/engagement": [
+  "link-name :: .a2a_button_copy_link[href=\"#\"][data-aif-bound=\"1\"]",
+  "link-name :: .a2a_button_email[href=\"#\"][data-aif-bound=\"1\"]",
+  "link-name :: .a2a_button_linkedin[href=\"#\"][data-aif-bound=\"1\"]"
+ ],
+ "aifounders/file-upload": [
+  "color-contrast :: .is-dragover > .dropzone-formats",
+  "color-contrast :: label > .dropzone-formats"
+ ],
+ "aifounders/footer": [
+  "color-contrast :: #footer-full > .footer__inner > .stack-grid > .blurb:nth-child(1) > .blurb__eyebrow",
+  "color-contrast :: #footer-full > .footer__inner > .stack-grid > .blurb:nth-child(2) > .blurb__eyebrow",
+  "color-contrast :: #footer-full > .footer__inner > .stack-grid > .blurb:nth-child(3) > .blurb__eyebrow",
+  "color-contrast :: #footer-minimal > .footer__inner > .stack-grid > .blurb:nth-child(1) > .blurb__eyebrow",
+  "color-contrast :: #footer-minimal > .footer__inner > .stack-grid > .blurb:nth-child(2) > .blurb__eyebrow",
+  "color-contrast :: #footer-minimal > .footer__inner > .stack-grid > .blurb:nth-child(3) > .blurb__eyebrow",
+  "color-contrast :: .footer__label"
+ ],
+ "aifounders/form-composition": [
+  "aria-required-children :: div[role=\"tablist\"]",
+  "color-contrast :: .dropzone-formats"
+ ],
+ "aifounders/header": [
+  "color-contrast :: .sg-note:nth-child(2) > a[href=\"#\"]"
+ ],
+ "aifounders/persona-card": [
+  "color-contrast :: #persona-light-demo > .persona-card > .persona-card__content > .persona-card__header > .persona-card__role",
+  "color-contrast :: #persona-light-demo > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: #persona-short-demo > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .persona-card-slot:nth-child(2) > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .persona-card:nth-child(3) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(12) > .persona-card-slot:nth-child(1) > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(5) > .persona-card:nth-child(1) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(5) > .persona-card:nth-child(2) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(9) > .persona-card:nth-child(1) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(9) > .persona-card:nth-child(2) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: div:nth-child(14) > .persona-card-slot > .persona-card > .persona-card__content > .persona-card__header > .persona-card__role",
+  "color-contrast :: div:nth-child(14) > .persona-card-slot > .persona-card > .persona-card__content > .persona-card__meta"
+ ],
+ "aifounders/radius-shadows": [
+  "color-contrast :: div:nth-child(2) > span",
+  "color-contrast :: div:nth-child(6) > div:nth-child(1) > span"
+ ],
+ "aifounders/reference-card": [
+  "color-contrast :: .reference-card:nth-child(6) > .reference-card__header > .reference-card__title-group > .reference-card__subtitle",
+  "color-contrast :: .reference-card:nth-child(9) > .reference-card__header > .reference-card__title-group > .reference-card__subtitle"
+ ],
+ "aifounders/segmented": [
+  "aria-required-children :: div[aria-label=\"Media type small\"]",
+  "aria-required-children :: div[aria-label=\"Media type\"]"
+ ],
+ "aifounders/sticky-bar": [
+  "aria-hidden-focus :: div[data-sticky-cta=\"\"]"
+ ],
+ "aifounders/surfaces": [
+  "color-contrast :: .content-section--secondary > main > div:nth-child(1) > span > a[href=\"#\"]",
+  "color-contrast :: .content-section--tertiary > main > div:nth-child(1) > span > a[href=\"#\"]",
+  "color-contrast :: .surface-support > main > div:nth-child(1) > span > a[href=\"#\"]"
+ ],
+ "aifounders/text-elements": [
+  "color-contrast :: .sg-note:nth-child(2) > a"
+ ],
+ "aifounders/typography": [
+  "color-contrast :: tr:nth-child(10) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(12) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(13) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(14) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(15) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(16) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(17) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(18) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(19) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(20) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(21) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(7) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(8) > td:nth-child(6) > span",
+  "scrollable-region-focusable :: .sg-fullbleed > table"
+ ],
+ "aiguild/colors": [
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(36) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(37) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(40) > td:nth-child(5) > span",
+  "color-contrast :: table:nth-child(21) > tbody > tr:nth-child(41) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(42) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(43) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(44) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(45) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(46) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(51) > td:nth-child(5) > span",
+  "color-contrast :: tr:nth-child(52) > td:nth-child(5) > span",
+  "scrollable-region-focusable :: table[data-test=\"transforms-matrix\"]"
+ ],
+ "aiguild/comments": [
+  "label :: textarea[rows=\"4\"]"
+ ],
+ "aiguild/course-card": [
+  "color-contrast :: #course-accent-demo > div:nth-child(3) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-grid-demo > .course-card-slot:nth-child(2) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-orientation-demo > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-orientation-demo > div:nth-child(2) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: #course-state-demo > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .content-section--secondary > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-accent--quaternary",
+  "color-contrast :: .course-accent--secondary",
+  "color-contrast :: .course-card-slot:nth-child(1) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-card-slot:nth-child(3) > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > .course-accent--primary.course-info-card__eyebrow",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > .course-info-card__subtitle",
+  "color-contrast :: .course-info-card--inactive > .course-info-card__content > h3",
+  "color-contrast :: div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-accent--primary.course-info-card__eyebrow",
+  "color-contrast :: div:nth-child(10) > div:nth-child(1) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: div:nth-child(10) > div:nth-child(3) > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "color-contrast :: main > .course-card-slot > article > .course-info-card__content > .course-info-card__eyebrow",
+  "link-name :: #course-grid-demo > .course-card-slot:nth-child(2) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-orientation-demo > div:nth-child(1) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-orientation-demo > div:nth-child(2) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: #course-state-demo > div:nth-child(1) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: .course-card-slot:nth-child(1) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: .course-card-slot:nth-child(3) > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: div:nth-child(10) > div:nth-child(2) > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]",
+  "link-name :: main > .course-card-slot > article > .card-image-link.course-info-card__illustration-lg[href=\"#\"]"
+ ],
+ "aiguild/data-tables": [
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(1) > .cell--success",
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(2) > .cell--warning",
+  "color-contrast :: .section-brand > .table-scroll > .data-table--condensed > tbody > tr:nth-child(3) > .cell--error"
+ ],
+ "aiguild/datepicker": [
+  "color-contrast :: .calendar-day--outside.calendar-day:nth-child(8)",
+  "color-contrast :: .calendar-day--outside.calendar-day:nth-child(9)",
+  "label :: input[value=\"07/07/2026\"]"
+ ],
+ "aiguild/engagement": [
+  "link-name :: .a2a_button_copy_link[href=\"#\"][data-aif-bound=\"1\"]",
+  "link-name :: .a2a_button_email[href=\"#\"][data-aif-bound=\"1\"]",
+  "link-name :: .a2a_button_linkedin[href=\"#\"][data-aif-bound=\"1\"]"
+ ],
+ "aiguild/form-composition": [
+  "aria-required-children :: div[role=\"tablist\"]"
+ ],
+ "aiguild/persona-card": [
+  "color-contrast :: #persona-light-demo > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: #persona-short-demo > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .persona-card-slot:nth-child(2) > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .persona-card:nth-child(3) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(12) > .persona-card-slot:nth-child(1) > .persona-card > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(5) > .persona-card:nth-child(1) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(5) > .persona-card:nth-child(2) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(9) > .persona-card:nth-child(1) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: .section-dark:nth-child(9) > .persona-card:nth-child(2) > .persona-card__content > .persona-card__meta",
+  "color-contrast :: div:nth-child(14) > .persona-card-slot > .persona-card > .persona-card__content > .persona-card__meta"
+ ],
+ "aiguild/segmented": [
+  "aria-required-children :: div[aria-label=\"Media type small\"]",
+  "aria-required-children :: div[aria-label=\"Media type\"]"
+ ],
+ "aiguild/sticky-bar": [
+  "aria-hidden-focus :: div[data-sticky-cta=\"\"]"
+ ],
+ "aiguild/surfaces": [
+  "color-contrast :: .content-section--tertiary > main > div:nth-child(1) > span > a[href=\"#\"]"
+ ],
+ "aiguild/typography": [
+  "color-contrast :: tr:nth-child(10) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(12) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(13) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(14) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(15) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(16) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(17) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(18) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(19) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(20) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(21) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(7) > td:nth-child(6) > span",
+  "color-contrast :: tr:nth-child(8) > td:nth-child(6) > span",
+  "scrollable-region-focusable :: .sg-fullbleed > table"
+ ]
+}

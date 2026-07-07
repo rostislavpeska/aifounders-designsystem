@@ -1,6 +1,6 @@
 # Header
 
-**Type:** site chrome component · **Status:** shipped · **git_path:** `assets/css/components.css#header` + `js/components/menu.js` · **Specimen:** `/?aigds_styleguide=1&item=header`
+**Type:** site chrome component · **Status:** shipped · **git_path:** `assets/css/components.css#header` + `js/components/menu.js` · **Specimen:** `/?aifds_styleguide=1&item=header`
 
 ## Intent
 

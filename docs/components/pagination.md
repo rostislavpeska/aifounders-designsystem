@@ -1,6 +1,6 @@
 # Pagination
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#pagination` · **Specimen:** `/?aigds_styleguide=1&item=pagination`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#pagination` · **Specimen:** `/?aifds_styleguide=1&item=pagination`
 
 ## Intent
 

@@ -1,6 +1,6 @@
 # Radio
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aigds_styleguide=1&item=radio`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aifds_styleguide=1&item=radio`
 
 ## Intent
 Radio is the control for MUTUALLY EXCLUSIVE options — exactly one of a small, always-visible set (the job-board "Seniority: Any / Senior / Lead" filter is the canonical instance). Reach for it when the user must see all options at once and pick one. Do NOT use it when the option list is long or secondary — that is Select (popover); do NOT use it for independent multi-pick options — that is Checkbox; if the single choice also reveals a panel of further inputs, consider the Segmented control (visually a conjoined button group, semantically still a radio group). Radio shares its entire CSS system (`.selection-*`) with Checkbox and Consent — one stylesheet, three decisions (VECTOR-DS §4). Contract in one breath: the native input is hidden, the round chip is a field (reads `--field-*` surface roles, adapts to any background); checked means a `--control-accent` border plus a `--control-accent` center dot (brand border + brand dot — ONE radio style everywhere, unified with the FluentForms/condensed drawing by operator ruling); a radio GROUP carries the same label + helper scaffolding as a text input.
@@ -14,7 +14,7 @@ Class map (identical to Checkbox except the modifier):
 - `.selection-control` — required; the chip, made round by `border-radius: var(--radius-full)` under the `--radio` modifier. The checked dot is a `::after` pseudo-element sized `calc(var(--selection-size) - 10px)`.
 - `.selection-content` › `.selection-label` — required visible label.
 
-Group form (from the specimen, `inc/styleguide.php` → `aigds_sg_item_radio()`):
+Group form (from the specimen, `inc/styleguide.php` → `aifds_sg_item_radio()`):
 
 ```html
 <div class="form-group" role="radiogroup" aria-labelledby="rbg-lbl">

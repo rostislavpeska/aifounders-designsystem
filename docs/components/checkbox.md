@@ -1,6 +1,6 @@
 # Checkbox
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aigds_styleguide=1&item=checkbox`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aifds_styleguide=1&item=checkbox`
 
 ## Intent
 Checkbox is the control for INDEPENDENT options — zero, one, or many may be on at once — and for a single boolean opt-in. Reach for it when choices don't exclude each other (job-board "Employment type: Full-time / Contract / Internship" filters) or when one yes/no toggle must be explicit. Do NOT use it for mutually exclusive choices — that is Radio (or Segmented control when the choice drives disclosure); do NOT use a bare checkbox for legal/GDPR agreement — that is the Consent variant, which has its own doc and its own quieter voice. Checkbox, Radio, and Consent share ONE CSS system (`.selection-*`) but are three separate decisions — the stylesheet unifies them, the decision space separates them (VECTOR-DS §4). Contract in one breath: the native input is visually hidden and the styled chip (`.selection-control`) IS a field — it reads the `--field-*` surface roles, so it adapts to any background; checked fills the chip with `--control-accent` and draws a tick in `--control-accent-ink`; a checkbox GROUP carries the same label + helper scaffolding as a text input, so a form reads consistently whatever the control.
@@ -14,7 +14,7 @@ Class map:
 - `.selection-control` — required; the drawn chip: `--selection-size` square, `--field-bg` fill, 2px `--field-border-strong` border. The checked tick is a `::after` pseudo-element — no extra markup.
 - `.selection-content` › `.selection-label` — required; the visible label (body font at `--selection-label-size`).
 
-Group form — labelled and helped exactly like an input (from the specimen, `inc/styleguide.php` → `aigds_sg_item_checkbox()`):
+Group form — labelled and helped exactly like an input (from the specimen, `inc/styleguide.php` → `aifds_sg_item_checkbox()`):
 
 ```html
 <div class="form-group" role="group" aria-labelledby="cbg-lbl">

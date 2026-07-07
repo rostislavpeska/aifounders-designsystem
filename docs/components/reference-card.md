@@ -1,6 +1,6 @@
 # Reference card (testimonial / case study)
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#reference-card` · **Specimen:** `/?aigds_styleguide=1&item=reference-card`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#reference-card` · **Specimen:** `/?aifds_styleguide=1&item=reference-card`
 
 ## Intent
 

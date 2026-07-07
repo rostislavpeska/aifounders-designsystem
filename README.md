@@ -31,7 +31,7 @@ every mechanism and differ only in palette values.
   [component ledger](docs/IMPLEMENTATION_STATUS.md) and the per-component
   reference docs in [docs/components/](docs/components/).
 - **The styleguide** — activate the plugin and open
-  `/?aigds_styleguide=1` (admin/`WP_DEBUG`-gated). Every specimen renders
+  `/?aifds_styleguide=1` (admin/`WP_DEBUG`-gated). Every specimen renders
   the real markup on both brands and both color surfaces. A sandbox
   (`/?aigds_sandbox=1`) hosts full-page experiments without touching canon.
 - **The gate** (`tests/tokens.spec.js` + `build/lint-css.mjs`) — 80+

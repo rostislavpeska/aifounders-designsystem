@@ -2,6 +2,9 @@
   "bg": {
     "$value": "{brand}"
   },
+  "text-tertiary": {
+    "$value": "{black}"
+  },
   "border": {
     "$value": "{black}"
   },

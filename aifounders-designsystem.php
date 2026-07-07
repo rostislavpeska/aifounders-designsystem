@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       AI Guild Design System
- * Plugin URI:        https://github.com/rostislavpeska/aig-desigsystem
+ * Plugin Name:       AI Founders Design System
+ * Plugin URI:        https://github.com/rostislavpeska/aifounders-designsystem
  * Description:       Canonical design system for aifounders.cz + aiguild.cz — tokens, components, icons, and the /design-system/ styleguide. Code is the source of truth; Figma is a projection.
- * Version:           2.0.0-dev.0
+ * Version:           2.0.0-rc.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Rostislav Peška
- * Text Domain:       aig-design-system
+ * Text Domain:       aifounders-designsystem
  *
  * ARCHITECTURE (see docs/DESIGN_SYSTEM.md):
  * - This plugin owns: normalize, tokens, components CSS, icons, component JS,
@@ -21,17 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AIGDS_VERSION', '2.0.0-dev.0' );
-define( 'AIGDS_DIR', plugin_dir_path( __FILE__ ) );
-define( 'AIGDS_URL', plugin_dir_url( __FILE__ ) );
+define( 'AIFDS_VERSION', '2.0.0-dev.0' );
+define( 'AIFDS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'AIFDS_URL', plugin_dir_url( __FILE__ ) );
 
-require_once AIGDS_DIR . 'inc/enqueue.php';
-require_once AIGDS_DIR . 'inc/icons.php';
-require_once AIGDS_DIR . 'inc/styleguide.php';
-require_once AIGDS_DIR . 'inc/sandbox.php';
+require_once AIFDS_DIR . 'inc/enqueue.php';
+require_once AIFDS_DIR . 'inc/icons.php';
+require_once AIFDS_DIR . 'inc/styleguide.php';
+require_once AIFDS_DIR . 'inc/sandbox.php';
 
 register_activation_hook( __FILE__, function () {
-	aigds_styleguide_add_rewrite();
+	aifds_styleguide_add_rewrite();
 	flush_rewrite_rules();
 } );
 

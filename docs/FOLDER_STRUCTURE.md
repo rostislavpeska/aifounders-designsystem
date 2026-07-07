@@ -1,4 +1,4 @@
-# AI Guild Design System — Folder Structure
+# AI Founders Design System — Folder Structure
 
 **Version:** 2.0 · **Last updated:** 2026-07-04 (deep-hygiene run)
 
@@ -7,7 +7,7 @@ archived in `dev/v1-archive/`.
 
 ```
 aig-desigsystem/
-├── aig-design-system.php    # Plugin entry (Stage 1: registered, not enqueued on themes)
+├── aifounders-designsystem.php    # Plugin entry (Stage 1: registered, not enqueued on themes)
 ├── README.md                # Project overview + doc index
 ├── AGENT_README.md          # Quick-start for agents
 ├── REPOSITORY_RULES.md      # Mandatory rules (harvest law, RITUAL, friction)
@@ -48,8 +48,8 @@ aig-desigsystem/
 │
 ├── inc/
 │   ├── enqueue.php          # asset registration (normalize → fonts → tokens → components)
-│   ├── icons.php            # inline SVG icon system (aigds_icon(), taxonomy, stroke law)
-│   └── styleguide.php       # /?aigds_styleguide=1 — specimens for every component
+│   ├── icons.php            # inline SVG icon system (aifds_icon(), taxonomy, stroke law)
+│   └── styleguide.php       # /?aifds_styleguide=1 — specimens for every component
 │
 ├── js/
 │   ├── main.js              # global only (theme switcher)

@@ -1,6 +1,6 @@
 # Comments
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#article-comments` · **Specimen:** `/?aigds_styleguide=1&item=comments`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#article-comments` · **Specimen:** `/?aifds_styleguide=1&item=comments`
 
 ## Intent
 
@@ -146,3 +146,10 @@ article column — **unharvested on dark**. The initials avatar reads
 - The comment form composes the DS form system (`.form-control`,
   `.btn--primary.btn--sm`) — production's `.aif-form` skin dies at
   adoption.
+
+## Runtime-injected states
+
+`.aif-comment-edit-error` is added by the THEME's edit/delete engine at
+runtime (the engine stays plugin territory per the distill ruling) — the
+DS ships its styling only; the class never appears in DS markup (audit
+2026-07-06: documented for the class census).

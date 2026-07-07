@@ -1011,6 +1011,11 @@
         "aig": "#f5c400",
         "aif": "#00b5ff"
       },
+      "text-tertiary": {
+        "ref": "black",
+        "aig": "#070708",
+        "aif": "#05070a"
+      },
       "border": {
         "ref": "black",
         "aig": "#070708",

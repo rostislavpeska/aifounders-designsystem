@@ -1,6 +1,6 @@
 # Newsletter capture
 
-**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#newsletter-capture` · **Specimen:** `/?aigds_styleguide=1&item=form-composition`
+**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#newsletter-capture` · **Specimen:** `/?aifds_styleguide=1&item=form-composition`
 
 ## Intent
 Newsletter capture is the conversion pattern: an email input conjoined flush with a submit button — the input-pair in production. Reach for it wherever a page captures newsletter signups (AIF brand hero, AIG dark footer). The defining law (operator, DECISIONS.md): **ONE component, ZERO newsletter-specific button styles** — the CTA is a PLAIN system button and the SURFACE supplies the look: AIF = `.btn .btn--lg .btn--primary` on the BRAND surface (where primary auto-resolves DARK via the tier-3 button roles — no class needed), AIG = `.btn .btn--md .btn--tertiary` on the DARK surface. The gate asserts this ("newsletter capture uses PLAIN system buttons — no special styles"). Do NOT invent a newsletter button: `.btn--newsletter-*` was deleted (never shipped to any site), and `.btn--primary-inverted` — a dark button for light/brand surfaces whose real use WAS the AIF newsletter CTA on the blue hero — is reclassified out of the button hierarchy and kept only for markup compat until the conversion-kit batch deprecates it. What ships today are the two harvested form contexts (`.hero-aif__form` at 60px, `.aif-ecomail-form--footer-dark` at 52px) styling the REAL production markup, pending full unification into a `newsletter-capture` component in the conversion-kit batch.
@@ -47,7 +47,7 @@ Class map:
 At `min-width: 600px` (the 599 cut) the hero context lays the fields out as a wrapping row with stretched alignment and drops the field wrapper's right border so it joins flush against the button; below the cut the pair stacks and the border restores (the input-pair behavior). The dark footer context is a single flex row at all widths in the shipped CSS.
 
 ## Tokens referenced
-`--field-border-strong`, `--spacing-8`, `--spacing-16`, `--body-lg-font` (via `--body-lg-*`), `--body-lg-size`, `--body-md-size`, `--body-md-leading`, `--leading-none`, `--text`, `--text-tertiary`, `--paper`, `--black`, `--dark-300`, `--dark-600`, `--dark-700`, `--stroke-2`
+`--field-border-strong`, `--spacing-8`, `--spacing-16`, `--body-lg-font` (via `--body-lg-*`), `--body-lg-size`, `--body-md-size`, `--body-md-leading`, `--leading-body`, `--leading-none`, `--text`, `--text-tertiary`, `--link`, `--paper`, `--black`, `--dark-300`, `--dark-600`, `--dark-700`, `--stroke-2`
 
 ## Surfaces
 The pattern is surface-driven by design. On the brand surface (`.section-brand`/`.article-hero`/hero) the field roles resolve to a white field with a strong black border, and `.btn--primary` resolves DARK via the brand scope's `--button-*` roles — the "newsletter law", no class needed (gate-asserted). The dark footer context hard-reads dark palette steps (`--black`/`--dark-700`/`--dark-300`) because it is itself the dark context. Status/validation coloring is not part of this pattern.
@@ -58,3 +58,22 @@ The pattern is surface-driven by design. On the brand surface (`.section-brand`/
 - The harvested hardcoded `bg-secondary` field background on brand was removed — it bypassed the tokens and "looked cheap on brand"; colors must come from the surface field roles.
 - `.btn--primary-inverted` is NOT a hierarchy member (code comment ⚠): kept only for markup compat as the legacy newsletter CTA; DECISIONS.md reclassifies it toward `.btn--newsletter-primary` in the conversion-kit batch, after which the alias is deprecated. Don't showcase or reuse it in dark contexts.
 - `.btn--newsletter-*` classes never shipped anywhere — deleted, not deprecated; do not resurrect them.
+
+## Consent note — STANDARD anatomy (operator 2026-07-07)
+
+Every email capture carries the `.mc4wp-consent-note` slot ("By
+clicking … you agree to the processing of personal data" + link).
+Production ships it on BOTH sites (verified live). Canon:
+`--body-md-size`/`--leading-body` and the **TERTIARY voice
+`--text-tertiary`** — quiet gray on every surface (gray-600 on light,
+dark-300 on the dark band, black on brand — the brand scope maps
+`text-tertiary → black`: gray on the saturated surface fails contrast,
+and black chrome is that scope's standing rule). The scope carries the flip; the component has
+NO per-context recolor. ⚠️ Deliberate delta from production (operator
+2026-07-07, two vetoes): the harvested brand-tint cream
+(#fffce3/#c1d1d9, production's `--color-primary-neutral-light`) DIES —
+"rather grayish than pure white and definitely not a brand color";
+`--text-note` was minted and killed the same day (DECISIONS). Links:
+inherit + underline on light; the footer-dark skin pops them to `--link`
+(production's inverse-link). The slot is optional to RENDER, never to
+restyle. GM: margin-top 2→8 (AIF twin), leading 1.7→`--leading-body`.

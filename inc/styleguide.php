@@ -9,7 +9,7 @@
  * are scoped so they can never leak into demos.
  *
  * Routes: /design-system/ (first item) · /design-system/{item}/
- * Fallback (no rewrites needed): ?aigds_styleguide=1&item={slug}
+ * Fallback (no rewrites needed): ?aifds_styleguide=1&item={slug}
  *
  * Access: admins, or any visitor when WP_DEBUG is on (= local stacks).
  */
@@ -18,24 +18,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function aigds_styleguide_add_rewrite() {
-	add_rewrite_rule( '^design-system/([a-z0-9-]+)/?$', 'index.php?aigds_styleguide=1&aigds_item=$matches[1]', 'top' );
-	add_rewrite_rule( '^design-system/?$', 'index.php?aigds_styleguide=1', 'top' );
+function aifds_styleguide_add_rewrite() {
+	add_rewrite_rule( '^design-system/([a-z0-9-]+)/?$', 'index.php?aifds_styleguide=1&aifds_item=$matches[1]', 'top' );
+	add_rewrite_rule( '^design-system/?$', 'index.php?aifds_styleguide=1', 'top' );
 }
-add_action( 'init', 'aigds_styleguide_add_rewrite' );
+add_action( 'init', 'aifds_styleguide_add_rewrite' );
 
-function aigds_styleguide_query_vars( $vars ) {
-	$vars[] = 'aigds_styleguide';
-	$vars[] = 'aigds_item';
+function aifds_styleguide_query_vars( $vars ) {
+	$vars[] = 'aifds_styleguide';
+	$vars[] = 'aifds_item';
 	return $vars;
 }
-add_filter( 'query_vars', 'aigds_styleguide_query_vars' );
+add_filter( 'query_vars', 'aifds_styleguide_query_vars' );
 
 /**
  * The item registry — sidebar structure. One item = one token category or
  * one component. Prefigures the component-folder + Storybook-story layout.
  */
-function aigds_styleguide_items() {
+function aifds_styleguide_items() {
 	return array(
 		'Tokens'     => array(
 			'colors'         => 'Colors',
@@ -88,9 +88,9 @@ function aigds_styleguide_items() {
 	);
 }
 
-function aigds_styleguide_maybe_render() {
-	$requested = get_query_var( 'aigds_styleguide' );
-	if ( ! $requested && isset( $_GET['aigds_styleguide'] ) ) {
+function aifds_styleguide_maybe_render() {
+	$requested = get_query_var( 'aifds_styleguide' );
+	if ( ! $requested && isset( $_GET['aifds_styleguide'] ) ) {
 		$requested = '1';
 	}
 	if ( ! $requested ) {
@@ -104,13 +104,13 @@ function aigds_styleguide_maybe_render() {
 		exit;
 	}
 
-	$item = get_query_var( 'aigds_item' );
+	$item = get_query_var( 'aifds_item' );
 	if ( ! $item && isset( $_GET['item'] ) ) {
 		$item = sanitize_key( $_GET['item'] );
 	}
 
 	$valid = array();
-	foreach ( aigds_styleguide_items() as $group => $items ) {
+	foreach ( aifds_styleguide_items() as $group => $items ) {
 		$valid = array_merge( $valid, array_keys( $items ) );
 	}
 	if ( ! in_array( $item, $valid, true ) ) {
@@ -118,12 +118,12 @@ function aigds_styleguide_maybe_render() {
 	}
 
 	nocache_headers();
-	aigds_render_styleguide( $item );
+	aifds_render_styleguide( $item );
 	exit;
 }
-add_action( 'template_redirect', 'aigds_styleguide_maybe_render' );
+add_action( 'template_redirect', 'aifds_styleguide_maybe_render' );
 
-function aigds_styleguide_brand() {
+function aifds_styleguide_brand() {
 	$req = isset( $_GET['theme'] ) ? sanitize_key( $_GET['theme'] ) : '';
 	if ( in_array( $req, array( 'aiguild', 'aifounders' ), true ) ) {
 		return $req;
@@ -131,20 +131,20 @@ function aigds_styleguide_brand() {
 	return ( false !== strpos( get_stylesheet(), 'aifounders' ) ) ? 'aifounders' : 'aiguild';
 }
 
-function aigds_styleguide_url( $brand, $item = 'colors' ) {
+function aifds_styleguide_url( $brand, $item = 'colors' ) {
 	return add_query_arg(
-		array( 'aigds_styleguide' => '1', 'item' => $item, 'theme' => $brand ),
+		array( 'aifds_styleguide' => '1', 'item' => $item, 'theme' => $brand ),
 		home_url( '/' )
 	);
 }
 
-function aigds_render_styleguide( $item = 'colors' ) {
-	$brand = aigds_styleguide_brand();
-	$GLOBALS['aigds_sg_brand'] = $brand;
-	$css_url = AIGDS_URL . 'assets/css/';
-	$css_dir = AIGDS_DIR . 'assets/css/';
+function aifds_render_styleguide( $item = 'colors' ) {
+	$brand = aifds_styleguide_brand();
+	$GLOBALS['aifds_sg_brand'] = $brand;
+	$css_url = AIFDS_URL . 'assets/css/';
+	$css_dir = AIFDS_DIR . 'assets/css/';
 
-	$items  = aigds_styleguide_items();
+	$items  = aifds_styleguide_items();
 	$titles = array();
 	foreach ( $items as $group => $group_items ) {
 		$titles = array_merge( $titles, $group_items );
@@ -158,10 +158,10 @@ function aigds_render_styleguide( $item = 'colors' ) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title><?php echo esc_html( $titles[ $item ] . ' — ' . $brand ); ?> — AIG DS v<?php echo esc_html( AIGDS_VERSION ); ?></title>
+<title><?php echo esc_html( $titles[ $item ] . ' — ' . $brand ); ?> — AIG DS v<?php echo esc_html( AIFDS_VERSION ); ?></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="<?php echo esc_url( aigds_google_fonts_url() ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( aifds_google_fonts_url() ); ?>">
 <link rel="stylesheet" href="<?php echo esc_url( $css_url . 'normalize.css?v=' . (string) @filemtime( $css_dir . 'normalize.css' ) ); ?>">
 <link rel="stylesheet" href="<?php echo esc_url( $css_url . 'fonts.css?v=' . (string) @filemtime( $css_dir . 'fonts.css' ) ); ?>">
 <link rel="stylesheet" href="<?php echo esc_url( $css_url . 'tokens.css?v=' . (string) @filemtime( $css_dir . 'tokens.css' ) ); ?>">
@@ -196,6 +196,11 @@ body { margin:0; font-family: var(--font-primary); color: var(--text); backgroun
 /* Wide tables (transforms matrix) escape the 1100px column and take the full
    viewport width minus sidebar; scroll only if even that is too narrow. */
 .sg-fullbleed { width: calc(100vw - 250px - 64px - 12px); max-width: none; overflow-x: auto; }
+/* Chrome tables never break the page — they scroll within themselves
+   (display:block keeps row rendering; L2 sweep finding, audit 2026-07-06) */
+.sg-table, .sg-props-table { display: block; overflow-x: auto; max-width: 100%; }
+/* headings carry file paths / long code tokens — never let them push the page */
+.sg-section-h, .sg-h3 { overflow-wrap: anywhere; }
 .sg-section-h { font:900 22px/1.2 var(--font-primary); border-bottom:2px solid var(--border-strong); padding-bottom:8px; margin:40px 0 8px; }
 .sg-h3 { font:800 15px/1.2 var(--font-primary); margin:28px 0 8px; }
 .sg-note { background: var(--support); border-left:4px solid var(--brand); padding:12px 16px; font-size:14px; margin:16px 0; }
@@ -234,13 +239,13 @@ table.sg-table th { background: var(--bg-alt); }
 <body>
 <div class="sg-app">
 	<aside class="sg-sidebar">
-		<div class="sg-logo"><b>AI Guild Design System</b><span>v<?php echo esc_html( AIGDS_VERSION ); ?> · WordPressbook</span></div>
+		<div class="sg-logo"><b>AI Founders Design System</b><span>v<?php echo esc_html( AIFDS_VERSION ); ?> · WordPressbook</span></div>
 		<?php foreach ( $items as $group => $group_items ) : ?>
 		<div class="sg-group">
 			<div class="sg-group-label"><?php echo esc_html( $group ); ?></div>
 			<ul class="sg-nav">
 				<?php foreach ( $group_items as $slug => $title ) : ?>
-				<li><a href="<?php echo esc_url( aigds_styleguide_url( $brand, $slug ) ); ?>" class="<?php echo $slug === $item ? 'on' : ''; ?>"><?php echo esc_html( $title ); ?></a></li>
+				<li><a href="<?php echo esc_url( aifds_styleguide_url( $brand, $slug ) ); ?>" class="<?php echo $slug === $item ? 'on' : ''; ?>"><?php echo esc_html( $title ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -250,12 +255,12 @@ table.sg-table th { background: var(--bg-alt); }
 		<header class="sg-topbar">
 			<h1><?php echo esc_html( $titles[ $item ] ); ?></h1>
 			<nav class="sg-brand">
-				<a href="<?php echo esc_url( aigds_styleguide_url( 'aiguild', $item ) ); ?>" class="<?php echo 'aiguild' === $brand ? 'on' : ''; ?>">aiguild (yellow)</a>
-				<a href="<?php echo esc_url( aigds_styleguide_url( 'aifounders', $item ) ); ?>" class="<?php echo 'aifounders' === $brand ? 'on' : ''; ?>">aifounders (blue)</a>
+				<a href="<?php echo esc_url( aifds_styleguide_url( 'aiguild', $item ) ); ?>" class="<?php echo 'aiguild' === $brand ? 'on' : ''; ?>">aiguild (yellow)</a>
+				<a href="<?php echo esc_url( aifds_styleguide_url( 'aifounders', $item ) ); ?>" class="<?php echo 'aifounders' === $brand ? 'on' : ''; ?>">aifounders (blue)</a>
 			</nav>
 		</header>
 		<main class="sg-content">
-			<?php call_user_func( 'aigds_sg_item_' . str_replace( '-', '_', $item ) ); ?>
+			<?php call_user_func( 'aifds_sg_item_' . str_replace( '-', '_', $item ) ); ?>
 		</main>
 	</div>
 </div>
@@ -268,12 +273,12 @@ table.sg-table th { background: var(--bg-alt); }
 	});
 }());
 </script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/accordion.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/engagement.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/modal.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/sticky-bar.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/menu.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
-<script src="<?php echo esc_url( AIGDS_URL . 'js/components/nav-tabs.js' ); ?>?v=<?php echo esc_attr( AIGDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/accordion.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/engagement.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/modal.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/sticky-bar.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/menu.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
+<script src="<?php echo esc_url( AIFDS_URL . 'js/components/nav-tabs.js' ); ?>?v=<?php echo esc_attr( AIFDS_VERSION ); ?>"></script>
 </body>
 </html>
 	<?php
@@ -286,10 +291,10 @@ table.sg-table th { background: var(--bg-alt); }
    projects them into assets/tokens-manifest.json and the styleguide renders
    FROM it. No hand-maintained token facts in PHP — grouping/order below is
    the only curation. */
-function aigds_tokens_manifest() {
+function aifds_tokens_manifest() {
 	static $m = null;
 	if ( null === $m ) {
-		$m = json_decode( (string) file_get_contents( AIGDS_DIR . 'assets/tokens-manifest.json' ), true );
+		$m = json_decode( (string) file_get_contents( AIFDS_DIR . 'assets/tokens-manifest.json' ), true );
 		if ( ! is_array( $m ) ) {
 			$m = array( 'semantic' => array(), 'component' => array() );
 		}
@@ -297,7 +302,7 @@ function aigds_tokens_manifest() {
 	return $m;
 }
 
-function aigds_color_chip( $val, $size = 28 ) {
+function aifds_color_chip( $val, $size = 28 ) {
 	if ( null === $val || '' === $val ) {
 		return '<em style="color: var(--status-error);">MISSING</em>';
 	}
@@ -305,7 +310,7 @@ function aigds_color_chip( $val, $size = 28 ) {
 		. esc_attr( $val ) . ';"></span>' . esc_html( $val );
 }
 
-function aigds_palette_intent( $name ) {
+function aifds_palette_intent( $name ) {
 	if ( 0 === strpos( $name, 'overlay-' ) ) {
 		return 'Hover overlays';
 	}
@@ -342,7 +347,7 @@ function aigds_palette_intent( $name ) {
 	return 'Status & feedback';
 }
 
-function aigds_token_intent( $name ) {
+function aifds_token_intent( $name ) {
 	$map = array(
 		'button'    => 'Buttons',
 		'field'     => 'Form fields',
@@ -368,8 +373,8 @@ function aigds_token_intent( $name ) {
 	return 'Accent';
 }
 
-function aigds_sg_item_colors() {
-	$man = aigds_tokens_manifest();
+function aifds_sg_item_colors() {
+	$man = aifds_tokens_manifest();
 
 	/* ONE TAB, THREE LAYERS (operator architecture, 2026-07-03):
 	   1 PALETTE — named unique values, the ONLY place colors are defined
@@ -430,9 +435,9 @@ function aigds_sg_item_colors() {
 		<?php foreach ( $entries as $name => $v ) : ?>
 		<tr>
 			<td style="font-family:var(--font-mono); font-size:12px;">--<?php echo esc_html( $name ); ?></td>
-			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aigds_color_chip( $v['aig'] ); ?></td>
-			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aigds_color_chip( $v['aif'] ); ?></td>
-			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aigds_palette_intent( $name ) ); ?></td>
+			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aifds_color_chip( $v['aig'] ); ?></td>
+			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aifds_color_chip( $v['aif'] ); ?></td>
+			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aifds_palette_intent( $name ) ); ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
@@ -458,10 +463,10 @@ function aigds_sg_item_colors() {
 		<tr>
 			<td style="font-family:var(--font-mono); font-size:12px;">--<?php echo esc_html( $name ); ?></td>
 			<td style="font-family:var(--font-mono); font-size:12px; color: var(--text-tertiary);">→ <?php echo esc_html( $v['ref'] ); ?></td>
-			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aigds_color_chip( $v['aig'] ); ?></td>
-			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aigds_color_chip( $v['aif'] ); ?></td>
+			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aifds_color_chip( $v['aig'] ); ?></td>
+			<td style="font-family:var(--font-mono); font-size:12px; white-space:nowrap;"><?php echo aifds_color_chip( $v['aif'] ); ?></td>
 			<td style="font-size:11px; color: var(--text-secondary);"><?php echo $where ? esc_html( implode( ' · ', $where ) ) . ' <a href="#" onclick="document.querySelector(\'[data-test=transforms-matrix]\').scrollIntoView();return false;" style="font-size:10px;">↓ matrix</a>' : '<span style="opacity:.5;">constant</span>'; ?></td>
-			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aigds_token_intent( $name ) ); ?></td>
+			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aifds_token_intent( $name ) ); ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
@@ -470,7 +475,7 @@ function aigds_sg_item_colors() {
 	<?php
 	// Current theme only (brand toggle above): transforms are BEHAVIOR, the
 	// same structure on both brands. Dot = inherits the Default.
-	$b          = ( 'aifounders' === $GLOBALS['aigds_sg_brand'] ) ? 'aif' : 'aig';
+	$b          = ( 'aifounders' === $GLOBALS['aifds_sg_brand'] ) ? 'aif' : 'aig';
 	$scope_cols = array(
 		'light-2' => array( 'Soft band', '.content-section--secondary' ),
 		'light-3' => array( 'Neutral band', '.content-section--tertiary' ),
@@ -507,20 +512,20 @@ function aigds_sg_item_colors() {
 		<?php foreach ( $changing as $name => $v ) : ?>
 		<tr>
 			<td style="font-family:var(--font-mono); font-size:12px;">--<?php echo esc_html( $name ); ?></td>
-			<td style="font-family:var(--font-mono); font-size:11px; white-space:nowrap;"><?php echo aigds_color_chip( $v[ $b ], 14 ); ?><span style="display:block; color: var(--text-tertiary);"><?php echo esc_html( $v['ref'] ); ?></span></td>
+			<td style="font-family:var(--font-mono); font-size:11px; white-space:nowrap;"><?php echo aifds_color_chip( $v[ $b ], 14 ); ?><span style="display:block; color: var(--text-tertiary);"><?php echo esc_html( $v['ref'] ); ?></span></td>
 			<?php foreach ( $scope_cols as $scope => $_l ) : ?>
 			<td style="font-family:var(--font-mono); font-size:11px; white-space:nowrap;">
 				<?php
 				if ( isset( $man['scopes'][ $scope ][ $name ] ) ) {
 					$sv = $man['scopes'][ $scope ][ $name ];
-					echo aigds_color_chip( $sv[ $b ], 14 ) . '<span style="display:block; color: var(--text-tertiary);">' . esc_html( $sv['ref'] ) . '</span>';
+					echo aifds_color_chip( $sv[ $b ], 14 ) . '<span style="display:block; color: var(--text-tertiary);">' . esc_html( $sv['ref'] ) . '</span>';
 				} else {
 					echo '<span style="color: var(--text-tertiary); opacity:.5;">&middot;</span>';
 				}
 				?>
 			</td>
 			<?php endforeach; ?>
-			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aigds_token_intent( $name ) ); ?></td>
+			<td style="font-size:12px; color: var(--text-secondary);"><?php echo esc_html( aifds_token_intent( $name ) ); ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
@@ -528,8 +533,8 @@ function aigds_sg_item_colors() {
 	<?php
 }
 
-function aigds_sg_item_typography() {
-	$man    = aigds_tokens_manifest();
+function aifds_sg_item_typography() {
+	$man    = aifds_tokens_manifest();
 	$prim   = isset( $man['typePrimitives'] ) ? $man['typePrimitives'] : array();
 	$styles = isset( $man['typeStyles'] ) ? $man['typeStyles'] : array();
 	$sample = 'The quick brown fox jumps over the lazy dog 0123456789';
@@ -698,7 +703,7 @@ function aigds_sg_item_typography() {
 	<?php
 }
 
-function aigds_sg_item_spacing() {
+function aifds_sg_item_spacing() {
 	?>
 	<h2 class="sg-section-h">Raw scale</h2>
 	<?php foreach ( array( 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 80, 120 ) as $s ) : ?>
@@ -712,7 +717,7 @@ function aigds_sg_item_spacing() {
 	<?php
 }
 
-function aigds_sg_item_containers() {
+function aifds_sg_item_containers() {
 	?>
 	<h2 class="sg-section-h">Container widths</h2>
 	<?php foreach ( array( 'narrow', 'article', 'wide', 'wider', 'max', 'ultra' ) as $c ) : ?>
@@ -722,8 +727,8 @@ function aigds_sg_item_containers() {
 	<?php
 }
 
-function aigds_sg_item_breakpoints() {
-	$man     = aigds_tokens_manifest();
+function aifds_sg_item_breakpoints() {
+	$man     = aifds_tokens_manifest();
 	$bp      = isset( $man['breakpoints'] ) ? $man['breakpoints'] : array( 'cuts' => array(), 'buckets' => array() );
 	$cuts    = $bp['cuts'];
 	$buckets = $bp['buckets'];
@@ -808,7 +813,7 @@ function aigds_sg_item_breakpoints() {
 	<?php
 }
 
-function aigds_sg_item_radius_shadows() {
+function aifds_sg_item_radius_shadows() {
 	?>
 	<h2 class="sg-section-h">Border widths — the stroke scale</h2>
 	<div class="sg-note">Line widths: <code>--stroke-1/2/3/4/6</code>. <code>--stroke-4</code> is the signifier bar
@@ -848,14 +853,14 @@ function aigds_sg_item_radius_shadows() {
 	<?php
 }
 
-function aigds_sg_item_icon_system() {
+function aifds_sg_item_icon_system() {
 	?>
 	<h2 class="sg-section-h">Stepped stroke (operator 2026-07-04)</h2>
 	<div class="sg-note"><b>Stepped stroke</b> (supersedes the constant-1.5 law): the stroke weight follows the
 		rendered size — <b>&lt;16px → <code>--stroke-1</code></b> · <b>16–32px → <code>--stroke-1_5</code></b> ·
 		<b>&gt;32px → <code>--stroke-3</code></b>. Small icons stay fine, large icons keep presence.
 		<code>vector-effect: non-scaling-stroke</code> keeps the width in screen px (no viewBox math);
-		<code>aigds_icon()</code> picks the step from its <code>size</code> arg
+		<code>aifds_icon()</code> picks the step from its <code>size</code> arg
 		(<code>.icon--stroked-fine/-heavy</code>). Shape and colored icons are exempt; <code>check-bold</code>
 		stays a deliberate 3px.</div>
 	<table class="sg-table">
@@ -866,7 +871,7 @@ function aigds_sg_item_icon_system() {
 		<tr>
 			<td><?php echo (int) $px; ?>px</td>
 			<td><?php echo esc_html( $stroke ); ?></td>
-			<td><?php echo aigds_icon( 'arrow-right', array( 'size' => $px ) ); ?></td>
+			<td><?php echo aifds_icon( 'arrow-right', array( 'size' => $px ) ); ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
@@ -875,7 +880,7 @@ function aigds_sg_item_icon_system() {
 
 /* Decisions tab RETIRED (operator verdict 2026-07-03) — history lives in docs/DECISIONS.md. */
 
-function aigds_sg_item_surfaces() {
+function aifds_sg_item_surfaces() {
 	// family → the classes that carry its role tokens (mirrors build.mjs SURFACES)
 	$families = array(
 		'light-1' => 'section-light',
@@ -915,7 +920,7 @@ function aigds_sg_item_surfaces() {
 
 /* ═══════════════════════ COMPONENT ITEMS ═════════════════════════════════ */
 
-function aigds_sg_item_text_classes() {
+function aifds_sg_item_text_classes() {
 	?>
 	<h2 class="sg-section-h">Look ≠ tag (proof)</h2>
 	<div class="sg-note">Each row renders its class on a DELIBERATELY mismatched tag — the look is tag-independent by design.</div>
@@ -927,7 +932,7 @@ function aigds_sg_item_text_classes() {
 	<?php
 }
 
-function aigds_sg_item_buttons() {
+function aifds_sg_item_buttons() {
 	?>
 	<div class="sg-note"><b>Model: look = hierarchy × size × surface.</b> Hierarchy = primary / secondary / tertiary.
 		Surface (light / dark / brand) remaps tokens — it never creates new button kinds. Semantic CTAs (newsletter, nav)
@@ -957,19 +962,19 @@ function aigds_sg_item_buttons() {
 
 	<h3 class="sg-h3">With icon — icon BEFORE text (default) · icon-after variant allowed</h3>
 	<div class="sg-row">
-		<a href="#" class="btn btn--md btn--primary"><?php echo aigds_icon( 'calendar', array( 'size' => 20 ) ); ?>Icon before (default)</a>
-		<a href="#" class="btn btn--md btn--secondary">Icon after<?php echo aigds_icon( 'arrow-right', array( 'size' => 20 ) ); ?></a>
+		<a href="#" class="btn btn--md btn--primary"><?php echo aifds_icon( 'calendar', array( 'size' => 20 ) ); ?>Icon before (default)</a>
+		<a href="#" class="btn btn--md btn--secondary">Icon after<?php echo aifds_icon( 'arrow-right', array( 'size' => 20 ) ); ?></a>
 	</div>
 
 	<h3 class="sg-h3">Link buttons</h3>
 	<div class="sg-row">
-		<a href="#" class="btn btn--link"><?php echo aigds_icon( 'arrow-right', array( 'size' => 16 ) ); ?>Read more</a>
-		<a href="#" class="btn btn--link btn--destructive"><?php echo aigds_icon( 'trash-2', array( 'size' => 16 ) ); ?>Delete</a>
+		<a href="#" class="btn btn--link"><?php echo aifds_icon( 'arrow-right', array( 'size' => 16 ) ); ?>Read more</a>
+		<a href="#" class="btn btn--link btn--destructive"><?php echo aifds_icon( 'trash-2', array( 'size' => 16 ) ); ?>Delete</a>
 	</div>
 
 	<h3 class="sg-h3">Smart button — ONE icon, the bulb fill reacts to the brand token (--icon-character-accent)</h3>
 	<div class="sg-row">
-		<span class="smart-btn"><?php echo aigds_icon( 'smart-button', array( 'size' => 32 ) ); ?><a href="#" class="btn btn--sm btn--primary">Smart button</a></span>
+		<span class="smart-btn"><?php echo aifds_icon( 'smart-button', array( 'size' => 32 ) ); ?><a href="#" class="btn btn--sm btn--primary">Smart button</a></span>
 	</div>
 
 	<div class="sg-note"><b>Chatbot bubble: not a DS component.</b> The production bubble (aigb-chat mu-plugin:
@@ -1015,7 +1020,7 @@ function aigds_sg_item_buttons() {
 	<?php
 }
 
-function aigds_sg_item_input() {
+function aifds_sg_item_input() {
 	?>
 	<div class="sg-note"><b>Input — the text field.</b> <code>.form-group</code> ▸ <code>.form-label-row</code> (label + <code>.form-mandatory</code>) ▸ <code>.form-control-wrapper</code> ▸ <code>.form-control</code> (+ optional <code>.form-icon</code>) ▸ <code>.form-helper-row</code>. Field colors are surface roles → adapts to any background. <b>Textarea is the multi-line VARIANT</b> (<code>.form-control-wrapper--textarea</code>), not a separate element. STATES: default · error · disabled. SCALE: LARGE is the token root, SMALL is the <code>.form-scale-small</code> scope — both shown below, and both relax on touch (see <b>Form composition → Mobile &amp; touch</b>).</div>
 
@@ -1025,7 +1030,7 @@ function aigds_sg_item_input() {
 			<div class="form-label-row"><label class="form-label" for="sgf-1">E-mail</label><span class="form-mandatory">*</span></div>
 			<div class="form-control-wrapper">
 				<input type="email" id="sgf-1" class="form-control" placeholder="you@example.com">
-				<?php echo aigds_icon( 'mail-check', array( 'size' => 24, 'class' => 'form-icon' ) ); ?>
+				<?php echo aifds_icon( 'mail-check', array( 'size' => 24, 'class' => 'form-icon' ) ); ?>
 			</div>
 			<div class="form-helper-row"><span class="form-helper-text">Helper text under the field.</span></div>
 		</div>
@@ -1063,7 +1068,7 @@ function aigds_sg_item_input() {
 	<?php
 }
 
-function aigds_sg_item_select() {
+function aifds_sg_item_select() {
 	?>
 	<div class="sg-note"><b>Select</b> — pick ONE from a KNOWN set. The closed trigger is a field; the open menu is a floating light-1 surface (<code>.form-select-menu</code>). Shares its popover mechanic with Datepicker but stays a separate element — the intent differs. Menu items follow the field scale.</div>
 	<h3 class="sg-h3">Closed trigger &amp; open menu, both scales</h3>
@@ -1072,7 +1077,7 @@ function aigds_sg_item_select() {
 			<div class="form-label-row"><label class="form-label">Large</label></div>
 			<div class="form-control-wrapper form-select-wrapper">
 				<span class="form-control" style="display:flex; align-items:center;">Option two</span>
-				<?php echo aigds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+				<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 			</div>
 			<div class="form-select-menu">
 				<div class="form-select-item">Option one</div>
@@ -1085,7 +1090,7 @@ function aigds_sg_item_select() {
 				<div class="form-label-row"><label class="form-label">Small</label></div>
 				<div class="form-control-wrapper form-select-wrapper">
 					<span class="form-control" style="display:flex; align-items:center;">Option two</span>
-					<?php echo aigds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+					<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 				</div>
 				<div class="form-select-menu">
 					<div class="form-select-item">Option one</div>
@@ -1098,7 +1103,7 @@ function aigds_sg_item_select() {
 	<?php
 }
 
-function aigds_sg_item_datepicker() {
+function aifds_sg_item_datepicker() {
 	?>
 	<div class="sg-note"><b>Datepicker</b> — a text field with a calendar icon. Ruling: the trigger field scales; the calendar keeps ONE density (floating overlay, touch targets). STATES on the grid: today (quiet outline) · selected (brand fill) · outside month (muted).</div>
 	<h3 class="sg-h3">Collapsed trigger, both scales</h3>
@@ -1107,7 +1112,7 @@ function aigds_sg_item_datepicker() {
 			<div class="form-label-row"><label class="form-label" for="sgdp-l">Large</label></div>
 			<div class="form-control-wrapper">
 				<input type="text" id="sgdp-l" class="form-control" placeholder="07/03/2026">
-				<?php echo aigds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+				<?php echo aifds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 			</div>
 		</div>
 		<div class="form-scale-small" data-test="datepicker-small" style="width:280px;">
@@ -1115,7 +1120,7 @@ function aigds_sg_item_datepicker() {
 				<div class="form-label-row"><label class="form-label" for="sgdp-s">Small</label></div>
 				<div class="form-control-wrapper">
 					<input type="text" id="sgdp-s" class="form-control" placeholder="07/03/2026">
-					<?php echo aigds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+					<?php echo aifds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 				</div>
 			</div>
 		</div>
@@ -1124,7 +1129,7 @@ function aigds_sg_item_datepicker() {
 	<div class="datepicker datepicker--open" style="max-width:320px; margin-bottom:320px;">
 		<div class="form-control-wrapper">
 			<input type="text" class="form-control" value="07/07/2026">
-			<?php echo aigds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+			<?php echo aifds_icon( 'calendar', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 		</div>
 		<div class="datepicker-calendar">
 			<div class="calendar-header"><span>&larr;</span><span>July 2026</span><span>&rarr;</span></div>
@@ -1141,7 +1146,7 @@ function aigds_sg_item_datepicker() {
 	<?php
 }
 
-function aigds_sg_item_checkbox() {
+function aifds_sg_item_checkbox() {
 	?>
 	<div class="sg-note"><b>Checkbox</b> — INDEPENDENT options; zero, one or many on. A checkbox GROUP carries the SAME label + helper as a text input &mdash; incl. the <code>.form-mandatory</code> marker — <code>.form-group</code> ▸ <code>.form-label-row</code> ▸ <code>.selection-group</code> ▸ <code>.form-helper-row</code> — so a form reads consistently whatever the control. <code>role="group"</code> + <code>aria-labelledby</code> name it for assistive tech. STATES: checked / unchecked / disabled; chip scales 24→20px.</div>
 
@@ -1194,7 +1199,7 @@ function aigds_sg_item_checkbox() {
 	<?php
 }
 
-function aigds_sg_item_radio() {
+function aifds_sg_item_radio() {
 	?>
 	<div class="sg-note"><b>Radio</b> — MUTUALLY EXCLUSIVE options; exactly one of a small, always-visible set. A radio GROUP carries the SAME label + helper as a text input &mdash; incl. the <code>.form-mandatory</code> marker (<code>.form-group</code> ▸ <code>.form-label-row</code> ▸ <code>.selection-group</code> ▸ <code>.form-helper-row</code>); <code>role="radiogroup"</code> + <code>aria-labelledby</code> name it. Same chip as Checkbox, round, with a brand dot. STATES: selected / unselected / disabled.</div>
 
@@ -1247,7 +1252,7 @@ function aigds_sg_item_radio() {
 	<?php
 }
 
-function aigds_sg_item_consent() {
+function aifds_sg_item_consent() {
 	?>
 	<div class="sg-note"><b>Consent (GDPR)</b> — a checkbox underneath, but its own element: mandatory legal opt-in, the SELECTION voice one size quieter (<code>.selection-item--consent</code>). Never pre-checked. STATES: default · error (mandatory, left unticked on submit) — the error <b>inherits the input error state</b>: <code>.selection-item--error</code> paints the chip border <code>--status-error</code>, exactly the rule <code>.form-group--error</code> uses on a field. Shown at both scales.</div>
 	<div style="display:flex; gap:64px; flex-wrap:wrap;">
@@ -1273,7 +1278,7 @@ function aigds_sg_item_consent() {
 	<?php
 }
 
-function aigds_sg_item_segmented() {
+function aifds_sg_item_segmented() {
 	?>
 	<div class="sg-note"><b>Segmented control</b> — HARVESTED from the author-publish media toggle (<code>.aif-form__toggle</code>). A CONJOINED BUTTON GROUP: equal-width segments whose 2px borders overlap so adjacent edges read as one shared rule; exactly ONE segment active, control-accent filled, lifted over its neighbours. Semantically a radio group. Origin instance is the <b>None / Podcast / Video</b> media switch — each segment reveals its own panel (that disclosure is a composition fact; see <b>Form composition</b>).</div>
 	<h3 class="sg-h3">The real None / Podcast / Video switch — both scales</h3>
@@ -1306,7 +1311,7 @@ function aigds_sg_item_segmented() {
 	<?php
 }
 
-function aigds_sg_item_file_upload() {
+function aifds_sg_item_file_upload() {
 	?>
 	<div class="sg-note"><b>File upload (dropzone)</b> — HARVESTED from <code>.aif-publish__image-dropzone</code>, which served BOTH the image and audio inputs on the write-article page. The native <code>&lt;input type=file&gt;</code> is hidden; the dashed zone IS the label. Hover and drag-over (<code>.is-dragover</code>, toggled by the theme JS) share ONE accented state. STATES: rest · hover / drag-over · filled.</div>
 	<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:24px; max-width:820px;">
@@ -1330,7 +1335,7 @@ function aigds_sg_item_file_upload() {
 			<div class="dropzone">
 				<div class="dropzone-preview">
 					<span class="dropzone-filename">episode-04-final-mix.mp3</span>
-					<button type="button" class="dropzone-remove" aria-label="Remove file"><?php echo aigds_icon( 'close', array( 'size' => 16 ) ); ?></button>
+					<button type="button" class="dropzone-remove" aria-label="Remove file"><?php echo aifds_icon( 'close', array( 'size' => 16 ) ); ?></button>
 				</div>
 			</div>
 		</div>
@@ -1338,7 +1343,7 @@ function aigds_sg_item_file_upload() {
 	<?php
 }
 
-function aigds_sg_item_form_composition() {
+function aifds_sg_item_form_composition() {
 	?>
 	<div class="sg-note"><b>THE MODEL — one field system, three axes.</b> <b>ELEMENT</b>: each form control is its own tab. <b>SCALE</b>: LARGE is the token root (<code>--field-font-size/-pad-y/-pad-x, --selection-size, --selection-label-size</code>); SMALL is the <code>.form-scale-small</code> scope that remaps them — one drawing, sizes only, never family/color. Small relaxes back to large on a narrow viewport OR any touch device (see <b>Mobile &amp; touch</b> below). <b>SURFACE</b>: field colors are surface roles, so every element adapts to any background. States (hover / focus / error / disabled / checked) ride on top of all three axes. Third-party form engines (FluentForms etc.) are NOT DS elements — at adoption each site maps the engine's selectors onto these tokens and picks a scale by scope.</div>
 
@@ -1368,7 +1373,7 @@ function aigds_sg_item_form_composition() {
 				<div class="form-label-row"><label class="form-label">Select (closed)</label></div>
 				<div class="form-control-wrapper form-select-wrapper">
 					<span class="form-control" style="display:flex; align-items:center;">Option two</span>
-					<?php echo aigds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
+					<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
 				</div>
 			</div>
 			<label class="selection-item selection-item--checkbox">
@@ -1475,7 +1480,7 @@ function aigds_sg_item_form_composition() {
 		<div class="form-control-wrapper" style="min-height:60px; padding:0 var(--spacing-16);">
 			<input type="email" class="form-control" placeholder="Your e-mail">
 		</div>
-		<button type="submit" class="btn btn--lg btn--primary"><?php echo aigds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
+		<button type="submit" class="btn btn--lg btn--primary"><?php echo aifds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
 	</div>
 
 	<h3 class="sg-h3">Disclosure — a segmented segment reveals its panel (the real media switch)</h3>
@@ -1493,11 +1498,11 @@ function aigds_sg_item_form_composition() {
 	</div>
 
 	<h3 class="sg-h3">Newsletter capture — the input-pair in production (harvested contexts, PLAIN system buttons)</h3>
-	<?php aigds_sg_item_newsletter(); ?>
+	<?php aifds_sg_item_newsletter(); ?>
 	<?php
 }
 
-function aigds_sg_item_newsletter() {
+function aifds_sg_item_newsletter() {
 	?>
 	<div class="sg-note">ONE component, ZERO newsletter-specific styles (operator law): plain hierarchy buttons on
 		their surfaces — AIF = <code>btn--lg btn--primary</code> on BRAND (auto-dark) · AIG = <code>btn--md btn--tertiary</code>
@@ -1510,12 +1515,13 @@ function aigds_sg_item_newsletter() {
 			<form class="aif-ecomail-form mc4wp-form" novalidate onsubmit="return false;">
 				<div class="mc4wp-form-fields">
 					<div class="form-control-wrapper">
-						<?php echo aigds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
+						<?php echo aifds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
 						<input type="email" name="email" class="form-control" placeholder="Your e-mail" required autocomplete="email">
 					</div>
-					<button type="submit" class="btn btn--lg btn--primary"><?php echo aigds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
+					<button type="submit" class="btn btn--lg btn--primary"><?php echo aifds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
 				</div>
-			</form>
+						<p class="mc4wp-consent-note">By clicking Subscribe you agree to the <a href="#">processing of personal data</a>.</p>
+		</form>
 		</div>
 	</div>
 	<div class="sg-dark section-dark" style="margin-top:16px;">
@@ -1523,17 +1529,18 @@ function aigds_sg_item_newsletter() {
 		<form class="aif-ecomail-form aif-ecomail-form--footer-dark" novalidate onsubmit="return false;" style="max-width:480px;">
 			<div class="mc4wp-form-fields">
 				<div class="form-control-wrapper">
-					<?php echo aigds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
+					<?php echo aifds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
 					<input type="email" name="email" class="form-control" placeholder="Your e-mail" required autocomplete="email">
 				</div>
-				<button type="submit" class="btn btn--md btn--tertiary"><?php echo aigds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
+				<button type="submit" class="btn btn--md btn--tertiary"><?php echo aifds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
 			</div>
+			<p class="mc4wp-consent-note">By clicking Subscribe you agree to the <a href="#">processing of personal data</a>.</p>
 		</form>
 	</div>
 	<?php
 }
 
-function aigds_sg_item_badges() {
+function aifds_sg_item_badges() {
 	?>
 	<div class="sg-note"><b>Model: a badge is 4 independent axes</b> — color (basic grey | colored category accent) ·
 		icon (with | without) · behavior (clickable &lt;a&gt; with hover | static &lt;span&gt;) · surface (light | brand/colored).
@@ -1552,8 +1559,8 @@ function aigds_sg_item_badges() {
 	<h3 class="sg-h3">Axis 2 — icon: without vs with (__icon slot)</h3>
 	<div class="sg-row">
 		<a href="#" class="badge badge--default">no icon</a>
-		<a href="#" class="badge badge--default"><span class="badge__icon"><?php echo aigds_icon( 'map-pin', array( 'size' => 12 ) ); ?></span>with icon</a>
-		<a href="#" class="badge badge--location"><span class="badge__icon"><?php echo aigds_icon( 'pin', array( 'size' => 12 ) ); ?></span>colored + icon</a>
+		<a href="#" class="badge badge--default"><span class="badge__icon"><?php echo aifds_icon( 'map-pin', array( 'size' => 12 ) ); ?></span>with icon</a>
+		<a href="#" class="badge badge--location"><span class="badge__icon"><?php echo aifds_icon( 'pin', array( 'size' => 12 ) ); ?></span>colored + icon</a>
 	</div>
 
 	<h3 class="sg-h3">Axis 3 — behavior: clickable (hover glow) vs static (no hover)</h3>
@@ -1582,7 +1589,7 @@ function aigds_sg_item_badges() {
 	<?php
 }
 
-function aigds_sg_item_info_box() {
+function aifds_sg_item_info_box() {
 	$variants = array(
 		'info'    => array( 'label' => 'Info',    'note' => '--brand (primary color)' ),
 		'success' => array( 'label' => 'Success', 'note' => '--status-success' ),
@@ -1625,7 +1632,7 @@ function aigds_sg_item_info_box() {
 	<?php
 }
 
-function aigds_sg_item_data_tables() {
+function aifds_sg_item_data_tables() {
 	// One sample table, rendered with different classes. Every specimen ships the
 	// .table-scroll wrapper — the production discipline (AIF wraps every article
 	// table), so no demo overflows the page on narrow viewports.
@@ -1710,7 +1717,7 @@ function aigds_sg_item_data_tables() {
 	<?php
 }
 
-function aigds_sg_item_record_list() {
+function aifds_sg_item_record_list() {
 	// One record renderer per consumer — reused on light + dark.
 	$cohort_record = function ( $c ) {
 		$mod = 'ok' === $c['s'] ? 'record__field--success' : ( 'full' === $c['s'] ? 'record__field--error' : 'record__field--warning' );
@@ -1782,8 +1789,8 @@ function aigds_sg_item_record_list() {
 	<?php
 }
 
-function aigds_sg_item_preview_card() {
-	$photo = AIGDS_URL . 'assets/img/demo/article-1.jpg';
+function aifds_sg_item_preview_card() {
+	$photo = AIFDS_URL . 'assets/img/demo/article-1.jpg';
 
 	// ONE semantic placeholder renderer — the COMPONENT, not content.
 	$card = function ( $condensed = false, $slots = array() ) use ( $photo ) {
@@ -1809,7 +1816,7 @@ function aigds_sg_item_preview_card() {
 				<div class="preview-card__badges"><span class="badge badge--default">Badge</span><span class="badge badge--default">Badge</span></div>
 				<?php endif; ?>
 				<?php if ( $s['skills'] ) : ?>
-				<div class="preview-card__skills"><?php echo aigds_icon( 'skills', array( 'size' => 16 ) ); ?> <span><a href="#">Skill link</a>, <a href="#">Skill link</a>, plain skill</span></div>
+				<div class="preview-card__skills"><?php echo aifds_icon( 'skills', array( 'size' => 16 ) ); ?> <span><a href="#">Skill link</a>, <a href="#">Skill link</a>, plain skill</span></div>
 				<?php endif; ?>
 				<?php if ( 'rich' === $s['text'] ) : ?>
 				<div class="preview-card__text"><p>Text slot as a rich block — first paragraph.</p><p>Second paragraph (the signals exception).</p></div>
@@ -1820,9 +1827,9 @@ function aigds_sg_item_preview_card() {
 				<?php endif; ?>
 				<?php if ( $s['actions'] ) : ?>
 				<div class="preview-card__actions">
-					<a href="#" class="btn btn--sm btn--link"><?php echo aigds_icon( 'arrow-right', array( 'size' => 16 ) ); ?> Action 1</a>
-					<?php if ( $s['actions'] > 2 ) : ?><button type="button" class="btn btn--sm btn--link btn--destructive"><?php echo aigds_icon( 'trash-2', array( 'size' => 16 ) ); ?> Destructive</button><?php endif; ?>
-					<?php if ( $s['actions'] > 1 ) : ?><a href="#" class="btn btn--sm btn--link"><?php echo aigds_icon( 'source', array( 'size' => 16 ) ); ?> Action 2</a><?php endif; ?>
+					<a href="#" class="btn btn--sm btn--link"><?php echo aifds_icon( 'arrow-right', array( 'size' => 16 ) ); ?> Action 1</a>
+					<?php if ( $s['actions'] > 2 ) : ?><button type="button" class="btn btn--sm btn--link btn--destructive"><?php echo aifds_icon( 'trash-2', array( 'size' => 16 ) ); ?> Destructive</button><?php endif; ?>
+					<?php if ( $s['actions'] > 1 ) : ?><a href="#" class="btn btn--sm btn--link"><?php echo aifds_icon( 'source', array( 'size' => 16 ) ); ?> Action 2</a><?php endif; ?>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -1886,7 +1893,7 @@ function aigds_sg_item_preview_card() {
 		/* CONSUMER rule (this demo = the consumer) — production: .articles-grid--signals .article:nth-last-child(n+5) */
 		#preview-stack-demo .preview-card:nth-last-child(n+4) { border-bottom: none; }
 	</style>
-	<div id="preview-stack-demo" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+	<div style="overflow-x:auto;"><div id="preview-stack-demo" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; min-width:560px;">
 		<?php echo $card( true, array( 'meta' => 1 ) ); ?>
 		<?php echo $card( true, array( 'headline_long' => true, 'meta' => 2 ) ); ?>
 		<?php echo $card( true, array( 'text' => 'long', 'meta' => 3 ) ); ?>
@@ -1896,7 +1903,7 @@ function aigds_sg_item_preview_card() {
 		<?php echo $card( true, array( 'skills' => true, 'meta' => 2 ) ); ?>
 		<?php echo $card( true, array( 'text' => false ) ); ?>
 		<?php echo $card( true, array( 'headline_long' => true, 'text' => 'long', 'actions' => 2 ) ); ?>
-	</div>
+	</div></div>
 
 	<h2 class="sg-section-h" style="margin-top:32px;">6 · Consumer mappings (reference only — content types are COMPOSITIONS, not variants)</h2>
 	<table class="sg-table">
@@ -1910,14 +1917,14 @@ function aigds_sg_item_preview_card() {
 	<?php
 }
 
-function aigds_sg_item_accordion() {
+function aifds_sg_item_accordion() {
 	// One item renderer — the canonical markup from both themes' landing-page-primitives.md.
 	$acc = function ( $q, $a ) {
 		ob_start(); ?>
 		<div class="accordion">
 			<button class="accordion__header" aria-expanded="false">
 				<h3 class="accordion__title"><?php echo esc_html( $q ); ?></h3>
-				<div class="accordion__icon"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></div>
+				<div class="accordion__icon"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></div>
 			</button>
 			<div class="accordion__content">
 				<div class="accordion__inner"><?php echo wp_kses_post( $a ); ?></div>
@@ -1952,7 +1959,7 @@ function aigds_sg_item_accordion() {
 	<?php
 }
 
-function aigds_sg_item_breadcrumb() {
+function aifds_sg_item_breadcrumb() {
 	?>
 	<h2 class="sg-section-h">The trail — harvested 1:1 from AIF (<code>inc/breadcrumbs.php</code>)</h2>
 	<div class="sg-note">Home → archive → current; the <b>→ separator is content</b> (the PHP helper renders it),
@@ -1978,7 +1985,7 @@ function aigds_sg_item_breadcrumb() {
 	<?php
 }
 
-function aigds_sg_item_pagination() {
+function aifds_sg_item_pagination() {
 	?>
 	<h2 class="sg-section-h">Archive pagination — harvested 1:1 (byte-identical in BOTH themes)</h2>
 	<div class="sg-note">Styles the WordPress <code>paginate_links()</code> output —
@@ -2001,7 +2008,7 @@ function aigds_sg_item_pagination() {
 	<?php
 }
 
-function aigds_sg_item_nav_tabs() {
+function aifds_sg_item_nav_tabs() {
 	$tabs = function ( $active ) {
 		$items = array( 'Write article', 'My articles', 'Preferences', 'Profile', 'Statistics' );
 		ob_start(); ?>
@@ -2047,14 +2054,14 @@ function aigds_sg_item_nav_tabs() {
 	<?php
 }
 
-function aigds_sg_item_reference_card() {
+function aifds_sg_item_reference_card() {
 	?>
 	<h2 class="sg-section-h">One canonical card — appearance from the background (operator ruling)</h2>
 	<div class="sg-note">Harvested from both themes' <code>[testimonial]</code> shortcode. Production's dark
 		testimonial ships as <code>reference-card section-dark</code> — <b>the scope class ON the card</b>; the light
 		case-study is the SAME card on the page surface. The old per-variant color overrides collapse into roles
 		(fill <code>--raised</code>, quote mark <code>--bullet</code>). Quote voice = accent 18/1.7 (declared
-		Light/300 was the outlawed fiction → regular). Quote icon = <code>aigds_icon('quote-brackets')</code>
+		Light/300 was the outlawed fiction → regular). Quote icon = <code>aifds_icon('quote-brackets')</code>
 		(harvested art, registered). The AIF newsletter <code>.testimonial-card</code> skin dies at adoption.
 		<b>0 new tokens.</b></div>
 
@@ -2062,7 +2069,7 @@ function aigds_sg_item_reference_card() {
 	<div class="reference-card section-dark">
 		<span class="reference-card__quote" aria-hidden="true"></span>
 		<div class="reference-card__header">
-			<div class="reference-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-2.jpg' ); ?>" alt="Jana Kovářová"></div>
+			<div class="reference-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-2.jpg' ); ?>" alt="Jana Kovářová"></div>
 			<div class="reference-card__title-group">
 				<h4 class="reference-card__name">Jana Kovářová</h4>
 				<p class="reference-card__subtitle">Head of Product, Raiffeisen</p>
@@ -2079,7 +2086,7 @@ function aigds_sg_item_reference_card() {
 	<div class="reference-card">
 		<span class="reference-card__quote" aria-hidden="true"></span>
 		<div class="reference-card__header">
-			<div class="reference-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
+			<div class="reference-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
 			<div class="reference-card__title-group">
 				<h4 class="reference-card__name">Petr Novák</h4>
 				<p class="reference-card__subtitle">Founder, Creative Dock</p>
@@ -2124,11 +2131,11 @@ function aigds_sg_item_reference_card() {
 	<?php
 }
 
-function aigds_sg_item_persona_card() {
+function aifds_sg_item_persona_card() {
 	// One renderer, full content contract: photo, name, role, bio, bottom block
 	// = meta (location, pinned) then socials (below the location, lowest).
 	$card = function ( $name, $role, $bio, $meta, $photo = 1, $socials = false, $extra_class = '', $link = false ) {
-		$img = AIGDS_URL . 'assets/img/demo/persona-' . (int) $photo . '.jpg';
+		$img = AIFDS_URL . 'assets/img/demo/persona-' . (int) $photo . '.jpg';
 		ob_start(); ?>
 		<div class="persona-card <?php echo esc_attr( $extra_class ); ?>">
 			<div class="persona-card__avatar"><?php if ( $link ) : ?><a class="card-image-link" href="#" aria-label="<?php echo esc_attr( $name ); ?>"><?php endif; ?><img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $name ); ?>"><?php if ( $link ) : ?></a><?php endif; ?></div>
@@ -2141,9 +2148,9 @@ function aigds_sg_item_persona_card() {
 				<?php if ( $meta ) : ?><p class="persona-card__meta"><?php echo esc_html( $meta ); ?></p><?php endif; ?>
 				<?php if ( $socials ) : ?>
 				<div class="persona-card__socials">
-					<a class="persona-card__social-link" href="#" aria-label="LinkedIn"><?php echo aigds_icon( 'linkedin', array( 'size' => 20 ) ); ?></a>
-					<a class="persona-card__social-link" href="#" aria-label="X"><?php echo aigds_icon( 'x', array( 'size' => 20 ) ); ?></a>
-					<a class="persona-card__social-link" href="#" aria-label="Web"><?php echo aigds_icon( 'web', array( 'size' => 20 ) ); ?></a>
+					<a class="persona-card__social-link" href="#" aria-label="LinkedIn"><?php echo aifds_icon( 'linkedin', array( 'size' => 20 ) ); ?></a>
+					<a class="persona-card__social-link" href="#" aria-label="X"><?php echo aifds_icon( 'x', array( 'size' => 20 ) ); ?></a>
+					<a class="persona-card__social-link" href="#" aria-label="Web"><?php echo aifds_icon( 'web', array( 'size' => 20 ) ); ?></a>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -2196,7 +2203,7 @@ function aigds_sg_item_persona_card() {
 	<div class="section-dark" style="padding:24px; display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;">
 		<div class="persona-card-slot" style="flex:1 1 620px; min-width:0;">
 			<div class="persona-card">
-				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
+				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
 				<div class="persona-card__content">
 					<div class="persona-card__header">
 						<h4 class="persona-card__name">Petr Novák</h4>
@@ -2209,7 +2216,7 @@ function aigds_sg_item_persona_card() {
 		</div>
 		<div class="persona-card-slot" style="flex:0 0 262px;">
 			<div class="persona-card">
-				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
+				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
 				<div class="persona-card__content">
 					<div class="persona-card__header">
 						<h4 class="persona-card__name">Petr Novák</h4>
@@ -2226,7 +2233,7 @@ function aigds_sg_item_persona_card() {
 	<div style="background:var(--bg-alt); padding:24px;">
 		<div class="persona-card-slot" style="resize:horizontal; overflow:hidden; border:var(--stroke-1) dashed var(--border); padding-right:12px; max-width:100%;">
 			<div class="persona-card">
-				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
+				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-1.jpg' ); ?>" alt="Petr Novák"></div>
 				<div class="persona-card__content">
 					<div class="persona-card__header">
 						<h4 class="persona-card__name">Marie Dvořáková</h4>
@@ -2245,7 +2252,7 @@ function aigds_sg_item_persona_card() {
 	<div class="section-dark" style="padding:24px;">
 		<div class="persona-card-slot" id="persona-short-demo">
 			<div class="persona-card">
-				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIGDS_URL . 'assets/img/demo/persona-2.jpg' ); ?>" alt="Marie Dvořáková"></div>
+				<div class="persona-card__avatar"><img src="<?php echo esc_url( AIFDS_URL . 'assets/img/demo/persona-2.jpg' ); ?>" alt="Marie Dvořáková"></div>
 				<div class="persona-card__content">
 					<div class="persona-card__header">
 						<h4 class="persona-card__name">Marie Dvořáková</h4>
@@ -2260,8 +2267,8 @@ function aigds_sg_item_persona_card() {
 	<?php
 }
 
-function aigds_sg_item_avatars() {
-	$photo = AIGDS_URL . 'assets/img/demo/persona-1.jpg';
+function aifds_sg_item_avatars() {
+	$photo = AIFDS_URL . 'assets/img/demo/persona-1.jpg';
 	?>
 	<h2 class="sg-section-h">Sizes</h2>
 	<div class="sg-row" style="align-items:flex-end;">
@@ -2272,15 +2279,15 @@ function aigds_sg_item_avatars() {
 	<?php
 }
 
-function aigds_sg_item_icons() {
+function aifds_sg_item_icons() {
 	?>
 	<div class="sg-note">LAW: icons carry NO brand color — they inherit and recolor from context (currentColor).
 		Taxonomy: <b>outline</b> (stepped stroke) · <b>shape</b> (solid fill) · <b>colored</b> (baked art — brand
-		character glyphs only). <?php echo count( aigds_icon_slugs() ); ?> icons total.</div>
+		character glyphs only). <?php echo count( aifds_icon_slugs() ); ?> icons total.</div>
 	<?php
 	$shape_icons   = array( 'linkedin', 'x', 'instagram', 'bluesky', 'lightbulb-filled' );
 	$colored_icons = array( 'smart-button' );
-	$outline_icons = array_values( array_diff( aigds_icon_slugs(), $shape_icons, $colored_icons ) );
+	$outline_icons = array_values( array_diff( aifds_icon_slugs(), $shape_icons, $colored_icons ) );
 	$groups = array(
 		'Outline (' . count( $outline_icons ) . ')' => $outline_icons,
 		'Shape ('   . count( $shape_icons )   . ')' => $shape_icons,
@@ -2291,7 +2298,7 @@ function aigds_sg_item_icons() {
 	<div class="sg-grid">
 		<?php foreach ( $slugs as $slug ) : ?>
 		<div class="sg-swatch" style="padding:12px; display:flex; align-items:center; gap:10px;">
-			<?php echo aigds_icon( $slug, array( 'size' => 24 ) ); ?>
+			<?php echo aifds_icon( $slug, array( 'size' => 24 ) ); ?>
 			<span style="font-family:var(--font-mono); font-size:11px;"><?php echo esc_html( $slug ); ?></span>
 		</div>
 		<?php endforeach; ?>
@@ -2299,15 +2306,15 @@ function aigds_sg_item_icons() {
 	<?php endforeach; ?>
 	<h3 class="sg-h3">Recoloring proof — same outline icon, color from context only</h3>
 	<div class="sg-row">
-		<span style="color: var(--text);"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
-		<span style="color: var(--brand);"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
-		<span style="color: var(--magenta);"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
-		<span style="color: var(--status-error);"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
+		<span style="color: var(--text);"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
+		<span style="color: var(--brand);"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
+		<span style="color: var(--magenta);"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
+		<span style="color: var(--status-error);"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></span>
 	</div>
 	<?php
 }
 
-function aigds_sg_item_text_elements() {
+function aifds_sg_item_text_elements() {
 	// Each specimen renders in a real prose container so the actual rules apply.
 	$open  = '<main class="section-light" style="border:1px dashed var(--border-strong); padding:20px 24px; max-width:640px; margin:8px 0 4px;"><div class="content-container" style="padding:0;">';
 	$close = '</div></main>';
@@ -2316,7 +2323,7 @@ function aigds_sg_item_text_elements() {
 	<div class="sg-note">These four elements share ONE mechanism: a <b>signifier</b> in the left gutter (a 4px border, an
 		arrow bullet, or a number) and their text all starts at <code>--flow-indent</code> (24px). The bordered ones
 		subtract their 4px border so the text lands on the same line as the list text — <b>aligned by construction</b>.
-		The <a href="<?php echo esc_url( aigds_styleguide_url( aigds_styleguide_brand(), 'info-box' ) ); ?>">info box</a>
+		The <a href="<?php echo esc_url( aifds_styleguide_url( aifds_styleguide_brand(), 'info-box' ) ); ?>">info box</a>
 		is the boxed member of the same family.</div>
 
 	<h3 class="sg-h3">Perex <span style="font-weight:400; color:var(--text-tertiary); font-family:var(--font-mono); font-size:12px;">.text--perex</span></h3>
@@ -2337,7 +2344,7 @@ function aigds_sg_item_text_elements() {
 	<?php
 }
 
-function aigds_sg_item_prose() {
+function aifds_sg_item_prose() {
 	?>
 	<h2 class="sg-section-h">TWO contexts, real markup (toggle the brand to see each site's voice)</h2>
 
@@ -2404,8 +2411,8 @@ function aigds_sg_item_prose() {
  * Course card — SPEC SHEET. THE contract: orientation comes from the SLOT
  * (container query, >=720px = horizontal), never from a variant class.
  */
-function aigds_sg_item_course_card() {
-	$photo = AIGDS_URL . 'assets/img/demo/article-1.jpg';
+function aifds_sg_item_course_card() {
+	$photo = AIFDS_URL . 'assets/img/demo/article-1.jpg';
 	// One placeholder renderer drives every demo. Slots via $s flags.
 	$card = function ( $s = array() ) use ( $photo ) {
 		$s = array_merge( array(
@@ -2440,9 +2447,9 @@ function aigds_sg_item_course_card() {
 				<p class="course-info-card__description">Description slot &mdash; the course pitch, ~30 words.</p>
 				<?php endif; ?>
 				<?php if ( $s['inactive'] ) : ?>
-				<a href="#" class="btn btn--md btn--tertiary"><?php echo aigds_icon( 'course', array( 'size' => 20 ) ); ?> Inactive CTA (contact)</a>
+				<a href="#" class="btn btn--md btn--tertiary"><?php echo aifds_icon( 'course', array( 'size' => 20 ) ); ?> Inactive CTA (contact)</a>
 				<?php else : ?>
-				<a href="#" class="btn btn--md btn--primary"><?php echo aigds_icon( 'course', array( 'size' => 20 ) ); ?> Course CTA</a>
+				<a href="#" class="btn btn--md btn--primary"><?php echo aifds_icon( 'course', array( 'size' => 20 ) ); ?> Course CTA</a>
 				<?php endif; ?>
 			</div>
 		</article>
@@ -2545,7 +2552,7 @@ function aigds_sg_item_course_card() {
  * The FIRST .aif-engagement on the page is LIVE (js/components/engagement.js
  * binds it); the state demos below it are static markup.
  */
-function aigds_sg_item_engagement() {
+function aifds_sg_item_engagement() {
 	?>
 	<main class="sg-main">
 	<h1 class="sg-page-h">Engagement</h1>
@@ -2570,9 +2577,9 @@ function aigds_sg_item_engagement() {
 	<?php /* Fake AddToAny kit — the toast clones the first .a2a_kit it finds.
 	         Hidden stand-in matching the plugin's class grammar. */ ?>
 	<div class="a2a_kit" hidden aria-hidden="true">
-		<a class="a2a_button_linkedin" href="/#linkedin"><?php echo aigds_icon( 'linkedin', array( 'size' => 24 ) ); ?></a>
-		<a class="a2a_button_email" href="/#email"><?php echo aigds_icon( 'mail', array( 'size' => 24 ) ); ?></a>
-		<a class="a2a_button_copy_link" href="/#copy"><?php echo aigds_icon( 'source', array( 'size' => 24 ) ); ?></a>
+		<a class="a2a_button_linkedin" href="/#linkedin"><?php echo aifds_icon( 'linkedin', array( 'size' => 24 ) ); ?></a>
+		<a class="a2a_button_email" href="/#email"><?php echo aifds_icon( 'mail', array( 'size' => 24 ) ); ?></a>
+		<a class="a2a_button_copy_link" href="/#copy"><?php echo aifds_icon( 'source', array( 'size' => 24 ) ); ?></a>
 	</div>
 
 	<div class="aif-engagement"
@@ -2580,12 +2587,12 @@ function aigds_sg_item_engagement() {
 		data-i18n='{"ahaLabel":"Aha!","ahaThanks":"Glad it helped!","shareLabel":"Share article"}'>
 		<div class="aif-engagement__row">
 			<button type="button" class="aif-aha" aria-pressed="false" aria-label="Aha!">
-				<span class="aif-aha__icon-wrap"><?php echo aigds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aigds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span>
+				<span class="aif-aha__icon-wrap"><?php echo aifds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aifds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span>
 				<span class="aif-aha__label">Aha!</span>
 				<span class="aif-aha__count">12</span>
 			</button>
 			<button type="button" class="aif-share" aria-label="Share article">
-				<span class="aif-share__icon-wrap"><?php echo aigds_icon( 'share', array( 'size' => 24 ) ); ?></span>
+				<span class="aif-share__icon-wrap"><?php echo aifds_icon( 'share', array( 'size' => 24 ) ); ?></span>
 				<span class="aif-share__label">Share article</span>
 				<span class="aif-share__count">3</span>
 			</button>
@@ -2601,15 +2608,15 @@ function aigds_sg_item_engagement() {
 	<div id="engagement-states" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
 		<div><p class="sg-h3" style="margin:0 0 8px;">rest &mdash; outline bulb, tertiary text</p>
 			<div class="aif-engagement"><div class="aif-engagement__row">
-				<button type="button" class="aif-aha" aria-pressed="false"><span class="aif-aha__icon-wrap"><?php echo aigds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aigds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span><span class="aif-aha__label">Aha!</span><span class="aif-aha__count">12</span></button>
+				<button type="button" class="aif-aha" aria-pressed="false"><span class="aif-aha__icon-wrap"><?php echo aifds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aifds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span><span class="aif-aha__label">Aha!</span><span class="aif-aha__count">12</span></button>
 			</div></div></div>
 		<div><p class="sg-h3" style="margin:0 0 8px;">clicked &mdash; filled bulb carries the state</p>
 			<div class="aif-engagement"><div class="aif-engagement__row">
-				<button type="button" class="aif-aha aif-aha--clicked" aria-pressed="true"><span class="aif-aha__icon-wrap"><?php echo aigds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aigds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span><span class="aif-aha__label">Aha!</span><span class="aif-aha__count">13</span></button>
+				<button type="button" class="aif-aha aif-aha--clicked" aria-pressed="true"><span class="aif-aha__icon-wrap"><?php echo aifds_icon( 'lightbulb', array( 'size' => 24 ) ); ?><?php echo aifds_icon( 'lightbulb-filled', array( 'size' => 24 ) ); ?></span><span class="aif-aha__label">Aha!</span><span class="aif-aha__count">13</span></button>
 			</div></div></div>
 		<div><p class="sg-h3" style="margin:0 0 8px;">share at zero &mdash; count hidden</p>
 			<div class="aif-engagement"><div class="aif-engagement__row">
-				<button type="button" class="aif-share"><span class="aif-share__icon-wrap"><?php echo aigds_icon( 'share', array( 'size' => 24 ) ); ?></span><span class="aif-share__label">Share article</span><span class="aif-share__count" hidden>0</span></button>
+				<button type="button" class="aif-share"><span class="aif-share__icon-wrap"><?php echo aifds_icon( 'share', array( 'size' => 24 ) ); ?></span><span class="aif-share__label">Share article</span><span class="aif-share__count" hidden>0</span></button>
 			</div></div></div>
 	</div>
 
@@ -2621,9 +2628,9 @@ function aigds_sg_item_engagement() {
 		<div class="aif-engagement-toast aif-engagement-toast--open">
 			<div class="aif-engagement-toast__title">Share with someone who would benefit too:</div>
 			<div class="aif-engagement-toast__buttons"><div class="a2a_kit">
-				<a class="a2a_button_linkedin" href="#"><?php echo aigds_icon( 'linkedin', array( 'size' => 24 ) ); ?></a>
-				<a class="a2a_button_email" href="#"><?php echo aigds_icon( 'mail', array( 'size' => 24 ) ); ?></a>
-				<a class="a2a_button_copy_link" href="#"><?php echo aigds_icon( 'source', array( 'size' => 24 ) ); ?></a>
+				<a class="a2a_button_linkedin" href="#"><?php echo aifds_icon( 'linkedin', array( 'size' => 24 ) ); ?></a>
+				<a class="a2a_button_email" href="#"><?php echo aifds_icon( 'mail', array( 'size' => 24 ) ); ?></a>
+				<a class="a2a_button_copy_link" href="#"><?php echo aifds_icon( 'source', array( 'size' => 24 ) ); ?></a>
 			</div></div>
 			<button type="button" class="aif-engagement-toast__close" aria-label="Close">&times;</button>
 		</div>
@@ -2655,8 +2662,8 @@ function aigds_sg_item_engagement() {
  * bubbles); every visual state is static markup — the edit/delete AJAX
  * engine stays plugin territory.
  */
-function aigds_sg_item_comments() {
-	$photo = AIGDS_URL . 'assets/img/demo/persona-1.jpg';
+function aifds_sg_item_comments() {
+	$photo = AIFDS_URL . 'assets/img/demo/persona-1.jpg';
 	?>
 	<main class="sg-main">
 	<h1 class="sg-page-h">Comments</h1>
@@ -2760,7 +2767,7 @@ function aigds_sg_item_comments() {
 							<b class="fn">Own comment &mdash; owner actions live</b>
 							<div class="comment-metadata"><time>4:22 pm</time>
 								<span class="comment-edited-badge" title="edited timestamp">&middot; (edited)</span>
-								&middot; <button type="button" class="aif-comment-delete-link" title="Delete comment" aria-label="Delete comment"><?php echo aigds_icon( 'trash-2', array( 'size' => 16 ) ); ?></button>
+								&middot; <button type="button" class="aif-comment-delete-link" title="Delete comment" aria-label="Delete comment"><?php echo aifds_icon( 'trash-2', array( 'size' => 16 ) ); ?></button>
 							</div>
 						</div>
 					</header>
@@ -2861,14 +2868,14 @@ function aigds_sg_item_comments() {
  * position:fixed inside a transformed box; the live trigger runs
  * js/components/modal.js.
  */
-function aigds_sg_item_modal() {
+function aifds_sg_item_modal() {
 	// One renderer: THE form modal — title + DS form (fields, consent, submit).
 	$modal = function ( $id, $live = true, $long = false ) {
 		ob_start(); ?>
 		<div id="<?php echo esc_attr( $id ); ?>" class="modal" <?php echo $live ? 'aria-hidden="true"' : 'style="opacity:1; visibility:visible;"'; ?>>
 			<div class="modal__overlay" <?php echo $live ? 'data-close-modal' : ''; ?>></div>
 			<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="<?php echo esc_attr( $id ); ?>-title">
-				<button class="modal__close" <?php echo $live ? 'data-close-modal' : ''; ?> aria-label="Close"><?php echo aigds_icon( 'close', array( 'size' => 24 ) ); ?></button>
+				<button class="modal__close" <?php echo $live ? 'data-close-modal' : ''; ?> aria-label="Close"><?php echo aifds_icon( 'close', array( 'size' => 24 ) ); ?></button>
 				<div class="modal__content">
 					<h2 id="<?php echo esc_attr( $id ); ?>-title" class="modal__title">Title slot &mdash; the form pitch</h2>
 					<p class="modal__text">Text slot &mdash; the body voice: what this form does and why the reader should fill it, one or two sentences.</p>
@@ -2925,7 +2932,7 @@ function aigds_sg_item_modal() {
 		<tr><td><code>__close</code></td><td>required</td><td>40px ghost hit, <code>close</code> icon 24, <code>--text-secondary &rarr; --text</code> hover</td></tr>
 		<tr><td><code>__title</code></td><td>required</td><td>heading-md voice; <code>aria-labelledby</code> target; opener may override via <code>data-modal-title</code> (the registration modal&rsquo;s per-event title)</td></tr>
 		<tr><td>form body</td><td>required</td><td>THE DS FORM SYSTEM: <code>.form-group</code> fields, consent <code>.selection-item--consent</code>, <code>.btn--primary</code> submit &mdash; Fluent Forms markup maps onto these at adoption</td></tr>
-		<tr><td>trigger</td><td>&mdash;</td><td><code>data-modal-open="&lt;modal id&gt;"</code>; or <code>window.aigdsModal.open/close(id)</code></td></tr>
+		<tr><td>trigger</td><td>&mdash;</td><td><code>data-modal-open="&lt;modal id&gt;"</code>; or <code>window.aifdsModal.open/close(id)</code></td></tr>
 	</table></div>
 	<div style="display:flex; gap:16px; flex-wrap:wrap;">
 		<button type="button" class="btn btn--md btn--primary" data-modal-open="sg-modal-live">Open the form modal</button>
@@ -2940,7 +2947,7 @@ function aigds_sg_item_modal() {
 		text, info box and the form stack inside. The frame below is a <b>stand-in short viewport</b>: when the
 		form outgrows it the BOX scrolls internally (<code>overflow-y:auto</code>) &mdash; in production the same
 		engine caps the box at 90vh. Try the live &ldquo;Open scrollable modal&rdquo; button on a short window.</div>
-	<div id="modal-static-default" style="position:relative; transform:translateZ(0); height:520px; overflow:hidden;">
+	<div id="modal-static-default" data-sg-overlap-ok style="position:relative; transform:translateZ(0); height:520px; overflow:hidden;">
 		<?php /* static display artifact: inline visibility, NO aria-hidden hook (the live engine queries it) */ ?>
 		<?php echo $modal( 'sg-modal-static', false ); ?>
 	</div>
@@ -2952,7 +2959,7 @@ function aigds_sg_item_modal() {
 		<tr><td>ESC / overlay / <code>data-close-modal</code></td><td>close; body unlocks when no modal stays open</td></tr>
 		<tr><td>Fluent Forms success</td><td>auto-close after 2s (harvested; jQuery-guarded)</td></tr>
 		<tr><td>&le;599 viewport</td><td>full-screen dvh sheet, 64px top clearance, overscroll contained</td></tr>
-		<tr><td>theme wiring</td><td>hidden-field population + AIG&rsquo;s 4/5/7 form switching stay THEME JS on <code>window.aigdsModal</code></td></tr>
+		<tr><td>theme wiring</td><td>hidden-field population + AIG&rsquo;s 4/5/7 form switching stay THEME JS on <code>window.aifdsModal</code></td></tr>
 	</table></div>
 
 	<h2 class="sg-section-h" style="margin-top:32px;">4 &middot; Consumer mappings</h2>
@@ -2973,7 +2980,7 @@ function aigds_sg_item_modal() {
  * the rendered background). Static frames trap position:fixed in transformed
  * boxes; the LIVE bar at the bottom runs js/components/sticky-bar.js.
  */
-function aigds_sg_item_sticky_bar() {
+function aifds_sg_item_sticky_bar() {
 	// One renderer: $type = 'email'|'button'; $static bars render visible with
 	// no engine hooks.
 	$bar = function ( $type, $classes = '', $attrs = '', $static = true ) {
@@ -2991,7 +2998,7 @@ function aigds_sg_item_sticky_bar() {
 				<a href="#newsletter-signup" class="btn btn--primary sticky-bar__btn-mobile">Subscribe slot</a>
 				<?php else : ?>
 				<span class="sticky-bar__meta">Meta slot &mdash; next cohort 12. 8. 2026</span>
-				<a href="#" class="btn btn--primary"><?php echo aigds_icon( 'course', array( 'size' => 20 ) ); ?> CTA slot</a>
+				<a href="#" class="btn btn--primary"><?php echo aifds_icon( 'course', array( 'size' => 20 ) ); ?> CTA slot</a>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -3111,7 +3118,7 @@ function aigds_sg_item_sticky_bar() {
  * --raised band, 4px brand rules at the perex indent, bold statements,
  * 1..n items.
  */
-function aigds_sg_item_info_bar() {
+function aifds_sg_item_info_bar() {
 	$statements = array(
 		'Statement slot &mdash; a single bold claim, one or two lines.',
 		'Statement slot &mdash; every item flexes equally in the row.',
@@ -3176,7 +3183,7 @@ function aigds_sg_item_info_bar() {
  * canon columns + bottom bar + legal), interior-only dividers, the
  * arrow-link idiom, the chatbot clearance axis.
  */
-function aigds_sg_item_footer() {
+function aifds_sg_item_footer() {
 	$columns = function () {
 		ob_start(); ?>
 		<div class="stack-grid" style="--stack-cols: 3;">
@@ -3203,9 +3210,9 @@ function aigds_sg_item_footer() {
 		<div class="footer__bottom-bar">
 			<a href="#top" class="footer__logo-link" aria-label="Brand - Back to top"><span class="logo-placeholder">LOGO</span></a>
 			<div class="footer__social-icons">
-				<a href="#" class="footer__social-link" aria-label="LinkedIn"><?php echo aigds_icon( 'linkedin', array( 'size' => 16 ) ); ?></a>
-				<a href="#" class="footer__social-link" aria-label="Facebook"><?php echo aigds_icon( 'facebook', array( 'size' => 16 ) ); ?></a>
-				<a href="#" class="footer__social-link" aria-label="RSS"><?php echo aigds_icon( 'rss', array( 'size' => 16 ) ); ?></a>
+				<a href="#" class="footer__social-link" aria-label="LinkedIn"><?php echo aifds_icon( 'linkedin', array( 'size' => 16 ) ); ?></a>
+				<a href="#" class="footer__social-link" aria-label="Facebook"><?php echo aifds_icon( 'facebook', array( 'size' => 16 ) ); ?></a>
+				<a href="#" class="footer__social-link" aria-label="RSS"><?php echo aifds_icon( 'rss', array( 'size' => 16 ) ); ?></a>
 			</div>
 		</div>
 		<div class="footer__legal-section">
@@ -3235,11 +3242,12 @@ function aigds_sg_item_footer() {
 					<form class="aif-ecomail-form aif-ecomail-form--footer-dark" novalidate onsubmit="return false;">
 						<div class="mc4wp-form-fields">
 							<div class="form-control-wrapper">
-								<?php echo aigds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
+								<?php echo aifds_icon( 'arrow-right', array( 'size' => 18, 'class' => 'form-control-icon' ) ); ?>
 								<input type="email" name="email" class="form-control" placeholder="Your e-mail" required autocomplete="email">
 							</div>
-							<button type="submit" class="btn btn--md btn--tertiary"><?php echo aigds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
+							<button type="submit" class="btn btn--md btn--tertiary"><?php echo aifds_icon( 'send', array( 'size' => 18 ) ); ?><span>Subscribe</span></button>
 						</div>
+						<p class="mc4wp-consent-note">By clicking Subscribe you agree to the <a href="#">processing of personal data</a>.</p>
 					</form>
 				</div>
 			</div>
@@ -3302,7 +3310,7 @@ function aigds_sg_item_footer() {
  * slots not content, two modes (fixed+shrink / overlay), a11y-upgraded
  * dropdown grammar, dual-path reading progress.
  */
-function aigds_sg_item_header() {
+function aifds_sg_item_header() {
 	$header = function ( $s = array() ) {
 		$s = array_merge( array(
 			'scope'    => 'surface-support', // or 'section-dark'
@@ -3331,7 +3339,7 @@ function aigds_sg_item_header() {
 					<div class="nav-item nav-item--has-dropdown<?php echo $s['lang_open'] ? ' nav-item--open' : ''; ?>">
 						<button type="button" class="nav-item__trigger">
 							CZ
-							<span class="nav-item-icon"><?php echo aigds_icon( 'chevron-down', array( 'size' => 20 ) ); ?></span>
+							<span class="nav-item-icon"><?php echo aifds_icon( 'chevron-down', array( 'size' => 20 ) ); ?></span>
 						</button>
 						<div class="nav-dropdown">
 							<a href="#" class="nav-dropdown-item nav-dropdown-item--active" lang="cs">CZ</a>
@@ -3439,7 +3447,7 @@ function aigds_sg_item_header() {
 				<a href="#" class="mobile-nav-item mobile-nav-item--active">Articles</a>
 				<a href="#" class="mobile-nav-item">Signals</a>
 				<a href="#" class="mobile-nav-item">Events</a>
-				<a href="#" class="mobile-nav-item mobile-nav-item--sub"><?php echo aigds_icon( 'arrow-right', array( 'size' => 14 ) ); ?>Meetups</a>
+				<a href="#" class="mobile-nav-item mobile-nav-item--sub"><?php echo aifds_icon( 'arrow-right', array( 'size' => 14 ) ); ?>Meetups</a>
 				<div class="mobile-nav-divider"></div>
 				<a href="#" class="btn btn--primary btn--md">Action slot</a>
 				<div class="mobile-lang-row">
@@ -3475,7 +3483,7 @@ function aigds_sg_item_header() {
  * (THE PIZZA LAW separators). The box = a consumer wrapper (crust + fill +
  * bleed) — demonstrated, not a component.
  */
-function aigds_sg_item_blurb() {
+function aifds_sg_item_blurb() {
 	$blurb = function ( $s = array() ) {
 		$s = array_merge( array(
 			'icon'     => false,

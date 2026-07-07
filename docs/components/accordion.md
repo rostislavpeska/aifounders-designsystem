@@ -1,6 +1,6 @@
 # Accordion
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#accordion` · **Specimen:** `/?aigds_styleguide=1&item=accordion`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#accordion` · **Specimen:** `/?aifds_styleguide=1&item=accordion`
 
 ## Intent
 
@@ -28,7 +28,7 @@ The canonical markup (harvested verbatim from both themes' primitives doc):
 <div class="accordion">
   <button class="accordion__header" aria-expanded="false">
     <h3 class="accordion__title">Question?</h3>
-    <div class="accordion__icon"><?php echo aigds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></div>
+    <div class="accordion__icon"><?php echo aifds_icon( 'arrow-right', array( 'size' => 24 ) ); ?></div>
   </button>
   <div class="accordion__content">
     <div class="accordion__inner"><p>Answer.</p></div>

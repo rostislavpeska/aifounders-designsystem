@@ -1,6 +1,6 @@
 # Course card
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#course-card` · **Specimen:** `/?aigds_styleguide=1&item=course-card`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#course-card` · **Specimen:** `/?aifds_styleguide=1&item=course-card`
 
 ## Intent
 
@@ -31,7 +31,7 @@ into this one rule.
       <h3 class="course-info-card__title"><a class="card-title-link" href="…">Course title</a></h3>
       <p class="course-info-card__subtitle">100 hours | 6 weeks</p>
       <p class="course-info-card__description">The pitch, ~30 words.</p>
-      <a class="btn btn--md btn--primary" href="…"><?php echo aigds_icon( 'course', array( 'size' => 20 ) ); ?> Course CTA</a>
+      <a class="btn btn--md btn--primary" href="…"><?php echo aifds_icon( 'course', array( 'size' => 20 ) ); ?> Course CTA</a>
     </div>
   </article>
 </div>

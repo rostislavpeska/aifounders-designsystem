@@ -1,4 +1,4 @@
-# Page Layout Architecture — AI Guild Design System
+# Page Layout Architecture — AI Founders Design System
 
 **Last Updated:** 2026-01-24
 **Provenance (2026-07-04):** documents the **v1 static-template generation**
@@ -279,7 +279,7 @@ Before making changes, backups are stored at:
 
 ---
 
-**Author:** AI Guild Design System  
+**Author:** AI Founders Design System  
 **For:** WordPress Integration Bots & Developers
 
 

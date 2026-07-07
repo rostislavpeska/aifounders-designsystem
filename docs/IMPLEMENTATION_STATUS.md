@@ -62,7 +62,7 @@ Last regenerated: 2026-07-04 (deep-hygiene run; gate 52/52 both brands).
 | Segmented control | `.segmented` / `.segmented-option` | `segmented` | [segmented-control.md](components/segmented-control.md) | shipped (promoted 2026-07-04) |
 | File dropzone | `.dropzone` / `.dropzone-*` | `file-upload` | [file-dropzone.md](components/file-dropzone.md) | shipped (promoted 2026-07-04) |
 | Forms composition (pattern) | `.form-stack`, `.form-scale-small`, `.input-pair`, conventions | `form-composition` | [forms-composition.md](components/forms-composition.md) | shipped (+ `.form-stack` 2026-07-05 — the named form rhythm; submits require a ladder rung) |
-| Icons | `aigds_icon()` + `.icon--*` | `icons`, `icon-system` | [icons.md](components/icons.md) | shipped |
+| Icons | `aifds_icon()` + `.icon--*` | `icons`, `icon-system` | [icons.md](components/icons.md) | shipped |
 
 ## Tracked (approved, not built)
 
@@ -80,18 +80,18 @@ set per run.
 
 | Unit | Known usage pointers (starting points for the harvest) |
 |---|---|
-| Benefits FAMILY (benefits + dark blurbs + hero mini-benefits + nl-benefits + Šest oblastí + info-bar + footer-blurb) | EXPANDED by operator 2026-07-06 — 'semantically possibly one component', extreme inconsistency. **CENSUS + SANDBOX PROPOSALS DELIVERED**: [BENEFITS-FAMILY-MAP](proposals/BENEFITS-FAMILY-MAP.md) (7 dialects, 5 title voices, 5 body voices, 3 accent grammars) + three competing architectures rendered as full replica pages in the NEW SANDBOX (`/?aigds_sandbox=1`: benefits-a ONE primitive · benefits-b TWO rows · benefits-c conservative). **Build blocked on operator verdicts** (architecture pick + the map §4 sub-verdicts: display clamp, info-bar light experiment, icon fate, .reveal row, footer-blurb membership). |
+| Benefits FAMILY (benefits + dark blurbs + hero mini-benefits + nl-benefits + Šest oblastí + info-bar + footer-blurb) | EXPANDED by operator 2026-07-06 — 'semantically possibly one component', extreme inconsistency. **CENSUS + SANDBOX PROPOSALS DELIVERED**: [BENEFITS-FAMILY-MAP](proposals/BENEFITS-FAMILY-MAP.md) (7 dialects, 5 title voices, 5 body voices, 3 accent grammars) + three competing architectures rendered as full replica pages in the NEW SANDBOX (`/?aifds_sandbox=1`: benefits-a ONE primitive · benefits-b TWO rows · benefits-c conservative). **Build blocked on operator verdicts** (architecture pick + the map §4 sub-verdicts: display clamp, info-bar light experiment, icon fate, .reveal row, footer-blurb membership). |
 | Benefits (numbered eyebrow-line cards) — ORIGINAL POINTER ROW | operator 2026-07-04: "one of the more complex." REAL selector: `.cert-card` (historical name — ABSORBS the cert-card sweep candidate). AIG components.css ~2792: editorial numbered card — 2px `border-top` hairline, CSS-counter `01/02/03` eyebrow (mono/tracked/inverse-link), clamp(24→32) extrabold title (MECHANISM LAW check: fluid = display class), 18px text, arrow link; icon hidden, `--with-icon` re-enables; `reveal`/`--reveal-delay` scroll animation (possible separate behavior primitive). Usages: AIG homepage "Jak fungujeme" (dark), AIG course detail `kurz-benefits` "Co si odneseš" (`card-row--three`), AIG newsletter landing `nl-benefits` (override skin — UNIFY per operator). AIF has the OLD icon cert-card (~7 rules) — unification ruling needed. |
 
 ### Road to deployment (operator 2026-07-06 — order matters; DS is NOT ready to install yet)
 
-1. **Full VECTOR-DS system audit** — completeness pass (nothing missed) + refactor ([VECTOR-DS](proposals/VECTOR-DS.md) is the base).
-2. **Clean Figma import** — ✅ UNBLOCKED 2026-07-06: Figma MCP verified authenticated (whoami = operator, Full seat on "My Projects") + `figma@claude-plugins-official` installed (npx route; no bare `claude` CLI on device).
-3. **GitHub repo cleanup** — PLANNED ([PUBLIC-REPO-PLAN](proposals/PUBLIC-REPO-PLAN.md)): new repo **`aifounders-designsystem`** (operator ruling: AIF = the open-source platform, AIG = a commercial project built on it), fresh history, operator creates it in the UI → bootstrap push ready.
-4. **Vectorization process** — n8n vectorization workflow + a NEW Supabase table.
+1. **Full VECTOR-DS system audit** — ✅ **COMPLETE 2026-07-06** ([AUDIT-2026-07](proposals/AUDIT-2026-07.md)): inventories/tokens/docs verified clean; 5 real bugs fixed; the gate grew L0→L4 (92 checks: layout sweep + a11y baseline + behavior contracts); rows GENERATED (build/rows.mjs, 40/40, .ds.yaml dead). Out-tray: HEADING-RAMP, sweep picks, Phase-C retirements, a11y ratchet, repo §6 verdicts.
+2. **Clean Figma import** — ✅ **ARCHITECTURE RESOLVED 2026-07-07** ([FIGMA-IMPORT](proposals/FIGMA-IMPORT.md), 4 operator verdicts): Palette (AIF·AIG) ← Semantic (all 8 scope modes; Pro plan = 10 since Oct 2025) · Type Primitives (Desktop·Mobile — the clamp answer) · staged tiers · [`ds-figma-import` skill](../.claude/skills/ds-figma-import/SKILL.md) ratified. MCP authenticated; plugin installed. **NEXT: the import session** (fresh session so the bundled figma skills activate; session 1 = variables + styles + Foundations + icons + Tier-0 atoms → operator review in Figma). Code Connect is plan-gated (Org/Ent) — node-id backfill via `assets/figma-map.json`, `code_connect` deferred.
+3. **GitHub repo cleanup** — BOOTSTRAPPED ([PUBLIC-REPO-PLAN](proposals/PUBLIC-REPO-PLAN.md)): [`aifounders-designsystem`](https://github.com/rostislavpeska/aifounders-designsystem) live (private, fresh history `efb1442`, byte-parity verified, CI on). Remaining: audit → cleanup pass → §6 verdicts → public flip → archive the dev repo.
+4. **Vectorization process** — ✅ **BUILT + LIVE-TESTED 2026-07-07** (house-pattern conformant, mandated pattern check done): Supabase `ds_component_vectors` + `match_ds_components` RPC (mirrors `match_positions`, adds `_class_like`/`_token_like`); n8n **PULL-model** ingest `AIF Sub: DS Vector Ingest (components)` (key-gated webhook kick → n8n fetches `assets/ds-rows.json` itself via the existing "GitHub account" credential, Main-Harvester-2 pattern → guard-if-0 → scoped wipe → LangChain insert, `text-embedding-3-small`; source repo = one `Repo Params` default: factory now → `aifounders-designsystem` at flip) + `AIF DS Components RAG Search (MCP)` (same shape as the positions RAG search); repo side = [`ds-lookup` skill](../.claude/skills/ds-lookup/SKILL.md) only (zero-config via the n8n MCP; key self-served from the workflow; no env vars, no push script — operator veto). **✅ COMPLETE 2026-07-07: full store LIVE — 40/40 components (80 chunks) ingested from GitHub in 8s** after the operator added `aig-desigsystem` to the n8n fine-grained PAT (the "n8n" token; 404-on-private caught live, guard refused the wipe until then). Smoke-tested ×3: "dark footer email capture" → Newsletter capture 0.518 · "sticky bottom bar that must not cover the chatbot" → Sticky bar 0.564 · "threaded discussion with replies, avatars, edit window" → Comments 0.62 (+`_min_similarity` floor verified). Left for later: add `aifounders-designsystem` to the same PAT at the public flip; optional `availableInMCP` flip of the search workflow.
 5. THEN: plugin installation on BOTH websites + theme-code refactoring — possibly two parallel Fable agents (one AIF, one AIG).
 
-### Sweep candidates (full both-theme sweep 2026-07-04 — found, NOT approved; operator picks)
+### Sweep candidates (2026-07-04 sweep; statuses refreshed by the audit 2026-07-06 — 2 resolved, 2 partial, 10 open; operator picks)
 
 Everything below exists in production and is NOT covered by the DS or the
 queue above. Listed by decision space; noise (plugin chrome, one-off page
@@ -99,19 +99,19 @@ layout, `lp-*` landing primitives ruled out of scope earlier) excluded.
 
 | Candidate | Pointers | Notes |
 |---|---|---|
-| Dark blurb | `.dark-blurb` both themes (~69 rules); `.dark-blurb--secondary` is a **dark-2 scope selector** | dark card: illustration + title + description + link; SCOPE-CENSUS dark-2 verdict affects it |
+| ~~Dark blurb~~ | — | **RESOLVED 2026-07-06**: retired into `.blurb` + the divided stack grid (the benefits verdict); `--secondary` stays a dark-2 selector until theme adoption |
 | Ad card / native promo | `.aif-native-promo` (+ color variants), `[add]` shortcode, AIF | editorial inline ad: kicker + title + meta + arrow CTA, category-colored border |
 | Protocol card | `.protocol-card`, `[protocol]` shortcode, AIF (aifounders.cz/o-nas) | a derivative of the reference card, but the shared-voice abstraction was WITHDRAWN (operator 2026-07-05: "forget about the Blue protocol… this level of abstraction is simply not possible now") — distills standalone later |
 | Newsletter-preference card | `.nl-card`, AIF preference center + landing | checkbox styled as a colorful topic card — relates to the selection family |
 | Archive header (+ event/signal variants) | `.archive-header`, both themes (`components/archive-header.php`); AIF adds event/signal extensions | brand band: title + subheadline + `.archive-filter__link` row |
-| Sticky CTA bar | AIG course sticky (`.sticky-cta`) + `.lp-sticky` newsletter bar (both) | one "sticky bottom bar" decision space, two intents (promo CTA vs capture); reveal/hide on scroll |
+| ~~Sticky CTA bar~~ | — | **RESOLVED 2026-07-06**: shipped as `.sticky-bar` (six instances collapsed; email/button types + THE SAMPLER) |
 | Register banner | `.register-banner`, AIF | unexamined |
-| Toast | `.aif-engagement-toast`, BOTH themes | generic feedback primitive (currently only engagement uses it) |
+| Toast | `.aif-engagement-toast`, BOTH themes | SHIPPED inside engagement 2026-07-05; still TRACKED as a generic feedback-primitive promotion (rename + generic API) — operator pick |
 | Video embed (+ lightbox) | `.lp-video`/`.article-hero__video-wrapper`/`.aif-video` + AIG `video-embed.css`; `article-image-lightbox.js` AIF | 16:9 wrapper; zoom-on-click behavior |
 | Podcast / audio player | `.article-audio`, both themes | article audio embed |
-| Logo grid / partners | `.logo-grid`/`.logos-grid` + `[partners]` shortcode, both themes | logo grid + optional section title; borderline layout-utility |
+| Logo grid / partners | `.logo-grid`/`.logos-grid` + `[partners]` shortcode, both themes | PARTIALLY resolved: the footer partners band shipped 2026-07-06 (`.footer__partners`); the PAGE-level logo grid + shortcode remain — operator pick |
 | Hero family | `.page-hero` (brand scope selector) / `.article-hero` / `.author-hero` / `.homepage-hero` / `.hero-aif` | SECTION-level batch (HANDOFF Batch-2); author-hero is the persona-detail hero |
-| Testimonials carousel | `.testimonials-carousel` (AIG single-kurz renderer: 1 = centered, 2 = grid, 3+ = Apple-swipe carousel <1024, scroll-snap) | composition wrapper around reference-cards — discovered during the testimonial distill, out of that row's scope |
+| Testimonials carousel | `.testimonials-carousel` (AIG single-kurz renderer) | still open (composition wrapper around shipped reference-cards; 1/2/3+ display modes) — operator pick |
 | Application row | `[applications]` shortcode rows, AIF course pages | date/time/location/price/CTA — **likely a record-list CONSUMER, not a new component** — verify at harvest |
 
 ## Deprecated aliases (kept for markup compat, rationalization queue)

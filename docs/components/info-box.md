@@ -1,6 +1,6 @@
 # Info box
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#info-box` · **Specimen:** `/?aigds_styleguide=1&item=info-box`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#info-box` · **Specimen:** `/?aifds_styleguide=1&item=info-box`
 
 ## Intent
 The info box is the DS skeleton note box: a plain tinted box with a thick 4px accent left border — NO icon, SQUARE corners, nothing else. Reach for it to call out a note, tip, success/warning/error message, or neutral aside inside content flow, at any of three reading sizes. Do NOT reach for it to emphasize a table row/column (that's the data-table `is-emphasized` brand-tint signifier), for intro emphasis in an article (that's the perex/blockquote voice, which shares the 4px-accent-border grammar), or for status text inside tables/records (`.cell--*` / `.record__field--*`). The whole contract is one custom-property knob: each color variant only sets `--info-accent`; the base derives the background tint from it via `color-mix(… 22%, var(--bg))` — zero new tokens and surface-aware by construction, since the mix re-resolves against the local `--bg`. Content sits directly inside the box (no inner wrapper); first/last child margins are stripped so padding stays even.

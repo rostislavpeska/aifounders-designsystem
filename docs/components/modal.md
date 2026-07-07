@@ -1,6 +1,6 @@
 # Modal
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#modal` · **Specimen:** `/?aigds_styleguide=1&item=modal`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#modal` · **Specimen:** `/?aifds_styleguide=1&item=modal`
 
 ## Intent
 
@@ -24,7 +24,7 @@ component, not ported.
 <div id="my-modal" class="modal" aria-hidden="true">
   <div class="modal__overlay" data-close-modal></div>
   <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="my-modal-title">
-    <button class="modal__close" data-close-modal aria-label="Close"><?php echo aigds_icon( 'close', array( 'size' => 24 ) ); ?></button>
+    <button class="modal__close" data-close-modal aria-label="Close"><?php echo aifds_icon( 'close', array( 'size' => 24 ) ); ?></button>
     <div class="modal__content">
       <h2 id="my-modal-title" class="modal__title">Reservation</h2>
       <!-- THE FORM — the DS form system (Fluent Forms markup maps onto it): -->
@@ -80,9 +80,9 @@ The AIF registration-modal engine (the only production copy with the full
 accessibility contract), generalized: `data-modal-open="<id>"` openers
 (+ `data-modal-title`), `data-close-modal` closers + overlay click +
 **ESC** (closes the most recently opened), body scroll lock (released only
-when no modal remains open), focus moves to the first field (harvested
+when no modal remains open), focus moves to the first field, and CLOSING RESTORES focus to the opener (the dialog contract; restore added by the L4 audit 2026-07-06 — the harvested engine lacked it) (harvested
 100ms delay), Fluent-Forms `submission_success` → auto-close after the
-harvested 2s. Public API: `window.aigdsModal.open(id, {title}) /
+harvested 2s. Public API: `window.aifdsModal.open(id, {title}) /
 .close(id)`. Per-modal wiring (hidden-field population, AIG's 409-line
 4/5/7 form-switching) stays THEME JS on top of this engine.
 
@@ -131,4 +131,4 @@ pages; dark scopes are unharvested territory.
   `modal__*` (`__container` is the box; the inline contact modal's
   `__content`-as-box renames); `data-open-registration` /
   `data-open-contact-form` → `data-modal-open`;
-  `window.aifRegistrationModal` → `window.aigdsModal`.
+  `window.aifRegistrationModal` → `window.aifdsModal`.

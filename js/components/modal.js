@@ -13,10 +13,15 @@
  *
  * Production's per-modal wiring (hidden-field population, reservation form
  * switching, consent AJAX) stays THEME territory — themes call the exposed
- * window.aigdsModal.open/close API and do their own field work.
+ * window.aifdsModal.open/close API and do their own field work.
  */
 (function () {
 	'use strict';
+
+	// Focus restore: remember who opened each modal so closing hands focus
+	// back (the standard dialog contract — gap found by the L4 audit
+	// 2026-07-06: the harvested engine focused IN but never restored).
+	var lastFocused = {};
 
 	function openModal(modal, data) {
 		data = data || {};
@@ -24,6 +29,10 @@
 		var title = modal.querySelector('.modal__title');
 		if (title && data.title) {
 			title.textContent = data.title;
+		}
+
+		if (modal.id) {
+			lastFocused[modal.id] = document.activeElement;
 		}
 
 		modal.setAttribute('aria-hidden', 'false');
@@ -42,6 +51,13 @@
 		// Only unlock the body when no other modal stays open.
 		if (!document.querySelector('.modal[aria-hidden="false"]')) {
 			document.body.classList.remove('modal-open');
+		}
+		var restore = modal.id && lastFocused[modal.id];
+		if (restore && document.contains(restore)) {
+			restore.focus();
+		}
+		if (modal.id) {
+			delete lastFocused[modal.id];
 		}
 	}
 
@@ -96,7 +112,7 @@
 	}
 
 	// Public API (generalizes production's window.aifRegistrationModal).
-	window.aigdsModal = {
+	window.aifdsModal = {
 		open: function (id, data) {
 			var m = document.getElementById(id);
 			if (m) openModal(m, data);

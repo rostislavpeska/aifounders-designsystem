@@ -1,5 +1,5 @@
 /**
- * Components — AI Guild Design System (plugin)
+ * Components — AI Founders Design System (plugin)
  *
  * Version: 2.0.0 — Batch 1: foundations
  * Harvested 2026-07-02 from the LIVE THEMES (rendered rules only — the v1
@@ -988,16 +988,14 @@ main .text--body blockquote {
    intentional adoption delta, GM exception.)
    --------------------------------------------------------------------------- */
 
-/* Conjoined-form geometry — context, not button style */
-.hero-aif__form .btn,
-.aif-ecomail-form--footer-dark .btn {
-    align-self: stretch;
-    height: auto;
-    flex-shrink: 0;
-}
-
 .hero-aif__form .btn {
     min-height: 60px;
+}
+
+.aif-ecomail-form--footer-dark .btn {
+    /* production-verified 52 — in the mobile column stack align-self:stretch
+       is horizontal and height:auto collapsed the submit (2026-07-07) */
+    min-height: 52px;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1011,32 +1009,21 @@ main .text--body blockquote {
    harvested as-is so the styleguide renders the REAL component.
    --------------------------------------------------------------------------- */
 
+/* geometry lives in THE CONJOIN LAW (input-pair block) — here only the
+   outer wrapper chain so the form fills its slot */
 .hero-aif__form,
 .hero-aif__form form,
-.hero-aif__form .mc4wp-form,
-.hero-aif__form .mc4wp-form-fields {
+.hero-aif__form .mc4wp-form {
     display: flex;
-    gap: 0;
+    flex-direction: column;
     width: 100%;
-}
-
-@media (min-width: 600px) {
-    .hero-aif__form .mc4wp-form-fields {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: stretch;
-    }
-    .hero-aif__form .form-control-wrapper {
-        border-right: 0; /* joins flush against the button */
-    }
 }
 
 /* geometry only — field COLORS come from the surface (brand → white bg,
    strong dark border via the brand field roles); the harvested hardcoded
    bg-secondary bypassed the tokens and looked cheap on brand */
 .hero-aif__form .form-control-wrapper {
-    flex: 1;
-    display: flex;
+    display: flex; /* inner layout: icon + input */
     align-items: center;
     border-color: var(--field-border-strong);
     padding: 0;
@@ -1069,22 +1056,35 @@ main .text--body blockquote {
     color: var(--text-tertiary);
 }
 
-/* Dark footer context (AIG) — same structure, 52px, inverse colors */
-.aif-ecomail-form--footer-dark .mc4wp-form-fields {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
+/* CONSENT NOTE — STANDARD capture anatomy (operator 2026-07-07: "the
+   legal disclaimer should be a standard part of both email inputs").
+   Production carries it on BOTH sites (verified live: AIF hero = plain
+   text voice on brand; AIG band = the pale tint). The slot is optional
+   to RENDER, never to style. GM: margin 2→8 (AIF twin), leading 1.7→body. */
+.aif-ecomail-form .mc4wp-consent-note {
+    margin: var(--spacing-8) 0 0;
+    font-size: var(--body-md-size);
+    line-height: var(--leading-body);
+    /* THE NOTE VOICE = tertiary text (operator 2026-07-07): quiet gray on
+       every surface — the harvested brand-tint cream DIES (deliberate
+       delta from production). The scope carries the flip; no per-context
+       recolor exists. */
+    color: var(--text-tertiary);
 }
 
+.aif-ecomail-form .mc4wp-consent-note a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Dark footer context (AIG) — SKIN only (geometry = THE CONJOIN LAW) */
 .aif-ecomail-form--footer-dark .form-control-wrapper {
-    flex: 1;
-    display: flex;
+    display: flex; /* inner layout: icon + input */
     align-items: center;
     background-color: var(--black);
     /* OPERATOR LAW: newsletter capture = ONE component — same 2px border in
        every context (harvest had 1px here; intentional delta, GM exception). */
     border: var(--stroke-2) solid var(--dark-700);
-    border-right: 0;
     padding: 0 var(--spacing-16);
     height: 52px;
     box-sizing: border-box;
@@ -1108,6 +1108,12 @@ main .text--body blockquote {
     background: transparent;
     border: none;
     outline: none;
+}
+
+.aif-ecomail-form--footer-dark .mc4wp-consent-note a {
+    /* note links pop to the link role on the dark band (production:
+       --color-primary-inverse-link); on light they inherit + underline */
+    color: var(--link);
 }
 
 .aif-ecomail-form--footer-dark .form-control::placeholder {
@@ -3040,11 +3046,11 @@ body.menu-open {
 /* modern path: zero-JS scroll-driven fill (harvested dual engine) */
 @supports (animation-timeline: scroll()) {
     .reading-progress::after {
-        animation: aigds-progress-fill linear forwards;
+        animation: aifds-progress-fill linear forwards;
         animation-timeline: scroll(root);
     }
 
-    @keyframes aigds-progress-fill {
+    @keyframes aifds-progress-fill {
         from { transform: scaleX(0); }
         to { transform: scaleX(1); }
     }
@@ -4368,7 +4374,7 @@ main .article-comments ul li,
    links; quote mark = --bullet (the muted-glyph role; live used a border
    neutral); v1 !important armor dropped. Card fill = --raised (the role for
    cards-on-surfaces; live values sat one step off per surface — role wins).
-   Quote icon = aigds_icon('quote-brackets') (harvested art, registered).
+   Quote icon = aifds_icon('quote-brackets') (harvested art, registered).
    The AIF newsletter `.testimonial-card` skin is theme drift — dies at
    adoption. The 1/2/3+ testimonials-carousel wrapper is OUT of this row
    (candidate). 0 new tokens.
@@ -4931,7 +4937,7 @@ main .article-comments ul li,
 
 /* ICON STROKE (operator 2026-07-04, supersedes constant-1.5): STEPPED stroke.
    non-scaling-stroke keeps the width in SCREEN px (no viewBox math); the step
-   follows the rendered size — aigds_icon() picks the class from $size, and the
+   follows the rendered size — aifds_icon() picks the class from $size, and the
    .icon--sm utility (14px) pairs with the fine step for CSS-sized icons:
      <16px → --stroke-1 · 16–32px → --stroke-1_5 (default) · >32px → --stroke-3
    (operator: 16px itself is 1.5 — only below 16 is fine).
@@ -5202,7 +5208,15 @@ textarea.form-control {
    rationalization).
    --------------------------------------------------------------------------- */
 
-.input-pair {
+/* THE CONJOIN LAW (rationalized 2026-07-07, operator: "solve universally
+   once forever" after the stacked band lost its right border): the join
+   border-collapse and the stretch-to-match are ROW-ONLY facts; every
+   stacked state keeps all four borders, its own heights, and an 8px
+   breath. The newsletter captures (hero + footer-dark) are CONSUMERS of
+   this one geometry block — contexts carry SKIN only (colors, heights,
+   padding). One breakpoint: 600 (GM: footer-dark's harvested 767 → 600). */
+.input-pair,
+.aif-ecomail-form .mc4wp-form-fields {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -5210,23 +5224,29 @@ textarea.form-control {
     width: 100%;
 }
 
-.input-pair > .form-control-wrapper {
-    flex: 1;
+.input-pair > .form-control-wrapper,
+.aif-ecomail-form .mc4wp-form-fields > .form-control-wrapper {
+    /* 1 1 AUTO — basis 0 would override the wrapper's height in the
+       column stack (the flex-basis trap, 2026-07-07) */
+    flex: 1 1 auto;
     min-width: 0;
 }
 
 @media (min-width: 600px) {
-    .input-pair {
+    .input-pair,
+    .aif-ecomail-form .mc4wp-form-fields {
         flex-direction: row;
         gap: 0;
     }
-    .input-pair > .form-control-wrapper {
-        border-right: 0; /* the join */
+    .input-pair > .form-control-wrapper,
+    .aif-ecomail-form .mc4wp-form-fields > .form-control-wrapper {
+        border-right: 0; /* the join — exists ONLY while the row does */
     }
-    .input-pair > .btn {
+    .input-pair > .btn,
+    .aif-ecomail-form .mc4wp-form-fields > .btn {
         flex-shrink: 0;
         align-self: stretch;
-        height: auto;
+        height: auto; /* row-only: stretch owns the height at the join */
     }
 }
 

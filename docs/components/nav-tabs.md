@@ -1,6 +1,6 @@
 # Nav tabs
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#nav-tabs` · **Specimen:** `/?aigds_styleguide=1&item=nav-tabs`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#nav-tabs` · **Specimen:** `/?aifds_styleguide=1&item=nav-tabs`
 
 ## Intent
 

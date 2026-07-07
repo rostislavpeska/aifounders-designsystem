@@ -1,6 +1,6 @@
 # Footer
 
-**Type:** site chrome component · **Status:** shipped · **git_path:** `assets/css/components.css#footer` · **Specimen:** `/?aigds_styleguide=1&item=footer`
+**Type:** site chrome component · **Status:** shipped · **git_path:** `assets/css/components.css#footer` · **Specimen:** `/?aifds_styleguide=1&item=footer`
 
 ## Intent
 
@@ -17,7 +17,8 @@ nav menus). No JS.
   <section class="footer__newsletter-section" aria-label="Newsletter">  <!-- OPTIONAL; dark-2 -->
     <div class="footer__newsletter-row">
       <p class="footer__newsletter-headline">…pitch…</p>
-      <div class="footer__newsletter-form-wrap">…the shipped aif-ecomail-form--footer-dark…</div>
+      <div class="footer__newsletter-form-wrap">…the shipped aif-ecomail-form--footer-dark
+        (incl. its STANDARD .mc4wp-consent-note slot — operator 2026-07-07)…</div>
     </div>
   </section>
   <div class="footer__inner">

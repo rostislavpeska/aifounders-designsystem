@@ -1,6 +1,6 @@
 # File dropzone
 
-**Type:** component · **Status:** shipped (promoted 2026-07-04, branch `forms-split`) · **git_path:** `assets/css/components.css#dropzone` · **Specimen:** `/?aigds_styleguide=1&item=file-upload`
+**Type:** component · **Status:** shipped (promoted 2026-07-04, branch `forms-split`) · **git_path:** `assets/css/components.css#dropzone` · **Specimen:** `/?aifds_styleguide=1&item=file-upload`
 
 ## Intent
 The File dropzone is the drag-and-drop / click-to-browse file input: a dashed rectangle that IS the label for a visually hidden native `<input type="file">`, with a prompt line, a formats hint, and a filled state showing the chosen filename plus a remove button. Reach for it whenever the user must supply a file — images, audio, documents; the harvested original (`.aif-publish__image-dropzone`, author-publish write-article page) served BOTH the image and the audio input on one template, which is what proved it reusable and earned the promotion. Do NOT use it for typed answers (Input) or URL-based media (a plain Input with validation — the video URL case in the media-switch disclosure). Contract in one breath: the zone is a field-colored dashed surface; hover and drag-over are deliberately ONE shared accented state (border → `--brand`, faint bg lift) with the `.is-dragover` class toggled by consumer JS; the filled state swaps the prompt for `.dropzone-preview` (ellipsized filename + `.dropzone-remove`); everything scales with `.form-scale-small`.
@@ -16,7 +16,7 @@ Class map:
 - `.dropzone-filename` — grows (`flex: 1`), ellipsizes overflow, `--text`.
 - `.dropzone-remove` — chromeless icon button at the end, `--text-tertiary`, hover → `--status-error`.
 
-From the specimen (`inc/styleguide.php` → `aigds_sg_item_file_upload()`):
+From the specimen (`inc/styleguide.php` → `aifds_sg_item_file_upload()`):
 
 ```html
 <!-- rest -->

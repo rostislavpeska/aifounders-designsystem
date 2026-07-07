@@ -1,6 +1,6 @@
 # Prose layout (article context + flow rhythm)
 
-**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#prose-defaults` (+ `#heading-contexts`) · **Specimen:** `/?aigds_styleguide=1&item=prose`
+**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#prose-defaults` (+ `#heading-contexts`) · **Specimen:** `/?aifds_styleguide=1&item=prose`
 
 ## Intent
 Prose layout is what bare editor content gets for free inside `<main>`: the heading ramp, paragraph voice, and the FLOW LAW rhythm — plus the **article context transform**, where `.article-layout__content` steps every heading slot ONE full style down. Reach for it by writing plain semantic markup (`h2`, `h3`, `p`, lists, blockquote) in a content column; reach for `.article-layout__content` when the content is a reading column (an article body) that needs the calmer, one-step-down ramp. Do NOT add margins to type classes or hand-space prose blocks — rhythm belongs exclusively to these flow rules and their `flow-*` tokens. The article transform is a **style step, not a size tweak**: the harvested size-only overrides created a ramp orphan on AIG (a 22px Lazzer article h3 matching no ramp style, since heading-sm is Inter); now every article heading IS an existing ramp style by construction, brand divergence included (intentional delta vs live AIG article h3, GM exception). What breaks: overriding only `font-size` in a context re-creates the orphan bug; forgetting the first-heading reset doubles the top gap of a container.

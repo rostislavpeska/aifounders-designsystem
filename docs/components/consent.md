@@ -1,6 +1,6 @@
 # Consent
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aigds_styleguide=1&item=consent`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#selection-controls` · **Specimen:** `/?aifds_styleguide=1&item=consent`
 
 ## Intent
 Consent is the legal / GDPR opt-in: a checkbox underneath, but its own element — a mandatory legal agreement rendered in the SELECTION voice one size quieter. Reach for it whenever the user must explicitly agree to something legal before submitting: processing of personal data, terms of service, marketing consent. It is NEVER pre-checked (specimen rule). Do NOT use a plain Checkbox for legal agreement (wrong voice, wrong stakes) and do NOT use Consent for ordinary preference toggles — that is Checkbox. Consent shares the entire `.selection-*` CSS system with Checkbox and Radio, yet earns its own row: the stylesheet unifies the three, the decision space separates them (VECTOR-DS §4) — its distinct legal intent (mandatory, quiet voice) is the divergence. Contract in one breath: markup is a checkbox item with the `--consent` modifier added; the ONLY style delta is the label (and `.consent-note`) dropping to `--caption-size` — family, weight, and color stay `.selection-label`, links inside follow the standard link idiom with no special color; the error state (mandatory consent left unticked on submit) inherits the input error border on the chip and paints the note in the status-error voice.
@@ -15,7 +15,7 @@ Class map — a checkbox item plus one modifier and one optional element:
 - `.consent-note` — optional; a second line inside `.selection-content` (used for the error message), same quiet `--caption-size`.
 - Error modifier: `.selection-item--error` on the item.
 
-From the specimen (`inc/styleguide.php` → `aigds_sg_item_consent()`):
+From the specimen (`inc/styleguide.php` → `aifds_sg_item_consent()`):
 
 ```html
 <label class="selection-item selection-item--checkbox selection-item--consent">

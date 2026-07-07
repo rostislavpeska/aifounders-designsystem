@@ -1,6 +1,6 @@
 # Segmented control
 
-**Type:** component · **Status:** shipped (promoted 2026-07-04, branch `forms-split`) · **git_path:** `assets/css/components.css#segmented` · **Specimen:** `/?aigds_styleguide=1&item=segmented`
+**Type:** component · **Status:** shipped (promoted 2026-07-04, branch `forms-split`) · **git_path:** `assets/css/components.css#segmented` · **Specimen:** `/?aifds_styleguide=1&item=segmented`
 
 ## Intent
 The Segmented control is a single-select switch rendered as a CONJOINED BUTTON GROUP: equal-width segments whose 2px borders overlap so adjacent edges read as one shared rule, with exactly ONE active segment filled in the control accent and lifted over its neighbours. Semantically it is a radio group. Reach for it when a small exclusive choice should read as a mode switch — especially when picking a segment reveals a panel of further inputs (the origin instance is the author-publish None / Podcast / Video media switch, where each segment discloses its panel; that disclosure is a composition fact, documented in forms-composition.md, not a segmented style). Do NOT use it for independent multi-pick options (Checkbox), for long option lists (Select), or for plain form questions where a visible labelled Radio group reads better. It is NOT a pill track — no rounded rail, no sliding thumb; it is buttons sharing borders. Promoted 2026-07-04 from the theme-local `.aif-form__toggle` (aifounders theme, `assets/css/author-forms.css`) into canonical CSS using only existing field tokens; the theme markup is now the drift to retire at adoption.
@@ -12,7 +12,7 @@ Class map:
 - `.segmented-option` — required, one per segment; a `<button type="button">`. `flex: 1` (equal widths), field paddings, button-small typography, 2px `--field-border` border, `--field-bg` fill. Adjacent segments overlap borders via `margin-left: calc(-1 * var(--stroke-2)))` — "adjacent segments share ONE 2px rule, not two".
 - `.segmented-option--active` — required on exactly one segment: `--control-accent` fill, `--control-accent-ink` text, `z-index: 2` (lifted over the shared borders).
 
-From the specimen (`inc/styleguide.php` → `aigds_sg_item_segmented()`):
+From the specimen (`inc/styleguide.php` → `aifds_sg_item_segmented()`):
 
 ```html
 <div class="segmented" role="tablist" aria-label="Media type">

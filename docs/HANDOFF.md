@@ -17,7 +17,7 @@ operator's session memory does NOT travel — this file is your context.
 
 ## What this is
 
-A WordPress-plugin design system (`aig-design-system`) serving TWO brands:
+A WordPress-plugin design system (`aifounders-designsystem`) serving TWO brands:
 **aifounders.cz** (AIF, blue) and **aiguild.cz** (AIG, yellow). Built as a
 public case study. Canonical = this git repo. The themes adopt it later
 (rollout: DS standalone → AIF adoption branch w/ pixel golden-masters →

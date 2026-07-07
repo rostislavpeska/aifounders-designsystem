@@ -1,6 +1,6 @@
 # Data table
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#data-table` · **Specimen:** `/?aigds_styleguide=1&item=data-tables`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#data-table` · **Specimen:** `/?aifds_styleguide=1&item=data-tables`
 
 ## Intent
 The data table renders dense, homogeneous tabular DATA — rows of simple values you scan, compare and (eventually) sort across columns, on a semantic `<table>` with real `th`/`td` relationships. Reach for it for pricing grids, comparison tables, article tables, anything where every row has the same simple cells. Do NOT reach for it when each row is a self-contained entity with rich content — a CTA button, a rich-text description, an expandable body — even if the fields visually line up into columns; that is the **record list** (`.record-list`), which shares the same mono-label vocabulary through tokens but keeps semantics honest. The contract in one breath: mono/uppercase/bold/tracked header, reading-font cells, a 1px full grid on every cell including the header, and a conservative grammar where everything reads through borders + text + status roles — no background fills except the one sanctioned brand-tint signifier — so the same markup holds on light, dark and brand surfaces with zero extra classes. Three sizes (condensed/standard/large), three grid modes (full/plain/banded), 0 new tokens.

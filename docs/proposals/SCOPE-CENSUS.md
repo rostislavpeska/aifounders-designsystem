@@ -1,7 +1,16 @@
 # PROPOSAL — surface-scope census + collapse recommendation
 
-Status: **MEASUREMENT DONE 2026-07-04 — awaiting operator verdict. No scope
-was changed.** This executes roadmap item #1 (HANDOFF.md): "surface-usage
+Status: **RESOLVED 2026-07-06 (audit Phase A)** — the open verdicts were
+answered by later operator rulings, not by this proposal:
+① dark-2 retirement → **SUPERSEDED**: the operator KEPT dark-2 (footer
+verdict 2026-07-06 — the newsletter band's scope class IS its surface;
+the shipped footer composes it, growing its consumer set). ② light-3
+watchlist → stands as ruled (keep, no change). ③ `.surface-support`
+"drop from authoring vocabulary" → **SUPERSEDED**: the shipped header
+(2026-07-06) made `.surface-support` THE authorable light-chrome scope
+(header + mobile overlay). Also shipped since: `.footer` dropped from the
+dark-1 selector list (footer verdict). The census stays as the
+measurement record. This executes roadmap item #1 (HANDOFF.md): "surface-usage
 measurement on the live sites → possible scope collapse. Measure first,
 never collapse blind."
 

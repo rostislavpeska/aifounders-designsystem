@@ -1,6 +1,6 @@
 # Text elements (perex · blockquote · lists — the signifier family)
 
-**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#prose-defaults` · **Specimen:** `/?aigds_styleguide=1&item=text-elements`
+**Type:** pattern · **Status:** shipped · **git_path:** `assets/css/components.css#prose-defaults` · **Specimen:** `/?aifds_styleguide=1&item=text-elements`
 
 ## Intent
 The text elements are the prose blocks that carry a **left-gutter signifier**: `.text--perex` (intro voice with a 4px support-colored border), `<blockquote>` (the same voice — one voice, no brand scoping), and `<ul>`/`<ol>` (arrow bullet / counter number in the gutter). Reach for them for editor-authored long-form content inside `<main>`: an article or page intro (perex), a pull-quote (plain `<blockquote>`, no class needed), and lists. Their whole point is the **indent-signifier system**: every member puts its marker in the left gutter and starts its text at ONE shared inset, `--flow-indent` (= `spacing-24`), so perex text, quote text, and list text land on the same vertical line by construction (operator-ratified 2026-07-03, `docs/proposals/INDENT-SIGNIFIER.md`). Do NOT reach for these to build UI chrome — the info box is the boxed member of the same family, and card/component text has its own classes. What breaks if you fight it: adding your own `padding-left` or a per-element `em` indent desynchronizes the family (the ratified token is rem-based/root-relative precisely because the 24px perex voice at 1.5em would land at 36px and misalign from the 18px lists).

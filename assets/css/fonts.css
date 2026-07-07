@@ -1,5 +1,5 @@
 /**
- * Self-hosted fonts — AI Guild Design System (plugin)
+ * Self-hosted fonts — AI Founders Design System (plugin)
  * Split out of tokens.css in Batch 1.5 (tokens.css is now GENERATED from
  * tokens/*.tokens.json; font-face is an asset declaration, not a token).
  * Loads FIRST (before tokens.css).

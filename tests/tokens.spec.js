@@ -41,7 +41,7 @@ const BRANDS = {
 for (const [brand, c] of Object.entries(BRANDS)) {
   test.describe(`surface tiers — ${brand}`, () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=surfaces&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=surfaces&theme=${brand}`);
     });
 
     const cell = (page, surface) => page.locator(`[data-surface="${surface}"]`);
@@ -127,7 +127,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
 
     test('newsletter capture uses PLAIN system buttons — no special styles', async ({ page }) => {
       // newsletter capture folded into the Form composition tab (it IS the input-pair in production)
-      await page.goto(`/?aigds_styleguide=1&item=form-composition&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=form-composition&theme=${brand}`);
       // AIF variant: plain primary on the brand surface → auto-dark
       const aifBtn = page.locator('.hero-aif__form .btn--primary');
       await expect(aifBtn).toHaveCSS('background-color', c.darkBg);
@@ -142,7 +142,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('smart button bulb = BRAND fill; chatbot bubble is NOT in the DS', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=buttons&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=buttons&theme=${brand}`);
       // smart button bulb = brand color
       const bulbFill = await page.locator('.smart-btn svg path').first().evaluate((el) => getComputedStyle(el).fill);
       expect(bulbFill).toBe(c.brandColor);
@@ -151,7 +151,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('disabled buttons are surface-aware (readable on dark)', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=buttons&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=buttons&theme=${brand}`);
       const darkDisabled = page.locator('.section-dark .btn--primary[disabled]');
       const { text, bg, surface } = await darkDisabled.evaluate((el) => {
         const cs = getComputedStyle(el);
@@ -169,7 +169,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('static <span> badge has NO hover effect and default cursor', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=badges&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=badges&theme=${brand}`);
       const staticBadge = page.locator('.article-hero__badges span.badge--default');
       await expect(staticBadge).toHaveCSS('cursor', 'default');
       const bgBefore = await staticBadge.evaluate((el) => getComputedStyle(el).backgroundColor);
@@ -185,7 +185,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('article headings step the FULL ramp (no orphan styles like 22px Lazzer)', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=prose&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=prose&theme=${brand}`);
       const art = page.locator('.article-layout__content');
       // article h3 must be the heading-sm STYLE: 22px Inter (never Lazzer)
       const h3 = art.locator('h3');
@@ -201,7 +201,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('NUMBERED HEADINGS: brand-tile number, auto-increment, content aligns to indent', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=prose&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=prose&theme=${brand}`);
       const nh = page.locator('.numbered-headings');
       const headings = nh.locator('h3');
       // tile = --brand fill (yellow AIG / blue AIF), digit = --text-on-brand (dark)
@@ -222,7 +222,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('INFO BOX: 5 colour variants (thick border + tint), 3 sizes, no icon/radius', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=info-box&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=info-box&theme=${brand}`);
       // accent per variant: info = --brand (per brand), status variants fixed hue,
       // neutral = --border-strong (greyscale, per brand)
       const accents = {
@@ -265,7 +265,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('DATA TABLE: mono/uppercase header, 1px full grid incl header, size ladder, brand-tint signifiers', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=data-tables&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=data-tables&theme=${brand}`);
       // header signature: monospace + UPPERCASE + 1px border ON the header cell (operator: border in header)
       const head = page.locator('.data-table thead th').first();
       const h = await head.evaluate((el) => {
@@ -307,7 +307,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       // guaranteed-wide demo (the 9-column min-width table).
       await expect(page.locator('.table-scroll').first()).toHaveCSS('overflow-x', 'auto');
       await page.setViewportSize({ width: 390, height: 1200 });
-      await page.goto(`/?aigds_styleguide=1&item=data-tables&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=data-tables&theme=${brand}`);
       const scroll = await page.locator('.table-scroll', { has: page.locator('table[style*="min-width"]') }).first().evaluate((el) => ({
         scrolls: el.scrollWidth > el.clientWidth,
         bodyOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
@@ -317,7 +317,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('RECORD LIST: abstract N-column cards — labels inside, consumer columns, status fields, action, dark invert', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=record-list&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=record-list&theme=${brand}`);
       // field labels live INSIDE the card (data-label ::before), mono + uppercase
       const lbl = await page.locator('.record__field[data-label]').first().evaluate((el) => {
         const cs = getComputedStyle(el, '::before');
@@ -356,7 +356,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       // MOBILE (<768): the grid collapses to a stack — every field fills the row so
       // its value sits flush-right (one shared x), and the action is a full-width button.
       await page.setViewportSize({ width: 390, height: 1600 });
-      await page.goto(`/?aigds_styleguide=1&item=record-list&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=record-list&theme=${brand}`);
       const rec = page.locator('.record-list .record').first();
       const valRights = await rec.locator('.record__field:not(.record__field--action)').evaluateAll((els) =>
         els.map((el) => { const r = document.createRange(); r.selectNodeContents(el); return Math.round(r.getBoundingClientRect().right); }));
@@ -375,7 +375,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('ICON STROKE: stepped law — <16 fine 1px · 16–32 default 1.5px · >32 heavy 3px (screen px via non-scaling-stroke)', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=icon-system&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=icon-system&theme=${brand}`);
       // the specimen ramp renders arrow-right at 14/16/20/24/32/48
       const strokes = await page.locator('.sg-table .icon--stroked').evaluateAll((svgs) =>
         svgs.map((svg) => ({
@@ -394,7 +394,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
 
     test('BREADCRUMB + PAGINATION + NAV TABS: harvested trio — voices, link idiom, touch chips, active chip constant', async ({ page }) => {
       // BREADCRUMB — caption-sized accent voice, text-colored idiom links
-      await page.goto(`/?aigds_styleguide=1&item=breadcrumb&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=breadcrumb&theme=${brand}`);
       const bc = await page.locator('.breadcrumbs').first().evaluate((el) => {
         const cs = getComputedStyle(el);
         const link = el.querySelector('.breadcrumb__link');
@@ -410,7 +410,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(bc.thick).toBe('1px');             // link idiom resting
       expect(bc.off).toBe('4px');
       // PAGINATION — 44px calibrated chips, square, fiction-fixed weight, rail/current fills
-      await page.goto(`/?aigds_styleguide=1&item=pagination&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=pagination&theme=${brand}`);
       const pg = await page.locator('.archive-pagination').first().evaluate((el) => {
         const num = el.querySelector('a.page-numbers');
         const cur = el.querySelector('.page-numbers.current');
@@ -427,7 +427,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(pg.curBg).toBe('rgb(255, 255, 255)'); // current = --bg on light
       expect(pg.railBg).not.toBe('rgba(0, 0, 0, 0)'); // the rail carries the --bg-alt fill
       // NAV TABS — lead-sized accent voice, scrollable row, constant white active chip on brand
-      await page.goto(`/?aigds_styleguide=1&item=nav-tabs&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=nav-tabs&theme=${brand}`);
       const tabs = await page.locator('.section-brand .nav-tabs').first().evaluate((el) => {
         const cs = getComputedStyle(el);
         const a = el.querySelector('a.nav-tabs__tab');
@@ -457,7 +457,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(dock.nextT).toBe(dock.heroB); // …flush with the section below
       // mobile: the tab row scrolls inside itself; the page body never overflows
       await page.setViewportSize({ width: 390, height: 900 });
-      await page.goto(`/?aigds_styleguide=1&item=nav-tabs&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=nav-tabs&theme=${brand}`);
       const mob = await page.locator('.section-brand .nav-tabs').first().evaluate((el) => ({
         scrolls: el.scrollWidth > el.clientWidth,
         tabSize: getComputedStyle(el.querySelector('a.nav-tabs__tab')).fontSize,
@@ -470,7 +470,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
 
     test('CARDS: reference + persona — one canonical, appearance from the background (surface-riding)', async ({ page }) => {
       // REFERENCE CARD — the dark testimonial is the SAME card + section-dark ON it
-      await page.goto(`/?aigds_styleguide=1&item=reference-card&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=reference-card&theme=${brand}`);
       const dark = await page.locator('.reference-card.section-dark').first().evaluate((el) => {
         const cs = getComputedStyle(el);
         const name = getComputedStyle(el.querySelector('.reference-card__name'));
@@ -544,7 +544,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(stacked.topRight).toBe(true);
       await page.setViewportSize({ width: 1280, height: 900 });
       // PERSONA CARD — removed from the dark-3 scope map; surface-riding via --raised
-      await page.goto(`/?aigds_styleguide=1&item=persona-card&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=persona-card&theme=${brand}`);
       const pDark = await page.locator('.section-dark .persona-card').first().evaluate((el) => ({
         bg: getComputedStyle(el).backgroundColor,
         name: getComputedStyle(el.querySelector('.persona-card__name')).fontSize,
@@ -646,7 +646,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('PREVIEW CARD: one card, two axes — sizes, slots, no-photo hairline, hover zoom, actions grammar', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=preview-card&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=preview-card&theme=${brand}`);
       // SIZE axis: default headline = card-heading (28, INTER ON BOTH BRANDS —
       // the operator ruling: Lazzer renders terribly at this size in cards),
       // condensed = heading-sm (22 / AIG 20)
@@ -738,7 +738,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('COURSE CARD: slot-driven orientation (720px contract), display voice, --bg-base fill, accents, inactive, grid alignment', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=course-card&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=course-card&theme=${brand}`);
       // ORIENTATION — the slot decides: same markup, 360px slot = column,
       // full-width slot = row with the fixed 420px image track
       const orient = await page.locator('#course-orientation-demo').evaluate((d) => {
@@ -862,7 +862,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('MODAL: THE form modal — scrim, 560 box, heading-md title, DS form inside, LIVE aria engine, dvh sheet', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=modal&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=modal&theme=${brand}`);
       // STATIC — scrim at the harvested 70% on --black; box = --bg, 560 canon
       const stat = await page.locator('#modal-static-default').evaluate((d) => {
         const overlay = d.querySelector('.modal__overlay');
@@ -1014,7 +1014,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('ENGAGEMENT: ghost pills, clicked bulb state, toast grammar, LIVE optimistic engine (no-ajax graceful)', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=engagement&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=engagement&theme=${brand}`);
       // PILL VOICE — accent font, body size, bold, tertiary at rest, hairline frame
       const pill = await page.locator('.aif-engagement').first().evaluate((frame) => {
         const aha = frame.querySelector('.aif-aha');
@@ -1095,7 +1095,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('COMMENTS: thread hairlines, L-connectors from avatar geometry, voices, link-idiom actions, tombstone', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=comments&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=comments&theme=${brand}`);
       const demo = page.locator('#comments-anatomy-demo');
       // HEADING = heading-sm voice (Inter extrabold)
       const heading = await demo.locator('.article-comments__heading').evaluate((el) => {
@@ -1231,7 +1231,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('STICKY BAR: slim skin, shadow-up when visible, chatbot axis, LIVE fraction show + SAMPLER flip, mobile transform', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=sticky-bar&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=sticky-bar&theme=${brand}`);
       // STATIC email bar — the slim light canon: --bg fill, quiet 1px --border
       // edge, 40px controls, shadow-up ONLY while visible (it is), chatbot pad
       const skin = await page.locator('#sticky-static-email .sticky-bar').evaluate((bar) => {
@@ -1351,7 +1351,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('BLURB + STACK GRID: closed rungs, numbered row, THE PIZZA PATTERN everywhere (interior-only separators), mobile', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=blurb&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=blurb&theme=${brand}`);
       // HEADLINE RUNGS — the closed set of three (18 / 22 / fluid display)
       const rungs = await page.locator('#blurb-rungs').evaluate((row) => {
         const hs = [...row.querySelectorAll('.blurb__headline')].map((h) => {
@@ -1455,7 +1455,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('HEADER: surface-riding chrome, the shrink, nav grammar, a11y dropdown, burger engine, progress, mobile', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=header&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=header&theme=${brand}`);
       // THE NEW ROLES resolve to the operator-ruled per-brand values
       const expected = brand === 'aifounders'
         ? { nav: 'rgb(152, 195, 217)', fill: 'rgb(160, 201, 47)' } // #98c3d9 / #a0c92f
@@ -1617,7 +1617,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('FOOTER: band stack, dark-2 stripe + knob-synced pull, canon columns, idioms, scope-alias drop, chatbot axis, mobile', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=footer&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=footer&theme=${brand}`);
       // SHELL: paints nothing itself — the markup scope (.section-dark) does;
       // the dark-1 `.footer` ALIAS IS DEAD (a bare .footer stays light)
       const scopes = await page.evaluate(() => {
@@ -1707,6 +1707,31 @@ for (const [brand, c] of Object.entries(BRANDS)) {
         deco: getComputedStyle(a).textDecorationLine,
       }));
       expect(hovered.deco).toBe('underline'); // the LAW: hover never removes it
+      // CONSENT NOTE — standard capture anatomy (operator 2026-07-07):
+      // the note voice = TERTIARY text (grayish, never white, never brand —
+      // the harvested tint-light cream was vetoed twice: first as a
+      // palette-direct read, then as a color), link rides --link
+      const note = await page.locator('#footer-full .footer__newsletter-section .mc4wp-consent-note').evaluate((n) => {
+        const probe = document.createElement('span');
+        n.parentElement.appendChild(probe);
+        probe.style.color = 'var(--text-tertiary)';
+        const noteRole = getComputedStyle(probe).color;
+        probe.style.color = 'var(--link)';
+        const link = getComputedStyle(probe).color;
+        probe.remove();
+        return {
+          size: getComputedStyle(n).fontSize,
+          color: getComputedStyle(n).color, noteRole,
+          linkColor: getComputedStyle(n.querySelector('a')).color, link,
+          linkDeco: getComputedStyle(n.querySelector('a')).textDecorationLine,
+        };
+      });
+      expect(note.size).toBe('16px');
+      expect(note.color).toBe(note.noteRole); // the voice is a ROLE, not a palette read
+      // …and on the dark band the role resolves to the quiet gray (dark-300)
+      expect(note.color).toBe(brand === 'aiguild' ? 'rgb(183, 187, 180)' : 'rgb(139, 145, 158)');
+      expect(note.linkColor).toBe(note.link);
+      expect(note.linkDeco).toBe('underline');
       // BOTTOM BAR: the 16px chrome pair; icons QUATERNARY at rest
       // (operator; browser-verified production ~rgb(106,106,106))
       const bar = await page.locator('#footer-full .footer__bottom-bar').evaluate((b) => {
@@ -1735,16 +1760,30 @@ for (const [brand, c] of Object.entries(BRANDS)) {
         fullPadBottom: getComputedStyle(document.querySelector('#footer-full')).paddingBottom,
         plainPadBottom: getComputedStyle(document.querySelector('#footer-minimal')).paddingBottom,
         bandPull: getComputedStyle(document.querySelector('#footer-full .footer__newsletter-section')).marginTop,
+        // THE STACKED CAPTURE keeps its control heights (production 52/52;
+        // the flex-basis-0-overrides-height trap collapsed both, 2026-07-07)
+        captureDir: getComputedStyle(document.querySelector('#footer-full .footer__newsletter-section .mc4wp-form-fields')).flexDirection,
+        fieldH: Math.round(document.querySelector('#footer-full .footer__newsletter-section .form-control-wrapper').getBoundingClientRect().height),
+        submitH: Math.round(document.querySelector('#footer-full .footer__newsletter-section .btn').getBoundingClientRect().height),
+        // THE CONJOIN LAW: the join border-collapse is ROW-ONLY — the
+        // stacked field keeps all four borders + the 8px breath
+        fieldBorderRight: getComputedStyle(document.querySelector('#footer-full .footer__newsletter-section .form-control-wrapper')).borderRightWidth,
+        captureGap: getComputedStyle(document.querySelector('#footer-full .footer__newsletter-section .mc4wp-form-fields')).gap,
       }));
       expect(mob.cols).toBe(1);
       expect(mob.barDir).toBe('column');
       expect(mob.fullPadBottom).toBe('80px'); // harvested mobile bubble clearance
       expect(mob.plainPadBottom).toBe('16px');
       expect(mob.bandPull).toBe('-40px'); // the pull follows the knob at every breakpoint
+      expect(mob.captureDir).toBe('column'); // the stack (CONJOIN LAW, <600)
+      expect(mob.fieldH).toBe(52); // production-verified stacked field
+      expect(mob.submitH).toBeGreaterThanOrEqual(52); // production-verified stacked submit
+      expect(mob.fieldBorderRight).toBe('2px'); // the join collapse never leaks into the stack
+      expect(mob.captureGap).toBe('8px'); // the stacked breath
     });
 
     test('INFO BAR: V2 skin — raised band, 4px brand rule at the perex indent, bold voice, 1..n, surfaces', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=info-bar&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=info-bar&theme=${brand}`);
       // THE V2 SKIN on the dark host
       const dark = await page.locator('#infobar-dark .info-bar').evaluate((bar) => {
         const item = bar.querySelector('.info-bar__item');
@@ -1801,7 +1840,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('SELECTION HOVER = the input border transform (one idiom) + group mandatory marker', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=checkbox&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=checkbox&theme=${brand}`);
       const chip = page.locator('.selection-group .selection-item--checkbox').nth(1); // unchecked
       // REST — same border as the input wrapper (--field-border)
       const rest = await chip.evaluate((el) => {
@@ -1859,13 +1898,13 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       const groupMark = await page.locator('[role="group"] .form-label-row .form-mandatory').count();
       expect(groupMark).toBe(1);
       // radio group too
-      await page.goto(`/?aigds_styleguide=1&item=radio&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=radio&theme=${brand}`);
       const radioMark = await page.locator('[role="radiogroup"] .form-label-row .form-mandatory').count();
       expect(radioMark).toBe(1);
     });
 
     test('ACCORDION: harvested card (heading-xs title, body-lg answer, --deep arrow), height engine, exclusive mode', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=accordion&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=accordion&theme=${brand}`);
       const first = page.locator('.accordion').first();
       // card grammar: 1px border, --bg fill (AIG border unified onto both brands)
       await expect(first).toHaveCSS('border-top-width', '1px');
@@ -1924,7 +1963,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('TYPOGRAPHY: bundles render, FLOW LAW rhythm, fiction fixes, mobile remap', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=typography&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=typography&theme=${brand}`);
       // first specimen = hero -> Lazzer (operator ruling)
       const font = await page.locator('.sg-type-sample').first().evaluate((el) => getComputedStyle(el).fontFamily);
       expect(font).toContain('Lazzer');
@@ -2014,7 +2053,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('BREAKPOINTS: closed set of 4 cuts, generated tab, the boundary BITES at 767/768', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=breakpoints&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=breakpoints&theme=${brand}`);
       // the four canonical cuts, generated from tokens/breakpoints.json
       const table = page.locator('[data-test="bp-table"]');
       for (const [name, value, form] of [
@@ -2090,7 +2129,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       const tertiary = brand === 'aiguild' ? 'rgb(228, 228, 228)' : 'rgb(238, 242, 246)';
 
       // ── Form composition tab: scale × surface, checked states, consent ──
-      await page.goto(`/?aigds_styleguide=1&item=form-composition&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=form-composition&theme=${brand}`);
       // light field reads field tokens
       await expect(page.locator('.form-group .form-control-wrapper').first()).toHaveCSS('background-color', bgSecondary);
       // STATES: checked draws with brand
@@ -2152,18 +2191,18 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       await expect(page.locator('[data-test="brand-selection"] .segmented-option--active')).toHaveCSS('background-color', c.darkBg);
 
       // ── Input tab: disabled LOOKS disabled (surface-disabled bg); small scale remaps input + textarea ──
-      await page.goto(`/?aigds_styleguide=1&item=input&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=input&theme=${brand}`);
       await expect(page.locator('.form-control-wrapper:has(> .form-control:disabled)').first()).toHaveCSS('background-color', tertiary);
       await expect(page.locator('[data-test="input-large"] input.form-control').first()).toHaveCSS('font-size', '16px');
       await expect(page.locator('[data-test="input-small"] input.form-control').first()).toHaveCSS('font-size', '14px');
       await expect(page.locator('[data-test="input-small"] textarea.form-control')).toHaveCSS('font-size', '14px');
 
       // ── Select tab: menu items follow the field scale ──
-      await page.goto(`/?aigds_styleguide=1&item=select&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=select&theme=${brand}`);
       await expect(page.locator('[data-test="select-small"] .form-select-item').first()).toHaveCSS('font-size', '14px');
 
       // ── Datepicker tab: collapsed trigger follows the scale; calendar states ──
-      await page.goto(`/?aigds_styleguide=1&item=datepicker&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=datepicker&theme=${brand}`);
       await expect(page.locator('[data-test="datepicker-small"] .form-control')).toHaveCSS('font-size', '14px');
       const today = page.locator('.calendar-day--today');
       await expect(today).not.toHaveCSS('color', c.brandColor);
@@ -2171,14 +2210,14 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       await expect(page.locator('.calendar-day--selected')).toHaveCSS('background-color', c.brandColor);
 
       // ── Checkbox tab: a disabled control dims its LABEL to --disabled-text (matches a disabled input) ──
-      await page.goto(`/?aigds_styleguide=1&item=checkbox&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=checkbox&theme=${brand}`);
       const disLabelColor = await page.locator('.selection-item--checkbox:has(.selection-input:disabled) .selection-label').first().evaluate((el) => getComputedStyle(el).color);
       const disabledTextRgb = await page.evaluate(() => { const d = document.createElement('div'); d.style.color = 'var(--disabled-text)'; document.body.appendChild(d); const c = getComputedStyle(d).color; d.remove(); return c; });
       expect(disLabelColor).toBe(disabledTextRgb);
     });
 
     test('COLORS tab: three layers on one page, generated, both brands, no legacy names', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=colors&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=colors&theme=${brand}`);
       // LAYER 1 palette: the eight groups
       for (const g of ['Primary', 'Secondary', 'Tertiary', 'Quaternary', 'Light theme', 'Dark theme', 'Status', 'Special']) {
         await expect(page.locator('h3', { hasText: g }).first()).toBeVisible();
@@ -2227,7 +2266,7 @@ for (const [brand, c] of Object.entries(BRANDS)) {
     });
 
     test('FORMS: input pair joins on desktop, stacks + restores border on mobile', async ({ page }) => {
-      await page.goto(`/?aigds_styleguide=1&item=form-composition&theme=${brand}`);
+      await page.goto(`/?aifds_styleguide=1&item=form-composition&theme=${brand}`);
       const pairField = page.locator('[data-test="pair-light"] .form-control-wrapper');
       await expect(pairField).toHaveCSS('border-right-width', '0px'); // joined
       await page.setViewportSize({ width: 375, height: 800 });

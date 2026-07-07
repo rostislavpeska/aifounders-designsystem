@@ -1,7 +1,14 @@
 # PUBLIC REPO — `aifounders-designsystem` (roadmap item 3)
 
-**Status: PLANNED 2026-07-06 — operator creates the empty GitHub repo (+
-Project board); the bootstrap below executes the moment the URL exists.**
+**Status: BOOTSTRAPPED 2026-07-06** — repo live at
+<https://github.com/rostislavpeska/aifounders-designsystem> (private),
+initial commit `efb1442`: curated tree (2,064 files), fresh public
+README, headless CI (build-sync + L0 lint), MIT, `package.json` renamed
++ fixed (ISC→MIT mismatch died). Token build verified **byte-identical**
+to the dev repo before pushing. Dev continues HERE until the audit +
+cleanup pass; then final sync → §6 verdicts → public flip → archive this
+repo. The §6 verdicts remain OPEN (plugin rename, LICENSE holder,
+proposals list, version).
 
 ## 0. Identity (operator ruling 2026-07-06)
 
@@ -25,7 +32,7 @@ private dev archive and is archived after cutover.
 ## 2. Curated tree (in / out)
 
 **IN (the plugin + its truth):**
-`aig-design-system.php` · `assets/` · `inc/` · `js/` · `icons/` ·
+`aifounders-designsystem.php` · `assets/` · `inc/` · `js/` · `icons/` ·
 `tokens/` · `build/` · `tests/` + `playwright.config.js` · `docs/`
 (curated — see §3) · `LICENSE` (MIT — copyright line updated per §0
 verdict) · new public `README.md` · `.github/workflows/` (CI, §5) ·
@@ -52,7 +59,7 @@ content merges into README/CONTRIBUTING) · any scratch/artifacts.
    contract gate); Figma is a projection.
 2. The two brand themes + surface-scope architecture (3-layer color,
    48+ roles, 7 scopes).
-3. Quickstart: install as plugin → `/?aigds_styleguide=1` (Stage-1: no
+3. Quickstart: install as plugin → `/?aifds_styleguide=1` (Stage-1: no
    frontend impact until theme adoption).
 4. Architecture map: tokens/ · build/ · components ledger · the gate.
 5. The agentic layer: component docs = retrieval rows, the ds-lookup
@@ -66,15 +73,17 @@ On push/PR: `npm ci` → `node build/build.mjs` → assert `git diff --quiet`
 L1 gate stays local per PLAYWRIGHT-AGENTIC). Later (roadmap item 4): the
 changed-rows ingest hook → n8n webhook.
 
-## 6. Open verdicts at cleanup (operator)
+## 6. Open verdicts at cleanup — ✅ ALL RESOLVED 2026-07-07 (operator)
 
-1. **Plugin rename** — display name "AI Founders Design System"? Slug/
-   text-domain/`aigds_*`/`AIGDS_*` prefixes: rename or keep as legacy API?
-   (Keeping avoids breaking the docker mount + both future theme
-   adoptions; renaming is cleaner public identity. Flagged, not decided.)
-2. LICENSE copyright holder ("AI Guild" today → "AI Founders"?).
-3. `docs/proposals/` inclusion list (default: all in).
-4. Version at bootstrap: stay `2.0.0-dev.0` or cut `2.0.0-rc.1`.
+1. **Plugin rename: FULL AIFDS identity** — `aifds_`/`AIFDS_`/`aifds-`
+   prefixes, file+slug+text-domain `aifounders-designsystem`, display
+   name "AI Founders Design System". 2. LICENSE holder → **AI Founders**.
+   3. `docs/proposals/` → **all in**. 4. Version → **`2.0.0-rc.1`**.
+
+Execution spec (phases, census, rename map, verification, rollback,
+executor kickoff prompt): **[REPO-CLEANUP-SPEC](REPO-CLEANUP-SPEC.md)** —
+deferred until the Figma import agent lands (the rename breaks the live
+styleguide it validates against).
 
 ## 7. Bootstrap procedure (I execute when the repo URL exists)
 

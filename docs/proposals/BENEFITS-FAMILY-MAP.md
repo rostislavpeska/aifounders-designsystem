@@ -7,7 +7,7 @@ operator's container/blurb model, challenged and refined (no container
 component — the box is a consumer recipe; THE PIZZA LAW separators; closed
 headline/text rungs; the benefit-display bundle). This map stays as the
 harvest record. Original proposals remain on the sandbox
-proposals (`/?aigds_sandbox=1`). Scope per operator: benefits + dark blurbs
+proposals (`/?aifds_sandbox=1`). Scope per operator: benefits + dark blurbs
 + homepage-header mini-benefits + nl-benefits + the AIF /newsletter "Šest
 oblastí" section — "semantically this should possibly be one component";
 the inconsistency is extreme. This map is the harvest record; the
@@ -55,7 +55,7 @@ arranged in rows of N on a surface.** The differences are DENSITY (display
 / default / compact / statement), ACCENT (rule-top / rule-left / none) and
 SURFACE — which is exactly a variant-axes question, not seven components.
 
-## 4 · The three sandbox proposals (`/?aigds_sandbox=1`)
+## 4 · The three sandbox proposals (`/?aifds_sandbox=1`)
 
 All three render the SAME seven replica contexts, differing in
 architecture + unification appetite:

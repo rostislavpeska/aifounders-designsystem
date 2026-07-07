@@ -1,6 +1,6 @@
-# AI Guild Design System — Architecture & Quality Guide
+# AI Founders Design System — Architecture & Quality Guide
 
-The authoritative architecture guide for the `aig-design-system` WordPress
+The authoritative architecture guide for the `aifounders-designsystem` WordPress
 plugin, serving two brands: **aifounders.cz** (blue) and **aiguild.cz**
 (yellow). Rewritten 2026-07-04 (deep-hygiene run) — every claim below is
 verifiable in the code it points to.
@@ -9,9 +9,9 @@ verifiable in the code it points to.
 
 ## 1. Topology
 
-A WordPress plugin (`aig-design-system.php`, version 2.0.0-dev), currently
+A WordPress plugin (`aifounders-designsystem.php`, version 2.0.0-dev), currently
 **Stage 1**: registered but not enqueued on the live themes. The styleguide
-(`/?aigds_styleguide=1`) is the only consumer until theme adoption. The
+(`/?aifds_styleguide=1`) is the only consumer until theme adoption. The
 harvested production themes (local clones in `WORKSPACE\_harvest`) are the
 design source; the plugin is the canonical destination.
 
@@ -97,7 +97,7 @@ sections (`/* ==== NAME ==== */`). Rules:
 
 ## 4. Icon system
 
-Inline SVG via `aigds_icon()` (`inc/icons.php`). Taxonomy: **outline**
+Inline SVG via `aifds_icon()` (`inc/icons.php`). Taxonomy: **outline**
 (stroke-based, Lucide + custom) · **shape** (filled) · **colored**
 (multi-color art, size-locked — see `REPOSITORY_RULES.md` §6.2). Laws:
 default `currentColor` (icons inherit text color, surface-aware for free);

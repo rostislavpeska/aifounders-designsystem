@@ -1,6 +1,6 @@
 # Datepicker
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#select-dropdown-datepicker` · **Specimen:** `/?aigds_styleguide=1&item=datepicker`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#select-dropdown-datepicker` · **Specimen:** `/?aifds_styleguide=1&item=datepicker`
 
 ## Intent
 Datepicker is the pick-a-date control: a text field with a calendar icon whose click opens a floating month grid. Reach for it whenever the answer is a calendar date — deadlines, birth dates, event dates. Do NOT use a plain Input for dates (no affordance, free-form parsing pain) and do NOT use Select for them (a date set is too large to enumerate). It **shares the popover-panel mechanic with Select** (`shares_pattern: popover-panel` — same absolute panel, same light-surface treatment, same open-class convention) but stays a separate component because the intent differs. Contract in one breath: the trigger field scales with the field scale like any input, but the calendar keeps ONE density at all scales (styleguide ruling: "floating overlay, touch targets"); on the grid, today is a quiet outline, the selected day is a control-accent fill, and outside-month days are muted; `.datepicker--open` shows the panel (showcase JS in `js/components/datepicker.js`).
@@ -16,7 +16,7 @@ Class map:
 - `.calendar-day-label` — weekday header cell; meta voice, uppercase, `--text-tertiary`.
 - `.calendar-day` — one day cell, `aspect-ratio: 1`, centered. Modifiers: `--today`, `--selected`, `--outside`.
 
-Minimal example (from the specimen, `inc/styleguide.php` → `aigds_sg_item_datepicker()`):
+Minimal example (from the specimen, `inc/styleguide.php` → `aifds_sg_item_datepicker()`):
 
 ```html
 <div class="form-group datepicker datepicker--open">

@@ -535,6 +535,7 @@
 .section-brand,
 .article-hero {
   --bg: var(--brand);
+  --text-tertiary: var(--black);
   --border: var(--black);
   --raised: var(--black);
   --bg-base: var(--black);

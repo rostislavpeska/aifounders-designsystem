@@ -1,6 +1,6 @@
 # Info bar
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#info-bar` · **Specimen:** `/?aigds_styleguide=1&item=info-bar`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#info-bar` · **Specimen:** `/?aifds_styleguide=1&item=info-bar`
 
 ## Intent
 

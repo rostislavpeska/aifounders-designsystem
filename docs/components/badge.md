@@ -1,6 +1,6 @@
 # Badge
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#badges` · **Specimen:** `/?aigds_styleguide=1&item=badges`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#badges` · **Specimen:** `/?aifds_styleguide=1&item=badges`
 
 ## Intent
 A badge is a small inline label — category tag, source attribution, location, promo flag — modeled as 4 independent axes, not a flat variant list (operator model 2026-07-02): 1· color (basic grey | colored category accent), 2· icon (with `__icon` slot | without), 3· behavior (clickable `<a>` with hover glow | static `<span>` with no hover, ever), 4· surface (light | brand/colored background as in article heros). Reach for it to tag or attribute content. Do NOT reach for it as a small button (use `.btn--sm` — badges have no action semantics), and never expect hover feedback from a `<span>` badge — the STATIC BADGE LAW makes all hover rules anchor-only. The harvested variant classes below MAP onto the axes (default = basic; editorial/weekly-summary/signal/location/promo = colored; promo and any `span.badge` = static; inverse/special/special-inverse = surface remaps); replacing them with axis-based classes is on the rationalization queue. Base look: inline-flex, square corners, `--button-small-*` type, hover rendered as an `::after` overlay tinted by the surface-aware `--overlay-hover` role.

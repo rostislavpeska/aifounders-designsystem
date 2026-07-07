@@ -15,7 +15,7 @@
  *
  * Brand color: arrow defaults resolve via var(--brand) —
  * per-site (yellow/blue) through [data-theme]; no hardcoded brand fallback.
- * Themes alias at adoption: aif_icon()/aiguild_icon() → aigds_icon().
+ * Themes alias at adoption: aif_icon()/aiguild_icon() → aifds_icon().
  *
  * Note on colors:
  * - Most icons use currentColor to inherit text color from parent.
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *                     - 'color' (string) Stroke color. Default depends on icon.
  * @return string SVG markup.
  */
-function aigds_icon( $icon, $args = array() ) {
+function aifds_icon( $icon, $args = array() ) {
 
 	$defaults = array(
 		'class' => '',
@@ -289,7 +289,7 @@ function aigds_icon( $icon, $args = array() ) {
 		'skills' => '<svg class="' . $class . '" width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="none" stroke="' . $stroke . '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>',
 
 		// Source / External link (chain) — 1:1 port of the AIF event-card CTA
-		// icon (aigds_icon "source"); used by the position card "Detail pozice".
+		// icon (aifds_icon "source"); used by the position card "Detail pozice".
 		'linkedin' => '<svg class="' . $class . '" width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
 
 		'x' => '<svg class="' . $class . '" width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
@@ -329,7 +329,7 @@ function aigds_icon( $icon, $args = array() ) {
  *
  * @return array Icon slug => Label pairs.
  */
-function aigds_icon_choices() {
+function aifds_icon_choices() {
 	return array(
 		''            => '— None (use custom image) —',
 		'course'      => 'Course (graduation cap)',
@@ -390,8 +390,8 @@ function aigds_icon_choices() {
  *
  * @return array Icon slugs.
  */
-function aigds_icon_slugs() {
-	$choices = aigds_icon_choices();
+function aifds_icon_slugs() {
+	$choices = aifds_icon_choices();
 	unset( $choices[''] );
 	return array_keys( $choices );
 }

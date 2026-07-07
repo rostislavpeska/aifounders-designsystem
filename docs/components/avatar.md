@@ -1,6 +1,6 @@
 # Avatar
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#avatar` · **Specimen:** `/?aigds_styleguide=1&item=avatars`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#avatar` · **Specimen:** `/?aifds_styleguide=1&item=avatars`
 
 ## Intent
 The avatar is the person-image container, identical in both themes: a fixed-size box that crops its `<img>` with `object-fit: cover` on an `--bg-alt` placeholder background. Reach for it wherever a person is shown — author chips (sm), persona cards (md), team grids (lg). Do NOT reach for it for arbitrary thumbnails, logos or icon slots (use the icon utilities / `.icon-placeholder` / `.logo-placeholder` instead). The contract in one breath: three CALIBRATED sizes harvested from production — 64 / 160 / 260px, component constants deliberately NOT on a token scale — where sm and md are round (`--radius-full`) and lg is square (`border-radius: 0`). A size class is required; the base class alone has no dimensions.

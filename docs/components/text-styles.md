@@ -1,6 +1,6 @@
 # Text styles (typography public API)
 
-**Type:** system · **Status:** shipped · **git_path:** `assets/css/components.css#typography-public-api` · **Specimen:** `/?aigds_styleguide=1&item=text-classes`
+**Type:** system · **Status:** shipped · **git_path:** `assets/css/components.css#typography-public-api` · **Specimen:** `/?aifds_styleguide=1&item=text-classes`
 
 ## Intent
 The public type classes are the design system's entire typographic vocabulary: `.title`, `.heading-xl/lg/md/sm/xs`, `.lead`, `.body-lg/md/sm`, `.caption`, `.meta` (plus `.ui-label-sm` for visually-small non-structural headings). Reach for a text class whenever an element's visual scale must be chosen independently of its semantic tag — the operating rule is "classes own the LOOK, tags own the OUTLINE", so `<h2 class="heading-sm">` is correct usage, not a hack. Do NOT reach for these classes to add rhythm or color: they set type only (family/size/weight/leading) — no color, no margins; spacing comes from the prose flow rules and color from the surface. Do not invent new styles or emphasis variants (bold/italic within a style never becomes a new style); a new style needs operator sign-off. The contract in one breath: each class consumes ONLY its own `--<style>-*` bundle variables, its responsive behavior is fixed by which mechanism class it belongs to, and seven properties diverge per brand through the brand token files — never through per-brand CSS in the class itself.

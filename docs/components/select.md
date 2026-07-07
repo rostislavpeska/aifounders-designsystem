@@ -1,6 +1,6 @@
 # Select
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#select-dropdown-datepicker` · **Specimen:** `/?aigds_styleguide=1&item=select`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#select-dropdown-datepicker` · **Specimen:** `/?aifds_styleguide=1&item=select`
 
 ## Intent
 Select is the pick-ONE-from-a-KNOWN-set control: the closed trigger looks and behaves like a text field, and clicking it opens a floating menu of options. Reach for it when the option list is finite but too long or too secondary to keep permanently visible. Do NOT use it when the set is small and the choice benefits from being always visible — that is Radio (or Segmented control when the choice also drives disclosure); do NOT use it for free-form text (Input) or multi-select (Checkbox group). Contract in one breath: the trigger is a standard `.form-control-wrapper` (so it inherits every field state and surface behavior), the open menu (`.form-select-menu`) is a light panel floating above any surface, menu items follow the field scale, and open/closed is driven by the `.dropdown--open` class (a small DS script in `js/components/dropdown.js` handles toggle, selection, and click-outside). It shares the popover-panel mechanic with Datepicker (`shares_pattern: popover-panel`) but stays its own component — the intent differs.
@@ -15,7 +15,7 @@ Class map:
 - `.form-select-menu` — required popover panel: absolute, `top: calc(100% + 4px)`, `--bg` fill, `--border-strong` 2px border, `--shadow-xl`, `z-index: 100`; `display: none` until `.dropdown--open`.
 - `.form-select-item` — one option; padded with the field pads, field font size. Modifier: `.form-select-item--selected`.
 
-Minimal example (from the specimen, `inc/styleguide.php` → `aigds_sg_item_select()`):
+Minimal example (from the specimen, `inc/styleguide.php` → `aifds_sg_item_select()`):
 
 ```html
 <div class="form-group dropdown">

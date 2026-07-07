@@ -1,6 +1,6 @@
 # Button
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#buttons` · **Specimen:** `/?aigds_styleguide=1&item=buttons`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#buttons` · **Specimen:** `/?aifds_styleguide=1&item=buttons`
 
 ## Intent
 
@@ -21,7 +21,7 @@ surface — the AIF newsletter button on the brand hero goes dark automatically
 ```html
 <button class="btn btn--md btn--primary">Reserve</button>
 <a class="btn btn--lg btn--secondary" href="…">
-  <?php echo aigds_icon( 'arrow-right' ); ?> With icon
+  <?php echo aifds_icon( 'arrow-right' ); ?> With icon
 </a>
 <div class="button-group">…buttons…</div>
 ```
@@ -94,3 +94,9 @@ Newsletter CTAs are PLAIN hierarchy classes on the right surface —
   GM exception documented in the CSS.
 - The size ladder is calibrated raw px — do not "fix" it onto the spacing
   scale.
+
+## Reserved: button-group alignment axis
+
+`.button-group--center` / `.button-group--right` — harvested alignment
+variants of the layout primitive; no DS specimen composes them yet
+(reserved API, audit 2026-07-06). Retire-or-demo at adoption review.

@@ -1,6 +1,6 @@
 # Persona card
 
-**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#persona-card` · **Specimen:** `/?aigds_styleguide=1&item=persona-card`
+**Type:** component · **Status:** shipped · **git_path:** `assets/css/components.css#persona-card` · **Specimen:** `/?aifds_styleguide=1&item=persona-card`
 
 ## Intent
 
@@ -29,7 +29,7 @@ rounding".
     </div>
     <div class="persona-card__bio"><p>…</p></div>
     <div class="persona-card__socials">
-      <a class="persona-card__social-link" href="…"><?php echo aigds_icon( 'linkedin' ); ?></a>
+      <a class="persona-card__social-link" href="…"><?php echo aifds_icon( 'linkedin' ); ?></a>
     </div>
     <p class="persona-card__meta">Prague · CZ/EN</p>
   </div>
