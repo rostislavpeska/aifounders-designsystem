@@ -1,0 +1,82 @@
+# ADOPTION-FEEDBACK — the upstream protocol + queue (roadmap 5 companion)
+
+**Status: PROTOCOL 2026-07-07.** How project-side findings flow back into
+the DS during theme adoption — written BEFORE the first refactor agent
+launches, because adoption WILL surface DS issues (responsivity in real
+compositions, contexts the styleguide never exercised) and the DS must
+absorb them without eroding its laws.
+
+## The four categories (classify FIRST, then act)
+
+Every mismatch a refactor agent hits is exactly one of these:
+
+**F1 — THEME COMPOSITION issue.** The page composes DS parts wrongly
+(wrong wrapper, missing scope class, stale markup). → Fix in the THEME.
+No DS change, no queue entry. This is the default assumption.
+
+**F2 — DS BUG.** A component provably violates its own contract
+(`docs/components/*.md`) or breaks in a LEGITIMATE composition — e.g.,
+the preview-card grid collapses at a width the archive page really has.
+→ The refactor agent MAY fix the DS itself, under the bug ritual:
+1. **Specimen first**: reproduce the failure as a styleguide specimen in
+   the DS repo (the failing composition becomes permanent);
+2. fix the canon CSS/JS (tokens only; all DS laws apply);
+3. gate — the full 92+ suite, both brands, PLUS the new assertion the
+   specimen enables (the gate must GROW by the bug);
+4. conventional commit in the DS repo + **mirror-sync the changed files
+   to the public repo** (see "Where the DS lives" below);
+5. log one line in the queue table (§Queue) with resolution = fixed;
+6. resume the theme sweep.
+
+**F3 — DS GAP.** The project needs something the DS deliberately lacks —
+a new variant, knob, token, breakpoint behavior. → **NOT the agent's
+call, ever.** The one-offs law (≥2 usages or operator ruling) and the
+HARDENED TOKEN LAW (new tokens only via operator verdict) exist precisely
+to survive adoption pressure. The agent:
+1. files a queue row (§Queue) with EVIDENCE — page URL, screenshot path,
+   which contract falls short, whether the need exists on BOTH themes;
+2. **parks that component's sweep** (reverts to the pre-sweep state for
+   that family if mid-way) and CONTINUES with other families — never
+   blocks the whole phase on a verdict;
+3. the operator rules at the next checkpoint (AskUserQuestion batch);
+   approved gaps are implemented by a DS session (ds-distill / ds-colors
+   skills carry the how), then the parked sweep resumes.
+
+**F4 — DELIBERATE DELTA.** Production looked different because
+production was ruled WRONG (consent-note cream, mandatory-marker red,
+1px footer field border…). DECISIONS.md is the authority. → Theme adopts
+the DS rendering as-is; one line in the theme commit naming the ruling.
+When unsure whether a difference is F2 or F4: search DECISIONS.md first,
+then ask.
+
+## Where the DS lives during adoption (ruling)
+
+The FACTORY repo (`aig-desigsystem`) stays the WORKING tree until both
+themes are adopted: the docker mount, the 92-gate, and the styleguide all
+run there, and re-plumbing infrastructure mid-refactor is worse than a
+sync step. Every DS change therefore lands twice, mechanically:
+commit in factory (the ritual) → copy the changed files into the public
+clone (`WORKSPACE\aifounders-designsystem-sync`) → commit + push there
+(CI validates). The vector store ingests from the PUBLIC repo — re-kick
+the ingest webhook after public pushes that touch rows/docs. Factory gets
+archived only after adoption completes.
+
+## Human-in-the-loop checkpoints (both theme agents)
+
+- **C0** after P0: operator eyeballs the parity baselines (are these the
+  right pages?) + approves the DS-side JS-enqueue change.
+- **C1** after P1 (foundations swap): operator loads both local sites,
+  30-second sanity look. Highest-risk moment (token swap).
+- **C2** during P2: NO stop per family — the parity gate is the reviewer.
+  Operator is pinged only for F3 queue rows (batched, AskUserQuestion).
+- **C3** after P3 (JS engines): operator clicks through the behavior
+  inventory (menu, modal, aha, sticky) on one long article + homepage.
+- **C4** after P5: full-inventory parity run + operator eyes on every
+  page in the inventory → sign-off → production deploy is the operator's
+  own rsync/git step, per site, at their pace.
+
+## Queue
+
+| date | theme | page/context | category | finding (evidence) | resolution |
+|---|---|---|---|---|---|
+| — | — | — | — | *(empty — rows appended by the refactor agents)* | — |
