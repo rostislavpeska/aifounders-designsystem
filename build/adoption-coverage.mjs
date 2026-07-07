@@ -154,9 +154,13 @@ lines.push(`| Legacy theme tokens (\`--text-h*/--font-*/--radius-*\`) | ${legacy
 lines.push('');
 lines.push(`_Theme component CSS on disk: ${(themeCssBytes / 1024).toFixed(0)} kB across ${COMPONENT_FILES.filter((f) => files[f]).length} files._`);
 lines.push('');
+lines.push('## Live per-element observability');
+lines.push('');
+lines.push('- **`theme-parity/ds-xray.js`** (+ `ds-xray.bookmarklet.txt`): paste in the console (or click the bookmarklet) on any page to overlay every component with its TRUE CSS source — 🟥 theme base (old) · 🟧 DS base + theme composition override · 🟩 fully DS — with a per-family tally panel. This is how to SEE what is migrated vs not on the real pages (the DS looks like the theme by design, so appearance alone can\'t tell you).');
+lines.push('');
 lines.push('## Not class-trackable (element-selector work — manual watch)');
 lines.push('');
-lines.push('- **Article-prose heading ramp** (`.article-layout__content h2/h3/h4` hardcoded `1.75/1.375/1.125rem` + body/blockquote/list rhythm): duplicates the DS prose contract but is element-scoped, so the class grep above can\'t see it. Deferred from sweep 2 as a separate article-gated prose pass. ~56 rules in page.css, ~27 in components.css (many are deep-prose exceptions that STAY: `pre/code`, figures, galleries).');
+lines.push('- **Article-prose typography** (headings h1–h4, paragraphs, blockquote, lists): ✅ DONE in sweep 2 — element-scoped so the class grep can\'t show it, but verified via the parity gate (article body now fully DS; perex & blockquote byte-identical). Deep-prose exceptions kept: `pre/code`, figures, galleries, empty-paragraph reset, `.course-syllabus`.');
 lines.push('- **Reading-progress shows on every page** (operator-spotted): `.reading-progress` is emitted in `header.php:157` unconditionally, and BOTH engines (theme main.js + DS menu.js) fill any bar present regardless of page type. So the homepage bar is pre-existing (0-width at scroll-top → invisible in top-of-page parity shots; fills on scroll). It violates the DS "articles-only" contract → **F1 fix: gate the header.php markup to `is_singular(\'post\')`**, scheduled in sweep 6 (header/nav) / P4 template touch-ups. Not a refactor regression.');
 lines.push('');
 lines.push('### Legend');
