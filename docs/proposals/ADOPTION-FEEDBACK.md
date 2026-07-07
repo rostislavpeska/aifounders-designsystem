@@ -79,4 +79,7 @@ archived only after adoption completes.
 
 | date | theme | page/context | category | finding (evidence) | resolution |
 |---|---|---|---|---|---|
-| — | — | — | — | *(empty — rows appended by the refactor agents)* | — |
+| 2026-07-07 | AIF | homepage hero + newsletter band (all pages) | F1 | Blue sections carried no DS surface scope → consent-note brand flip never fired (rendered light-scope gray on blue; operator-spotted + gate) | fixed in theme: `section-brand` added to `.hero-aif` + `.newsletter-cta` wrappers; note = black on brand, identical to production |
+| 2026-07-07 | AIF | every newsletter capture | F4 | Consent-note voice (tertiary color, leading 1.7→1.5, margin 2→8) shifts pages 6–13px — "THE NOTE VOICE" ruling 2026-07-07 in components.css | adopted; logged in theme `theme-parity/DELTAS.md` #1 |
+| 2026-07-07 | AIF | footer, all pages | F4* | AIF `--paper` #F6FDFF vs production #FFFDF6 — digit-transposed hexes, NO DECISIONS entry; deliberate-vs-typo unconfirmed | adopted BY DEFAULT (operator: no per-color stops); **flagged for C4 review** — DELTAS.md #2; revert = one palette line |
+| 2026-07-07 | AIF | P1 structural | — | Spec's "harmless duplication" assumption false: DS-native markup means DS components.css wins wherever specificity ≥ theme → F4s assert at P1. Baseline rolls forward at blessed phase closes. | spec + process updated (operator policy 2026-07-07) |
