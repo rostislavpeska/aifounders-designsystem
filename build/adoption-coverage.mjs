@@ -43,7 +43,7 @@ const SWEEPS = [
     classes: ['preview-card', 'persona-card', 'course-info-card', 'reference-card', 'testimonial-card', 'article--', 'article__'] },
   { n: 5, name: 'engagement + comments', status: 'pending',
     classes: ['aif-engagement', 'aif-aha', 'aif-share', 'article-comments', 'comment-author', 'comment-body', 'comment-respond', 'aif-tombstone'] },
-  { n: 6, name: 'header / footer / nav', status: 'pending',
+  { n: 6, name: 'header DONE (pilot); footer / nav-tabs / pagination pending', status: 'active',
     classes: ['main-header', 'site-logo', 'nav-item', 'nav-dropdown', 'burger-toggle', 'mobile-menu-overlay', 'mobile-nav', 'reading-progress', 'footer', 'footer__', 'footer-blurb', 'breadcrumb', 'archive-pagination', 'page-numbers', 'nav-tabs', 'author-tabs'] },
   { n: 7, name: 'sticky-bar + modal', status: 'pending',
     classes: ['sticky-bar', 'lp-sticky', 'newsletter-modal', 'modal', 'modal__'] },

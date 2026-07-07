@@ -115,6 +115,27 @@ token aliases so surviving theme CSS resolves during the transition).
   DS target classes are identical, so the mapping *method* and the DS-side
   tooling carry over unchanged.
 
+## HEADER PILOT LESSONS (bucket-1 name-matched, two extra traps)
+
+- **Surface variants → `.surface-*` scopes.** The theme header used
+  `.main-header--light/--dark` for its background tint; the DS header rides
+  `var(--bg)` (white by default). To preserve the AIF pale-blue faithfully,
+  the markup rides `.surface-support` (sets `--bg` = support) instead of the
+  dead `--light` class. General rule: theme `--light/--dark/--tint` chrome
+  variants map to DS surface scope classes, not to DS component variants.
+- **Container-icon vs background-icon.** The theme drew the nav chevron as a
+  CSS `background-image` on an empty `<span class="nav-item-icon">`. The DS
+  `.nav-item-icon` is a flex CONTAINER expecting a real icon child — so the
+  empty span rendered 0×0 (chevron vanished). Fix: put a real icon in the
+  markup (`aifds_icon('chevron-down')`). Watch for this wherever the theme
+  faked an icon with a background image.
+- **Subject-based CSS deletion needs a `:not()` guard.** Deleting theme rules
+  whose KEY compound is a DS class works, BUT `:not(.kept-class)` in a
+  selector fooled the naive parser into keeping DS rules (e.g.
+  `.nav-item:hover:not(.nav-item--cta)` looked like a `--cta` rule). Strip
+  `:not(...)` args before extracting the subject, or sweep the few leftovers
+  by hand afterward (grep the DS subjects post-deletion).
+
 ## LESSONS (chronological, AIF)
 
 - CSS-delete migrated only name-matched components → **marginal visible
