@@ -34,6 +34,12 @@ Theme dequeues its own `normalize.css` + `tokens.css` + (eventually)
 registers styles front-end but **enqueues component JS only in the
 styleguide** — add a front-end registration+enqueue for the 9 engines in
 `inc/enqueue.php` (all defensive: each no-ops without its markup).
+**Refinement (2026-07-07, AIF execution):** the front-end JS enqueue is
+GATED on `add_theme_support( 'aifds-engines' )` — markup is DS-native, so
+ungated engines would double-bind with the still-alive theme scripts
+between P1 and P3 (two listeners on `.burger-toggle` = open-then-close).
+The theme declares support at **P3**, in the same commit that dequeues its
+dying scripts. Until then the enqueue chain carries no DS JS.
 
 **Law 2 — THE TOKEN COMPAT SHIM (the single biggest breakage risk).**
 The DS renamed ~99 variables during distillation
@@ -60,7 +66,7 @@ sticky-bar, table-scroll`). Theme copies DIE, theme WIRING stays:
 | engagement.js | ✓ | ✓ | DIES → DS (was a byte-identical port) |
 | accordion.js | — | ✓ | DIES → DS |
 | article-sticky.js | ✓ | ✓ | DIES → DS `sticky-bar.js` (data-attribute gates replace the hand-rolled 50%-scroll logic; verify the article show/hide behavior per sticky-bar.md) |
-| modal-registration.js / modal-reservation.js | ✓ | ✓ | STAYS, re-wired onto `window.aifdsModal` API (DS modal.js is the base engine; Fluent wiring is theme territory per modal.md) |
+| modal-registration.js / modal-reservation.js | ✗ (dead) | ✓ | **CORRECTED 2026-07-07:** AIF's modal-registration.js/.css/template-part are enqueued/included NOWHERE (verified theme + mu-plugins) — dead files, deleted at P0; AIF P3 modal re-wiring is a no-op unless live `data-modal` markup surfaces. AIG's modal-reservation.js STAYS, re-wired onto `window.aifdsModal` API (DS modal.js is the base engine; Fluent wiring is theme territory per modal.md) |
 | trackers (reading/course/contact/ad), cohort-bar, testimonials-carousel, persona.js, lightbox, video-zoom, smooth-scroll, scroll-reveal, comment-edit, lazy-loads, fluent-forms-checkbox | ✓ | ✓ | STAY (integration/analytics/UX — no DS equivalent) |
 
 **Law 4 — kill-list authority.** The DS ledger's *Classes* column
@@ -96,7 +102,12 @@ shots.mjs + the L2 sweep — this is what makes Opus safe here):
   positions board `/pozice` · an instructor (`lektor`) · a long article ·
   a DB-landing page (`page-landing`) · contact. Both at 1440×full and
   390×full, both with `prefers-reduced-motion` forced (kills animation
-  nondeterminism) and JS-settled waits.
+  nondeterminism) and JS-settled waits. If Polylang serves a live second
+  language, ONE page per extra language joins the inventory.
+  **Viewport matrix (expanded 2026-07-07):** per-sweep gates run
+  390/768/1440; phase-close gates (P1, P3, P5/C4) run the FULL matrix
+  390/600/768/1024/1440 — the DS breakpoints, where BOUNDARY-LAW
+  off-by-ones live.
 - **BEFORE mode**: capture screenshots + per-page DOM fingerprint
   (element count, key computed styles on sentinel selectors: header, a
   .btn--primary, footer band, body font) on the UNTOUCHED theme → commit
@@ -104,7 +115,29 @@ shots.mjs + the L2 sweep — this is what makes Opus safe here):
 - **AFTER mode** (every phase close): recapture → `pixelmatch` per page
   (threshold ~0.1% differing pixels; same machine + same content + fonts
   local = deterministic enough for a deletion-refactor) + console-error
-  capture + the L2-style overflow/occlusion sweep on each inventory page.
+  capture + the L2-style overflow/occlusion sweep on each inventory page
+  — the overflow sweep runs at EVERY viewport in the matrix.
+- **Additional assertions (expanded 2026-07-07 — additions only, the spec
+  gate stays the floor):**
+  · **HTTP 200 assert** per inventory page (a PHP fatal must be a named
+    failure, not a pixel diff);
+  · **string sentinels**: key `pll__()` outputs asserted present per page
+    ("min čtení", badge labels, newsletter titles) — a broken Polylang
+    chain fails loudly; sentinel selectors include ACF-driven elements so
+    an empty `get_field()` fails the fingerprint;
+  · **debug.log ratchet**: WP_DEBUG_LOG enabled at P0, existing entries
+    baselined; each phase close asserts NO new notices/warnings/deprecations;
+  · **axe baseline** (`@axe-core/playwright`, already a DS dep): violation
+    count per page baselined at P0; no NEW violations per phase;
+  · **CSS payload metric** (informational): total enqueued CSS bytes
+    printed per phase — §2's "roughly halved" becomes a number;
+  · **P3 behavior harness**: scripted Playwright interactions on the
+    inventory (burger open/close, header shrink, accordion, modal
+    open/ESC/focus-trap, aha → toast, sticky show/hide, reading-progress
+    on articles only) — C3 stays the operator's manual pass ON TOP;
+  · **forms error-path test** (P3+): submit-empty on newsletter capture +
+    Fluent forms → validation styling appears, NO external call fires
+    (Ecomail is live — the gate never performs a real submission).
 - Failures print the diff heat-map path; the agent FIXES or REVERTS the
   sweep that broke parity. Content drift (new posts) is the known false
   positive — the local DBs are static snapshots, so acceptable; if a page
@@ -139,6 +172,21 @@ Fluent order per Law 1.
 
 ## 5. AIF plan (`WORKSPACE\aifounders_web`, :8090) — 11,663 CSS lines, ~60% dies (corrected)
 
+**Re-verified 2026-07-07 (execution start):** live counts run ~13% below
+the inventory (components.css 5,076 · page.css 3,019 · tokens.css 480 ·
+normalize.css 311) — verdicts unchanged. **Execution happens on branch
+`refactor/ds-adoption`** (operator 2026-07-07); main untouched until C4.
+
+**AIF dead files — DELETE at P0 (operator verdict 2026-07-07; none is
+enqueued/included anywhere, verified theme + mu-plugins):**
+`main.starter-pack.20260126_203002.css` ·
+`normalize.starter-pack.20260126_203002.css` ·
+`assets/css/archive/eu-cookies-bar-override.css` ·
+`modal-registration.css` · `modal-registration.js` ·
+`archive-lazy-load.js` · `signal-archive-lazy-load.js` ·
+`template-parts/modal-registration.php` (orphaned template part — double-
+check variable `get_template_part()` calls before deleting).
+
 File dispositions (inventory corrected per Law 4):
 
 | file | lines | verdict |
@@ -147,7 +195,8 @@ File dispositions (inventory corrected per Law 4):
 | page.css | 3,507 | mostly STAYS (~90%) — page composition; kill text-style/dark-typography dupes (~315+) |
 | tokens.css 548 · normalize.css 398 | 946 | DIE at P1 (shim per Law 2) |
 | fluent-forms-override.css | 512 | STAYS but shrinks (~70% of it duplicated DS field styles — re-point to DS classes, keep the Fluent remap core) |
-| modal-registration.css | 110 | ~40% dies (DS modal base); registration-form specifics stay |
+| modal-registration.css | 110 | **CORRECTED 2026-07-07: dead file** (never enqueued) — deleted at P0 with its JS + template part |
+| landing/newsletter.css | ~750 | **ADDED 2026-07-07 (operator): IN P2 SCOPE** — loaded only via `page-landing.php` (incl. `/newsletter`, which is in the parity inventory); 25 old-token reads (shim covers, incl. on landing pages); ledger-class rules die in the family sweeps, survivors re-point to DS names |
 | main.css | 244 | ~60% dies (generics); rest stays |
 | author-forms 406 · article-sticky 229 · lightbox 57 · video-embed 158 | 850 | STAY (article-sticky.css dies only if the DS sticky-bar skin fully covers it — verify against sticky-bar.md before deleting) |
 
@@ -163,22 +212,28 @@ reserved API; don't improvise it mid-refactor).
 
 - **P0 — setup**: DS plugin mounted+active on AIG stack (operator/compose)
   · plugin front-end JS enqueue added (DS repo change, gated by the DS
-  92-gate) · generate compat-tokens.css from rename-map.json · delete AIG
-  dead files (898 lines) · build theme-parity.mjs + page inventories ·
+  92-gate; theme-support-gated per Law 1 refinement) · generate
+  compat-tokens.css from rename-map.json · delete AIG dead files (898
+  lines) + AIF dead files (§5 list) · enable WP_DEBUG_LOG + baseline
+  debug.log + axe counts · build theme-parity.mjs + page inventories ·
   capture BASELINES (before any change!).
 - **P1 — foundations swap**: dequeue theme normalize+tokens, enqueue DS
-  chain per Law 1 (+shim). Theme components.css still loaded (harmless
-  duplication during transition). Gate expects ~zero visual delta.
+  chain per Law 1 (+shim; NO DS JS yet — that flips at P3). Theme
+  components.css still loaded (harmless duplication during transition).
+  Gate expects ~zero visual delta.
 - **P2 — component sweeps** (one ledger family per commit, gate each):
   buttons/badges → text styles/prose dupes → forms family → cards
   (preview/persona/course/reference) → engagement+comments →
   header/footer/nav → sticky-bar+modal → blurb/stack-grid/dark-sections →
   surfaces/sections. Each sweep: delete the theme block, re-point any
   surviving neighbors to DS token names (shrinks the shim), gate.
-- **P3 — JS engine swap** (Law 3 table): dequeue dead theme scripts,
-  re-wire modal wiring onto `aifdsModal`, verify behaviors on the
-  inventory pages (menu shrink, burger, progress on articles only, aha
-  toast, sticky show/hide, accordion, modal open/close/focus).
+- **P3 — JS engine swap** (Law 3 table): theme declares
+  `add_theme_support( 'aifds-engines' )` + dequeues dead theme scripts in
+  ONE commit (no double-binding window), re-wire modal wiring onto
+  `aifdsModal` (AIG only — AIF's is dead per corrected Law 3), verify
+  behaviors via the scripted behavior harness (§3) on the inventory pages
+  (menu shrink, burger, progress on articles only, aha toast, sticky
+  show/hide, accordion, modal open/close/focus).
 - **P4 — template touch-ups**: §5 AIF items; AIG none known.
 - **P5 — cleanup**: delete the shim (read-count 0 proven), `!important`
   burn-down on survivors, dead-file sweep, bump theme versions, final
