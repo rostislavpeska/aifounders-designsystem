@@ -22,7 +22,8 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const led = readFileSync(join(root, 'docs/IMPLEMENTATION_STATUS.md'), 'utf8');
+// CR stripped at read time: fresh CRLF checkouts made the pipe-row regex match 0 rows (bit 3x). Normalized once, forever.
+const led = readFileSync(join(root, 'docs/IMPLEMENTATION_STATUS.md'), 'utf8').split(String.fromCharCode(13)).join('');
 const gitRef = execSync('git rev-parse --short HEAD', { cwd: root }).toString().trim();
 
 // ── Figma backfill (roadmap item 2): assets/figma-map.json is the committed
@@ -86,7 +87,7 @@ for (const r of rows) {
   }
   let doc;
   try {
-    doc = readFileSync(join(root, 'docs/components', r.doc), 'utf8');
+    doc = readFileSync(join(root, 'docs/components', r.doc), 'utf8').split(String.fromCharCode(13)).join('');
   } catch {
     gaps.push(`${r.name}: doc ${r.doc} missing on disk`);
     continue;
