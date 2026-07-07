@@ -143,6 +143,16 @@ shots.mjs + the L2 sweep — this is what makes Opus safe here):
   positive — the local DBs are static snapshots, so acceptable; if a page
   churns, pin a specific post URL in the inventory.
 - **Never weaken:** thresholds only go DOWN.
+- **Baseline roll-forward (operator policy 2026-07-07, learned at P1):**
+  the "harmless duplication" assumption was FALSE — theme markup is
+  DS-native, so DS components.css wins wherever its specificity ≥ the
+  theme rule and F4 deltas assert at P1, not at their P2 sweep. Process:
+  every gate diff is classified (F1 → fix theme now; F4 → adopt + log in
+  the theme's `theme-parity/DELTAS.md` polish list with revert cost);
+  once ALL diffs in a phase are classified, the baseline re-captures as
+  the blessed state and the phase closes. The operator reviews the polish
+  list ONCE at C4 — a vetoed F4 is a one-line token change in the DS.
+  No per-color operator stops mid-phase.
 
 ## 4. AIG plan (`WORKSPACE\aiguild`, :8095) — 13,762 CSS lines, ~62% dies
 
