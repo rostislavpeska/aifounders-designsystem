@@ -69,6 +69,11 @@ const readDebugLog = () => {
 };
 
 const settle = async (page) => {
+  // Freeze CSS transitions: interaction states (e.g. checkbox-card fills with
+  // transition: 0.15s) must not race the screenshot — bit once on the nl-card
+  // checked fill (25% false diff). Final values are identical; only the
+  // race window dies. Animations are already handled by reducedMotion.
+  await page.addStyleTag({ content: '*, *::before, *::after { transition: none !important; }' });
   await page.evaluate(() => document.fonts.ready);
   // stepwise pre-scroll: trigger lazy loads deterministically, then return
   await page.evaluate(async () => {
