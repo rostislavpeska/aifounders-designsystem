@@ -717,6 +717,7 @@ main .text--body blockquote {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box; /* the height ladder (60/52/38) is border-inclusive — the 2px border must eat INTO it, not add to it (DS per-component box-sizing convention; the base block had omitted it — theme adoption 2026-07-07) */
     font-family: var(--button-font);
     font-weight: var(--button-weight);
     text-align: center;
@@ -1174,6 +1175,7 @@ main .text--body blockquote {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box; /* padding + any border stay INSIDE the box (DS per-component box-sizing convention; base block had omitted it — theme adoption 2026-07-07) */
     padding: var(--spacing-8);
     gap: var(--spacing-6);
     font-family: var(--button-small-font);

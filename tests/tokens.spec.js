@@ -52,6 +52,20 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       await expect(cell(page, 'brand').locator('.btn--primary')).toHaveCSS('color', c.inverseText);
     });
 
+    test('button size ladder = CONTRACT heights via border-box (the 2px border must not add 4px)', async ({ page }) => {
+      // Regression guard (theme adoption 2026-07-07): .btn/.badge base blocks
+      // omitted box-sizing, so the 2px border rendered OUTSIDE the height ladder
+      // (60/52/38 -> 64/56/42, content-box) in any context without a global reset.
+      // button.md specifies border-inclusive heights; this asserts them.
+      await page.goto(`/?aifds_styleguide=1&item=buttons&theme=${brand}`);
+      for (const [sel, h] of [['.btn--lg', 60], ['.btn--md', 52], ['.btn--sm', 38]]) {
+        const btn = page.locator(sel).first();
+        await expect(btn).toHaveCSS('box-sizing', 'border-box');
+        const box = await btn.boundingBox();
+        expect(Math.round(box.height), `${sel} height`).toBe(h);
+      }
+    });
+
     test('secondary/tertiary labels are READABLE on dark surfaces (the regression)', async ({ page }) => {
       for (const s of ['dark-1', 'dark-2', 'dark-3']) {
         await expect(cell(page, s).locator('.btn--secondary')).toHaveCSS('color', c.inverseText);
