@@ -44,10 +44,19 @@ because those names coincide. For everything else the DS component is
    DS structure matches (AIF: preview-card, course-card, reference-card,
    and the record/table/nav-tabs/info-box shortcode families). → **Rename
    the markup to DS classes** (class-map + sweep), THEN delete theme CSS.
-3. **STAYS (theme territory)** — the DS deliberately does not own it
-   (author-forms `.aif-form`, Fluent Forms `.ff-el-*`, lightbox, video
-   embed, `.hero-card` deferred, Gutenberg `.wp-block-*`, chatbot). → **Leave
-   it.** Mark it 🟦 in the x-ray so "still theme" doesn't read as "TODO".
+3. **THIRD-PARTY MARKUP (can't rename)** — the HTML is emitted by a plugin
+   whose classes we don't control (Fluent Forms `.ff-el-*`, MC4WP, WP core).
+   → **Bucket-3 override**: write override CSS that TARGETS the plugin's
+   own classes but is **derived 1:1 from the DS** — same tokens, same
+   component recipe, visual parity, just reached via the foreign selectors.
+   NOT "leave as theme": the override is REBUILT from DS tokens/components so
+   it matches the DS field/button/label exactly (operator ruling 2026-07-07:
+   "FF overrides will need new styles but styles derived from the DS
+   components — 1:1 visual only using FF classes"). Keep the file loaded LAST
+   (Law 1). This is how forms that can't adopt DS markup still look DS.
+4. **STAYS (genuinely theme territory)** — lightbox, video embed, `.hero-card`
+   (deferred), chatbot, one-off page layout. → **Leave it.** Mark 🟦 in the
+   x-ray so "still theme" doesn't read as "TODO".
 
 Audit which bucket each component is in FIRST (grep the templates for the DS
 entry class; 0 hits + DS CSS present = bucket 2 or 3, decide by intent).
@@ -135,6 +144,36 @@ token aliases so surviving theme CSS resolves during the transition).
   `.nav-item:hover:not(.nav-item--cta)` looked like a `--cta` rule). Strip
   `:not(...)` args before extracting the subject, or sweep the few leftovers
   by hand afterward (grep the DS subjects post-deletion).
+
+## SYSTEMATIC PASS LESSONS (the operator's "map → test → fix → track" loop)
+
+- **"partial" (🟧) in the x-ray = theme CSS leaking over a name-matched DS
+  component.** persona-card + engagement both rendered wrong (persona had a
+  stray `border-bottom` divider the DS doesn't have; DS uses `border-left`)
+  purely because the theme's own `.persona-card`/`.aif-engagement` rules load
+  after the DS and win. Fix = delete the theme component CSS (bucket 1). The
+  x-ray's amber is the tell; chase every amber to zero.
+- **Container-query components need their slot wrapper in the markup.** The DS
+  persona-card derives orientation from `.persona-card-slot` (`@container
+  persona ≥560`); `.persona-card--horizontal` is a NO-OP alias. Deleting the
+  theme CSS (which forced horizontal) makes the card go vertical unless the
+  markup wraps it in `.persona-card-slot`. Same shape will hit course-card
+  (`@container course-card ≥720`). Add the slot wrapper.
+- **Integration boundaries stay theme.** Engagement's AddToAny share buttons
+  (`.a2a_kit` inside `.aif-engagement-toast`) are a documented DS boundary —
+  the theme wires the 3rd-party widget; the DS doesn't own it. Delete the
+  engagement component CSS but KEEP the `.a2a_kit` integration rules.
+- **The x-ray must be map-driven to see 3rd-party markup.** v1 only found
+  DS-classed elements, so Fluent Forms + author-tabs were invisible on the
+  author portal (operator: "most components not even detected"). v2 reads
+  `component-map.json` (DS ∪ theme ∪ ff selectors per component) so nothing
+  is invisible. Build this for AIG on day one — its author portal has the
+  same Fluent Forms.
+- **Composition stays theme, component becomes DS.** The homepage benefits
+  "bleeding container" (`.aif-dark-section__blurbs`: bleeds below the band,
+  dark-2 bg, inset dividers) is a page-specific layout — KEEP it, just put DS
+  `.blurb` components inside (re-point its `> .dark-blurb` child selectors to
+  `> .blurb`). Don't replace a bespoke container with a generic DS one.
 
 ## LESSONS (chronological, AIF)
 
