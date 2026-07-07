@@ -39,7 +39,7 @@ const SWEEPS = [
     classes: ['text--perex', 'heading-xl', 'heading-lg', 'heading-md', 'heading-sm', 'heading-xs', 'lead', 'body-lg', 'body-md', 'body-sm', 'caption', 'meta', 'numbered-headings'] },
   { n: 3, name: 'forms family', status: 'pending',
     classes: ['form-group', 'form-control', 'form-select', 'dropdown', 'selection-item', 'form-stack', 'input-pair', 'dropzone', 'segmented', 'datepicker', 'calendar-'] },
-  { n: 4, name: 'cards (preview/persona/course/reference)', status: 'pending',
+  { n: 4, name: 'cards — preview-card DONE (class-map pilot); persona/course/reference pending', status: 'active',
     classes: ['preview-card', 'persona-card', 'course-info-card', 'reference-card', 'testimonial-card', 'article--', 'article__'] },
   { n: 5, name: 'engagement + comments', status: 'pending',
     classes: ['aif-engagement', 'aif-aha', 'aif-share', 'article-comments', 'comment-author', 'comment-body', 'comment-respond', 'aif-tombstone'] },
