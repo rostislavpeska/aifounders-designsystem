@@ -2749,6 +2749,13 @@ body.modal-open {
     height: 34px; /* CALIBRATED harvested scrolled rung */
 }
 
+/* the header account avatar shrinks with the scrolled header (harvested 36 -> 30) */
+.main-header--scrolled .avatar--nav {
+    width: 30px;
+    height: 30px;
+    font-size: var(--size-12);
+}
+
 /* the underline mechanism — grows from the left, inset to the label */
 .nav-item::after {
     content: '';
@@ -4908,6 +4915,18 @@ main .article-comments ul li,
     font-family: var(--font-accent);
     font-weight: var(--weight-bold);
     font-size: var(--size-18);
+}
+
+/* --nav (36): the header account avatar (harvested nav-avatar: brand circle +
+   white initial). A smaller initial than --xs, and it SHRINKS with the scrolled
+   header (36 rest / 30 scrolled — see the .main-header--scrolled rule). Must sit
+   AFTER --initials so its font-size wins the size-18 default. */
+.avatar--nav {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    font-size: var(--size-14);
+    transition: width var(--transition-normal), height var(--transition-normal), font-size var(--transition-normal);
 }
 
 .avatar--sm {

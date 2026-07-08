@@ -19,8 +19,12 @@ Class map:
 
 ## Variants
 - `.avatar--xs` — 48×48, round (`--radius-full`). Production source: comment
-  author + the header nav-avatar pattern (added 2026-07-05 with the comments
-  distill). Comments shrink it to 40px ≤599 inside `.article-comments`.
+  author. Comments shrink it to 40px ≤599 inside `.article-comments`.
+- `.avatar--nav` — 36×36, round. The header ACCOUNT avatar (brand circle +
+  initial). SHRINKS to 30×30 under `.main-header--scrolled` (harvested nav-avatar
+  behavior; the shrink rule lives in the header block). Smaller initial than
+  `--xs` (`--size-14`, → `--size-12` scrolled); has a `--transition-normal` on
+  size for the header shrink. Combine with `.avatar--initials`.
 - `.avatar--sm` — 64×64, round (`--radius-full`). Production source: author chip.
 - `.avatar--md` — 160×160, round (`--radius-full`). Production source: persona card.
 - `.avatar--lg` — 260×260, SQUARE (`border-radius: 0`). Production source: team grid.
