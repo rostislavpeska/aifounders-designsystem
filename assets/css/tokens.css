@@ -414,6 +414,7 @@
 /* light-2 */
 .content-section--secondary {
   --bg: var(--gray-50);
+  --bg-alt: var(--gray-100);
   --perex-border: var(--brand-bright);
 }
 

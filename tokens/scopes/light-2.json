@@ -2,6 +2,9 @@
   "bg": {
     "$value": "{gray-50}"
   },
+  "bg-alt": {
+    "$value": "{gray-100}"
+  },
   "perex-border": {
     "$value": "{brand-bright}"
   }

@@ -521,6 +521,11 @@
         "aig": "#f2f2f2",
         "aif": "#f7f8fb"
       },
+      "bg-alt": {
+        "ref": "gray-100",
+        "aig": "#e5e5e5",
+        "aif": "#e4e7ec"
+      },
       "perex-border": {
         "ref": "brand-bright",
         "aig": "#ffd84d",

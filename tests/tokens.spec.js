@@ -2325,5 +2325,29 @@ for (const [brand, c] of Object.entries(BRANDS)) {
         expect(hoverBg, `${s}: tertiary hover must differ from surface`).not.toBe(surfaceBg);
       }
     });
+
+    // THE --bg-alt COLLISION (operator 2026-07-08): light-2 inherited --bg-alt
+    // = gray-50, which EQUALS its own --bg (gray-50 = #f7f8fb) — so the rail/
+    // band fill (pagination pill etc.) melted into the section. light-2 now
+    // re-declares --bg-alt = gray-100 (gray-200 would be more separated but
+    // breaks the a11y colors-swatch contrast + is invisible on AIG's tight
+    // ramp; light-3's inherited gray-50 was already distinct from its gray-150
+    // --bg, so it is left as-is). --bg-alt must differ from BOTH --bg and
+    // --raised on every LIGHT surface, and the base (light-1) must not regress.
+    test('bg-alt never equals bg or raised on light-1/2/3 (rail/band separates)', async ({ page }) => {
+      for (const s of ['light-1', 'light-2', 'light-3']) {
+        const { bg, bgAlt, raised } = await cell(page, s).evaluate((el) => {
+          const cs = getComputedStyle(el);
+          return {
+            bg: cs.getPropertyValue('--bg').trim(),
+            bgAlt: cs.getPropertyValue('--bg-alt').trim(),
+            raised: cs.getPropertyValue('--raised').trim(),
+          };
+        });
+        expect(bgAlt, `${s}: --bg-alt must be set`).not.toBe('');
+        expect(bgAlt, `${s}: --bg-alt must differ from --bg (rail/band fill vanished)`).not.toBe(bg);
+        expect(bgAlt, `${s}: --bg-alt must differ from --raised`).not.toBe(raised);
+      }
+    });
   });
 }
