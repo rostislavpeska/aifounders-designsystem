@@ -80,8 +80,8 @@
    Rationalization queue: replace exclusion-chain with prose-scoped links.
    ============================================================================ */
 
-main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link),
-.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link) {
+main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link),
+.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link) {
     color: var(--link); /* tier 3 → surface-link: dark/brand rules below become redundant as surfaces adopt */
     /* LINK IDIOM (operator 2026-07-02): resting state = 1px hairline underline
        LOWERED 4px (Apple-grade), on every surface. Hover feedback: color shift
@@ -93,17 +93,17 @@ main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-
     transition: color var(--transition-button), text-decoration-thickness var(--transition-fast);
 }
 
-main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active,
-.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active {
+main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active,
+.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+.section-light a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active {
     color: var(--link-hover) !important; /* tier 3 role — resolves per surface (light → tint-dark, dark → support, brand → black); was a hardcoded tint-dark that froze dark scopes inside main */
 }
 
 /* Dark sections — must come AFTER the wildcard rule for specificity.
    Reads the ROLES (audit 2026-07-03): the scope supplies brand-bright/support;
    card-link exclusions added to match the canonical superset. */
-.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link) {
+.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link):not(.form-banner__link) {
     color: var(--link);
     text-decoration: underline;
     text-decoration-thickness: 1px;  /* link idiom — this rule's shorthand resets the global longhands */
@@ -111,8 +111,8 @@ main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-
     transition: color var(--transition-button);
 }
 
-.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link):hover,
-.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link):active {
+.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link):not(.form-banner__link):hover,
+.section-dark a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.persona-card__social-link):not(.form-banner__link):active {
     color: var(--link-hover) !important;
 }
 
@@ -123,10 +123,10 @@ main a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-
    brand surfaces requires it. Audit 2026-07-03: exclusion chain extended to
    the canonical superset (nav + card links) and .article-hero added — it is
    a brand scope in tokens.css but never got the brand link idiom. */
-main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link),
-.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link),
-main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link),
-.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link) {
+main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link),
+.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link),
+main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link),
+.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link) {
     color: var(--link) !important;
     text-decoration: underline;
     text-decoration-thickness: 1px;  /* link idiom — this rule's shorthand resets the global longhands */
@@ -138,14 +138,14 @@ main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item
    subtraction, off-idiom. Brand hover = underline STAYS and THICKENS to 2px
    (offset inherits the resting 4px). Intentional delta vs live sites (GM
    exception). Longhands: a shorthand would reset thickness with importance. */
-main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active,
-.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active,
-main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active,
-.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):hover,
-.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):active {
+main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+main .section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active,
+.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+.section-brand a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active,
+main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+main .article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active,
+.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):hover,
+.article-hero a:not(.btn):not(.badge):not(.nav-item):not(.nav-dropdown-item):not(.mobile-nav-item):not(.mobile-lang-item):not(.footer__subtle-link):not(.footer__legal-link):not(.footer__logo-link):not(.footer__social-link):not(.card-title-link):not(.card-image-link):not(.breadcrumb__link):not(.nav-tabs__tab):not(.page-numbers):not(.persona-card__social-link):not(.form-banner__link):active {
     color: var(--link-hover) !important;
     text-decoration-line: underline !important;
     text-decoration-thickness: 2px !important;
@@ -919,6 +919,13 @@ main .text--body blockquote {
     color: var(--text);
     font-family: var(--font-accent);
     font-weight: var(--weight-bold);
+    /* Link buttons stay body-readable (16px) at EVERY size (operator 2026-07-08):
+       --sm's height/padding shrink is nullified on a link (height:auto/padding:0),
+       so --sm would ONLY shrink the font to 14px — an oddly-small inline link.
+       The harvested read-more/__actions links (.btn--sm.btn--link) were 16px; a
+       theme override carried it until the additive rebuild dropped that layer.
+       Owning it here keeps the .btn--sm.btn--link markup everywhere, at 16px. */
+    font-size: var(--button-size);
     /* LINK IDIOM alignment (audit 2026-07-03): harvested state was off-idiom —
        3px offset, hover REMOVED the underline (feedback by subtraction, the
        pattern the operator outlawed for brand links). Now the same drawing as
@@ -1376,6 +1383,59 @@ span.badge.badge--default::after {
 /* Size variants (independent of colour) */
 .info-box--article { font-size: var(--body-lg-size); } /* 18 — article body */
 .info-box--small   { font-size: var(--body-sm-size); } /* 14 — small text */
+
+/* ============================================================================
+   FORM STATUS BANNER (operator 2026-07-08) — a FORM-scoped sibling of info-box:
+   the SAME color-mix tint + accent-left grammar, but with a leading icon, a
+   LIVE-REGION role (alert/status via markup), and an optional jump-link list.
+   It is NOT info-box (that is static article furniture) and it COMPLEMENTS
+   inline field errors — never replaces them (show BOTH on submit-failure).
+   0 new tokens — info = --brand (there is no --status-info, same as info-box).
+   ============================================================================ */
+.form-banner {
+    --banner-accent: var(--brand);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-12);
+    background-color: color-mix(in srgb, var(--banner-accent) 22%, var(--bg));
+    border-left: var(--stroke-4) var(--stroke-style-solid) var(--banner-accent);
+    padding: var(--spacing-16);
+    color: var(--text);
+    font-family: var(--body-md-font);
+    font-size: var(--body-md-size);
+    line-height: var(--leading-body);
+}
+.form-banner--info    { --banner-accent: var(--brand); }
+.form-banner--success { --banner-accent: var(--status-success); }
+.form-banner--warning { --banner-accent: var(--status-warning); }
+.form-banner--error   { --banner-accent: var(--status-error); }
+
+.form-banner__icon {
+    width: var(--body-md-size);
+    height: var(--body-md-size);
+    flex-shrink: 0;
+    color: var(--banner-accent);
+}
+.form-banner__content { min-width: 0; }
+.form-banner__content > :first-child { margin-top: 0; }
+.form-banner__content > :last-child  { margin-bottom: 0; }
+.form-banner__title {
+    font-family: var(--body-md-font);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--spacing-4);
+}
+.form-banner__list {
+    margin: 0;
+    padding-left: var(--spacing-16);
+}
+/* THE JUMP-LINKS carry .form-banner__link — EXCLUDED from the global link chain
+   (like every other self-managing component link) so they ride --text + underline,
+   NOT the blue --link idiom (which fails contrast on the tinted panel, esp. the
+   error tint — GOV.UK error-summary law). */
+.form-banner__link {
+    color: var(--text);
+    text-decoration: underline;
+}
 
 /* ============================================================================
    DATA TABLE (operator 2026-07-04, harvested: article table + newsletter compare
@@ -5291,18 +5351,77 @@ textarea.form-control {
    border, medium calendar header).
    --------------------------------------------------------------------------- */
 
-.dropdown,
+/* SELECT — a REAL native <select> (Strategy B, operator 2026-07-08). The
+   closed control is styled everywhere via the field wrapper; desktop Chromium
+   upgrades the OPEN picker via appearance:base-select, iPhone Safari + Firefox
+   render the native picker (the better touch UX). NO JS — native is the source
+   of truth (keyboard, typeahead, form-submit, autofill, AT — all free). The
+   <select> composes .form-control (transparent inner field) inside
+   .form-control-wrapper (the box: bg, 2px border, focus-within, error). */
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    /* reserve room for the chevron overlaid at the trailing edge */
+    padding-right: calc(var(--field-font-size) + var(--spacing-8));
+    /* iOS ZOOM GUARD: iOS zoom-jumps if a focused control is < 16px. The field
+       scale drops --field-font-size to 14 in .form-scale-small — floor the
+       SELECT at 16 so touch never zooms (a deliberate exception to SMALL = 14). */
+    font-size: max(var(--field-font-size), 16px);
+}
+
+/* the wrapper anchors the chevron; the full-width select stays clickable under it */
+.form-select-wrapper {
+    position: relative;
+}
+
+.form-select-chevron {
+    position: absolute;
+    right: var(--field-pad-x);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text);
+    transition: transform var(--transition-fast);
+}
+
+/* DESKTOP ENHANCEMENT — a pure feature-query, never pointer/touch detection
+   (sidesteps the hybrid-device trap). True on desktop Chromium today (styled
+   custom picker); false on iPhone Safari + Firefox (native fallback — the
+   better touch control); auto-upgrades those engines later with zero rework. */
+@supports (appearance: base-select) {
+    .form-select,
+    .form-select::picker(select) {
+        appearance: base-select;
+    }
+    .form-select::picker(select) {
+        background-color: var(--bg);
+        border: var(--stroke-2) var(--stroke-style-solid) var(--border-strong);
+        box-shadow: var(--shadow-xl);
+        padding: 0;
+    }
+    .form-select option {
+        padding: var(--field-pad-y) var(--field-pad-x);
+        font-family: var(--body-md-font);
+        font-size: var(--field-font-size);
+        color: var(--text);
+    }
+    .form-select option:hover,
+    .form-select option:checked {
+        background-color: var(--bg-alt); /* the harvested --selected idiom */
+    }
+    .form-select option::checkmark { color: var(--control-accent); }
+    .form-select::picker-icon { display: none; } /* our own chevron draws it */
+    .form-select:open + .form-select-chevron { transform: translateY(-50%) rotate(180deg); }
+}
+
+/* DATEPICKER — shares the popover shell (was co-declared with the retired fake
+   select; kept intact, driven by js/components/datepicker.js). */
 .datepicker {
     position: relative;
     width: 100%;
 }
 
-.form-select-wrapper {
-    cursor: pointer;
-    user-select: none;
-}
-
-.form-select-menu,
 .datepicker-calendar {
     display: none;
     position: absolute;
@@ -5315,23 +5434,8 @@ textarea.form-control {
     z-index: 100;
 }
 
-.dropdown--open .form-select-menu,
 .datepicker--open .datepicker-calendar {
     display: block;
-}
-
-/* menu items follow the field scale (the scope wraps the whole dropdown) */
-.form-select-item {
-    padding: var(--field-pad-y) var(--field-pad-x);
-    cursor: pointer;
-    font-family: var(--body-md-font);
-    font-size: var(--field-font-size);
-    color: var(--text);
-}
-
-.form-select-item:hover,
-.form-select-item--selected {
-    background-color: var(--bg-alt);
 }
 
 .datepicker-calendar {
@@ -5488,6 +5592,20 @@ textarea.form-control {
     border-left: 2.5px solid var(--control-accent-ink);
     border-bottom: 2.5px solid var(--control-accent-ink);
     transform: rotate(-45deg) translate(1px, -2px);
+}
+
+/* Windows forced-colors (High Contrast): CSS-border ticks vanish there, so pin
+   the checked chip + tick to the system SelectedItem pairing — guaranteed
+   contrast, no light-mode visual change. */
+@media (forced-colors: active) {
+    .selection-item--checkbox .selection-input:checked + .selection-control {
+        background-color: SelectedItem;
+        border-color: SelectedItem;
+    }
+    .selection-item--checkbox .selection-input:checked + .selection-control::after {
+        border-left-color: SelectedItemText;
+        border-bottom-color: SelectedItemText;
+    }
 }
 
 /* Unified with the FF/condensed drawing (operator): checked radio = brand

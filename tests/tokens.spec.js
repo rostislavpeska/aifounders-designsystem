@@ -64,6 +64,11 @@ for (const [brand, c] of Object.entries(BRANDS)) {
         const box = await btn.boundingBox();
         expect(Math.round(box.height), `${sel} height`).toBe(h);
       }
+      // LINK buttons stay body-readable (16px) at EVERY size (operator 2026-07-08):
+      // --sm's height/padding shrink is nullified on a link, so it must NOT drop the
+      // font to 14 — the harvested read-more/__actions links were 16px.
+      await expect(page.locator('.btn--link').first()).toHaveCSS('font-size', '16px');
+      await expect(page.locator('[data-test="link-sm"]'), '.btn--sm.btn--link must stay 16px, not shrink to 14').toHaveCSS('font-size', '16px');
     });
 
     test('secondary/tertiary labels are READABLE on dark surfaces (the regression)', async ({ page }) => {
@@ -1930,6 +1935,61 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(radioMark).toBe(1);
     });
 
+    test('SELECT: real native <select>, iOS 16px zoom-floor (both scales), base-select enhancement', async ({ page }) => {
+      await page.goto(`/?aifds_styleguide=1&item=select&theme=${brand}`);
+      const s = await page.evaluate(() => {
+        const lg = document.querySelector('#sg-select-lg');
+        const sm = document.querySelector('#sg-select-sm');
+        return {
+          lgIsSelect: lg instanceof HTMLSelectElement,
+          smIsSelect: sm instanceof HTMLSelectElement,
+          lgFont: parseFloat(getComputedStyle(lg).fontSize),
+          smFont: parseFloat(getComputedStyle(sm).fontSize),
+          lgAppearance: getComputedStyle(lg).appearance,
+          baseSelectSupported: CSS.supports('appearance', 'base-select'),
+          chevron: !!document.querySelector('.form-select-wrapper .form-select-chevron'),
+        };
+      });
+      // REAL <select> — native is the source of truth (keyboard, typeahead, submit, AT)
+      expect(s.lgIsSelect, 'select must be a REAL <select>, not a div-tree fake').toBe(true);
+      expect(s.smIsSelect).toBe(true);
+      // iOS ZOOM GUARD — floors at 16 on BOTH scales (SMALL would be 14 on the
+      // field scale; the floor is the deliberate exception so touch never zooms)
+      expect(s.lgFont).toBeGreaterThanOrEqual(16);
+      expect(s.smFont, 'SMALL select must floor at 16px (iOS zoom guard)').toBeGreaterThanOrEqual(16);
+      expect(s.chevron, 'the DS draws its own chevron').toBe(true);
+      // where base-select is supported (the Chromium runner), the enhancement is active
+      if (s.baseSelectSupported) {
+        expect(s.lgAppearance, 'desktop Chromium upgrades to base-select').toBe('base-select');
+      }
+    });
+
+    test('FORM BANNER: variant accents (status + brand), alert/status roles + focus target, link idiom', async ({ page }) => {
+      await page.goto(`/?aifds_styleguide=1&item=form-composition&theme=${brand}`);
+      const b = await page.locator('[data-test="form-banner"]').evaluate((wrap) => {
+        const probe = document.createElement('span'); wrap.appendChild(probe);
+        const paint = (v) => { probe.style.color = `var(${v})`; return getComputedStyle(probe).color; };
+        const tok = { error: paint('--status-error'), success: paint('--status-success'), brand: paint('--brand'), text: paint('--text') };
+        probe.remove();
+        const acc = (sel) => getComputedStyle(wrap.querySelector(sel)).borderLeftColor;
+        const errEl = wrap.querySelector('.form-banner--error');
+        return {
+          errorAccent: acc('.form-banner--error'), successAccent: acc('.form-banner--success'), infoAccent: acc('.form-banner--info'),
+          tok,
+          errorRole: errEl.getAttribute('role'), errorTabindex: errEl.getAttribute('tabindex'),
+          successRole: wrap.querySelector('.form-banner--success').getAttribute('role'),
+          linkColor: getComputedStyle(wrap.querySelector('.form-banner__list a')).color,
+        };
+      });
+      expect(b.errorAccent).toBe(b.tok.error);      // error = --status-error
+      expect(b.successAccent).toBe(b.tok.success);  // success = --status-success
+      expect(b.infoAccent).toBe(b.tok.brand);       // info = --brand (there is NO --status-info)
+      expect(b.errorRole, 'submit-fail = assertive live region').toBe('alert');
+      expect(b.errorTabindex, 'the error banner is the focus target on submit').toBe('-1');
+      expect(b.successRole, 'success = polite').toBe('status');
+      expect(b.linkColor).toBe(b.tok.text);         // banner links = --text + underline (contrast on the tinted panel; blue --link fails)
+    });
+
     test('ACCORDION: harvested card (heading-xs title, body-lg answer, --deep arrow), height engine, exclusive mode', async ({ page }) => {
       await page.goto(`/?aifds_styleguide=1&item=accordion&theme=${brand}`);
       const first = page.locator('.accordion').first();
@@ -2224,9 +2284,10 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       await expect(page.locator('[data-test="input-small"] input.form-control').first()).toHaveCSS('font-size', '14px');
       await expect(page.locator('[data-test="input-small"] textarea.form-control')).toHaveCSS('font-size', '14px');
 
-      // ── Select tab: menu items follow the field scale ──
+      // ── Select tab: a real native <select> that FLOORS at 16px even in SMALL
+      // (the iOS zoom guard — the one deliberate exception to SMALL = 14) ──
       await page.goto(`/?aifds_styleguide=1&item=select&theme=${brand}`);
-      await expect(page.locator('[data-test="select-small"] .form-select-item').first()).toHaveCSS('font-size', '14px');
+      await expect(page.locator('[data-test="select-small"] .form-select').first()).toHaveCSS('font-size', '16px');
 
       // ── Datepicker tab: collapsed trigger follows the scale; calendar states ──
       await page.goto(`/?aifds_styleguide=1&item=datepicker&theme=${brand}`);

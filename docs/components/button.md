@@ -41,9 +41,9 @@ surface — the AIF newsletter button on the brand hero goes dark automatically
 | `.btn--primary` | brand fill — one per view; surface-aware via `--button-bg/text/border` |
 | `.btn--secondary` | transparent, brand border; hover fills brand |
 | `.btn--tertiary` | transparent, neutral border; hover raises |
-| `.btn--link` | text-shaped action; follows the global link idiom (1px/4px, hover 2px — GM exception vs live) |
+| `.btn--link` | text-shaped action; follows the global link idiom (1px/4px, hover 2px — GM exception vs live). **Stays 16px (`--button-size`) at EVERY size** — `--sm`'s height/padding shrink is nullified on a link (`height:auto; padding:0`), so shrinking the font too would just make an oddly-small inline link; `.btn--sm.btn--link` (the harvested `__actions` / read-more convention) renders at 16px, not 14px (operator 2026-07-08) |
 | `.btn--link.btn--destructive` | destructive text action — `--status-error` |
-| `.btn--lg` / `--md` / `--sm` | CALIBRATED ladder: 60/52/38px heights, 20/16/10px x-padding (harvested constants, off the spacing scale); `--sm` uses the `button-small` type bundle |
+| `.btn--lg` / `--md` / `--sm` | CALIBRATED ladder: 60/52/38px heights, 20/16/10px x-padding (harvested constants, off the spacing scale); `--sm` uses the `button-small` type bundle (14px) for FILLED buttons — link buttons keep 16px (see `.btn--link` above) |
 | `.smart-btn` | AIG AI-driven CTA wrapper — IS the support surface scope; reads its own surface roles |
 
 Deprecated (markup-compat only, rationalization queue — see

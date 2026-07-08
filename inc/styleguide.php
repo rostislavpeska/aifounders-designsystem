@@ -969,6 +969,7 @@ function aifds_sg_item_buttons() {
 	<h3 class="sg-h3">Link buttons</h3>
 	<div class="sg-row">
 		<a href="#" class="btn btn--link"><?php echo aifds_icon( 'arrow-right', array( 'size' => 16 ) ); ?>Read more</a>
+		<a href="#" class="btn btn--sm btn--link" data-test="link-sm"><?php echo aifds_icon( 'arrow-right', array( 'size' => 16 ) ); ?>Read more (sm stays 16px)</a>
 		<a href="#" class="btn btn--link btn--destructive"><?php echo aifds_icon( 'trash-2', array( 'size' => 16 ) ); ?>Delete</a>
 	</div>
 
@@ -1070,32 +1071,30 @@ function aifds_sg_item_input() {
 
 function aifds_sg_item_select() {
 	?>
-	<div class="sg-note"><b>Select</b> — pick ONE from a KNOWN set. The closed trigger is a field; the open menu is a floating light-1 surface (<code>.form-select-menu</code>). Shares its popover mechanic with Datepicker but stays a separate element — the intent differs. Menu items follow the field scale.</div>
-	<h3 class="sg-h3">Closed trigger &amp; open menu, both scales</h3>
-	<div style="display:flex; gap:48px; flex-wrap:wrap; padding-bottom:200px;">
-		<div class="form-group dropdown dropdown--open" style="width:280px;">
-			<div class="form-label-row"><label class="form-label">Large</label></div>
+	<div class="sg-note"><b>Select</b> — pick ONE from a KNOWN set, a REAL native <code>&lt;select&gt;</code> (Strategy B). The closed control is styled everywhere via the field wrapper + our chevron; desktop Chromium upgrades the open picker via <code>appearance: base-select</code>, iPhone&nbsp;Safari + Firefox render the native picker (the better touch UX). NO JS — native is the source of truth (keyboard, typeahead, form-submit, AT). The <code>&lt;select&gt;</code> floors at 16px so iOS never zoom-jumps on focus (a deliberate exception to SMALL = 14).</div>
+	<h3 class="sg-h3">Native control, both scales</h3>
+	<div style="display:flex; gap:48px; flex-wrap:wrap;">
+		<div class="form-group" style="width:280px;">
+			<div class="form-label-row"><label class="form-label" for="sg-select-lg">Large</label></div>
 			<div class="form-control-wrapper form-select-wrapper">
-				<span class="form-control" style="display:flex; align-items:center;">Option two</span>
-				<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
-			</div>
-			<div class="form-select-menu">
-				<div class="form-select-item">Option one</div>
-				<div class="form-select-item form-select-item--selected">Option two</div>
-				<div class="form-select-item">Option three</div>
+				<select class="form-control form-select" id="sg-select-lg">
+					<option>Option one</option>
+					<option selected>Option two</option>
+					<option>Option three</option>
+				</select>
+				<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon form-select-chevron' ) ); ?>
 			</div>
 		</div>
 		<div class="form-scale-small" data-test="select-small" style="width:280px;">
-			<div class="form-group dropdown dropdown--open">
-				<div class="form-label-row"><label class="form-label">Small</label></div>
+			<div class="form-group">
+				<div class="form-label-row"><label class="form-label" for="sg-select-sm">Small</label></div>
 				<div class="form-control-wrapper form-select-wrapper">
-					<span class="form-control" style="display:flex; align-items:center;">Option two</span>
-					<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon' ) ); ?>
-				</div>
-				<div class="form-select-menu">
-					<div class="form-select-item">Option one</div>
-					<div class="form-select-item form-select-item--selected">Option two</div>
-					<div class="form-select-item">Option three</div>
+					<select class="form-control form-select" id="sg-select-sm">
+						<option>Option one</option>
+						<option selected>Option two</option>
+						<option>Option three</option>
+					</select>
+					<?php echo aifds_icon( 'chevron-down', array( 'size' => 20, 'class' => 'form-icon form-select-chevron' ) ); ?>
 				</div>
 			</div>
 		</div>
@@ -1346,6 +1345,29 @@ function aifds_sg_item_file_upload() {
 function aifds_sg_item_form_composition() {
 	?>
 	<div class="sg-note"><b>THE MODEL — one field system, three axes.</b> <b>ELEMENT</b>: each form control is its own tab. <b>SCALE</b>: LARGE is the token root (<code>--field-font-size/-pad-y/-pad-x, --selection-size, --selection-label-size</code>); SMALL is the <code>.form-scale-small</code> scope that remaps them — one drawing, sizes only, never family/color. Small relaxes back to large on a narrow viewport OR any touch device (see <b>Mobile &amp; touch</b> below). <b>SURFACE</b>: field colors are surface roles, so every element adapts to any background. States (hover / focus / error / disabled / checked) ride on top of all three axes. Third-party form engines (FluentForms etc.) are NOT DS elements — at adoption each site maps the engine's selectors onto these tokens and picks a scale by scope.</div>
+
+	<h3 class="sg-h3">Form status banner — form-level orientation, complements inline errors</h3>
+	<div class="sg-note">A FORM-scoped sibling of <code>info-box</code>: same color-mix tint + accent-left, but with a leading icon, a live-region role (<code>alert</code>/<code>status</code>), and a jump-link list. On submit-failure show the <code>--error</code> banner (<code>role="alert"</code>, focus moved to it) AND keep the inline field errors — the banner ORIENTS + links, the inline text REPAIRS. <code>info</code> reuses <code>--brand</code> (there is no <code>--status-info</code> token). 0 new tokens.</div>
+	<div style="display:flex; flex-direction:column; gap:16px; max-width:560px; margin-bottom:32px;" data-test="form-banner">
+		<div class="form-banner form-banner--error" role="alert" tabindex="-1">
+			<?php echo aifds_icon( 'circle-alert', array( 'size' => 16, 'class' => 'form-banner__icon' ) ); ?>
+			<div class="form-banner__content">
+				<p class="form-banner__title">There is a problem</p>
+				<ul class="form-banner__list">
+					<li><a href="#email" class="form-banner__link">Enter a valid email address</a></li>
+					<li><a href="#password" class="form-banner__link">Password must be 8 characters or more</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-banner form-banner--success" role="status">
+			<?php echo aifds_icon( 'circle-check', array( 'size' => 16, 'class' => 'form-banner__icon' ) ); ?>
+			<div class="form-banner__content"><p class="form-banner__title">Your changes have been saved</p></div>
+		</div>
+		<div class="form-banner form-banner--info" role="status">
+			<?php echo aifds_icon( 'info', array( 'size' => 16, 'class' => 'form-banner__icon' ) ); ?>
+			<div class="form-banner__content"><p class="form-banner__title">Heads up &mdash; your session expires in 5 minutes</p></div>
+		</div>
+	</div>
 
 	<h3 class="sg-h3">Mobile &amp; touch — the field scale relaxes for fingers</h3>
 	<div class="sg-note">The ONE place the touch behaviour is defined. The <code>.form-scale-small</code> scope is a
