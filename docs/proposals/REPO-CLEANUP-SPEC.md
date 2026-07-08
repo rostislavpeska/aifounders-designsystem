@@ -1,12 +1,16 @@
 # REPO-CLEANUP-SPEC — roadmap item 3, executable (written for the next executor)
 
-**Status: SPEC RESOLVED 2026-07-07 (all four §6 verdicts ratified by the
-operator this night — see §1). Execution deliberately deferred until the
-overnight Figma import agent LANDS** — the rename breaks the styleguide
-(`aigds_styleguide` param, PHP prefixes) that the import agent validates
-against live; running both in one tree sabotages the import. Executor:
-a fresh session (Opus-class is fine — everything below is mechanical;
-all judgment already happened).
+**Status: EXECUTED 2026-07-07 — R0–R6 complete** (Figma import landed
+first, as required). Facts of record: baseline 92/92 at `2a608fa` →
+rename `eb445a0` (464 repl./71 files) → gate 92/92 again → rows re-stamp
+`60a119a` → vector store rebuilt at the rename ref → public sync
+`d219848` (2.0.0-rc.1, LICENSE AI Founders, proposals all-in, skills
+ship) → parity diff 0 (CRLF-insensitive; the factory working tree
+carries CRLF, git normalizes). Plugin reactivated in the container via
+`active_plugins` (no wp-cli there; temp PHP through the mount).
+**Open = R7 (operator)**: public flip · compose target rename (cosmetic)
+· n8n Repo Params default at cutover · archive factory. R8 aftercare
+done. §§ below preserved as the execution record.
 
 ## 0. Read before touching anything
 
