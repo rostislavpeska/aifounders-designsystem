@@ -39,6 +39,39 @@ dissolves because the theme no longer re-styles a single component.
   SINGLE wholesale retirement under this architecture, not 5000 lines of
   per-rule surgery.
 
+## STEP 0 — TOKENS: make the DS the SINGLE source (DAY ONE, before ANY sweep)
+
+⚠️ **Do this FIRST on AIG — before retiring `components.css`, before any component
+sweep.** Cheapest fix if done up front; most expensive bug if skipped — it cost AIF
+a "whole section is contaminated" debugging session (operator-caught, 2026-07-09).
+
+**The trap:** the theme's original token file (`assets/css/tokens.css`, the Figma
+export) redefines DS-CANONICAL token *names* — `--spacing-*`, `--shadow-*`,
+`--radius-*`, `--transition-*`, `--ease-*`, `--container-*`, `--icon-size-*` — with
+hardcoded values. It loads AFTER the DS, so it silently **OVERRIDES the DS**: the DS
+is no longer the source of truth, and a later DS value change never reaches the theme.
+
+**Why it detonates:** the values are usually IDENTICAL (same Figma source), so the
+override is invisible — until a DS *scoped* token diverges. On AIF, fixing `--bg-alt`
+(gray-50 → gray-100, for a pagination rail) flowed through a compat-mapped legacy
+token (`--color-bg-secondary → var(--bg-alt)`) that the theme used to paint SECTION
+backgrounds → **every secondary section recolored** (gray-100, darker than the
+tertiary sections). Deep, systemic, hard to trace back to a token file.
+
+**The day-one procedure:**
+1. `comm -12 <(theme token names, sorted) <(DS token names, sorted)` → the collision
+   set. DELETE every collision from the theme's token file (verify values match first
+   — they will; the DS then provides them). ⚠️ theme files are CRLF — a Python/LF
+   rewrite churns the whole file; use `git -c core.autocrlf=false add`.
+2. Keep ONLY genuinely-theme-specific legacy NAMES (`--color-*`, `--text-*` type
+   scale, `--font-*`) as the temporary compat bridge — nothing the DS already owns.
+3. Audit that section/surface backgrounds paint the DS surface ROLE
+   (`background: var(--bg)`), NEVER a compat-mapped legacy token — else a scoped DS
+   value contaminates the whole surface (the AIF bug above; fixed by repointing
+   `.content-section` at `var(--bg)`).
+4. **End-state (P5):** the theme token file is DELETED entirely — every token comes
+   from the DS + the compat bridge (which also dies once the theme CSS uses DS names).
+
 ## OBSERVABILITY — the two live boards (build on day one for AIG)
 
 Alongside the x-ray / coverage / parity gate, two NocoDB boards track status
@@ -226,3 +259,30 @@ token aliases so surviving theme CSS resolves during the transition).
   pressure finds real DS bugs; the specimen-first bug ritual absorbed it.
 - Observability was missing until the operator demanded it three times.
   **Build the x-ray on day one for AIG.**
+
+## FORMS FAMILY — native-first select, status banner (the recipe for AIG)
+
+Settled on AIF 2026-07-08 (deep-research + operator ruling). Carry forward:
+- **SELECT is a REAL native `<select>`, never a JS dropdown.** Ship
+  `<select class="form-control form-select">` inside `.form-control-wrapper`.
+  Desktop Chromium styles the picker via `appearance: base-select`; iPhone
+  Safari + Firefox render the native picker (the *better* touch UX, not a
+  degradation) and auto-upgrade later. Gate the enhancement with
+  `@supports (appearance: base-select)` — NEVER `(pointer: …)` detection (the
+  hybrid touch-laptop trap). **Floor the select at 16px**
+  (`max(--field-font-size, 16px)`) so iOS never zoom-jumps on focus — the one
+  deliberate exception to SMALL = 14. When adopting a theme engine (Fluent
+  Forms etc.), map its select onto `.form-control.form-select` + the wrapper;
+  do NOT rebuild a JS listbox.
+- **Status banner vs inline error — ship BOTH on submit-failure.** The
+  `.form-banner--error` (`role="alert"`, focus moved to it) ORIENTS + links to
+  the fields; the inline `.form-helper-text` REPAIRS. Summary link text MUST
+  match the inline message. `info` has no status token — it is `--brand` (same
+  as `info-box--info`). It's an `info-box` SIBLING (same color-mix tint), not a
+  rename of it.
+- **Don't chase a 3:1 checkbox fill on a light surface** — no light-gray palette
+  border reaches 3:1 on white, and the dark checkmark already carries the state
+  (WCAG-OK). Add the `forced-colors: active` guard instead (a pure Windows-HC win).
+- **Sequencing (the publish-flow trap):** the forms/button/modal families ARE
+  the author-portal surfaces. Baseline the authenticated (`auth: true`) pages
+  BEFORE sweeping those families into the theme, or you refactor them blind.
