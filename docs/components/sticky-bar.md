@@ -29,7 +29,10 @@ the --chatbot-clear axis.
      data-show-anchor=".aif-article-body" data-hide-anchor=".kurz-more-courses"
      data-suppress-key="aif-subscribed" data-sticky-sample>
   <div class="sticky-bar__inner">
-    <div class="sticky-bar__pitch"><p class="sticky-bar__consent">By clicking … <a href="…">privacy policy</a>.</p></div>
+    <div class="sticky-bar__pitch">
+      <p class="sticky-bar__benefit">The week&rsquo;s most important AI news — no fluff.</p>
+      <p class="sticky-bar__consent">By clicking … <a href="…">privacy policy</a>.</p>
+    </div>
     <div class="sticky-bar__form form-scale-small">
       <div class="input-pair">
         <div class="form-control-wrapper"><input type="email" class="form-control" placeholder="Your e-mail"></div>
@@ -67,8 +70,15 @@ the --chatbot-clear axis.
   GM). Buttons carry NO ladder rung; standalone ones sit at the rung via
   min-height, paired ones stretch to the field (relaxing together on
   touch).
-- **`--email` type** — `__pitch` › `__consent` (caption-size secondary,
-  links ride the global chain) + `__form` (**composes
+- **`--email` type** — `__pitch` is a VERTICAL STACK (`flex-direction:
+  column`, `--spacing-4` gap): the `__benefit` LEADS — the user reason to
+  subscribe, `--body-md-size` **bold** in `--text` (operator 2026-07-08,
+  sandbox "STICKY NEWSLETTER" Option A) — and the `__consent` DEMOTES
+  beneath it to the `--meta-size` floor (was caption; quiet under the
+  benefit, links ride the global chain). GDPR-safe: the consent text +
+  privacy link stay VERBATIM — only placement and size changed; the floor
+  is 12px, never lower. The `__benefit` is optional — a consent-only pitch
+  still renders (single child, stack is a no-op). Then `__form` (**composes
   `form-scale-small`** — the slim field floors at 40px on desktop pointers
   and relaxes for touch per the forms law) + `__btn-mobile` (hidden ≥1024).
 - **`--button` type** — `__meta` (accent bold body text, `nowrap`) + one
@@ -124,8 +134,9 @@ button (pitch + form hide); the button bar drops its meta (harvested
 
 `--bg` `--text` `--text-secondary` `--border` `--stroke-1` `--shadow-up`
 `--container-max` `--spacing-6` `--spacing-12` `--spacing-16`
-`--spacing-32` `--body-md-font` `--body-md-size` `--caption-size`
-`--font-accent` `--weight-bold` `--transition-smooth` `--transition-normal`
+`--spacing-4` `--spacing-32` `--body-md-font` `--body-md-size`
+`--caption-size` `--meta-size` `--leading-heading` `--font-accent`
+`--weight-bold` `--transition-smooth` `--transition-normal`
 
 ## Surfaces
 

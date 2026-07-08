@@ -1291,6 +1291,19 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(rung.cta.h).toBe(40); // btn--sm's 38 stray died into the rung
       expect(skin.padRight).toBe('100px');    // --chatbot-clear
       expect(skin.padTop).toBe('6px');        // slim vertical rhythm
+      // THE PITCH ANATOMY (operator 2026-07-08, sandbox Option A): the BENEFIT
+      // leads in body-md bold, the consent DEMOTES beneath it to the meta floor
+      // — a vertical stack; GDPR text stays verbatim but reads visually quiet
+      const pitch = await page.locator('#sticky-static-email .sticky-bar__pitch').evaluate((p) => ({
+        dir: getComputedStyle(p).flexDirection,
+        benefitSize: getComputedStyle(p.querySelector('.sticky-bar__benefit')).fontSize,
+        benefitWeight: getComputedStyle(p.querySelector('.sticky-bar__benefit')).fontWeight,
+        consentSize: getComputedStyle(p.querySelector('.sticky-bar__consent')).fontSize,
+      }));
+      expect(pitch.dir).toBe('column');                       // benefit stacks over consent
+      expect(pitch.benefitSize).toBe('16px');                 // body-md — the reason to subscribe
+      expect(Number(pitch.benefitWeight)).toBeGreaterThanOrEqual(700); // --weight-bold
+      expect(pitch.consentSize).toBe('12px');                 // meta floor — demoted from caption(14)
       // STATIC button bar on .section-dark — roles re-skin (dark fill, meta present)
       const dark = await page.locator('#sticky-static-button .sticky-bar').evaluate((bar) => {
         const probe = document.createElement('span');

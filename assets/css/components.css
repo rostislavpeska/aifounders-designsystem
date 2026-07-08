@@ -2534,13 +2534,27 @@ body.modal-open {
     flex: 1 1 auto;
     min-width: 0; /* shrinks instead of wrapping the bar to two rows */
     display: flex;
-    align-items: center;
-    gap: var(--spacing-12);
+    flex-direction: column; /* benefit leads, consent demoted beneath (operator 2026-07-08, sandbox Option A) */
+    align-items: flex-start;
+    gap: var(--spacing-4);
+}
+
+/* THE BENEFIT — the user reason to subscribe, leading the pitch (operator
+   2026-07-08, sandbox "STICKY NEWSLETTER" Option A): body-md BOLD in --text.
+   The consent demotes BENEATH it to the meta floor. GDPR-safe: the consent
+   text + privacy link stay VERBATIM; only placement + size change. */
+.sticky-bar__benefit {
+    font-family: var(--body-md-font);
+    font-size: var(--body-md-size);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-heading);
+    color: var(--text);
+    margin: 0;
 }
 
 .sticky-bar__consent {
     font-family: var(--body-md-font);
-    font-size: var(--caption-size);
+    font-size: var(--meta-size); /* demoted from caption — quiet beneath the benefit (operator 2026-07-08) */
     color: var(--text-secondary);
     margin: 0;
     /* links inside ride the global chain (production's inherit-armor dies) */

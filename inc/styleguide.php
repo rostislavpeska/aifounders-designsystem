@@ -2988,7 +2988,7 @@ function aifds_sg_item_sticky_bar() {
 		<div class="sticky-bar sticky-bar--<?php echo esc_attr( $type ); ?><?php echo $classes ? ' ' . esc_attr( $classes ) : ''; ?><?php echo $static ? ' sticky-bar--visible' : ''; ?>"<?php echo $static ? '' : ' data-sticky-cta aria-hidden="true"'; ?><?php echo $attrs; // phpcs:ignore ?>>
 			<div class="sticky-bar__inner">
 				<?php if ( 'email' === $type ) : ?>
-				<div class="sticky-bar__pitch"><p class="sticky-bar__consent">Consent slot &mdash; by clicking &ldquo;Subscribe&rdquo; you agree to the <a href="#">processing of personal data</a>.</p></div>
+				<div class="sticky-bar__pitch"><p class="sticky-bar__benefit">The week&rsquo;s most important AI news &mdash; no fluff.</p><p class="sticky-bar__consent">Consent slot &mdash; by clicking &ldquo;Subscribe&rdquo; you agree to the <a href="#">processing of personal data</a>.</p></div>
 				<div class="sticky-bar__form form-scale-small">
 					<div class="input-pair">
 						<div class="form-control-wrapper"><input type="email" class="form-control" placeholder="Your e-mail"></div>
