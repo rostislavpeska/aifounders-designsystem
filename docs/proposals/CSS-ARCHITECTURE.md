@@ -197,6 +197,20 @@ These bit the AIF run. They are the same on AIG — walk in expecting them.
   any programmatic Edit, **sed-restore CRLF** (`sed -i 's/$/\r/'` on lines you
   touched, or normalize the whole file back) before committing. Confirm with
   `git diff --stat` — a real one-line fix should be `+1/-1`, not `+800/-800`.
+- **Retiring an enqueue handle silently un-renders its dependents.** When the
+  additive rebuild retired the old CSS handles (`aif-main`, `aif-components`,
+  `aif-page`) for `aif-theme`, WordPress **stopped printing** every stylesheet
+  that still listed a retired handle as a dependency — no error, the sheet just
+  vanishes (WP skips a `wp_enqueue_style` whose dep is unregistered; and note
+  styles/scripts are SEPARATE namespaces, so a surviving *script* handle of the
+  same name does NOT satisfy a *style* dep). It silently cost AIF the article
+  newsletter bar (`article-sticky.css`) AND the entire per-slug landing loader
+  in `page-landing.php` — every landing page, incl. `/newsletter`, rendered
+  unstyled. After retiring/renaming any handle, grep the WHOLE theme (`*.php` +
+  `inc/`, including conditional template enqueues in `single.php` / `page-*.php`,
+  not just the `functions.php` chain) for `wp_enqueue_style(... 'old-handle' ...)`.
+  The regression is invisible in the diff and the console; only a live
+  "is this sheet in `document.styleSheets`?" check catches it.
 - **`tokens.css` is GENERATED (DS side).** The DS `aifds-tokens` is emitted by
   the build, not hand-edited. Never patch a token value in the theme to fix a
   component — that's an F2/F3 for the DS token pipeline (ds-tokens /
