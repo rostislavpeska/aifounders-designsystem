@@ -17,6 +17,45 @@ because those names coincide. For everything else the DS component is
 **dormant**: no markup references it, so deleting the theme CSS just
 *unstyles* the element — it does not adopt the DS.
 
+## THE END-STATE: ADDITIVE ARCHITECTURE (post-AIF pivot, the DEFAULT for AIG)
+
+The class-mapping migration above is step one. The END STATE that AIF proved
+(commit `e40cf8b`, 2026-07-08) is simpler and is now the DEFAULT: **do not
+delete DS duplicates out of a fighting `components.css` rule by rule — retire
+the theme's `components.css` WHOLESALE and ship ONE thin additive `theme.css`
+(composition only).** The DS plugin loads first and owns every component; the
+theme loads after and only PLACES them. Every two-CSS collision the rule-by-rule
+approach produced (tertiary hover, footer wrapper, legal-link mis-color)
+dissolves because the theme no longer re-styles a single component.
+
+- **The target-state blueprint:** [CSS-ARCHITECTURE.md](CSS-ARCHITECTURE.md) —
+  the finished layering, the enqueue chain, and the repeatable method.
+- **THE VERIFICATION TEST (the recipe that proved it):** disable the theme CSS
+  in the browser → confirm the DS renders every component correctly → then add
+  back ONLY composition, page by page, verifying each. "Apply only what is
+  necessary." Law 1's chain in THEME-REFACTOR-SPEC is superseded post-rebuild by
+  `legacy tokens → compat shim → ONE theme.css → feature CSS → fluent override`.
+- **AIG scale:** AIG's ~5161-line `components.css` (~95% DS duplicates) is a
+  SINGLE wholesale retirement under this architecture, not 5000 lines of
+  per-rule surgery.
+
+## OBSERVABILITY — the two live boards (build on day one for AIG)
+
+Alongside the x-ray / coverage / parity gate, two NocoDB boards track status
+AND carry operator feedback columns (the async equivalent of the C0–C4
+checkpoints — the operator reacts there, not in chat):
+- **`Migration_Component_Status`** — one row per DS component: status, commit,
+  agent notes, `Operator_Feedback`, `Signed_Off`.
+- **`Migration_Page_QA`** — one row per page template: test URL, agent-verified,
+  `Operator_OK`, `Operator_Feedback`.
+
+The carry-forward TRAPS are consolidated in
+[CSS-ARCHITECTURE.md §5](CSS-ARCHITECTURE.md): CRLF churn (sed-restore after
+Edit), box-IS-grid edge ownership, retire the global link-exclusion chain
+first, the banned `.section-dark *` wildcard (LAW 3), the parked
+`--bg-alt == --bg` light-2/3 collision, transitions corrupting getComputedStyle
+hover reads, `tokens.css` is GENERATED.
+
 **Proof (AIF preview card):** identical nesting, different names.
 
 | theme markup | DS component | delta |
