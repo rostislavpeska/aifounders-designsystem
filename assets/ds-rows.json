@@ -4,7 +4,7 @@
   "metadata": {
    "name": "Text styles",
    "git_path": "assets/css/components.css#typography-public-api",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".heading-xl/lg/md/sm/xs .lead .body-lg/md/sm .caption .meta",
    "specimen": "/?aifds_styleguide=1&item=text-classes",
    "doc_path": "docs/components/text-styles.md",
@@ -38,7 +38,7 @@
   "metadata": {
    "name": "Text elements",
    "git_path": "assets/css/components.css#prose-defaults",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".text--perex, blockquote, ul/ol (indent-signifier)",
    "specimen": "/?aifds_styleguide=1&item=text-elements",
    "doc_path": "docs/components/text-elements.md",
@@ -78,7 +78,7 @@
   "metadata": {
    "name": "Numbered headings",
    "git_path": "assets/css/components.css#numbered-headings",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".numbered-headings",
    "specimen": "/?aifds_styleguide=1&item=text-elements",
    "doc_path": "docs/components/numbered-headings.md",
@@ -107,7 +107,7 @@
   "metadata": {
    "name": "Prose / article layout",
    "git_path": "assets/css/components.css#prose-defaults",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".article-layout__content, flow rhythm",
    "specimen": "/?aifds_styleguide=1&item=prose",
    "doc_path": "docs/components/prose-layout.md",
@@ -140,7 +140,7 @@
   "metadata": {
    "name": "Global link system",
    "git_path": "assets/css/components.css#global-link-system",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": "link recipe + exclusion chain",
    "specimen": "/?aifds_styleguide=1&item=—",
    "doc_path": "docs/components/links.md",
@@ -164,7 +164,7 @@
   "metadata": {
    "name": "Card link utilities",
    "git_path": "assets/css/components.css#global-link-system",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".card-title-link",
    "specimen": "/?aifds_styleguide=1&item=—",
    "doc_path": "docs/components/links.md",
@@ -188,7 +188,7 @@
   "metadata": {
    "name": "Section contexts (surfaces)",
    "git_path": "assets/css/components.css#section-contexts",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".section-light/dark/brand, .surface-support",
    "specimen": "/?aifds_styleguide=1&item=surfaces",
    "doc_path": "docs/components/section-contexts.md",
@@ -233,11 +233,11 @@
   }
  },
  {
-  "content": "Button — The action trigger. Reach for a button when the user does something — submits, reserves, confirms, deletes. Hierarchy carries meaning: primary (brand fill) is the single most important action in a view; secondary (transparent, brand border) is the alternative path; tertiary (transparent, neutral border) is the quiet utility action. NOT for navigation inside prose — that is a link (see links.md); the .btn--link variant exists only for action-shaped text triggers (e.g. \"remove\", destructive text actions). Buttons are square-cornered (no radius, per the radius retirement) and read ONLY component/semantic tokens, so the same markup resolves correctly on every surface — the AIF newsletter button on the brand hero goes dark automatically (the newsletter law; no special class). Variants: | Class | Role | |---|---| | .btn--primary | brand fill — one per view; surface-aware via --button-bg/text/border | | .btn--secondary | transparent, brand border; hover fills brand | | .btn--tertiary | transparent, neutral border; hover raises | | .btn--link | text-shaped action; follows the global link idiom (1px/4px, hover 2px — GM exception vs live) | | .btn--link.btn--destructive | destructive text action — --status-error | | .btn--lg / --md / --sm | CALIBRATED ladder: 60/52/38px heights, 20/16/10px x-padding (harvested constants, off the spacing scale); --sm uses the button-small type bundle | | .smart-btn | AIG AI-driven CTA wrapper — IS the support surface scope; reads its own surface roles | Deprecated (markup-compat only, rationalization queue — see IMPLEMENTATIONSTATUS.md): .btn--outline (≡ secondary), .btn--primary-inverted (reclassified: the legacy newsletter CTA, not a hierarchy member), .btn--secondary-inverted / .btn--tertiary-inverted (superseded by surface-aware tokens).",
+  "content": "Button — The action trigger. Reach for a button when the user does something — submits, reserves, confirms, deletes. Hierarchy carries meaning: primary (brand fill) is the single most important action in a view; secondary (transparent, brand border) is the alternative path; tertiary (transparent, neutral border) is the quiet utility action. NOT for navigation inside prose — that is a link (see links.md); the .btn--link variant exists only for action-shaped text triggers (e.g. \"remove\", destructive text actions). Buttons are square-cornered (no radius, per the radius retirement) and read ONLY component/semantic tokens, so the same markup resolves correctly on every surface — the AIF newsletter button on the brand hero goes dark automatically (the newsletter law; no special class). Variants: | Class | Role | |---|---| | .btn--primary | brand fill — one per view; surface-aware via --button-bg/text/border | | .btn--secondary | transparent, brand border; hover fills brand | | .btn--tertiary | transparent, neutral border; hover raises | | .btn--link | text-shaped action; follows the global link idiom (1px/4px, hover 2px — GM exception vs live). Stays 16px (--button-size) at EVERY size — --sm's height/padding shrink is nullified on a link (height:auto; padding:0), so shrinking the font too would just make an oddly-small inline link; .btn--sm.btn--link (the harvested actions / read-more convention) renders at 16px, not 14px (operator 2026-07-08) | | .btn--link.btn--destructive | destructive text action — --status-error | | .btn--lg / --md / --sm | CALIBRATED ladder: 60/52/38px heights, 20/16/10px x-padding (harvested constants, off the spacing scale); --sm uses the button-small type bundle (14px) for FILLED buttons — link buttons keep 16px (see .btn--link above) | | .smart-btn | AIG AI-driven CTA wrapper — IS the support surface scope; reads its own surface roles | Deprecated (markup-compat only, rationalization queue — see IMPLEMENTATIONSTATUS.md): .btn--outline (≡ seconda",
   "metadata": {
    "name": "Button",
    "git_path": "assets/css/components.css#buttons",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".btn + --primary/secondary/tertiary/link/destructive + --lg/md/sm, .button-group",
    "specimen": "/?aifds_styleguide=1&item=buttons",
    "doc_path": "docs/components/button.md",
@@ -278,7 +278,7 @@
   "metadata": {
    "name": "Newsletter capture",
    "git_path": "assets/css/components.css#newsletter-capture",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".hero-aif__form, .aif-ecomail-form*",
    "specimen": "/?aifds_styleguide=1&item=form-composition",
    "doc_path": "docs/components/newsletter-capture.md",
@@ -315,7 +315,7 @@
   "metadata": {
    "name": "Badge",
    "git_path": "assets/css/components.css#badges",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".badge + variants, .badge__icon",
    "specimen": "/?aifds_styleguide=1&item=badges",
    "doc_path": "docs/components/badge.md",
@@ -356,7 +356,7 @@
   "metadata": {
    "name": "Info box",
    "git_path": "assets/css/components.css#info-box",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".info-box + --info/success/warning/error/neutral + --small/--article",
    "specimen": "/?aifds_styleguide=1&item=info-box",
    "doc_path": "docs/components/info-box.md",
@@ -390,7 +390,7 @@
   "metadata": {
    "name": "Data table",
    "git_path": "assets/css/components.css#data-table",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".data-table + --condensed/--large/--plain/--banded, .table-scroll wrapper",
    "specimen": "/?aifds_styleguide=1&item=data-tables",
    "doc_path": "docs/components/data-table.md",
@@ -429,7 +429,7 @@
   "metadata": {
    "name": "Record list",
    "git_path": "assets/css/components.css#record-list",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".record-list / .record / .record__* (N-column abstract)",
    "specimen": "/?aifds_styleguide=1&item=record-list",
    "doc_path": "docs/components/record-list.md",
@@ -469,7 +469,7 @@
   "metadata": {
    "name": "Preview card (article / event / signal / position / management)",
    "git_path": "assets/css/components.css#preview-card",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".preview-card / __photo/__headline/__meta/__badges/__skills/__text/__actions + --condensed",
    "specimen": "/?aifds_styleguide=1&item=preview-card",
    "doc_path": "docs/components/preview-card.md",
@@ -506,7 +506,7 @@
   "metadata": {
    "name": "Accordion",
    "git_path": "assets/css/components.css#accordion",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".accordion / .accordion__* + [data-accordion=\"exclusive\"]",
    "specimen": "/?aifds_styleguide=1&item=accordion",
    "doc_path": "docs/components/accordion.md",
@@ -536,7 +536,7 @@
   "metadata": {
    "name": "Breadcrumb",
    "git_path": "assets/css/components.css#breadcrumb",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".breadcrumbs / .breadcrumb__*",
    "specimen": "/?aifds_styleguide=1&item=breadcrumb",
    "doc_path": "docs/components/breadcrumb.md",
@@ -561,7 +561,7 @@
   "metadata": {
    "name": "Pagination",
    "git_path": "assets/css/components.css#pagination",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".archive-pagination (+ WP .page-numbers)",
    "specimen": "/?aifds_styleguide=1&item=pagination",
    "doc_path": "docs/components/pagination.md",
@@ -590,7 +590,7 @@
   "metadata": {
    "name": "Nav tabs",
    "git_path": "assets/css/components.css#nav-tabs",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".nav-tabs / .nav-tabs__tab(--active)",
    "specimen": "/?aifds_styleguide=1&item=nav-tabs",
    "doc_path": "docs/components/nav-tabs.md",
@@ -620,7 +620,7 @@
   "metadata": {
    "name": "Reference card (testimonial / case study)",
    "git_path": "assets/css/components.css#reference-card",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".reference-card / __avatar/__logo-wrapper/__title-group/__body/__icon/__content",
    "specimen": "/?aifds_styleguide=1&item=reference-card",
    "doc_path": "docs/components/reference-card.md",
@@ -662,7 +662,7 @@
   "metadata": {
    "name": "Persona card",
    "git_path": "assets/css/components.css#persona-card",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".persona-card (+ .persona-card-slot container) / __avatar/__content/__header/__bio/__meta/__socials + --flush / --vertical",
    "specimen": "/?aifds_styleguide=1&item=persona-card",
    "doc_path": "docs/components/persona-card.md",
@@ -695,7 +695,7 @@
   "metadata": {
    "name": "Course card",
    "git_path": "assets/css/components.css#course-card",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".course-info-card (+ .course-card-slot container) / __illustration-lg/__content/__eyebrow/__title/__subtitle/__description + --inactive + course-accent--*",
    "specimen": "/?aifds_styleguide=1&item=course-card",
    "doc_path": "docs/components/course-card.md",
@@ -739,7 +739,7 @@
   "metadata": {
    "name": "Engagement (Aha! + share + toast)",
    "git_path": "assets/css/components.css#engagement",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".aif-engagement / .aif-aha(--clicked) / .aif-share / .aif-engagement-toast(--open)",
    "specimen": "/?aifds_styleguide=1&item=engagement",
    "doc_path": "docs/components/engagement.md",
@@ -781,7 +781,7 @@
   "metadata": {
    "name": "Comments (threaded discussion)",
    "git_path": "assets/css/components.css#article-comments",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".article-comments / .comment-author/__meta / .comment-body__bubble / .children connectors / .aif-tombstone / .comment-respond",
    "specimen": "/?aifds_styleguide=1&item=comments",
    "doc_path": "docs/components/comments.md",
@@ -832,7 +832,7 @@
   "metadata": {
    "name": "Modal",
    "git_path": "assets/css/components.css#modal",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".modal / __overlay/__container/__close/__title + data-modal-open + js/components/modal.js",
    "specimen": "/?aifds_styleguide=1&item=modal",
    "doc_path": "docs/components/modal.md",
@@ -861,7 +861,7 @@
   "metadata": {
    "name": "Sticky bar",
    "git_path": "assets/css/components.css#sticky-bar",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".sticky-bar(--email/--button/--chatbot-clear) / __inner/__pitch/__consent/__form/__btn-mobile/__meta + data-sticky-* + js/components/sticky-bar.js",
    "specimen": "/?aifds_styleguide=1&item=sticky-bar",
    "doc_path": "docs/components/sticky-bar.md",
@@ -900,7 +900,7 @@
   "metadata": {
    "name": "Header",
    "git_path": "assets/css/components.css#header",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".main-header(--scrolled/--overlay) / __inner · .site-logo · .nav-item(--active/--has-dropdown) + __trigger · .nav-dropdown(-item) · .burger-toggle · .mobile-menu-overlay(--open) / .mobile-nav-item / .mobile-lang-row · .reading-progress + js/components/menu.js",
    "specimen": "/?aifds_styleguide=1&item=header",
    "doc_path": "docs/components/header.md",
@@ -935,7 +935,7 @@
   "metadata": {
    "name": "Footer",
    "git_path": "assets/css/components.css#footer",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".footer(--chatbot-clear) / __inner · __newsletter-section/row/headline/form-wrap (dark-2) · __partners/label/partners-grid · columns = .stack-grid+.blurb · __subtle-link · __bottom-bar/logo-link/social-icons/social-link/social-icon · __legal-section/divider/legal/legal-link",
    "specimen": "/?aifds_styleguide=1&item=footer",
    "doc_path": "docs/components/footer.md",
@@ -977,7 +977,7 @@
   "metadata": {
    "name": "Blurb + stack grid (THE BENEFITS FAMILY)",
    "git_path": "assets/css/components.css#blurb",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".blurb / __icon/__eyebrow/__headline(--md/--lg)/__text(--lg/--sm)/__action · .stack-grid(--divided/--numbered) + --stack-cols/--stack-fill",
    "specimen": "/?aifds_styleguide=1&item=blurb",
    "doc_path": "docs/components/blurb.md",
@@ -1020,7 +1020,7 @@
   "metadata": {
    "name": "Info bar",
    "git_path": "assets/css/components.css#info-bar",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".info-bar / __wrapper/__item",
    "specimen": "/?aifds_styleguide=1&item=info-bar",
    "doc_path": "docs/components/info-bar.md",
@@ -1050,7 +1050,7 @@
   "metadata": {
    "name": "Avatar",
    "git_path": "assets/css/components.css#avatar",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".avatar--xs/sm/md/lg + .avatar--initials",
    "specimen": "/?aifds_styleguide=1&item=avatars",
    "doc_path": "docs/components/avatar.md",
@@ -1075,7 +1075,7 @@
   "metadata": {
    "name": "Input (+ textarea variant)",
    "git_path": "assets/css/components.css#forms",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".form-group .form-control",
    "specimen": "/?aifds_styleguide=1&item=input",
    "doc_path": "docs/components/input.md",
@@ -1121,7 +1121,7 @@
   "metadata": {
    "name": "Select",
    "git_path": "assets/css/components.css#select",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".form-select-*, .dropdown",
    "specimen": "/?aifds_styleguide=1&item=select",
    "doc_path": "docs/components/select.md",
@@ -1157,7 +1157,7 @@
   "metadata": {
    "name": "Datepicker",
    "git_path": "assets/css/components.css#select-dropdown-datepicker",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".datepicker, .calendar-*",
    "specimen": "/?aifds_styleguide=1&item=datepicker",
    "doc_path": "docs/components/datepicker.md",
@@ -1205,7 +1205,7 @@
   "metadata": {
    "name": "Checkbox",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".selection-item--checkbox",
    "specimen": "/?aifds_styleguide=1&item=checkbox",
    "doc_path": "docs/components/checkbox.md",
@@ -1245,7 +1245,7 @@
   "metadata": {
    "name": "Radio",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".selection-item--radio",
    "specimen": "/?aifds_styleguide=1&item=radio",
    "doc_path": "docs/components/radio.md",
@@ -1285,7 +1285,7 @@
   "metadata": {
    "name": "Consent (GDPR)",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".selection-item--consent",
    "specimen": "/?aifds_styleguide=1&item=consent",
    "doc_path": "docs/components/consent.md",
@@ -1323,7 +1323,7 @@
   "metadata": {
    "name": "Segmented control",
    "git_path": "assets/css/components.css#segmented",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".segmented / .segmented-option",
    "specimen": "/?aifds_styleguide=1&item=segmented",
    "doc_path": "docs/components/segmented-control.md",
@@ -1358,7 +1358,7 @@
   "metadata": {
    "name": "File dropzone",
    "git_path": "assets/css/components.css#dropzone",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".dropzone / .dropzone-*",
    "specimen": "/?aifds_styleguide=1&item=file-upload",
    "doc_path": "docs/components/file-dropzone.md",
@@ -1395,7 +1395,7 @@
   "metadata": {
    "name": "Forms composition (pattern)",
    "git_path": "assets/css/components.css#forms",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": ".form-stack, .form-scale-small, .input-pair, conventions",
    "specimen": "/?aifds_styleguide=1&item=form-composition",
    "doc_path": "docs/components/forms-composition.md",
@@ -1438,7 +1438,7 @@
   "metadata": {
    "name": "Icons",
    "git_path": "inc/icons.php",
-   "git_ref": "1370c78",
+   "git_ref": "bd2bdfc",
    "classes": "aifds_icon() + .icon--*",
    "specimen": "/?aifds_styleguide=1&item=icons, icon-system",
    "doc_path": "docs/components/icons.md",
