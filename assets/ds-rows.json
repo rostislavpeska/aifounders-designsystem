@@ -4,7 +4,7 @@
   "metadata": {
    "name": "Text styles",
    "git_path": "assets/css/components.css#typography-public-api",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".heading-xl/lg/md/sm/xs .lead .body-lg/md/sm .caption .meta",
    "specimen": "/?aifds_styleguide=1&item=text-classes",
    "doc_path": "docs/components/text-styles.md",
@@ -38,7 +38,7 @@
   "metadata": {
    "name": "Text elements",
    "git_path": "assets/css/components.css#prose-defaults",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".text--perex, blockquote, ul/ol (indent-signifier)",
    "specimen": "/?aifds_styleguide=1&item=text-elements",
    "doc_path": "docs/components/text-elements.md",
@@ -78,7 +78,7 @@
   "metadata": {
    "name": "Numbered headings",
    "git_path": "assets/css/components.css#numbered-headings",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".numbered-headings",
    "specimen": "/?aifds_styleguide=1&item=text-elements",
    "doc_path": "docs/components/numbered-headings.md",
@@ -107,7 +107,7 @@
   "metadata": {
    "name": "Prose / article layout",
    "git_path": "assets/css/components.css#prose-defaults",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".article-layout__content, flow rhythm",
    "specimen": "/?aifds_styleguide=1&item=prose",
    "doc_path": "docs/components/prose-layout.md",
@@ -140,7 +140,7 @@
   "metadata": {
    "name": "Global link system",
    "git_path": "assets/css/components.css#global-link-system",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": "link recipe + exclusion chain",
    "specimen": "/?aifds_styleguide=1&item=—",
    "doc_path": "docs/components/links.md",
@@ -164,7 +164,7 @@
   "metadata": {
    "name": "Card link utilities",
    "git_path": "assets/css/components.css#global-link-system",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".card-title-link",
    "specimen": "/?aifds_styleguide=1&item=—",
    "doc_path": "docs/components/links.md",
@@ -188,7 +188,7 @@
   "metadata": {
    "name": "Section contexts (surfaces)",
    "git_path": "assets/css/components.css#section-contexts",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".section-light/dark/brand, .surface-support",
    "specimen": "/?aifds_styleguide=1&item=surfaces",
    "doc_path": "docs/components/section-contexts.md",
@@ -237,7 +237,7 @@
   "metadata": {
    "name": "Button",
    "git_path": "assets/css/components.css#buttons",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".btn + --primary/secondary/tertiary/link/destructive + --lg/md/sm, .button-group",
    "specimen": "/?aifds_styleguide=1&item=buttons",
    "doc_path": "docs/components/button.md",
@@ -278,7 +278,7 @@
   "metadata": {
    "name": "Newsletter capture",
    "git_path": "assets/css/components.css#newsletter-capture",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".hero-aif__form, .aif-ecomail-form*",
    "specimen": "/?aifds_styleguide=1&item=form-composition",
    "doc_path": "docs/components/newsletter-capture.md",
@@ -315,7 +315,7 @@
   "metadata": {
    "name": "Badge",
    "git_path": "assets/css/components.css#badges",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".badge + variants, .badge__icon",
    "specimen": "/?aifds_styleguide=1&item=badges",
    "doc_path": "docs/components/badge.md",
@@ -356,7 +356,7 @@
   "metadata": {
    "name": "Info box",
    "git_path": "assets/css/components.css#info-box",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".info-box + --info/success/warning/error/neutral + --small/--article",
    "specimen": "/?aifds_styleguide=1&item=info-box",
    "doc_path": "docs/components/info-box.md",
@@ -390,7 +390,7 @@
   "metadata": {
    "name": "Data table",
    "git_path": "assets/css/components.css#data-table",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".data-table + --condensed/--large/--plain/--banded, .table-scroll wrapper",
    "specimen": "/?aifds_styleguide=1&item=data-tables",
    "doc_path": "docs/components/data-table.md",
@@ -429,7 +429,7 @@
   "metadata": {
    "name": "Record list",
    "git_path": "assets/css/components.css#record-list",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".record-list / .record / .record__* (N-column abstract)",
    "specimen": "/?aifds_styleguide=1&item=record-list",
    "doc_path": "docs/components/record-list.md",
@@ -469,7 +469,7 @@
   "metadata": {
    "name": "Preview card (article / event / signal / position / management)",
    "git_path": "assets/css/components.css#preview-card",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".preview-card / __photo/__headline/__meta/__badges/__skills/__text/__actions + --condensed",
    "specimen": "/?aifds_styleguide=1&item=preview-card",
    "doc_path": "docs/components/preview-card.md",
@@ -506,7 +506,7 @@
   "metadata": {
    "name": "Accordion",
    "git_path": "assets/css/components.css#accordion",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".accordion / .accordion__* + [data-accordion=\"exclusive\"]",
    "specimen": "/?aifds_styleguide=1&item=accordion",
    "doc_path": "docs/components/accordion.md",
@@ -536,7 +536,7 @@
   "metadata": {
    "name": "Breadcrumb",
    "git_path": "assets/css/components.css#breadcrumb",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".breadcrumbs / .breadcrumb__*",
    "specimen": "/?aifds_styleguide=1&item=breadcrumb",
    "doc_path": "docs/components/breadcrumb.md",
@@ -561,7 +561,7 @@
   "metadata": {
    "name": "Pagination",
    "git_path": "assets/css/components.css#pagination",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".archive-pagination (+ WP .page-numbers)",
    "specimen": "/?aifds_styleguide=1&item=pagination",
    "doc_path": "docs/components/pagination.md",
@@ -590,7 +590,7 @@
   "metadata": {
    "name": "Nav tabs",
    "git_path": "assets/css/components.css#nav-tabs",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".nav-tabs / .nav-tabs__tab(--active)",
    "specimen": "/?aifds_styleguide=1&item=nav-tabs",
    "doc_path": "docs/components/nav-tabs.md",
@@ -620,7 +620,7 @@
   "metadata": {
    "name": "Reference card (testimonial / case study)",
    "git_path": "assets/css/components.css#reference-card",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".reference-card / __avatar/__logo-wrapper/__title-group/__body/__icon/__content",
    "specimen": "/?aifds_styleguide=1&item=reference-card",
    "doc_path": "docs/components/reference-card.md",
@@ -662,7 +662,7 @@
   "metadata": {
    "name": "Persona card",
    "git_path": "assets/css/components.css#persona-card",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".persona-card (+ .persona-card-slot container) / __avatar/__content/__header/__bio/__meta/__socials + --flush / --vertical",
    "specimen": "/?aifds_styleguide=1&item=persona-card",
    "doc_path": "docs/components/persona-card.md",
@@ -695,7 +695,7 @@
   "metadata": {
    "name": "Course card",
    "git_path": "assets/css/components.css#course-card",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".course-info-card (+ .course-card-slot container) / __illustration-lg/__content/__eyebrow/__title/__subtitle/__description + --inactive + course-accent--*",
    "specimen": "/?aifds_styleguide=1&item=course-card",
    "doc_path": "docs/components/course-card.md",
@@ -739,7 +739,7 @@
   "metadata": {
    "name": "Engagement (Aha! + share + toast)",
    "git_path": "assets/css/components.css#engagement",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".aif-engagement / .aif-aha(--clicked) / .aif-share / .aif-engagement-toast(--open)",
    "specimen": "/?aifds_styleguide=1&item=engagement",
    "doc_path": "docs/components/engagement.md",
@@ -781,7 +781,7 @@
   "metadata": {
    "name": "Comments (threaded discussion)",
    "git_path": "assets/css/components.css#article-comments",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".article-comments / .comment-author/__meta / .comment-body__bubble / .children connectors / .aif-tombstone / .comment-respond",
    "specimen": "/?aifds_styleguide=1&item=comments",
    "doc_path": "docs/components/comments.md",
@@ -832,7 +832,7 @@
   "metadata": {
    "name": "Modal",
    "git_path": "assets/css/components.css#modal",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".modal / __overlay/__container/__close/__title + data-modal-open + js/components/modal.js",
    "specimen": "/?aifds_styleguide=1&item=modal",
    "doc_path": "docs/components/modal.md",
@@ -861,7 +861,7 @@
   "metadata": {
    "name": "Sticky bar",
    "git_path": "assets/css/components.css#sticky-bar",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".sticky-bar(--email/--button/--chatbot-clear) / __inner/__pitch/__consent/__form/__btn-mobile/__meta + data-sticky-* + js/components/sticky-bar.js",
    "specimen": "/?aifds_styleguide=1&item=sticky-bar",
    "doc_path": "docs/components/sticky-bar.md",
@@ -877,10 +877,13 @@
     "--spacing-6",
     "--spacing-12",
     "--spacing-16",
+    "--spacing-4",
     "--spacing-32",
     "--body-md-font",
     "--body-md-size",
     "--caption-size",
+    "--meta-size",
+    "--leading-heading",
     "--font-accent",
     "--weight-bold",
     "--transition-smooth",
@@ -897,7 +900,7 @@
   "metadata": {
    "name": "Header",
    "git_path": "assets/css/components.css#header",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".main-header(--scrolled/--overlay) / __inner · .site-logo · .nav-item(--active/--has-dropdown) + __trigger · .nav-dropdown(-item) · .burger-toggle · .mobile-menu-overlay(--open) / .mobile-nav-item / .mobile-lang-row · .reading-progress + js/components/menu.js",
    "specimen": "/?aifds_styleguide=1&item=header",
    "doc_path": "docs/components/header.md",
@@ -932,7 +935,7 @@
   "metadata": {
    "name": "Footer",
    "git_path": "assets/css/components.css#footer",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".footer(--chatbot-clear) / __inner · __newsletter-section/row/headline/form-wrap (dark-2) · __partners/label/partners-grid · columns = .stack-grid+.blurb · __subtle-link · __bottom-bar/logo-link/social-icons/social-link/social-icon · __legal-section/divider/legal/legal-link",
    "specimen": "/?aifds_styleguide=1&item=footer",
    "doc_path": "docs/components/footer.md",
@@ -974,7 +977,7 @@
   "metadata": {
    "name": "Blurb + stack grid (THE BENEFITS FAMILY)",
    "git_path": "assets/css/components.css#blurb",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".blurb / __icon/__eyebrow/__headline(--md/--lg)/__text(--lg/--sm)/__action · .stack-grid(--divided/--numbered) + --stack-cols/--stack-fill",
    "specimen": "/?aifds_styleguide=1&item=blurb",
    "doc_path": "docs/components/blurb.md",
@@ -1017,7 +1020,7 @@
   "metadata": {
    "name": "Info bar",
    "git_path": "assets/css/components.css#info-bar",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".info-bar / __wrapper/__item",
    "specimen": "/?aifds_styleguide=1&item=info-bar",
    "doc_path": "docs/components/info-bar.md",
@@ -1047,7 +1050,7 @@
   "metadata": {
    "name": "Avatar",
    "git_path": "assets/css/components.css#avatar",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".avatar--xs/sm/md/lg + .avatar--initials",
    "specimen": "/?aifds_styleguide=1&item=avatars",
    "doc_path": "docs/components/avatar.md",
@@ -1072,7 +1075,7 @@
   "metadata": {
    "name": "Input (+ textarea variant)",
    "git_path": "assets/css/components.css#forms",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".form-group .form-control",
    "specimen": "/?aifds_styleguide=1&item=input",
    "doc_path": "docs/components/input.md",
@@ -1118,7 +1121,7 @@
   "metadata": {
    "name": "Select",
    "git_path": "assets/css/components.css#select-dropdown-datepicker",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".form-select-*, .dropdown",
    "specimen": "/?aifds_styleguide=1&item=select",
    "doc_path": "docs/components/select.md",
@@ -1154,7 +1157,7 @@
   "metadata": {
    "name": "Datepicker",
    "git_path": "assets/css/components.css#select-dropdown-datepicker",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".datepicker, .calendar-*",
    "specimen": "/?aifds_styleguide=1&item=datepicker",
    "doc_path": "docs/components/datepicker.md",
@@ -1202,7 +1205,7 @@
   "metadata": {
    "name": "Checkbox",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".selection-item--checkbox",
    "specimen": "/?aifds_styleguide=1&item=checkbox",
    "doc_path": "docs/components/checkbox.md",
@@ -1242,7 +1245,7 @@
   "metadata": {
    "name": "Radio",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".selection-item--radio",
    "specimen": "/?aifds_styleguide=1&item=radio",
    "doc_path": "docs/components/radio.md",
@@ -1282,7 +1285,7 @@
   "metadata": {
    "name": "Consent (GDPR)",
    "git_path": "assets/css/components.css#selection-controls",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".selection-item--consent",
    "specimen": "/?aifds_styleguide=1&item=consent",
    "doc_path": "docs/components/consent.md",
@@ -1320,7 +1323,7 @@
   "metadata": {
    "name": "Segmented control",
    "git_path": "assets/css/components.css#segmented",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".segmented / .segmented-option",
    "specimen": "/?aifds_styleguide=1&item=segmented",
    "doc_path": "docs/components/segmented-control.md",
@@ -1355,7 +1358,7 @@
   "metadata": {
    "name": "File dropzone",
    "git_path": "assets/css/components.css#dropzone",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".dropzone / .dropzone-*",
    "specimen": "/?aifds_styleguide=1&item=file-upload",
    "doc_path": "docs/components/file-dropzone.md",
@@ -1392,7 +1395,7 @@
   "metadata": {
    "name": "Forms composition (pattern)",
    "git_path": "assets/css/components.css#forms",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": ".form-stack, .form-scale-small, .input-pair, conventions",
    "specimen": "/?aifds_styleguide=1&item=form-composition",
    "doc_path": "docs/components/forms-composition.md",
@@ -1426,7 +1429,7 @@
   "metadata": {
    "name": "Icons",
    "git_path": "inc/icons.php",
-   "git_ref": "f43e81f",
+   "git_ref": "39d862e",
    "classes": "aifds_icon() + .icon--*",
    "specimen": "/?aifds_styleguide=1&item=icons, icon-system",
    "doc_path": "docs/components/icons.md",
