@@ -1064,6 +1064,22 @@ main .text--body blockquote {
     color: var(--text-tertiary);
 }
 
+/* THE FIELD AFFORDANCE (arrow + placeholder) — the muted tertiary field voice
+   (production #717681). On a NEUTRAL surface (the sticky bar, plain contexts)
+   --text-tertiary IS #717681. On a brand/dark PAGE surface it remaps — correct
+   for the CONSENT (text ON the surface, below) but wrong for the field's own
+   affordance; the theme's .hero-aif__form/.newsletter-cta__form rules pin those
+   two brand captures to the fixed neutral (the capture field is a light island).
+   The dark-footer variant below (added later, so it wins on dark) overrides to
+   --dark-300. */
+.aif-ecomail-form .form-control-icon {
+    color: var(--text-tertiary);
+}
+
+.aif-ecomail-form .form-control::placeholder {
+    color: var(--text-tertiary);
+}
+
 /* CONSENT NOTE — STANDARD capture anatomy (operator 2026-07-07: "the
    legal disclaimer should be a standard part of both email inputs").
    Production carries it on BOTH sites (verified live: AIF hero = plain
