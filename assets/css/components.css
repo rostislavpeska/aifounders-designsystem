@@ -2601,6 +2601,24 @@ body.modal-open {
        inside an .input-pair the pair's stretch matches them to the field */
 }
 
+/* The bar's submit reads the PRIMARY button role on every surface. The shared
+   ecomail form hardcodes .btn--primary-inverted (a black button — right on the
+   brand hero, WRONG on the bar's light rung, where it read as a stray dark
+   block on white). In the bar the control voice rules: force the brand-primary
+   role so it's brand on the light rung and stays legible when the sampler flips
+   the bar to .section-dark. */
+.sticky-bar .btn--primary,
+.sticky-bar .btn--primary-inverted {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-color: var(--button-border);
+}
+.sticky-bar .btn--primary:hover,
+.sticky-bar .btn--primary-inverted:hover {
+    background-color: var(--button-bg-hover);
+    border-color: var(--button-border-hover);
+}
+
 .sticky-bar .form-control-wrapper {
     box-sizing: border-box;
     min-height: var(--bar-control-height);
