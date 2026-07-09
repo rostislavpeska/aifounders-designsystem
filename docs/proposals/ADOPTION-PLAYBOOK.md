@@ -72,6 +72,52 @@ tertiary sections). Deep, systemic, hard to trace back to a token file.
 4. **End-state (P5):** the theme token file is DELETED entirely — every token comes
    from the DS + the compat bridge (which also dies once the theme CSS uses DS names).
 
+## ZERO-DRIFT LAW — adopt the DS, never replicate it (+ the form-adapter gate)
+
+⚠️ **The single most expensive mistake is "style transfer."** Re-drawing a DS
+component's look in a THEME stylesheet with "approximately the same" tokens DRIFTS
+— two sources of truth for one component always diverge. On AIF the author-forms
+replica (`author-forms.css`) resolved the field border to `--gray-300` (the DS
+*hover* value, not the `--gray-100` rest border), labels to black (not
+`--text-secondary`), text to 14px (not 16) — the "old boxed input." It cost a
+project-stopping amount of rework + token burn. **Operator law (2026-07-09): ZERO
+DRIFT, even if it means rewriting half the theme.**
+
+**The rule, by component class:**
+1. **Adoptable markup → use the DS component's ACTUAL classes.** The theme's forms
+   emit `.form-group > .form-label-row > .form-label + .form-control-wrapper >
+   .form-control`, `.selection-item--checkbox`, `<button class="btn btn--primary
+   btn--md">`. `components.css` then styles them 1:1 — nothing is transferred, so
+   nothing can drift. DELETE the replica.
+2. **Auxiliary chrome with no DS equivalent** (form messages, separator, footer,
+   segmented toggle) → the ONE composition layer (theme.css), DS tokens only.
+3. **Third-party engines that can't take DS markup (Fluent Forms) = a separate
+   chapter:** a thin ENGINE-ADAPTER mapping the engine's selectors
+   (`.ff-el-form-control`, `.ff-btn`, `.ff-el-form-check`, error) onto the DS
+   `--field-*`/`--button-*`/`--status-*` tokens — NEVER a hex, NEVER a legacy
+   `--color-*` name.
+
+**THE FORM-ADAPTER DRIFT GATE — build it before adopting forms (reusable tool):**
+- **Static layer** — `node build/form-adapter-lint.mjs <adapter.css>` fails on any
+  hex literal or non-DS token in a colour/border/background/font declaration
+  (data-URI SVG strokes are the one exception — they can't take `var()`).
+  Deterministic, CI-able. (AIF: 0 on the DS-token adapter, **36** caught on the old
+  hardcoded one — proven not a no-op.)
+- **Render layer** — a computed-style check (Playwright) that reads the resolved DS
+  `--field-*` tokens on the page, then asserts the ENGINE field's computed styles
+  EQUAL them (border rest/hover/focus, bg, radius, padding, font, label, checkbox,
+  submit). Any delta = red. Run against every adopted form. (AIF reg form: 8/8.)
+  ```js
+  const R = getComputedStyle(document.documentElement), tok = n => R.getPropertyValue(n).trim();
+  const i = getComputedStyle(document.querySelector('.ff-el-form-control'));
+  // norm both to #rrggbb, then assert:
+  // i.borderTopColor==tok('--field-border'), i.backgroundColor==tok('--field-bg'),
+  // i.fontSize=='16px', label.color==tok('--text-secondary'),
+  // submit.backgroundColor==tok('--button-bg'), checkbox.borderTopColor==tok('--field-border') …
+  ```
+- AIG plugs its own form URLs + engine selectors into the same two layers — **the
+  tool is the deliverable, not just the AIF fix.**
+
 ## OBSERVABILITY — the two live boards (build on day one for AIG)
 
 Alongside the x-ray / coverage / parity gate, two NocoDB boards track status
