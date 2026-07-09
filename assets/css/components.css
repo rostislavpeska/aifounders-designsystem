@@ -1718,7 +1718,10 @@ span.badge.badge--default::after {
    ============================================================================ */
 .accordion {
     width: 100%;
-    background-color: var(--bg);
+    /* --raised (not --bg): a card is ALWAYS one shade off its section surface
+       (operator's card-shade law) — white on gray-150/tertiary, gray-150 on
+       white, dark-850 on black. The DS --raised token already encodes this. */
+    background-color: var(--raised);
     box-sizing: border-box;
     border: var(--stroke-1) solid var(--border);
 }
