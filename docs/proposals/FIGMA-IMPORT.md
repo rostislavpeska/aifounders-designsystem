@@ -1,8 +1,14 @@
 # FIGMA-IMPORT — roadmap item 2: the clean Auto Layout import plan
 
-**Status: RESOLVED 2026-07-07 — all four §9 verdicts ratified as recommended
-(8 scope modes · Desktop+Mobile type modes · staged tiers · ds-figma-import
-skill). Next: the import session (fresh session, bundled skills active).**
+**Status: IMPORTED (session 1) — architecture RESOLVED 2026-07-07 (all four §9
+verdicts ratified as recommended: 8 scope modes · Desktop+Mobile type modes ·
+staged tiers · ds-figma-import skill), then EXECUTED: session 1
+(`runId figma-import-s1-2026-07-07`, ledger `assets/figma-map.json`) created the
+four variable collections (Palette / Semantic / Base / Type Primitives), their
+modes, and the palette variables live in the Figma file
+(`HHYhpNh2JoxtKSKm7Ecpli`); components are built with Auto Layout.
+REMAINING: manual refactoring/cleanup of the imported components, and the
+molecule/organism tiers.**
 Sources: the two bundled Figma-official skills
 (`figma-use` v2.2.68 + `figma-generate-library` — read from the plugin cache),
 a web sweep on community auto-layout/variable doctrine, and a delta analysis

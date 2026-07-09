@@ -20,8 +20,9 @@ tokens, values, or variants — everything comes from the repo.
    policy, §6 tier order, §7 session protocol, §8 Code Connect. This skill
    does not repeat it; it binds you to it.
 3. `whoami` first. Work only in the **"My Projects"** team (Professional,
-   Full seat). Professional = **max 4 modes per collection** — the
-   architecture is built to that cap; never call `addMode` past it.
+   Full seat). Professional = **max 10 modes per collection** (the Oct-2025
+   Schema-2025 raise, 4→10; the old "4" cap in earlier notes is stale) — the
+   architecture uses 8 (the Semantic scopes); never call `addMode` past 10.
 4. Source data: `assets/tokens-manifest.json` (palette / semantic+`ref` /
    scopes / base / typePrimitives / typeStyles / brandType), icon SVGs from
    `inc/icons.php`, component contracts from `docs/components/*.md`, live

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AIFDS_VERSION', '2.0.0-dev.0' );
+define( 'AIFDS_VERSION', '2.0.0-rc.1' );
 define( 'AIFDS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AIFDS_URL', plugin_dir_url( __FILE__ ) );
 

@@ -9,6 +9,18 @@ gated, specimen live) · **reserved** (token API waiting for theme adoption) ·
 
 Last regenerated: 2026-07-04 (deep-hygiene run; gate 52/52 both brands).
 
+**Adoption (live):** AIF (Stage 2) is underway — additive rebuild landed
+2026-07-08 (the theme retired its own `components.css` wholesale; the DS plugin
+owns every component, the theme ships one thin composition `theme.css`), forms
+moved onto DS markup 2026-07-09 (zero-drift law). A build/compat-shim.mjs token
+shim bridges the theme's 141 legacy names during the migration. AIG (Stage 3)
+next. Method + lessons: `docs/proposals/ADOPTION-PLAYBOOK.md`.
+
+**Figma projection:** session-1 import is live (`assets/figma-map.json`) —
+variable collections + modes + palette variables + Auto Layout components in
+file `HHYhpNh2JoxtKSKm7Ecpli`; manual component refinement pending
+(`docs/proposals/FIGMA-IMPORT.md`).
+
 ## Foundations (token layers — not vectorized, shipped whole)
 
 | Unit | Source | Status | Notes |

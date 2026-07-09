@@ -11,10 +11,15 @@ and consumed by projects built on it — including
 `aifounders` (blue) and `aiguild` (yellow), mirror-law twins that share
 every mechanism and differ only in palette values.
 
-> **Status: pre-release (`2.0.0-dev.0`).** The full component inventory is
-> distilled and gated; theme adoption (Stage 2/3) has not started. See
-> [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md) for the
-> live ledger and roadmap.
+> **Status: release candidate (`2.0.0-rc.1`).** The full component inventory
+> is distilled and gated. **AIF theme adoption (Stage 2) is underway** — the
+> theme retired its 3752-line `components.css` *wholesale* for the DS plugin in
+> an additive rebuild (2026-07-08) and its hand-rolled forms now render on DS
+> markup (2026-07-09); the theme enqueues `aifds-components` with a graceful
+> fallback when the plugin is absent. AIG adoption (Stage 3) follows. Method +
+> lessons: [ADOPTION-PLAYBOOK](docs/proposals/ADOPTION-PLAYBOOK.md). See
+> [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md) for the live
+> ledger and roadmap.
 
 ## What's inside
 
@@ -41,6 +46,13 @@ every mechanism and differ only in palette values.
 - **Provenance** — every divergence, unification, and veto is a dated
   ruling in [docs/DECISIONS.md](docs/DECISIONS.md). Values were harvested
   from rendered production reality, never invented.
+- **Figma projection** (`assets/figma-map.json`) — the token layers are
+  imported into Figma as variable collections (Palette · Semantic · Base ·
+  Type Primitives) with the CSS surface scopes as modes; components are built
+  with Auto Layout. The map is the committed import ledger (its `figma_node_id`s
+  backfill into the vector rows). Manual component refinement is in progress.
+  Code stays canon; Figma is the projection — see
+  [FIGMA-IMPORT.md](docs/proposals/FIGMA-IMPORT.md).
 
 ## Install
 
