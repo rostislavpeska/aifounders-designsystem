@@ -2652,9 +2652,15 @@ body.modal-open {
 .sticky-bar__consent {
     font-family: var(--body-md-font);
     font-size: var(--meta-size); /* demoted from caption — quiet beneath the benefit (operator 2026-07-08) */
-    color: var(--text-secondary);
+    color: var(--text-tertiary); /* subtle — one step quieter than the benefit (operator 2026-07-09) */
     margin: 0;
-    /* links inside ride the global chain (production's inherit-armor dies) */
+    /* The privacy link rides the global `main a` chain (color: var(--link) /
+       var(--link-hover)); remap the link ROLE to the tertiary voice here so it
+       reads grey/subtle — not the brand link blue — without fighting the chain's
+       specificity. The underline stays, so it's still identifiable as a link
+       (operator 2026-07-09). */
+    --link: var(--text-tertiary);
+    --link-hover: var(--text-tertiary);
 }
 
 /* the form slot: canonical markup composes form-scale-small, so the field
@@ -3688,6 +3694,13 @@ body.menu-open {
     font-weight: var(--heading-xs-weight);
     line-height: var(--heading-xs-leading);
     color: var(--text);
+    margin: 0;
+}
+
+/* Specificity bumped via the parent class (the .accordion__title precedent) —
+   beats host heading margins (e.g. a theme's .content-section h3 { margin: 80px
+   0 ... }) that would otherwise detach the eyebrow from the headline. */
+.blurb .blurb__headline {
     margin: 0;
 }
 
