@@ -1865,7 +1865,9 @@ span.badge.badge--default::after {
     gap: var(--spacing-8);
     padding: var(--spacing-8);
     max-width: 100%;
-    background: var(--bg-alt);
+    /* No rail — the pagination sits directly on the section's own surface
+       (secondary); hover is what makes a chip readable, not a background band. */
+    background: transparent;
 }
 
 .archive-pagination .page-numbers {
@@ -1885,7 +1887,9 @@ span.badge.badge--default::after {
 
 .archive-pagination a.page-numbers:hover,
 .archive-pagination a.page-numbers:focus {
-    background-color: var(--bg-band);
+    /* Visible on the bare (rail-less) surface: a ~20% grey wash that adapts to
+       the surface via --text (near-black on light, near-white on dark). */
+    background-color: color-mix(in srgb, var(--text) 20%, transparent);
 }
 
 .archive-pagination .page-numbers.current {
@@ -2925,6 +2929,15 @@ body.modal-open {
 .nav-item--has-dropdown {
     position: relative;
     cursor: pointer;
+}
+
+/* A dropdown parent that is ALSO a link (a menu item pointing at its own
+   landing page, e.g. "About") renders its label as a bare <a>. Make it speak
+   the nav-item voice — inherit color, drop the UA underline — so it doesn't
+   fall back to a raw link. Mirrors .nav-item__trigger for button triggers. */
+.nav-item--has-dropdown > a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* non-link triggers (lang, account) are BUTTONS (a11y GM) — the reset
