@@ -2862,6 +2862,14 @@ body.modal-open {
     width: calc(100% - 2 * var(--spacing-12));
 }
 
+/* An avatar / icon-only nav-item has NO text to underline — the growing
+   underline is a TEXT-link affordance and must not draw under the account
+   avatar circle (operator 2026-07-09). Keyed on the DS avatar so ANY theme
+   using the nav-avatar pattern inherits the fix. */
+.nav-item:has(.avatar--nav)::after {
+    display: none;
+}
+
 /* ACTIVE = the persistent you-are-here marker: full underline in the
    dimmed brand; hover wakes it to the live brand */
 .nav-item--active::after {
