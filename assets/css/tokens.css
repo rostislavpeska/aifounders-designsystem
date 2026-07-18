@@ -415,6 +415,12 @@
 .content-section--secondary {
   --bg: var(--gray-50);
   --bg-alt: var(--gray-100);
+  /* RAISED pops to WHITE on light-2 (operator 2026-07-17): a raised card
+     (accordion, reference-card…) must sit one shade ABOVE the gray-50
+     surface — light-1's inherited gray-150 read as tertiary-on-secondary
+     (muddy, wrong direction). Mirrors light-3, matches production's
+     --color-bg-primary. ⚠ HAND-EDIT — port to semantic/scope JSON source. */
+  --raised: var(--white);
   --perex-border: var(--brand-bright);
 }
 
