@@ -1319,14 +1319,14 @@ a.badge--promo:hover::after {
 
 /* Location badge — must also style non-clickable <span> badges */
 .badge--location {
-    background-color: var(--magenta-support);
+    background-color: var(--secondary-support); /* location chip: light secondary tint (operator 2026-07-19, flipped from --magenta-support); per-brand via token — AIG light blue #c9f1ff, AIF light yellow */
     color: var(--text);
     font-weight: var(--weight-bold);
     text-decoration: none;
 }
 
 a.badge--location:hover::after {
-    background-color: color-mix(in srgb, var(--magenta) 15%, transparent); /* was stray #B148C6 (pre-rebrand purple) — corrected to palette magenta (operator 2026-07-03, GM exception) */
+    background-color: color-mix(in srgb, var(--secondary) 15%, transparent); /* hover tint follows the secondary base (was --magenta) */
 }
 
 /* ---------------------------------------------------------------------------
