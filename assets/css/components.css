@@ -1176,6 +1176,13 @@ main .text--body blockquote {
     margin: 0;
 }
 
+/* A stray <br> (editor/paste artifact) placed directly inside a button group
+   becomes a zero-width FLEX ITEM, and the column-gap between it and the first
+   button injects a phantom gap before the first button — the recurring
+   "gap before the first button" (operator 2026-07-18). Neutralize DIRECT-CHILD
+   <br> only; a <br> inside a button label (multi-line button) stays valid. */
+.button-group > br { display: none; }
+
 /* Chatbot floating bubble — NOT a DS component (operator 2026-07-03):
    stripped. Production lives in the themes (aigb-chat mu-plugin bubble +
    chatbot_yellow.svg / aigb_chat_icon_svg) and stays defined there.
