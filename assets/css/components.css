@@ -6,8 +6,8 @@
  * DS-repo CSS and token comments are not sources; see ds-build-manifest.md).
  *
  * Batch 1 contents: selection · section contexts · global link system ·
- * typography public API (.title/.heading-xl…xs/.lead/.body-*/
- * .caption/.meta) · prose defaults (main h*/p/lists/blockquotes) · buttons ·
+ * typography public API (.title/.heading-xl…xs/.lead/.body-* /
+ * .caption/.meta) · prose defaults (main h* /p/lists/blockquotes) · buttons ·
  * badges · avatar · icon utilities · placeholders · card-link utilities.
  *
  * DIVERGED rules (sites render differently) are scoped per brand via
@@ -31,12 +31,13 @@
    TEXT SELECTION — brand-colored highlight
    ============================================================================ */
 
+/* Brand highlight, single source. --selection-bg / --selection-text resolve per
+   brand via the [data-theme] token blocks (aiguild yellow, aifounders blue), so
+   one bare rule is automatically brand-correct. var() DOES resolve inside
+   ::selection; the long-standing default-blue was a malformed doc comment in the
+   file header (an asterisk-slash inside the typography list) closing the comment
+   early and swallowing whichever selection rule came first. Fixed 2026-07-18. */
 ::selection {
-    background-color: var(--selection-bg);
-    color: var(--selection-text);
-}
-
-::-moz-selection {
     background-color: var(--selection-bg);
     color: var(--selection-text);
 }
