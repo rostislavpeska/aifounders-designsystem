@@ -1584,6 +1584,115 @@ span.badge.badge--default::after {
 }
 
 /* ============================================================================
+   ARTICLE CODE + TABLES (2026-11-01, owner report on AIG post 1812) — CMS
+   article bodies on BOTH brands (.article-layout__content) arrive as bare
+   markup that cannot carry DS classes: the MCP renderer / Toast UI 3.2.2 emits
+     <div class="toastui-editor-ww-code-block" data-language><pre><code>…
+     <code data-backticks="1">…  (inline)
+     <table><thead><tr><th><p>…</p></th>…  (EVERY cell wraps a <p>)
+   and older Gutenberg posts <pre class="wp-block-code"> / <figure
+   class="wp-block-table">. The only rules for this markup lived in the AIG
+   theme's blog.css, deleted by the AIG hard cut (aiguild 89212e2, 2026-07-16),
+   so AIG articles fell back to normalize: no frame, centred <th>, and main p's
+   24px margin inside every cell. AIF kept a theme copy on legacy tokens.
+   Code = a quiet frame (--bg-alt, the article-column secondary surface; square
+   like every DS container), mono, scrolls sideways so authored lines stay intact.
+   Tables = the .data-table--condensed recipe (mono header, 1px full grid, no
+   fills) — keep in step with DATA TABLE above. :where() holds tables at (0,1,0)
+   so .table-scroll > table still owns the margin; :not(.data-table) leaves
+   hand-authored DS tables alone. Cells wrap at spaces, so most tables fit a
+   phone; the .table-scroll wrapper scrolls the rest.
+   ============================================================================ */
+.article-layout__content pre {
+    margin: var(--spacing-24) 0;
+    padding: var(--spacing-16) var(--spacing-24);
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: var(--bg-alt);
+    border: var(--stroke-1) solid var(--border);
+    color: var(--text);
+    font-family: var(--code-font);
+    font-size: var(--size-14);
+    line-height: 1.6; /* calibrated: code reads tighter than prose (1.7) */
+    white-space: pre;
+    tab-size: 4;
+}
+
+.article-layout__content .toastui-editor-ww-code-block {
+    margin: var(--spacing-24) 0;
+}
+
+.article-layout__content .toastui-editor-ww-code-block > pre {
+    margin: 0; /* the Toast UI wrapper owns the vertical rhythm */
+}
+
+.article-layout__content pre code {
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    white-space: inherit;
+}
+
+.article-layout__content :not(pre) > code {
+    padding: 0.1em 0.35em;
+    background-color: var(--bg-alt);
+    border: var(--stroke-1) solid var(--border);
+    font-family: var(--code-font);
+    font-size: 0.875em;
+    overflow-wrap: anywhere; /* a long path or URL must not push the page sideways */
+}
+
+@media (max-width: 767px) {
+    .article-layout__content pre {
+        padding: var(--spacing-12) var(--spacing-16);
+    }
+}
+
+.article-layout__content :where(table:not(.data-table)) {
+    width: 100%;
+    margin: var(--spacing-24) 0;
+    border-collapse: collapse;
+    table-layout: auto;
+    color: var(--text);
+    font-family: var(--body-md-font);
+    font-size: var(--size-14);
+    line-height: 1.35;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.article-layout__content :where(table:not(.data-table)) :is(th, td) {
+    padding: var(--spacing-6) var(--spacing-8);
+    border: var(--stroke-1) solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+.article-layout__content :where(table:not(.data-table)) thead th {
+    font-family: var(--font-mono);
+    font-size: var(--size-12);
+    font-weight: var(--weight-bold);
+    text-transform: var(--case-upper);
+    letter-spacing: var(--tracking-label);
+}
+
+/* Toast UI's cell <p>: drop main p's 18px body voice + 24px flow margin */
+.article-layout__content :where(table:not(.data-table)) :is(th, td) > p {
+    margin: 0;
+    color: inherit;
+    font: inherit;
+}
+
+.article-layout__content :where(table:not(.data-table)) :is(th, td) > p + p {
+    margin-top: var(--spacing-8);
+}
+
+/* ============================================================================
    RECORD LIST (operator 2026-07-04) — an ABSTRACT list of record cards. A record
    is a self-contained <article> of optional slots: [head] (title + rich-text
    description) and [fields] (N label+value pairs; one may be a status field or
