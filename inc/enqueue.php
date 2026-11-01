@@ -63,7 +63,10 @@ function aifds_register_scripts() {
 	$engines  = array(
 		'accordion',
 		'datepicker',
-		'dropdown',
+		// 'dropdown' UNREGISTERED (AIG adoption pre-flight 2026-07-16):
+		// js/components/dropdown.js does not exist — registering it 404'd
+		// every page the moment a theme flipped aifds-engines support.
+		// Re-add together with the actual engine file.
 		'engagement',
 		'menu',
 		'modal',
@@ -90,7 +93,7 @@ function aifds_enqueue_engines() {
 	if ( ! current_theme_supports( 'aifds-engines' ) ) {
 		return;
 	}
-	foreach ( array( 'accordion', 'datepicker', 'dropdown', 'engagement', 'menu', 'modal', 'nav-tabs', 'sticky-bar', 'table-scroll' ) as $engine ) {
+	foreach ( array( 'accordion', 'datepicker', 'engagement', 'menu', 'modal', 'nav-tabs', 'sticky-bar', 'table-scroll' ) as $engine ) {
 		wp_enqueue_script( 'aifds-' . $engine );
 	}
 }

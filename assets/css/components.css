@@ -61,6 +61,11 @@
     color: var(--text);
 }
 
+.section-deep {
+    background-color: var(--bg); /* --deep */
+    color: var(--text);
+}
+
 /* List bullets — one rule, the surface supplies the color (was two
    section-scoped duplicates + a main-scoped dark override) */
 .section-light ul li::before,
@@ -1972,6 +1977,19 @@ span.badge.badge--default::after {
     justify-content: center;
     margin-top: var(--spacing-56);
     padding: var(--spacing-48) 0;
+    /* OVERRIDE TOKENS (operator 2026-07-16): chips sit BARE on the section's
+       surface (no rail). ACTIVE pops back to the PRIMARY page surface
+       (--bg-base: white on every light scope); HOVER shows the tertiary band
+       (--bg-band). Scopes override the tokens, never the rules. */
+    --pagination-current-bg: var(--bg-base);
+    --pagination-hover-bg: var(--bg-band);
+}
+
+/* Tertiary surface (events archive): the band EQUALS the surface — hover
+   wraps to primary instead (the established *-3 wrap; same law as
+   --button-tertiary-bg-hover in the light-3 scope). */
+.content-section--tertiary .archive-pagination {
+    --pagination-hover-bg: var(--bg-base);
 }
 
 .archive-pagination .nav-links {
@@ -2004,13 +2022,11 @@ span.badge.badge--default::after {
 
 .archive-pagination a.page-numbers:hover,
 .archive-pagination a.page-numbers:focus {
-    /* Visible on the bare (rail-less) surface: a ~20% grey wash that adapts to
-       the surface via --text (near-black on light, near-white on dark). */
-    background-color: color-mix(in srgb, var(--text) 20%, transparent);
+    background-color: var(--pagination-hover-bg);
 }
 
 .archive-pagination .page-numbers.current {
-    background-color: var(--bg);
+    background-color: var(--pagination-current-bg);
 }
 
 .archive-pagination .page-numbers.dots {
@@ -4969,7 +4985,10 @@ main .article-comments ul li,
     font-size: var(--body-md-size);
     font-weight: var(--body-md-weight);
     line-height: var(--body-md-leading);
-    color: var(--text);
+    /* SECONDARY ink (F2 fix, AIG adoption 2026-07-16): both productions
+       render the bio one step quieter than the name (AIG dark: dark-200);
+       --text froze it to full-contrast ink. */
+    color: var(--text-secondary);
 }
 
 .persona-card__bio p { margin: 0 0 var(--spacing-16); }
@@ -5519,7 +5538,14 @@ textarea.form-control {
     .input-pair,
     .aif-ecomail-form .mc4wp-form-fields {
         flex-direction: row;
+        /* consent note rides INSIDE the fields box (both mu-plugins) —
+           it wraps to its own full line under the join (AIG adoption
+           2026-07-17; AIF carried this theme-side as collision debt) */
+        flex-wrap: wrap;
         gap: 0;
+    }
+    .aif-ecomail-form .mc4wp-form-fields > .mc4wp-consent-note {
+        flex-basis: 100%;
     }
     .input-pair > .form-control-wrapper,
     .aif-ecomail-form .mc4wp-form-fields > .form-control-wrapper {

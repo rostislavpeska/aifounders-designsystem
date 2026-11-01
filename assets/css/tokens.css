@@ -262,6 +262,7 @@
   --heading-md-weight: var(--weight-black);
   --heading-sm-leading: 1.35;
   --lead-leading: 1.5;
+  --lead-leading-tight: 1.25; /* tight display lead — hero subheadline + blue/dark CTA-section leads (operator 2026-07-10); the .lead 1.6 reads too loose on display surfaces */
   --description-weight: var(--weight-regular);
   --caption-weight: var(--weight-regular);
   --container-wider: 1100px;
@@ -458,7 +459,21 @@
   --field-border: var(--dark-700);
   --field-border-strong: var(--dark-600);
   --field-placeholder: var(--dark-300);
+  /* PRIMARY button map (operator 2026-07-16, AIG adoption): dark scopes never
+     defined it, so a dark box nested inside .section-brand INHERITED the brand
+     scope's BLACK button fill (AIG hero blurbs rendered black-on-black).
+     Primary keeps the brand fill on dark, same as light.
+     ⚠ HAND-EDIT to generated file — port to the scope source with
+     --lead-leading-tight + .section-deep (pre-flight ledger, L10). */
+  --button-bg: var(--brand);
+  --button-bg-hover: var(--brand-hover);
+  --button-text: var(--gray-950);
+  --button-border: var(--brand);
+  --button-border-hover: var(--brand-hover);
   --button-secondary-text: var(--paper);
+  --button-secondary-border: var(--brand);
+  --button-secondary-bg-hover: var(--brand);
+  --button-secondary-text-hover: var(--gray-950);
   --button-tertiary-text: var(--paper);
   --button-tertiary-border: var(--dark-600);
   --button-tertiary-bg-hover: var(--dark-850);
@@ -581,5 +596,42 @@
   --perex-border: var(--support-strong);
   --button-tertiary-border: var(--support-strong);
   --button-tertiary-bg-hover: var(--support-strong);
+}
+
+/* deep — the brand-blue fill (the [protocol] case-study card). Text, link and
+   bullet all resolve to their on-deep roles here: it's the surface transform,
+   so consumers set NO per-element colour. All ink is primary-inverse (--paper)
+   per operator 2026-07-16; the link is a readable support-blue → white on hover. */
+.section-deep {
+  --bg: var(--deep);
+  --text: var(--paper);
+  --text-secondary: var(--paper);
+  --text-tertiary: var(--dark-200);
+  --border: var(--dark-600);
+  --raised: var(--dark-850);
+  --bg-base: var(--deep);
+  --link: var(--support-strong);
+  --link-hover: var(--paper);
+  --bullet: var(--paper);
+  --overlay-hover: var(--overlay-light);
+  --badge-bg: var(--dark-600);
+  --badge-text: var(--paper);
+  --perex-border: var(--support);
+  --disabled-bg: var(--dark-850);
+  --disabled-text: var(--dark-450);
+  --disabled-border: var(--dark-700);
+  --field-bg: var(--dark-900);
+  --field-bg-focus: var(--dark-850);
+  --field-border: var(--dark-700);
+  --field-border-strong: var(--dark-600);
+  --field-placeholder: var(--dark-300);
+  --button-secondary-text: var(--paper);
+  --button-tertiary-text: var(--paper);
+  --button-tertiary-border: var(--dark-600);
+  --button-tertiary-bg-hover: var(--dark-850);
+  --status-error: var(--error-bright);
+  --status-success: var(--success-bright);
+  --status-warning: var(--warning-bright);
+  --text-on-status: var(--gray-950);
 }
 
