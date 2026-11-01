@@ -14,6 +14,8 @@ module.exports = defineConfig({
   fullyParallel: true,
   reporter: [['list']],
   use: {
+    // Override for Docker/CI: BASE_URL=http://host.docker.internal:8090 (or the
+    // wp service name on the compose network). Default = the local published port.
     baseURL: process.env.BASE_URL || 'http://localhost:8090',
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],

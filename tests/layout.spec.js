@@ -82,6 +82,11 @@ const VIEWPORTS = [
 // Noise that is not the DS's fault (kept explicit + commented):
 const IGNORED_REQUESTS = [
   /\/favicon\.ico$/, // WP default install has none; not a DS asset
+  // Template items embed the REAL live page (zero-hallucination rebuild
+  // 2026-07-16); the embedded page's own third-party telemetry legitimately
+  // fails off-production (Umami 403s the localhost origin). Foreign-origin
+  // failures are environment noise, never DS defects.
+  /^https?:\/\/(?!localhost)[^/]*\//,
 ];
 
 function describeFinding(brand, vp, slug, kind, detail) {
@@ -479,7 +484,13 @@ for (const brand of BRANDS) {
         const consoleErrors = [];
         const badRequests = [];
         const onConsole = (msg) => {
-          if (msg.type() === 'error') consoleErrors.push(msg.text().slice(0, 200));
+          if (msg.type() !== 'error') return;
+          // Same environment-noise rule as IGNORED_REQUESTS: resource errors
+          // raised by a foreign origin (embedded real page's telemetry) are
+          // not DS defects. msg.location() carries the resource URL.
+          const src = (msg.location() && msg.location().url) || '';
+          if (IGNORED_REQUESTS.some((re) => re.test(src))) return;
+          consoleErrors.push(msg.text().slice(0, 200));
         };
         const onPageError = (err) => consoleErrors.push(`pageerror: ${String(err).slice(0, 200)}`);
         const onResponse = (res) => {

@@ -443,8 +443,44 @@ for (const [brand, c] of Object.entries(BRANDS)) {
       expect(pg.deco).toBe('none');             // chips are chips — excluded from the global link chain
       expect(pg.radius).toBe('0px');            // SQUARE — radius retirement (live 4px, GM exception)
       expect(pg.weight).toBe('400');            // declared medium/semibold was fiction — rendered reality
-      expect(pg.curBg).toBe('rgb(255, 255, 255)'); // current = --bg on light
-      expect(pg.railBg).not.toBe('rgba(0, 0, 0, 0)'); // the rail carries the --bg-alt fill
+      expect(pg.curBg).toBe('rgb(255, 255, 255)'); // ACTIVE = --pagination-current-bg → --bg-base: pops to the PRIMARY page surface (operator 2026-07-16)
+      expect(pg.railBg).toBe('rgba(0, 0, 0, 0)'); // rail is TRANSPARENT (operator 2026-07-16): chips sit on the surface, no own band
+      // HOVER = --pagination-hover-bg → --bg-band on the secondary habitat;
+      // the tertiary scope overrides it to --bg-base (the *-3 wrap). Asserted
+      // as the ROLE CONTRACT (brand-blind — each brand's gray ramp differs):
+      // hover equals the resolved role AND stays visible against the surface.
+      const resolveRole = (el, role) => {
+        const probe = document.createElement('div');
+        probe.style.backgroundColor = `var(${role})`;
+        el.parentElement.appendChild(probe);
+        const v = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return v;
+      };
+      const pgSecondary = page.locator('.content-section--secondary .archive-pagination a.page-numbers').first();
+      await pgSecondary.hover();
+      const sec = await pgSecondary.evaluate((el, fn) => {
+        const resolve = new Function('el', 'role', `return (${fn})(el, role)`);
+        return {
+          hover: getComputedStyle(el).backgroundColor,
+          band: resolve(el, '--bg-band'),
+          surface: getComputedStyle(el.closest('.content-section--secondary')).backgroundColor,
+        };
+      }, resolveRole.toString());
+      expect(sec.hover).toBe(sec.band);         // hover reads the band role
+      expect(sec.hover).not.toBe(sec.surface);  // and is visible on the surface
+      const pgTertiary = page.locator('.content-section--tertiary .archive-pagination a.page-numbers').first();
+      await pgTertiary.hover();
+      const ter = await pgTertiary.evaluate((el, fn) => {
+        const resolve = new Function('el', 'role', `return (${fn})(el, role)`);
+        return {
+          hover: getComputedStyle(el).backgroundColor,
+          base: resolve(el, '--bg-base'),
+          surface: getComputedStyle(el.closest('.content-section--tertiary')).backgroundColor,
+        };
+      }, resolveRole.toString());
+      expect(ter.hover).toBe(ter.base);         // *-3 wrap: hover pops to primary
+      expect(ter.hover).not.toBe(ter.surface);  // visible on the tertiary surface
       // NAV TABS — lead-sized accent voice, scrollable row, constant white active chip on brand
       await page.goto(`/?aifds_styleguide=1&item=nav-tabs&theme=${brand}`);
       const tabs = await page.locator('.section-brand .nav-tabs').first().evaluate((el) => {

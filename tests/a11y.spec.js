@@ -54,6 +54,11 @@ for (const brand of BRANDS) {
       });
       const results = await new AxeBuilder({ page })
         .include('.sg-content')
+        // Template items embed the REAL live page in an iframe (2026-07-16
+        // zero-hallucination rebuild). That document is production's own page
+        // — audited by the aif-* page specs, not the styleguide sweep. Keep
+        // this sweep scoped to DS-owned rendering.
+        .exclude('iframe')
         .withTags(['wcag2a', 'wcag2aa'])
         .analyze();
 

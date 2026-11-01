@@ -121,6 +121,24 @@
   "color-contrast :: .content-section--tertiary > main > div:nth-child(1) > span > a[href=\"#\"]",
   "color-contrast :: .surface-support > main > div:nth-child(1) > span > a[href=\"#\"]"
  ],
+ "aifounders/template-archive": [
+  "color-contrast :: a[href$=\"clanky/\"]"
+ ],
+ "aifounders/template-article": [
+  "color-contrast :: a[target=\"_blank\"]"
+ ],
+ "aifounders/template-auth": [
+  "color-contrast :: a[target=\"_blank\"]"
+ ],
+ "aifounders/template-homepage": [
+  "color-contrast :: :root"
+ ],
+ "aifounders/template-landing": [
+  "color-contrast :: a[target=\"_blank\"]"
+ ],
+ "aifounders/template-page": [
+  "color-contrast :: a[target=\"_blank\"]"
+ ],
  "aifounders/text-elements": [
   "color-contrast :: .sg-note:nth-child(2) > a"
  ],

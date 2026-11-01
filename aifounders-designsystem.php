@@ -3,7 +3,7 @@
  * Plugin Name:       AI Founders Design System
  * Plugin URI:        https://github.com/rostislavpeska/aifounders-designsystem
  * Description:       Canonical design system for aifounders.cz + aiguild.cz — tokens, components, icons, and the /design-system/ styleguide. Code is the source of truth; Figma is a projection.
- * Version:           2.0.0-rc.1
+ * Version:           2.0.0-rc.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Rostislav Peška
@@ -28,6 +28,7 @@ define( 'AIFDS_URL', plugin_dir_url( __FILE__ ) );
 require_once AIFDS_DIR . 'inc/enqueue.php';
 require_once AIFDS_DIR . 'inc/icons.php';
 require_once AIFDS_DIR . 'inc/styleguide.php';
+require_once AIFDS_DIR . 'inc/styleguide-templates.php';
 require_once AIFDS_DIR . 'inc/sandbox.php';
 
 register_activation_hook( __FILE__, function () {

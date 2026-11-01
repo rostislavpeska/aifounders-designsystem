@@ -85,6 +85,17 @@ function aifds_styleguide_items() {
 			'icons'        => 'Icons',
 			'prose'        => 'Prose contexts',
 		),
+		// Templates are INSPIRATION (reference anatomy), not contracts — the
+		// contract is theme.css composition + override protocol
+		// (docs/THEME-CSS-CONTRACT.md). Operator verdict 2026-07-16.
+		'Templates'  => array(
+			'template-homepage' => 'Homepage',
+			'template-page'     => 'Standard page',
+			'template-article'  => 'Article',
+			'template-archive'  => 'Archive',
+			'template-landing'  => 'Landing page',
+			'template-auth'     => 'Register / login',
+		),
 	);
 }
 
@@ -193,6 +204,9 @@ body { margin:0; font-family: var(--font-primary); color: var(--text); backgroun
 .sg-brand a.on { background: var(--brand); color: var(--text-on-brand); border-color:transparent; font-weight:700; }
 .sg-content { padding:32px 32px 120px; max-width:1100px; }
 .sg-content > h2:first-child { margin-top:0; }
+/* Template SHOWCASES: real pages need the full column — no measure, no padding
+   (the sidebar stays; the page runs edge-to-edge of the main column). */
+.sg-content--showcase { max-width:none; padding:0; }
 /* Wide tables (transforms matrix) escape the 1100px column and take the full
    viewport width minus sidebar; scroll only if even that is too narrow. */
 .sg-fullbleed { width: calc(100vw - 250px - 64px - 12px); max-width: none; overflow-x: auto; }
@@ -259,7 +273,7 @@ table.sg-table th { background: var(--bg-alt); }
 				<a href="<?php echo esc_url( aifds_styleguide_url( 'aifounders', $item ) ); ?>" class="<?php echo 'aifounders' === $brand ? 'on' : ''; ?>">aifounders (blue)</a>
 			</nav>
 		</header>
-		<main class="sg-content">
+		<main class="sg-content<?php echo 0 === strpos( $item, 'template-' ) ? ' sg-content--showcase' : ''; ?>">
 			<?php call_user_func( 'aifds_sg_item_' . str_replace( '-', '_', $item ) ); ?>
 		</main>
 	</div>
@@ -2008,25 +2022,43 @@ function aifds_sg_item_breadcrumb() {
 }
 
 function aifds_sg_item_pagination() {
+	$chips = function () {
+		ob_start(); ?>
+		<nav class="archive-pagination" aria-label="Pagination" style="margin-top:0; padding:16px 0;">
+			<div class="nav-links">
+				<a class="page-numbers" href="#">&laquo;</a>
+				<span aria-current="page" class="page-numbers current">1</span>
+				<a class="page-numbers" href="#">2</a>
+				<a class="page-numbers" href="#">3</a>
+				<span class="page-numbers dots">&hellip;</span>
+				<a class="page-numbers" href="#">12</a>
+				<a class="page-numbers" href="#">&raquo;</a>
+			</div>
+		</nav>
+		<?php return ob_get_clean();
+	};
 	?>
 	<h2 class="sg-section-h">Archive pagination — harvested 1:1 (byte-identical in BOTH themes)</h2>
 	<div class="sg-note">Styles the WordPress <code>paginate_links()</code> output —
 		<code>.archive-pagination &gt; .nav-links &gt; .page-numbers</code> (the inner classes are WP core, unrenameable).
 		Chips = <b>44px calibrated touch target</b> (the mobile-button constant). Unifications: <b>square</b> (radius
 		retirement; live had 4px), declared medium/semibold weights were <b>fiction</b> (live renders 400 — verified),
-		hover scoped to <code>&lt;a&gt;</code> only (the current/dots spans are static). Rail = <code>--bg-alt</code>,
-		hover = <code>--bg-band</code>, current = <code>--bg</code>. <b>0 new tokens.</b></div>
-	<nav class="archive-pagination" aria-label="Pagination" style="margin-top:0; padding:16px 0;">
-		<div class="nav-links">
-			<a class="page-numbers" href="#">&laquo;</a>
-			<span aria-current="page" class="page-numbers current">1</span>
-			<a class="page-numbers" href="#">2</a>
-			<a class="page-numbers" href="#">3</a>
-			<span class="page-numbers dots">&hellip;</span>
-			<a class="page-numbers" href="#">12</a>
-			<a class="page-numbers" href="#">&raquo;</a>
-		</div>
-	</nav>
+		hover scoped to <code>&lt;a&gt;</code> only (the current/dots spans are static).
+		<b>NO rail</b> (operator 2026-07-16) — chips sit bare on the section surface; the OVERRIDE TOKENS resolve the
+		states: active = <code>--pagination-current-bg</code> → <code>--bg-base</code> (pops back to the primary
+		page surface — white on every light scope), hover = <code>--pagination-hover-bg</code> → <code>--bg-band</code>
+		(the tertiary band). On the tertiary surface the band equals the surface, so the scope overrides hover to
+		<code>--bg-base</code> (the *-3 wrap — button precedent). <b>0 new global tokens.</b></div>
+
+	<h3 class="sg-h3">The habitat — archive on <code>content-section--secondary</code></h3>
+	<div class="content-section--secondary" style="background: var(--bg); padding: 8px 24px;">
+		<?php echo $chips(); ?>
+	</div>
+
+	<h3 class="sg-h3" style="margin-top:32px;">Events archive — <code>content-section--tertiary</code> (hover wraps to primary)</h3>
+	<div class="content-section--tertiary" style="background: var(--bg); padding: 8px 24px;">
+		<?php echo $chips(); ?>
+	</div>
 	<?php
 }
 
