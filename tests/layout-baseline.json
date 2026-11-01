@@ -1,6 +1,6 @@
 {
  "note": "Reviewed layout baseline: violations that exist today (rule, brand, viewport, page=tab, selector, px). New ones fail; remove entries as they get fixed. Regenerate: LAYOUT_UPDATE_BASELINE=1 npx playwright test tests/layout.spec.js --workers=1",
- "count": 728,
+ "count": 736,
  "violations": [
   {
    "rule": "box-in-box",
@@ -557,8 +557,8 @@
    "viewport": "1280",
    "page": "footer",
    "selector": "div.footer__partners-grid > span:nth-child(2)",
-   "px": 368,
-   "detail": "span (background) inside footer#footer-full.footer.footer--chatbot-clear.section-dark (background) at #footer-full; closest gap 368px"
+   "px": 420,
+   "detail": "span (background) inside footer#footer-full.footer.footer--chatbot-clear.section-dark (background) at #footer-full; closest gap 420px"
   },
   {
    "rule": "box-in-box",
@@ -566,8 +566,8 @@
    "viewport": "1280",
    "page": "footer",
    "selector": "div.form-control-wrapper",
-   "px": 48,
-   "detail": "div.form-control-wrapper (background) inside section.footer__newsletter-section (background) at section.footer__newsletter-section; closest gap 48px"
+   "px": 40,
+   "detail": "div.form-control-wrapper (background) inside section.footer__newsletter-section (background) at section.footer__newsletter-section; closest gap 40px"
   },
   {
    "rule": "box-in-box",
@@ -730,6 +730,24 @@
    "selector": "div.section-brand > nav.nav-tabs > span.nav-tabs__tab.nav-tabs__tab--active",
    "px": 0,
    "detail": "span.nav-tabs__tab.nav-tabs__tab--active (background) inside div.section-brand (background) at div.section-brand; closest gap 0px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aifounders",
+   "viewport": "1280",
+   "page": "pagination",
+   "selector": "div.content-section--secondary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--secondary (background) at div.content-section--secondary; closest gap 32px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aifounders",
+   "viewport": "1280",
+   "page": "pagination",
+   "selector": "div.content-section--tertiary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--tertiary (background) at div.content-section--tertiary; closest gap 32px"
   },
   {
    "rule": "box-in-box",
@@ -1612,6 +1630,24 @@
    "selector": "div.section-brand > nav.nav-tabs > span.nav-tabs__tab.nav-tabs__tab--active",
    "px": 0,
    "detail": "span.nav-tabs__tab.nav-tabs__tab--active (background) inside div.section-brand (background) at div.section-brand; closest gap 0px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aifounders",
+   "viewport": "375",
+   "page": "pagination",
+   "selector": "div.content-section--secondary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--secondary (background) at div.content-section--secondary; closest gap 32px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aifounders",
+   "viewport": "375",
+   "page": "pagination",
+   "selector": "div.content-section--tertiary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--tertiary (background) at div.content-section--tertiary; closest gap 32px"
   },
   {
    "rule": "box-in-box",
@@ -2294,8 +2330,8 @@
    "viewport": "1280",
    "page": "footer",
    "selector": "div.footer__partners-grid > span:nth-child(2)",
-   "px": 368,
-   "detail": "span (background) inside footer#footer-full.footer.footer--chatbot-clear.section-dark (background) at #footer-full; closest gap 368px"
+   "px": 420,
+   "detail": "span (background) inside footer#footer-full.footer.footer--chatbot-clear.section-dark (background) at #footer-full; closest gap 420px"
   },
   {
    "rule": "box-in-box",
@@ -2303,8 +2339,8 @@
    "viewport": "1280",
    "page": "footer",
    "selector": "div.form-control-wrapper",
-   "px": 48,
-   "detail": "div.form-control-wrapper (background) inside section.footer__newsletter-section (background) at section.footer__newsletter-section; closest gap 48px"
+   "px": 40,
+   "detail": "div.form-control-wrapper (background) inside section.footer__newsletter-section (background) at section.footer__newsletter-section; closest gap 40px"
   },
   {
    "rule": "box-in-box",
@@ -2467,6 +2503,24 @@
    "selector": "div.section-brand > nav.nav-tabs > span.nav-tabs__tab.nav-tabs__tab--active",
    "px": 0,
    "detail": "span.nav-tabs__tab.nav-tabs__tab--active (background) inside div.section-brand (background) at div.section-brand; closest gap 0px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aiguild",
+   "viewport": "1280",
+   "page": "pagination",
+   "selector": "div.content-section--secondary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--secondary (background) at div.content-section--secondary; closest gap 32px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aiguild",
+   "viewport": "1280",
+   "page": "pagination",
+   "selector": "div.content-section--tertiary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--tertiary (background) at div.content-section--tertiary; closest gap 32px"
   },
   {
    "rule": "box-in-box",
@@ -3349,6 +3403,24 @@
    "selector": "div.section-brand > nav.nav-tabs > span.nav-tabs__tab.nav-tabs__tab--active",
    "px": 0,
    "detail": "span.nav-tabs__tab.nav-tabs__tab--active (background) inside div.section-brand (background) at div.section-brand; closest gap 0px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aiguild",
+   "viewport": "375",
+   "page": "pagination",
+   "selector": "div.content-section--secondary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--secondary (background) at div.content-section--secondary; closest gap 32px"
+  },
+  {
+   "rule": "box-in-box",
+   "brand": "aiguild",
+   "viewport": "375",
+   "page": "pagination",
+   "selector": "div.content-section--tertiary > nav.archive-pagination > div.nav-links > span.page-numbers.current",
+   "px": 32,
+   "detail": "span.page-numbers.current (background) inside div.content-section--tertiary (background) at div.content-section--tertiary; closest gap 32px"
   },
   {
    "rule": "box-in-box",

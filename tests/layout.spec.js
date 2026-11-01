@@ -26,7 +26,7 @@
  *   child-overflow   — text or link text never leaves its parent's content box
  *   box-in-box       — no bordered/filled box inside a bordered/filled box
  *                      (exceptions: badges, buttons, form controls, logo tiles,
- *                      avatars, modal; styleguide chrome `sg-*` is not a box)
+ *                      avatars, modal; styleguide chrome `sg-*` / `sgt-*` is not a box)
  *   input-button-row — an input and a button side by side in one form/group
  *                      have equal height and aligned tops (+-1px)
  * Baseline: LAYOUT_UPDATE_BASELINE=1 npx playwright test tests/layout.spec.js --workers=1
@@ -65,8 +65,9 @@ const BOX_EXCEPTIONS = [
   '.selection-item', '.segmented-option', '.site-logo', '.logos-grid', '[class*="avatar"]',
   '.modal', 'dialog', '[role="dialog"]',
 ];
-// Styleguide chrome and demo scaffolding: not a DS box, not judged.
-const SG_CHROME = '[class^="sg-"], [class*=" sg-"]';
+// Styleguide chrome and demo scaffolding: not a DS box, not judged. `sgt-*` = the Templates strip
+// (live / preview labels, source link, footnote) around the embedded real page.
+const SG_CHROME = '[class^="sg-"], [class*=" sg-"], [class^="sgt-"], [class*=" sgt-"]';
 // Styleguide documentation tables and colour swatches: reference data, not DS components (subtree).
 const SG_DOC = '.sg-table, .sg-props-table, .sg-swatch';
 
