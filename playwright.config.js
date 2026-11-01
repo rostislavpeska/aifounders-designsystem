@@ -14,7 +14,7 @@ module.exports = defineConfig({
   fullyParallel: true,
   reporter: [['list']],
   use: {
-    baseURL: 'http://localhost:8090',
+    baseURL: process.env.BASE_URL || 'http://localhost:8090',
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
 });
