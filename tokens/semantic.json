@@ -12,7 +12,8 @@
     "$value": "{gray-600}"
   },
   "border": {
-    "$value": "{gray-300}"
+    "$value": "{gray-150}",
+    "$description": "quiet-edge default border (operator 2026-07-19): was --gray-300, a full shade too dark vs production (~#e5e5e5) and identical to --border-strong. gray-150 restores the light-signifier weight + the default-vs-strong distinction. Per-brand via token."
   },
   "raised": {
     "$value": "{gray-150}"

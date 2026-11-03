@@ -45,6 +45,9 @@ const SCOPES = [
   ['dark-3', '.content-section--dark-tertiary'],
   ['brand', '.section-brand,\n.article-hero'],
   ['support', '.surface-support,\n.smart-btn'],
+  // deep (operator 2026-07-16): the brand-blue fill, the [protocol] case-study
+  // card. Ported from the hand-edit in 3ddac88; stays last, as it was there.
+  ['deep', '.section-deep'],
 ];
 
 const refToVar = (v) => String(v).replace(/\{([a-z0-9-]+)\}/gi, 'var(--$1)');
