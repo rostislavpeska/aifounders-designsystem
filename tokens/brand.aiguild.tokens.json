@@ -13,6 +13,11 @@
     "$type": "number",
     "$value": "1.5"
   },
+  "lead-leading-tight": {
+    "$type": "number",
+    "$value": "1.25",
+    "$description": "tight display lead — hero subheadline + blue/dark CTA-section leads (operator 2026-07-10); the .lead 1.6 reads too loose on display surfaces"
+  },
   "description-weight": {
     "$value": "{weight-regular}"
   },

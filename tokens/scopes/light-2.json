@@ -5,6 +5,10 @@
   "bg-alt": {
     "$value": "{gray-100}"
   },
+  "raised": {
+    "$value": "{white}",
+    "$description": "RAISED pops to WHITE on light-2 (operator 2026-07-17): a raised card (accordion, reference-card…) must sit one shade ABOVE the gray-50 surface — light-1's inherited gray-150 read as tertiary-on-secondary (muddy, wrong direction). Mirrors light-3, matches production's --color-bg-primary."
+  },
   "perex-border": {
     "$value": "{brand-bright}"
   }

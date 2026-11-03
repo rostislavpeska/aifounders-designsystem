@@ -65,8 +65,33 @@
   "field-placeholder": {
     "$value": "{dark-300}"
   },
+  "button-bg": {
+    "$value": "{brand}",
+    "$description": "PRIMARY button map (operator 2026-07-16, AIG adoption): dark scopes never defined it, so a dark box nested inside .section-brand INHERITED the brand scope's BLACK button fill (AIG hero blurbs rendered black-on-black). Primary keeps the brand fill on dark, same as light."
+  },
+  "button-bg-hover": {
+    "$value": "{brand-hover}"
+  },
+  "button-text": {
+    "$value": "{gray-950}"
+  },
+  "button-border": {
+    "$value": "{brand}"
+  },
+  "button-border-hover": {
+    "$value": "{brand-hover}"
+  },
   "button-secondary-text": {
     "$value": "{paper}"
+  },
+  "button-secondary-border": {
+    "$value": "{brand}"
+  },
+  "button-secondary-bg-hover": {
+    "$value": "{brand}"
+  },
+  "button-secondary-text-hover": {
+    "$value": "{gray-950}"
   },
   "button-tertiary-text": {
     "$value": "{paper}"
