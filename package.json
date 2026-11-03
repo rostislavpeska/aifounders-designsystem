@@ -17,6 +17,7 @@
     "test:tokens": "node build/lint-css.mjs && playwright test tests/tokens.spec.js",
     "lint:css": "node build/lint-css.mjs",
     "test:layout": "npx playwright test tests/layout.spec.js",
+    "test:spacing": "npx playwright test tests/spacing.spec.js",
     "test:all": "node build/lint-css.mjs && npx playwright test",
     "rows:build": "node build/rows.mjs",
     "shots": "node build/shots.mjs",

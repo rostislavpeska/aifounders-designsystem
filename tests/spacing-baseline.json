@@ -1,0 +1,79 @@
+{
+ "note": "Reviewed spacing baseline: findings that exist today. New ones fail; remove entries as they get fixed.",
+ "generated": "2026-11-03",
+ "count": 8,
+ "violations": [
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aifounders@1280",
+   "selector": "div.article-layout > div.article-layout__content > div.persona-card-slot + section.article-comments",
+   "px": 112,
+   "count": 1,
+   "detail": "visible gap 112px = 32 under the last edge inside div.persona-card-slot + gap 48 + hidden leading 32 (section.article-comments)"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aifounders@390",
+   "selector": "div.article-layout > div.article-layout__content > div.persona-card-slot + section.article-comments",
+   "px": 112,
+   "count": 1,
+   "detail": "visible gap 112px = 32 under the last edge inside div.persona-card-slot + gap 48 + hidden leading 32 (section.article-comments)"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aifounders@390",
+   "selector": "section.article-hero > div.article-hero__wrapper > div.article-hero__image + div.article-hero__content",
+   "px": 224,
+   "count": 1,
+   "detail": "visible gap 224px = hidden trailing 192 (div.article-hero__image) + gap 32"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aiguild@1280",
+   "selector": "div.article-layout > div.article-layout__content > div.persona-card-slot + section.article-comments",
+   "px": 112,
+   "count": 1,
+   "detail": "visible gap 112px = 32 under the last edge inside div.persona-card-slot + gap 48 + hidden leading 32 (section.article-comments)"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aiguild@390",
+   "selector": "div.article-layout > div.article-layout__content > div.persona-card-slot + section.article-comments",
+   "px": 112,
+   "count": 1,
+   "detail": "visible gap 112px = 32 under the last edge inside div.persona-card-slot + gap 48 + hidden leading 32 (section.article-comments)"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-article",
+   "viewport": "aiguild@390",
+   "selector": "section.article-hero > div.article-hero__wrapper > div.article-hero__image + div.article-hero__content",
+   "px": 224,
+   "count": 1,
+   "detail": "visible gap 224px = hidden trailing 192 (div.article-hero__image) + gap 32"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-homepage",
+   "viewport": "aifounders@390",
+   "selector": "div.content-section__wrap > div.articles-grid > article.preview-card.preview-card--condensed + article.preview-card.preview-card--condensed",
+   "px": 48,
+   "count": 3,
+   "detail": "visible gap 48px = hidden trailing 24 (article.preview-card.preview-card--condensed) + gap 24"
+  },
+  {
+   "rule": "gap-stacked",
+   "page": "template-homepage",
+   "viewport": "aiguild@390",
+   "selector": "div.content-section__wrap > div.articles-grid > article.preview-card.preview-card--condensed + article.preview-card.preview-card--condensed",
+   "px": 48,
+   "count": 3,
+   "detail": "visible gap 48px = hidden trailing 24 (article.preview-card.preview-card--condensed) + gap 24"
+  }
+ ]
+}
